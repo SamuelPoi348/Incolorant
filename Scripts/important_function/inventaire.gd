@@ -9,7 +9,7 @@ extends Control
 @onready var popup_label = popup.get_node("MarginContainer/VBoxContainer/DescriptionLabel")
 @onready var popup_close_button = popup.get_node("MarginContainer/VBoxContainer/CloseButton")
 
-# Table des items avec noms, textures et descriptions
+# Table des items avec noms, textures et descriptions 
 const ITEMS = {
 	"rouge": {
 		"name": "Icône Rouge",
