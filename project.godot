@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://d1n0alxfpktpt"
 [autoload]
 
 ConfigFileHandler="*uid://bsbv01vaxkobj"
+DialogManager="*uid://bcbjbstt5djpf"
 
 [display]
 
