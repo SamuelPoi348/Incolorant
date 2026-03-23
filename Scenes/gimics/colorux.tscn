@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://butctj00e111v"]
+
+[ext_resource type="Script" uid="uid://coo5cb4j34jfh" path="res://Scripts/gimics/Collectible/colorux.gd" id="1_22vcu"]
+[ext_resource type="Texture2D" uid="uid://620i6o5cqkxc" path="res://Sprites/colorux.png" id="1_w8py5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8py5"]
+radius = 7.0
+
+[node name="Colorux" type="Area2D" unique_id=1446487818]
+script = ExtResource("1_22vcu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=124801729]
+texture = ExtResource("1_w8py5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720334063]
+shape = SubResource("CircleShape2D_w8py5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

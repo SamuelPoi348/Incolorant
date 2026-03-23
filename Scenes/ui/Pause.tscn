@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bwykgnh8afv5q"]
+
+[ext_resource type="Script" uid="uid://rsqk818hgbos" path="res://Scripts/important_function/option/pause.gd" id="1_tfrdh"]
+[ext_resource type="Texture2D" uid="uid://do6yl68kqxfgt" path="res://Sprites/Pause.png" id="2_loir0"]
+
+[node name="Pause" type="Control" unique_id=1093160640]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfrdh")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1219194774]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_loir0")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1464703026]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -66.5
+offset_right = 51.0
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1293805578]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Commencer" type="Button" parent="PanelContainer/VBoxContainer" unique_id=452649024]
+layout_mode = 2
+text = "Continuer"
+
+[node name="Option" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1173004602]
+layout_mode = 2
+text = "Option"
+
+[node name="Quitter" type="Button" parent="PanelContainer/VBoxContainer" unique_id=222099743]
+layout_mode = 2
+text = "Quitter
+"
+
+[node name="quitter_map" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1147053132]
+layout_mode = 2
+text = "retour à la map"
+
+[connection signal="button_down" from="PanelContainer/VBoxContainer/Commencer" to="." method="_on_commencer_button_down"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/Option" to="." method="_on_option_button_down"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/Quitter" to="." method="_on_quitter_button_down"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/quitter_map" to="." method="_on_quitter_map_button_down"]

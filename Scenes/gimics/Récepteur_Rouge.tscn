@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://doih7jthpl07x"]
+
+[ext_resource type="Texture2D" uid="uid://d3ybi31osxp26" path="res://Sprites/Récepteur.png" id="1_h1jys"]
+[ext_resource type="Script" uid="uid://cxnomv1grm81r" path="res://Scripts/gimics/récepteur_rouge.gd" id="1_nt6sq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt6sq"]
+atlas = ExtResource("1_h1jys")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cep3k"]
+atlas = ExtResource("1_h1jys")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jou56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt6sq")
+}],
+"loop": true,
+"name": &"Remplis",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cep3k")
+}],
+"loop": false,
+"name": &"Vide",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fonr1"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt6sq"]
+size = Vector2(16, 16)
+
+[node name="RécepteurRouge" type="StaticBody2D" unique_id=214465116]
+z_index = -1
+collision_layer = 17
+collision_mask = 16
+script = ExtResource("1_nt6sq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2077556558]
+sprite_frames = SubResource("SpriteFrames_jou56")
+animation = &"Remplis"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=133271843]
+shape = SubResource("RectangleShape2D_fonr1")
+
+[node name="SphereDetector" type="Area2D" parent="." unique_id=1214231270]
+collision_layer = 17
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SphereDetector" unique_id=1424678617]
+shape = SubResource("RectangleShape2D_nt6sq")
+
+[connection signal="area_entered" from="SphereDetector" to="." method="_on_sphere_detector_area_entered"]

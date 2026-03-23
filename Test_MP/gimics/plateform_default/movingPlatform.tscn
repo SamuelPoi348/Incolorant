@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dl0qdi8vnugwu"]
+
+[ext_resource type="Script" uid="uid://dnow204mlyxmd" path="res://Test_MP/gimics/plateform_default/movingPlatform.gd" id="1_i2wo7"]
+[ext_resource type="Texture2D" uid="uid://bxy7s0fofw27i" path="res://Test_MP/gimics/plateform_default/plateforme_jaune.png" id="1_k8fph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2wo7"]
+size = Vector2(48, 16)
+
+[node name="MovingPlatform" type="CharacterBody2D" unique_id=333681283]
+script = ExtResource("1_i2wo7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1913557795]
+shape = SubResource("RectangleShape2D_i2wo7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=749048300]
+texture = ExtResource("1_k8fph")

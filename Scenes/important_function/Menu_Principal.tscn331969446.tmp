@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dx473d2jspoin"]
+
+[ext_resource type="Script" uid="uid://crd6o15su2nxx" path="res://Scripts/important_function/menu_principal.gd" id="1_3pu4y"]
+[ext_resource type="Texture2D" uid="uid://c3njkydgf362p" path="res://Sprites/incolorant_cover_art.png" id="1_gxmqa"]
+
+[node name="MenuPrincipal" type="Control" unique_id=2042805261]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3pu4y")
+
+[node name="Fond" type="TextureRect" parent="." unique_id=1755920856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gxmqa")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=111872970]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -75.0
+offset_right = 106.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Commencer" type="Button" parent="VBoxContainer" unique_id=1183506155]
+layout_mode = 2
+text = "Commencer"
+
+[node name="Option" type="Button" parent="VBoxContainer" unique_id=543755913]
+layout_mode = 2
+text = "Option"
+
+[node name="Quitter" type="Button" parent="VBoxContainer" unique_id=333752783]
+layout_mode = 2
+text = "Quitter
+"
+
+[connection signal="button_down" from="VBoxContainer/Commencer" to="." method="_on_commencer_button_down"]
+[connection signal="button_down" from="VBoxContainer/Option" to="." method="_on_option_button_down"]
+[connection signal="button_down" from="VBoxContainer/Quitter" to="." method="_on_quitter_button_down"]

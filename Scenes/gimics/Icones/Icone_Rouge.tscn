@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d1rgljw3n5ree"]
+
+[ext_resource type="Texture2D" uid="uid://b5cogfewccmcm" path="res://Sprites/Icone_Rouge.png" id="1_5ugh1"]
+[ext_resource type="Script" uid="uid://c7evk0p53ao6e" path="res://Scripts/gimics/Collectible/icone_rouge.gd" id="1_knnhq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knnhq"]
+radius = 9.0
+
+[node name="IconeRouge" type="Area2D" unique_id=813626161]
+script = ExtResource("1_knnhq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1825292550]
+position = Vector2(0, -8)
+texture = ExtResource("1_5ugh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90267882]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_knnhq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

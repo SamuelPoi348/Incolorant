@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b4j3to7fkw6nh"]
+
+[ext_resource type="Script" uid="uid://dcngo5jci523e" path="res://Scripts/important_function/mort.gd" id="1_sms6q"]
+[ext_resource type="Texture2D" uid="uid://do6yl68kqxfgt" path="res://Sprites/Pause.png" id="2_o0mx3"]
+[ext_resource type="Texture2D" uid="uid://deg8d6lxamr0x" path="res://Sprites/Mort.png" id="3_o0mx3"]
+
+[node name="Mort" type="Control" unique_id=587782901 groups=["DeathUI"]]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sms6q")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1140593052]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -517.0
+offset_top = -402.0
+offset_right = 521.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o0mx3")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=21274098]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o0mx3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=757083665]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -66.5
+offset_right = 43.0
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Recommencer" type="Button" parent="VBoxContainer" unique_id=510108957]
+z_index = 1
+layout_mode = 2
+text = "Recommencer"
+
+[node name="Retour" type="Button" parent="VBoxContainer" unique_id=440025187]
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Revenir à la map"
+
+[node name="Quitter" type="Button" parent="VBoxContainer" unique_id=1746144500 groups=["DeathUI"]]
+z_index = 1
+layout_mode = 2
+text = "Quitter
+"
+
+[connection signal="button_down" from="VBoxContainer/Recommencer" to="." method="_on_recommencer_button_down"]
+[connection signal="button_down" from="VBoxContainer/Retour" to="." method="_on_retour_button_down"]
+[connection signal="button_down" from="VBoxContainer/Quitter" to="." method="_on_quitter_button_down"]

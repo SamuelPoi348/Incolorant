@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://5ja8mfhup5t3"]
+
+[ext_resource type="Texture2D" uid="uid://dgkdaxaj1i1y" path="res://Sprites/Sphere_Rouge.png" id="1_2xg1w"]
+[ext_resource type="Script" uid="uid://ciihfipy0t63o" path="res://Scripts/gimics/sphere_rouge.gd" id="1_x5gwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xg1w"]
+radius = 7.071068
+
+[node name="SphereRouge" type="Area2D" unique_id=1404849168 groups=["SphereRouge"]]
+position = Vector2(0, -6)
+collision_layer = 17
+collision_mask = 16
+script = ExtResource("1_x5gwf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1294920998]
+texture = ExtResource("1_2xg1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=872519905]
+shape = SubResource("CircleShape2D_2xg1w")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1529125915]
+wait_time = 5.0
+one_shot = true
+autostart = true

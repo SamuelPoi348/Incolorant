@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://iqgjdslv6c2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8it8q"]
+bg_color = Color(0, 0, 0, 0.49019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1v5g"]
+bg_color = Color(1, 1, 1, 0.49019608)
+
+[node name="InputButton" type="Button" unique_id=786420819]
+custom_minimum_size = Vector2(8, 16)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8it8q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_g1v5g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g1v5g")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=639923774]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1808388292]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer" unique_id=2040100489]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 12
+text = "Action name"
+vertical_alignment = 1
+
+[node name="spacer" type="Control" parent="MarginContainer/HBoxContainer" unique_id=2055659725]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1845138434]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 12
+text = "InputKey"
+vertical_alignment = 1

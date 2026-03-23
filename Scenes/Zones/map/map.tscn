@@ -1,0 +1,367 @@
+[gd_scene format=3 uid="uid://druvj3xm5so58"]
+
+[ext_resource type="PackedScene" uid="uid://b43ijeo1r2ndm" path="res://Scenes/Zones/map/player_map.tscn" id="1_ep2eh"]
+[ext_resource type="Texture2D" uid="uid://021kv7vx210s" path="res://Scenes/Zones/map/map.png" id="2_52fjb"]
+[ext_resource type="PackedScene" uid="uid://chyov13l0o7f" path="res://Scenes/ui/ColorSelector.tscn" id="3_51d0u"]
+[ext_resource type="PackedScene" uid="uid://bwykgnh8afv5q" path="res://Scenes/ui/Pause.tscn" id="4_15fwv"]
+[ext_resource type="PackedScene" uid="uid://ftnbg3yo7ssj" path="res://Scenes/ui/Inventaire.tscn" id="5_3eaxo"]
+[ext_resource type="PackedScene" uid="uid://dr14r7wuh0pf7" path="res://Scenes/ui/Miniature_Niveau.tscn" id="6_1cbo0"]
+[ext_resource type="PackedScene" uid="uid://bw53tpt7gvpsd" path="res://Scenes/gimics/ReversePlante.tscn" id="6_15fwv"]
+[ext_resource type="PackedScene" uid="uid://b8mioe85y385d" path="res://Scenes/gimics/ReversePlanteDesert.tscn" id="7_3eaxo"]
+[ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Test_MP/gimics/plateform_default/movingPlatform.tscn" id="8_uno31"]
+[ext_resource type="PackedScene" uid="uid://dg2w3v2m4ywsk" path="res://Scenes/gimics/PorteCouleurs.tscn" id="9_v5ly5"]
+[ext_resource type="PackedScene" uid="uid://d66gff4ytqiu" path="res://Scenes/gimics/Entrer_Niveau.tscn" id="10_nvd1r"]
+[ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="12_44jml"]
+[ext_resource type="Texture2D" uid="uid://cjq87r1o7unlb" path="res://Sprites/PG.png" id="12_dyxes"]
+[ext_resource type="Texture2D" uid="uid://hp5bkt36yh5a" path="res://Sprites/DJ.png" id="13_dyxes"]
+[ext_resource type="Texture2D" uid="uid://dehryhg0otrum" path="res://Sprites/MN.png" id="13_l1lh3"]
+[ext_resource type="Texture2D" uid="uid://h6tifemeokta" path="res://Sprites/FV.png" id="14_l1lh3"]
+[ext_resource type="Texture2D" uid="uid://d6yb71luchiy" path="res://Sprites/MB.png" id="15_ul5t4"]
+
+[node name="Map" type="Node2D" unique_id=295114600]
+position = Vector2(0, -900)
+
+[node name="PlayerMap" parent="." unique_id=1230117236 instance=ExtResource("1_ep2eh")]
+top_level = true
+z_index = 1
+position = Vector2(3, -530)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=606527583]
+light_mask = 2
+visibility_layer = 4
+z_index = -1
+position = Vector2(0, 1)
+texture = ExtResource("2_52fjb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1927649014]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=300231108]
+position = Vector2(15, 4)
+polygon = PackedVector2Array(-15, 446, -15, 456, 35, 456, 35, 446, 85, 436, 105, 426, 125, 416, 145, 406, 155, 396, 165, 396, 165, 356, 155, 356, 155, 326, 175, 326, 215, 336, 235, 347, 254, 356, 265, 366, 275, 376, 285, 396, 295, 416, 305, 426, 315, 436, 325, 446, 335, 456, 355, 466, 385, 476, 385, 486, 455, 486, 455, 496, 621, 496, 635, 496, 665, 506, 695, 516, 695, 526, 964, 526, 965, 516, 975, 506, 1105, 506, 1116, 515, 1225, 516, 1225, 506, 1245, 496, 1255, 486, 1265, 476, 1275, 466, 1285, 456, 1295, 446, 1305, 436, 1305, 426, 1315, 406, 1325, 387, 1335, 366, 1345, 357, 1355, 347, 1365, 326, 1375, 316, 1385, 286, 1395, 286, 1395, 236, 1385, 236, 1375, 216, 1365, 206, 1355, 196, 1345, 186, 1335, 176, 1325, 166, 1315, 156, 1305, 136, 1295, 126, 1285, 116, 1275, 106, 1265, 96, 1255, 86, 1245, 76, 1225, 66, 1195, 56, 1195, 46, 1075, 46, 1075, 56, 1055, 66, 1045, 76, 1025, 86, 1005, 96, 955, 96, 915, 86, 885, 76, 865, 67, 845, 57, 825, 47, 805, 37, 795, 27, 775, 17, 745, 7, 745, -3, 675, -3, 675, 7, 575, 7, 555, -3, 535, -13, 505, -23, 465, -33, 465, -53, 475, -63, 505, -63, 505, -53, 584, -53, 585, -63, 605, -73, 625, -83, 645, -93, 655, -93, 675, -83, 675, -73, 725, -73, 725, -83, 745, -93, 755, -103, 765, -113, 785, -123, 835, -133, 925, -133, 925, -143, 935, -153, 945, -153, 945, -163, 955, -173, 965, -183, 975, -193, 995, -193, 995, -233, 1005, -243, 1015, -253, 1085, -253, 1085, -263, 1095, -273, 1115, -283, 1125, -293, 1135, -303, 1145, -323, 1155, -333, 1165, -343, 1175, -353, 1185, -373, 1185, -413, 1175, -423, 1175, -463, 1165, -483, 1165, -493, 1065, -493, 1055, -503, 1055, -543, 1035, -543, 1035, -553, 935, -553, 935, -543, 895, -533, 875, -523, 855, -513, 825, -513, 715, -513, 715, -503, 675, -503, 665, -513, 645, -523, 615, -533, 605, -543, 575, -543, 565, -533, 555, -513, 545, -503, 535, -503, 505, -513, 475, -523, 435, -533, 425, -523, 415, -513, 405, -493, 395, -483, 365, -473, 305, -463, 265, -453, 235, -443, 225, -433, 215, -393, 205, -333, 195, -323, 145, -323, 135, -313, 125, -302, -105, -353, -165, -353, -165, -363, -265, -363, -265, -353, -285, -343, -295, -343, -305, -354, -315, -363, -325, -383, -375, -393, -405, -403, -415, -413, -425, -424, -435, -433, -445, -453, -455, -473, -465, -483, -475, -493, -485, -503, -505, -503, -545, -503, -595, -513, -615, -523, -665, -533, -695, -543, -735, -553, -765, -563, -775, -553, -855, -553, -855, -563, -1005, -563, -1005, -553, -1025, -533, -1035, -523, -1045, -513, -1055, -503, -1065, -493, -1095, -483, -1115, -473, -1125, -463, -1145, -463, -1145, -433, -1125, -433, -1115, -423, -1105, -413, -1105, -393, -1115, -383, -1125, -373, -1135, -353, -1145, -333, -1155, -323, -1165, -313, -1165, -293, -1155, -283, -1145, -273, -1125, -263, -1115, -243, -1115, -193, -1115, -153, -1065, -153, -1035, -143, -1005, -133, -985, -123, -955, -113, -945, -103, -895, -103, -885, -93, -875, -83, -835, -83, -775, -73, -765, -53, -765, -23, -795, -13, -805, -3, -815, 7, -825, 17, -845, 27, -865, 37, -895, 47, -925, 57, -995, 57, -995, 67, -1015, 77, -1035, 87, -1065, 97, -1085, 107, -1105, 117, -1135, 127, -1225, 127, -1225, 137, -1236, 147, -1245, 157, -1255, 167, -1265, 177, -1274, 187, -1285, 207, -1295, 227, -1305, 227, -1305, 267, -1295, 267, -1295, 277, -1255, 277, -1255, 297, -1265, 317, -1275, 327, -1285, 337, -1295, 347, -1305, 357, -1315, 377, -1325, 377, -1325, 487, -1315, 487, -1305, 517, -1295, 547, -1285, 558, -1265, 567, -1235, 576, -1205, 587, -1205, 597, -1135, 597, -1135, 587, -1055, 587, -995, 587, -985, 577, -925, 577, -865, 577, -865, 567, -825, 557, -805, 547, -785, 537, -775, 527, -745, 517, -725, 507, -695, 497, -635, 487, -585, 487, -505, 487, -495, 477, -475, 467, -435, 456, -415, 446, -405, 436, -385, 426, -375, 416, -355, 406, -345, 396, -325, 386, -315, 376, -305, 366, -294, 356, -245, 356, -215, 386, -210, 391, -205, 396, -205, 396, -185, 406, -135, 416, -35, 426, -15, 446, -25, 446, -34, 492, -278, 438, -787, 635, -1282, 649, -1432, 365, -1220, -604, -264, -695, 1320, -629, 1415, 106, 1445, 433, 1374, 669, 352, 655, -34, 493, -25, 446)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1891434286]
+polygon = PackedVector2Array(240, -69, 260, -69, 270, -59, 290, -49, 319, -39, 380, -39, 380, 10, 370, 21, 360, 31, 350, 41, 340, 51, 330, 61, 320, 71, 310, 81, 300, 91, 290, 101, 270, 111, 250, 121, 230, 141, 219, 151, 210, 161, 190, 171, 179, 181, 169, 191, 160, 201, 150, 211, 140, 221, 120, 231, 70, 231, 60, 241, 40, 251, 40, 201, 40, 191, 60, 181, 70, 171, 80, 161, 70, 151, 70, 141, 40, 141, 30, 131, 20, 121, 20, 71, 20, 31, 30, 51, 40, 61, 60, 72, 70, 82, 100, 92, 100, 122, 140, 121, 170, 121, 171, 101, 160, 71, 160, 41, 180, 31, 200, 41, 220, 51, 270, 51, 280, 41, 280, 1, 270, 1, 260, -9, 250, -19, 240, -39)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1559053780]
+polygon = PackedVector2Array(-71, 240, -60, 221, -50, 191, -50, 181, -70, 171, -80, 151, -90, 131, -80, 121, -70, 101, -60, 71, -70, 11, -80, 41, -90, 41, -100, 51, -110, 82, -120, 92, -130, 101, -140, 101, -150, 81, -150, 71, -150, 11, -169, 11, -189, 22, -209, 32, -220, 51, -250, 51, -250, 41, -250, 11, -240, 1, -230, -9, -220, -29, -290, -29, -330, -19, -360, -9, -380, -60, -390, -110, -399, -139, -400, -169, -380, 11, -370, 21, -359, 31, -340, 51, -330, 71, -330, 91, -290, 91, -270, 121, -241, 141, -209, 160, -169, 191, -159, 200, -139, 210, -119, 222, -98, 240)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=382549440]
+polygon = PackedVector2Array(-280, -129, -310, -130, -340, -140, -360, -150, -380, -159, -400, -169, -380, -169, -360, -159, -340, -149, -310, -139, -290, -139, -280, -149, -270, -159, -260, -179, -250, -199, -240, -209, -230, -219, -220, -229, -210, -239, -200, -249, -180, -249, -160, -219, -150, -229, -140, -239, -129, -259, -88, -348, -90, -319, -100, -289, -110, -279, -120, -259, -130, -239, -140, -229, -150, -219, -160, -209, -170, -209, -170, -229, -180, -249, -199.58641, -238.61595, -209.49475, -228.90317, -219.88577, -218.71724, -229.63583, -209.1596, -240, -199, -250, -179, -260, -159, -270, -149)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1465007047]
+polygon = PackedVector2Array(130, -299, 140, -279, 150, -249, 160, -229, 170, -199, 180, -199, 190, -209, 200, -229, 210, -229, 220, -209, 230, -189, 240, -169, 250, -139, 260, -139, 260, -109, 270, -109, 290, -109, 300, -99, 310, -89, 320, -79, 340, -79, 350, -89, 357, -89, 360, -59, 370, -39, 370, -59, 360, -89, 350, -99, 340, -99, 320.07428, -89.090836, 310, -99, 300, -109, 290, -119, 270, -119, 260, -139, 250, -169, 240, -189, 230, -209, 220, -229, 210, -239, 200, -239, 190, -229, 180, -209, 170, -229, 160, -249, 150, -279, 140, -299)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=771262752]
+
+[node name="ColorSelector" parent="CanvasLayer" unique_id=36173932 instance=ExtResource("3_51d0u")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Inventaire" parent="CanvasLayer" unique_id=231182733 instance=ExtResource("5_3eaxo")]
+
+[node name="MiniatureNiveau" parent="CanvasLayer" unique_id=1698629210 instance=ExtResource("6_1cbo0")]
+
+[node name="Pause" parent="CanvasLayer" unique_id=1093160640 instance=ExtResource("4_15fwv")]
+
+[node name="buisson_forêt" type="Node2D" parent="." unique_id=1473800385]
+
+[node name="Plante" parent="buisson_forêt" unique_id=635669415 instance=ExtResource("6_15fwv")]
+position = Vector2(-744, -3)
+
+[node name="Plante2" parent="buisson_forêt" unique_id=2075244514 instance=ExtResource("6_15fwv")]
+position = Vector2(-713, 7)
+
+[node name="Plante3" parent="buisson_forêt" unique_id=2089967977 instance=ExtResource("6_15fwv")]
+position = Vector2(-729, 7)
+
+[node name="Plante4" parent="buisson_forêt" unique_id=943604108 instance=ExtResource("6_15fwv")]
+position = Vector2(-634, 17)
+
+[node name="Plante5" parent="buisson_forêt" unique_id=312367195 instance=ExtResource("6_15fwv")]
+position = Vector2(-650, 7)
+
+[node name="Plante6" parent="buisson_forêt" unique_id=418631429 instance=ExtResource("6_15fwv")]
+position = Vector2(-666, 7)
+
+[node name="Plante7" parent="buisson_forêt" unique_id=2047561709 instance=ExtResource("6_15fwv")]
+position = Vector2(-682, 7)
+
+[node name="Plante8" parent="buisson_forêt" unique_id=91367295 instance=ExtResource("6_15fwv")]
+position = Vector2(-697, 17)
+
+[node name="Plante9" parent="buisson_forêt" unique_id=1138179020 instance=ExtResource("6_15fwv")]
+position = Vector2(-481, -9)
+
+[node name="Plante10" parent="buisson_forêt" unique_id=1297645703 instance=ExtResource("6_15fwv")]
+position = Vector2(-570, 17)
+
+[node name="Plante11" parent="buisson_forêt" unique_id=1223731013 instance=ExtResource("6_15fwv")]
+position = Vector2(-586, 17)
+
+[node name="Plante12" parent="buisson_forêt" unique_id=259548038 instance=ExtResource("6_15fwv")]
+position = Vector2(-602, 17)
+
+[node name="Plante13" parent="buisson_forêt" unique_id=274306216 instance=ExtResource("6_15fwv")]
+position = Vector2(-618, 17)
+
+[node name="Plante14" parent="buisson_forêt" unique_id=963076507 instance=ExtResource("6_15fwv")]
+position = Vector2(-497, -9)
+
+[node name="Plante15" parent="buisson_forêt" unique_id=1908149039 instance=ExtResource("6_15fwv")]
+position = Vector2(-512, -9)
+
+[node name="Plante16" parent="buisson_forêt" unique_id=1862153562 instance=ExtResource("6_15fwv")]
+position = Vector2(-523, 7)
+
+[node name="Plante17" parent="buisson_forêt" unique_id=169882548 instance=ExtResource("6_15fwv")]
+position = Vector2(-554, 17)
+
+[node name="Plante18" parent="buisson_forêt" unique_id=1694860313 instance=ExtResource("6_15fwv")]
+position = Vector2(-539, 7)
+
+[node name="Plante19" parent="buisson_forêt" unique_id=957187546 instance=ExtResource("6_15fwv")]
+position = Vector2(-475, 7)
+
+[node name="Plante20" parent="buisson_forêt" unique_id=1454606820 instance=ExtResource("6_15fwv")]
+position = Vector2(-459, 7)
+
+[node name="Plante21" parent="buisson_forêt" unique_id=863204423 instance=ExtResource("6_15fwv")]
+position = Vector2(-443, 7)
+
+[node name="Plante23" parent="buisson_forêt" unique_id=1241140933 instance=ExtResource("6_15fwv")]
+position = Vector2(-507, 7)
+
+[node name="Plante22" parent="buisson_forêt" unique_id=1568513601 instance=ExtResource("6_15fwv")]
+position = Vector2(-491, 7)
+
+[node name="Plante24" parent="buisson_forêt" unique_id=2007980384 instance=ExtResource("6_15fwv")]
+position = Vector2(-681, 23)
+
+[node name="Plante25" parent="buisson_forêt" unique_id=143093290 instance=ExtResource("6_15fwv")]
+position = Vector2(-665, 23)
+
+[node name="Plante26" parent="buisson_forêt" unique_id=596940686 instance=ExtResource("6_15fwv")]
+position = Vector2(-649, 23)
+
+[node name="Plante27" parent="buisson_forêt" unique_id=296392105 instance=ExtResource("6_15fwv")]
+position = Vector2(-610, 1)
+
+[node name="Plante28" parent="buisson_forêt" unique_id=1358544440 instance=ExtResource("6_15fwv")]
+position = Vector2(-580, 1)
+
+[node name="Plante29" parent="buisson_forêt" unique_id=660124758 instance=ExtResource("6_15fwv")]
+position = Vector2(-427, 7)
+
+[node name="Plante30" parent="buisson_forêt" unique_id=220097806 instance=ExtResource("6_15fwv")]
+position = Vector2(-411, 7)
+
+[node name="Plante31" parent="buisson_forêt" unique_id=1338370412 instance=ExtResource("6_15fwv")]
+position = Vector2(-395, 7)
+
+[node name="Plante32" parent="buisson_forêt" unique_id=1663185510 instance=ExtResource("6_15fwv")]
+position = Vector2(-430, -9)
+
+[node name="Plante33" parent="buisson_forêt" unique_id=2109127209 instance=ExtResource("6_15fwv")]
+position = Vector2(-426, -25)
+
+[node name="Plante34" parent="buisson_forêt" unique_id=619808941 instance=ExtResource("6_15fwv")]
+position = Vector2(-379, 7)
+
+[node name="Plante35" parent="buisson_forêt" unique_id=2098329579 instance=ExtResource("6_15fwv")]
+position = Vector2(-414, -9)
+
+[node name="Plante36" parent="buisson_forêt" unique_id=2042582925 instance=ExtResource("6_15fwv")]
+position = Vector2(-398, -9)
+
+[node name="Plante37" parent="buisson_forêt" unique_id=1251666771 instance=ExtResource("6_15fwv")]
+position = Vector2(-760, -3)
+
+[node name="Plante38" parent="buisson_forêt" unique_id=1316415060 instance=ExtResource("6_15fwv")]
+position = Vector2(-388, 23)
+
+[node name="Plante39" parent="buisson_forêt" unique_id=914671358 instance=ExtResource("6_15fwv")]
+position = Vector2(-403, 23)
+
+[node name="buisson_desert" type="Node2D" parent="." unique_id=1332850359]
+
+[node name="Plante" parent="buisson_desert" unique_id=541228356 instance=ExtResource("7_3eaxo")]
+position = Vector2(128, 231)
+
+[node name="Plante3" parent="buisson_desert" unique_id=1067706912 instance=ExtResource("7_3eaxo")]
+position = Vector2(144, 231)
+
+[node name="Plante4" parent="buisson_desert" unique_id=1456460227 instance=ExtResource("7_3eaxo")]
+position = Vector2(160, 235)
+
+[node name="Plante5" parent="buisson_desert" unique_id=2057990156 instance=ExtResource("7_3eaxo")]
+position = Vector2(176, 238)
+
+[node name="Plante6" parent="buisson_desert" unique_id=1599725042 instance=ExtResource("7_3eaxo")]
+position = Vector2(179, 254)
+
+[node name="Plante7" parent="buisson_desert" unique_id=325897126 instance=ExtResource("7_3eaxo")]
+position = Vector2(182, 270)
+
+[node name="Plante8" parent="buisson_desert" unique_id=568231440 instance=ExtResource("7_3eaxo")]
+position = Vector2(184, 286)
+
+[node name="Plante9" parent="buisson_desert" unique_id=740783557 instance=ExtResource("7_3eaxo")]
+position = Vector2(200, 297)
+
+[node name="Plante10" parent="buisson_desert" unique_id=1837694479 instance=ExtResource("7_3eaxo")]
+position = Vector2(210, 313)
+
+[node name="Plante11" parent="buisson_desert" unique_id=560858725 instance=ExtResource("7_3eaxo")]
+position = Vector2(210, 329)
+
+[node name="Plante12" parent="buisson_desert" unique_id=301590564 instance=ExtResource("7_3eaxo")]
+position = Vector2(160, 219)
+
+[node name="Plante13" parent="buisson_desert" unique_id=1052336278 instance=ExtResource("7_3eaxo")]
+position = Vector2(176, 222)
+
+[node name="Plante14" parent="buisson_desert" unique_id=1563249873 instance=ExtResource("7_3eaxo")]
+position = Vector2(192, 238)
+
+[node name="Plante15" parent="buisson_desert" unique_id=535568192 instance=ExtResource("7_3eaxo")]
+position = Vector2(195, 254)
+
+[node name="Plante16" parent="buisson_desert" unique_id=205072897 instance=ExtResource("7_3eaxo")]
+position = Vector2(198, 270)
+
+[node name="Plante17" parent="buisson_desert" unique_id=272646774 instance=ExtResource("7_3eaxo")]
+position = Vector2(216, 297)
+
+[node name="Plante18" parent="buisson_desert" unique_id=1160484160 instance=ExtResource("7_3eaxo")]
+position = Vector2(214, 281)
+
+[node name="Plante19" parent="buisson_desert" unique_id=473652884 instance=ExtResource("7_3eaxo")]
+position = Vector2(226, 313)
+
+[node name="Plante20" parent="buisson_desert" unique_id=1643357031 instance=ExtResource("7_3eaxo")]
+position = Vector2(226, 329)
+
+[node name="plateformjaune" type="Node2D" parent="." unique_id=131790614]
+
+[node name="MovingPlatform" parent="plateformjaune" unique_id=333681283 instance=ExtResource("8_uno31")]
+position = Vector2(405, -32)
+
+[node name="MovingPlatform2" parent="plateformjaune" unique_id=218168262 instance=ExtResource("8_uno31")]
+position = Vector2(455, -32)
+
+[node name="PorteCouleurs" parent="." unique_id=2124660455 instance=ExtResource("9_v5ly5")]
+position = Vector2(-10, 218)
+
+[node name="Niveaux" type="Node2D" parent="." unique_id=206764354]
+
+[node name="PG-1" parent="Niveaux" unique_id=1967052524 instance=ExtResource("10_nvd1r")]
+position = Vector2(35, 340)
+chemin_niveau = "res://Scenes/Zones/Plage_Grise/PG-1.tscn"
+nom_niveau = "Plage grise"
+miniature2 = ExtResource("12_dyxes")
+prefixe_niveau = "PG-1"
+
+[node name="MN-1" parent="Niveaux" unique_id=1562209232 instance=ExtResource("10_nvd1r")]
+position = Vector2(-24, 24)
+chemin_niveau = "res://Scenes/Zones/Montagne_Noire/MN-1.tscn"
+nom_niveau = "Montagne Noire 1"
+miniature2 = ExtResource("13_l1lh3")
+prefixe_niveau = "MN-1"
+
+[node name="MN-2" parent="Niveaux" unique_id=1879238733 instance=ExtResource("10_nvd1r")]
+position = Vector2(-3, -276)
+chemin_niveau = "res://Scenes/Zones/Montagne_Noire/MN-2.tscn"
+nom_niveau = "Montagne Noire 2"
+miniature2 = ExtResource("13_l1lh3")
+prefixe_niveau = "MN-2"
+
+[node name="DJ-1" parent="Niveaux" unique_id=1836898696 instance=ExtResource("10_nvd1r")]
+position = Vector2(394, 178)
+chemin_niveau = "res://Scenes/Zones/Desert_Jaune/DJ-1.tscn"
+nom_niveau = "Desert Jaune 1"
+miniature2 = ExtResource("13_dyxes")
+prefixe_niveau = "DJ-1"
+
+[node name="DJ-2" parent="Niveaux" unique_id=1592924053 instance=ExtResource("10_nvd1r")]
+position = Vector2(838, 275)
+chemin_niveau = "res://Scenes/Zones/Desert_Jaune/DJ-2.tscn"
+nom_niveau = "Desert Jaune 2"
+miniature2 = ExtResource("13_dyxes")
+prefixe_niveau = "DJ-2"
+
+[node name="DJ-3" parent="Niveaux" unique_id=906303215 instance=ExtResource("10_nvd1r")]
+position = Vector2(1193, 428)
+chemin_niveau = "res://Scenes/Zones/Desert_Jaune/DJ-3.tscn"
+nom_niveau = "Desert Jaune 3"
+miniature2 = ExtResource("13_dyxes")
+prefixe_niveau = "DJ-3"
+
+[node name="VR-1" parent="Niveaux" unique_id=1999110642 instance=ExtResource("10_nvd1r")]
+position = Vector2(514, -248)
+chemin_niveau = "res://Scenes/Zones/Volcan_Rouge/VR-1.tscn"
+nom_niveau = "Volcan Rouge 1"
+miniature2 = ExtResource("12_44jml")
+prefixe_niveau = "VR-1"
+
+[node name="VR-2" parent="Niveaux" unique_id=1387293800 instance=ExtResource("10_nvd1r")]
+position = Vector2(648, -409)
+chemin_niveau = "res://Scenes/Zones/Volcan_Rouge/VR-2.tscn"
+nom_niveau = "Volcan Rouge 2"
+miniature2 = ExtResource("12_44jml")
+prefixe_niveau = "VR-2"
+
+[node name="VR-3" parent="Niveaux" unique_id=751533411 instance=ExtResource("10_nvd1r")]
+position = Vector2(1019, -444)
+chemin_niveau = "res://Scenes/Zones/Volcan_Rouge/VR-3.tscn"
+nom_niveau = "Volcan Rouge 3"
+miniature2 = ExtResource("12_44jml")
+prefixe_niveau = "VR-3"
+
+[node name="FV-1" parent="Niveaux" unique_id=874605329 instance=ExtResource("10_nvd1r")]
+position = Vector2(-442, 145)
+chemin_niveau = "res://Scenes/Zones/Foret_verte/FV-1.tscn"
+nom_niveau = "Foret Verte 1"
+miniature2 = ExtResource("14_l1lh3")
+prefixe_niveau = "FV-1"
+
+[node name="FV-2" parent="Niveaux" unique_id=155451010 instance=ExtResource("10_nvd1r")]
+position = Vector2(-543, 330)
+chemin_niveau = "res://Scenes/Zones/Foret_verte/FV-2.tscn"
+nom_niveau = "Foret Verte 2"
+miniature2 = ExtResource("14_l1lh3")
+prefixe_niveau = "FV-2"
+
+[node name="FV-3" parent="Niveaux" unique_id=367352340 instance=ExtResource("10_nvd1r")]
+position = Vector2(-1074, 441)
+chemin_niveau = "res://Scenes/Zones/Foret_verte/FV-3.tscn"
+nom_niveau = "Foret Verte 3"
+miniature2 = ExtResource("14_l1lh3")
+prefixe_niveau = "FV-3"
+
+[node name="MB-1" parent="Niveaux" unique_id=330407887 instance=ExtResource("10_nvd1r")]
+position = Vector2(-507, -172)
+chemin_niveau = "res://Scenes/Zones/Mont_Bleu/MB-1.tscn"
+nom_niveau = "Mont Bleu 1"
+miniature2 = ExtResource("15_ul5t4")
+prefixe_niveau = "MB-1"
+
+[node name="MB-2" parent="Niveaux" unique_id=1522390850 instance=ExtResource("10_nvd1r")]
+position = Vector2(-670, -309)
+chemin_niveau = "res://Scenes/Zones/Mont_Bleu/MB-2.tscn"
+nom_niveau = "Mont Bleu 2"
+miniature2 = ExtResource("15_ul5t4")
+prefixe_niveau = "MB-2"
+
+[node name="MB-3" parent="Niveaux" unique_id=1946132368 instance=ExtResource("10_nvd1r")]
+position = Vector2(-924, -355)
+chemin_niveau = "res://Scenes/Zones/Mont_Bleu/MB-3.tscn"
+nom_niveau = "Mont Bleu 3"
+miniature2 = ExtResource("15_ul5t4")
+prefixe_niveau = "MB-3"

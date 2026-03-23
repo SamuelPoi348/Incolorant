@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://coulgnnwe8dm7"]
+
+[ext_resource type="Script" uid="uid://bbxuo2i8rqjy1" path="res://Test_MP/gimics/shooter/shooter.gd" id="1_6wica"]
+[ext_resource type="Texture2D" uid="uid://cvpao3fiw05we" path="res://Test_MP/gimics/shooter/shooter.png" id="2_elo53"]
+[ext_resource type="PackedScene" uid="uid://ctpuabmocb0x1" path="res://Test_MP/gimics/shooter/shot.tscn" id="2_q3fcx"]
+
+[node name="Shooter" type="Node2D" unique_id=1948774045]
+script = ExtResource("1_6wica")
+shot_scene = ExtResource("2_q3fcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1595927907]
+texture = ExtResource("2_elo53")
+
+[node name="Timer" type="Timer" parent="." unique_id=775854657]
+wait_time = 0.027
+autostart = true

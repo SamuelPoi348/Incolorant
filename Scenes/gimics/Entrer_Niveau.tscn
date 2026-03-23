@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d66gff4ytqiu"]
+
+[ext_resource type="Texture2D" uid="uid://dp1mrjlxe62rp" path="res://Sprites/entre_level.png" id="1_5qc8i"]
+[ext_resource type="Script" uid="uid://dm61m1aplh1sp" path="res://Scripts/gimics/entrer_niveau.gd" id="1_8ccm1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ccm1"]
+atlas = ExtResource("1_5qc8i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cflc2"]
+atlas = ExtResource("1_5qc8i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kq4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ccm1")
+}],
+"loop": true,
+"name": &"complete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cflc2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qc8i"]
+
+[node name="EntrerNiveau" type="Area2D" unique_id=1562209232]
+scale = Vector2(2, 2)
+script = ExtResource("1_8ccm1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=891112024]
+sprite_frames = SubResource("SpriteFrames_3kq4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298377756]
+shape = SubResource("CircleShape2D_5qc8i")

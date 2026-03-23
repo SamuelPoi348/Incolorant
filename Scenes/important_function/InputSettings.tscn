@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://csi7v5wcjjh0w"]
+
+[ext_resource type="Script" uid="uid://cfslivqn5my2x" path="res://Scripts/important_function/option/input_settings.gd" id="1_auxlr"]
+[ext_resource type="PackedScene" uid="uid://iqgjdslv6c2i" path="res://Scenes/important_function/input_button.tscn" id="2_jx5o1"]
+
+[node name="InputSettings" type="Control" unique_id=1564233479]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 123.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_auxlr")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2142053976]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.0
+offset_top = -196.0
+offset_right = 333.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1758595452]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=360822158]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=78870581]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=733068271]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=786420819 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=1477315609 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=1190663490 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=1052018865 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=226680282 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=1589257720 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton7" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=1131285986 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton8" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=1653741824 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton9" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=896082849 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="InputButton10" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" unique_id=935279711 instance=ExtResource("2_jx5o1")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1336133669]
+layout_mode = 2
+text = "Remettre à défault"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

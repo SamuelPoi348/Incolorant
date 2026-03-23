@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dg2w3v2m4ywsk"]
+
+[ext_resource type="Texture2D" uid="uid://ialhd1184n5t" path="res://Sprites/Porte_Couleurs.png" id="1_4203s"]
+[ext_resource type="Script" uid="uid://bsyurawwtkx3g" path="res://Scripts/gimics/porte_couleurs.gd" id="1_rkyrb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkyrb"]
+atlas = ExtResource("1_4203s")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh07w"]
+atlas = ExtResource("1_4203s")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e7kg"]
+atlas = ExtResource("1_4203s")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8whmu"]
+atlas = ExtResource("1_4203s")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mucwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkyrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh07w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e7kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8whmu")
+}],
+"loop": false,
+"name": &"ouverture",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkyrb"]
+radius = 32.003906
+
+[node name="PorteCouleurs" type="Area2D" unique_id=532408580]
+scale = Vector2(2, 2)
+script = ExtResource("1_rkyrb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1988827474]
+sprite_frames = SubResource("SpriteFrames_mucwh")
+animation = &"ouverture"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2055570991]
+
+[node name="Extremite_Gauche" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1531011954]
+polygon = PackedVector2Array(-32, -16, -32, 16, -16, 16, -16, -16)
+
+[node name="Extremite_Droite" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1821453448]
+polygon = PackedVector2Array(16, -16, 16, 16, 32, 16, 32, -16)
+
+[node name="Centre" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1277570360]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255227122]
+position = Vector2(0, 13.5)
+shape = SubResource("CircleShape2D_rkyrb")

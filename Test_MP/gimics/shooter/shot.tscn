@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ctpuabmocb0x1"]
+
+[ext_resource type="Texture2D" uid="uid://bvyfxd1ke4e8x" path="res://Test_MP/gimics/shooter/shot.png" id="1_akvpi"]
+[ext_resource type="Script" uid="uid://bnr74mnuf3581" path="res://Test_MP/gimics/shooter/shot.gd" id="1_ncfdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqb37"]
+
+[node name="shot" type="Area2D" unique_id=738569671]
+script = ExtResource("1_ncfdt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=73104891]
+texture = ExtResource("1_akvpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203011977]
+shape = SubResource("RectangleShape2D_wqb37")

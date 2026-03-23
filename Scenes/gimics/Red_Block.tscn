@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://de823v67c3g17"]
+
+[ext_resource type="Script" uid="uid://t43pg5bndmph" path="res://Scripts/gimics/red_block.gd" id="1_8qh7e"]
+[ext_resource type="Texture2D" uid="uid://brmbkwajoq4ev" path="res://Sprites/red_block.png" id="1_b8b13"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8b13"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qh7e"]
+atlas = ExtResource("1_b8b13")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbfjq"]
+atlas = ExtResource("1_b8b13")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjbp5"]
+atlas = ExtResource("1_b8b13")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f8fk"]
+atlas = ExtResource("1_b8b13")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eof3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qh7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbfjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjbp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f8fk")
+}],
+"loop": false,
+"name": &"destruction",
+"speed": 5.0
+}]
+
+[node name="RedBlock" type="StaticBody2D" unique_id=1623874555 groups=["RedBlock"]]
+script = ExtResource("1_8qh7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676490673]
+shape = SubResource("RectangleShape2D_b8b13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1169478539]
+sprite_frames = SubResource("SpriteFrames_eof3l")
+animation = &"destruction"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

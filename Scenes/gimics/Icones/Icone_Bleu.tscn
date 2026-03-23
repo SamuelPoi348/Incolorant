@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bp0cyd54jqawu"]
+
+[ext_resource type="Script" uid="uid://cf0nr3cnyh2yd" path="res://Scripts/gimics/Collectible/icone_bleu.gd" id="1_c58gn"]
+[ext_resource type="Texture2D" uid="uid://dhdf4tcexr7s" path="res://Sprites/Icone_Bleu.png" id="1_frybb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frybb"]
+radius = 9.0
+
+[node name="IconeBleu" type="Area2D" unique_id=308775690]
+script = ExtResource("1_c58gn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=102016992]
+position = Vector2(-1, -7)
+texture = ExtResource("1_frybb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682107369]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_frybb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

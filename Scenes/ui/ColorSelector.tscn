@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://chyov13l0o7f"]
+
+[ext_resource type="Script" uid="uid://b2rkxtud1vyiu" path="res://Scripts/gimics/color_selector.gd" id="1_vlogj"]
+
+[node name="ColorSelector" type="Control" unique_id=36173932]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vlogj")
+
+[node name="Root" type="Control" parent="." unique_id=685993501]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rouge" type="Sprite2D" parent="Root" unique_id=1464461652]
+scale = Vector2(4, 4)
+
+[node name="Jaune" type="Sprite2D" parent="Root" unique_id=846225674]
+scale = Vector2(4, 4)
+
+[node name="Bleu" type="Sprite2D" parent="Root" unique_id=804856235]
+scale = Vector2(4, 4)
+
+[node name="Vert" type="Sprite2D" parent="Root" unique_id=642423313]
+scale = Vector2(4, 4)

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dr14r7wuh0pf7"]
+
+[ext_resource type="Texture2D" uid="uid://do6yl68kqxfgt" path="res://Sprites/Pause.png" id="1_46bjm"]
+[ext_resource type="Script" uid="uid://by63vtkroeiuv" path="res://Scripts/gimics/miniature_niveau.gd" id="1_to8sy"]
+
+[sub_resource type="Gradient" id="Gradient_to8sy"]
+offsets = PackedFloat32Array(0, 0.0028571428)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fs2mm"]
+gradient = SubResource("Gradient_to8sy")
+width = 800
+
+[node name="MiniatureNiveau" type="Control" unique_id=1698629210]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_to8sy")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=289949390]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_46bjm")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1536817849]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -104.0
+offset_right = 400.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_fs2mm")
+
+[node name="Niveau" type="Label" parent="TextureRect2" unique_id=2138817672]
+layout_mode = 1
+offset_right = 235.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Niveau-Couleur-0"
+
+[node name="Colorux1" type="TextureRect" parent="TextureRect2" unique_id=514854959]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Colorux2" type="TextureRect" parent="TextureRect2" unique_id=1051277172]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Colorux3" type="TextureRect" parent="TextureRect2" unique_id=1315513320]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0

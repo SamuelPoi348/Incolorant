@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://crn2e85628dh5"]
+
+[ext_resource type="Script" uid="uid://clkvbgaway7ah" path="res://Scripts/important_function/option/option.gd" id="1_1n4gb"]
+[ext_resource type="Script" uid="uid://dejgsustdkukq" path="res://Scripts/important_function/option/audio_control.gd" id="2_x0bvf"]
+[ext_resource type="Script" uid="uid://bav6bpmfew8qi" path="res://Scripts/important_function/option/full_screen_control.gd" id="3_tna64"]
+[ext_resource type="PackedScene" uid="uid://csi7v5wcjjh0w" path="res://Scenes/important_function/InputSettings.tscn" id="4_3hbig"]
+
+[sub_resource type="Gradient" id="Gradient_0jc0r"]
+offsets = PackedFloat32Array(0, 0.5394737, 1)
+colors = PackedColorArray(0.75, 0.75, 0.75, 1, 0.5, 0.5, 0.5, 1, 0.25, 0.25, 0.25, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1n4gb"]
+gradient = SubResource("Gradient_0jc0r")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0bvf"]
+font_size = 32
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1n4gb"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x0bvf"]
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tna64"]
+thickness = 6
+
+[node name="Option" type="Control" unique_id=1737492598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 48.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1n4gb")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=77469073]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_1n4gb")
+
+[node name="Label" type="Label" parent="." unique_id=855165373]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "                                         Menu d'option et paramètre"
+label_settings = SubResource("LabelSettings_x0bvf")
+
+[node name="Quitter" type="Button" parent="." unique_id=1868708500]
+layout_mode = 1
+offset_right = 67.0
+offset_bottom = 31.0
+text = "Revenir
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1764939453]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 900.0
+offset_bottom = 140.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=2063865053]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1554636369]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=290409607]
+layout_mode = 2
+text = "Music"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1893900838]
+layout_mode = 2
+text = "SFX"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=389085339]
+layout_mode = 2
+text = "Taille Écran"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=358421802]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="AudioControl3" type="HSlider" parent="HBoxContainer/VBoxContainer" unique_id=1771135741]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_1n4gb")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_x0bvf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_tna64")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_x0bvf")
+audio_bus_name = "Master"
+
+[node name="AudioControl" type="HSlider" parent="HBoxContainer/VBoxContainer" unique_id=1255800201]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_1n4gb")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_x0bvf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_tna64")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_x0bvf")
+audio_bus_name = "Music"
+
+[node name="AudioControl2" type="HSlider" parent="HBoxContainer/VBoxContainer" unique_id=1297530843]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_1n4gb")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_x0bvf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_tna64")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_x0bvf")
+audio_bus_name = "SFX"
+
+[node name="FullScreenControl" type="CheckButton" parent="HBoxContainer/VBoxContainer" unique_id=458001487]
+layout_mode = 2
+script = ExtResource("3_tna64")
+
+[node name="Label2" type="Label" parent="." unique_id=709405547]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -118.0
+offset_right = 159.5
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Changer les touches "
+label_settings = SubResource("LabelSettings_x0bvf")
+
+[node name="InputSettings" parent="." unique_id=1564233479 instance=ExtResource("4_3hbig")]
+z_index = 1
+layout_mode = 1
+
+[connection signal="button_down" from="Quitter" to="." method="_on_quitter_button_down"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl3" to="HBoxContainer/VBoxContainer/AudioControl3" method="_on_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl" to="HBoxContainer/VBoxContainer/AudioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl2" to="HBoxContainer/VBoxContainer/AudioControl2" method="_on_value_changed"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/FullScreenControl" to="HBoxContainer/VBoxContainer/FullScreenControl" method="_on_toggled"]
