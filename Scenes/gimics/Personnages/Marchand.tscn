@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cxwjwidicchwt"]
+
+[ext_resource type="Script" uid="uid://rg0dhaj7ydbs" path="res://Scripts/gimics/Personnages/marchand.gd" id="1_24cmr"]
+[ext_resource type="Texture2D" uid="uid://67617ooyc8sx" path="res://Sprites/Personnages/ColoruxMerchent.png" id="1_vnek4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24cmr"]
+atlas = ExtResource("1_vnek4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htsci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24cmr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1odjs"]
+size = Vector2(24, 26)
+
+[node name="Marchand" type="Area2D" unique_id=1693659385]
+script = ExtResource("1_24cmr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=547691691]
+sprite_frames = SubResource("SpriteFrames_htsci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=3875671]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_1odjs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
