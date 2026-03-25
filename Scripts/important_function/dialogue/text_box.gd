@@ -1,9 +1,9 @@
 extends MarginContainer
 
-@onready var label = $NinePatchRect/MarginContainer/Label
+@onready var label = $MarginContainer/Label
 @onready var timer = $LetterDisplayTimer
 
-const Max_width = 256
+const Max_width = 480
 
 var text = ""
 var letter_index = 0
@@ -14,30 +14,29 @@ var punctation_time=0.2
 
 signal finished_displaying()
 
-func display_text(text_to_display : String):
+func _ready():
+	print(label)
+	
+func display_text(text_to_display: String):
 	text = text_to_display
-	label.text = text_to_display
-	
-	await resized
+	letter_index = 0       # reset à chaque ligne
+	label.text = ""        # on vide le texte avant
+	#can_advance_line = false
+
+	# Positionner la boîte juste au-dessus du marchand
 	custom_minimum_size.x = min(size.x, Max_width)
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD
 	
-	if size.x > Max_width:
-		label.autowrap_mode = TextServer.AUTOWRAP_WORD
-		await resized
-		await resized
-		custom_minimum_size.y = size.y
-		
-	global_position.x -= size.x/2
-	global_position.y -= size.y +24
+	global_position.x -= size.x / 2
+	global_position.y -= size.y + 24
 	
-	label.text = ""
-	_display_letter()
+	_display_letter()       # lancer l'affichage lettre par lettre
 	
 func _display_letter():
 	label.text += text[letter_index]
 	
 	letter_index += 1
-	if letter_index >= text.lenght():
+	if letter_index >= text.length():
 		finished_displaying.emit()
 		return
 	

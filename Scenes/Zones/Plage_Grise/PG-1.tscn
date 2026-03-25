@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_iy5dg"]
 [ext_resource type="PackedScene" uid="uid://cibc5o8iblogx" path="res://Scenes/gimics/portail.tscn" id="7_n1vpi"]
 [ext_resource type="Texture2D" uid="uid://cjq87r1o7unlb" path="res://Sprites/PG.png" id="8_ni6gp"]
+[ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_njbr7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_njbr7"]
 texture = ExtResource("2_iy5dg")
@@ -303,8 +304,8 @@ position = Vector2(1128, -72)
 id_colorux = "PG-1-C3"
 
 [node name="Portail" parent="." unique_id=1795757183 instance=ExtResource("7_n1vpi")]
-position = Vector2(144, -83)
-spawn_position = Vector2(35, -560)
+position = Vector2(800, -83)
+spawn_position = Vector2(-35, -560)
 niveau_termine = "res://Scenes/Zones/Plage_Grise/PG-1.tscn"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=838880610]
@@ -318,3 +319,6 @@ z_index = -4096
 position = Vector2(6, -245)
 scale = Vector2(2, 3)
 texture = ExtResource("8_ni6gp")
+
+[node name="Marchand" parent="." unique_id=417376132 instance=ExtResource("10_njbr7")]
+position = Vector2(157, -81)
