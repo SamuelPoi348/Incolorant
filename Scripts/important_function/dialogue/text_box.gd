@@ -15,7 +15,8 @@ var punctation_time=0.2
 signal finished_displaying()
 
 func _ready():
-	print(label)
+	#print(label)
+	pass
 	
 func display_text(text_to_display: String):
 	text = text_to_display
