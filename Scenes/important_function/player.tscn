@@ -328,25 +328,25 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_5rrkj")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_76ima")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_b684y")
 }, {
-"duration": 1.5,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_b1d24")
 }, {
-"duration": 1.5,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_iq03y")
 }, {
-"duration": 3.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b11ni")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_0ujxa")
 }],
 "loop": false,
@@ -755,8 +755,7 @@ shape = SubResource("CapsuleShape2D_7dd06")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_tx1dd")
 animation = &"dash"
-frame = 6
-frame_progress = 1.0
+frame = 3
 
 [node name="RayonVert" type="Area2D" parent="." unique_id=1092913360]
 collision_layer = 3
