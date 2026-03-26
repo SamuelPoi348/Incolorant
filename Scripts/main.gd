@@ -19,7 +19,7 @@ var colorux_detector=true
 var teleporter_to_portail=true
 var golden_colorux=true
 
-var double_saut_ok=true
+
 # Colorux collectés par niveau
 var colorux_collectes := {}
 var niveau_courant
