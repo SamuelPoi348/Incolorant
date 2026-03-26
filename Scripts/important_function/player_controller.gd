@@ -7,12 +7,16 @@ class_name PlayerController
 @export var speed: float = 10.0
 @export var jump_power: float = 10.0
 
+var main 
+
 var speed_multiplier: float = 30.0
 var jump_multiplier: float = -30.0
 var direction: float = 0.0
 
 var main_sm: LimboHSM
 var shoot_frame_triggered := false
+
+var double_saut_ok=true
 
 signal color_changed(new_color: String)
 
@@ -61,6 +65,9 @@ func _load_keybindings_from_settings():
 		InputMap.action_add_event(action,keybindings[action])
 
 func _process(delta):
+	main = get_tree().root.get_node("Main")
+	if main.double_saut ==  false:
+		double_saut_ok=false
 	pass
 
 # =====================================================
@@ -86,6 +93,10 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if not is_on_floor():
+		if Input.is_action_just_pressed("jump") and double_saut_ok:
+			velocity.y = jump_power * jump_multiplier
+			main_sm.dispatch(&"to_jump")
+			double_saut_ok=false
 		velocity += get_gravity() * delta
 
 	direction = Input.get_axis("move_left", "move_right")
@@ -98,6 +109,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_power * jump_multiplier
 		main_sm.dispatch(&"to_jump")
+		double_saut_ok=true
 
 	if Input.is_action_just_pressed("shoot") and couleur_active == "rouge":
 		main_sm.dispatch(&"to_shoot")
