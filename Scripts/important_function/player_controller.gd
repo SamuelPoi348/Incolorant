@@ -17,7 +17,8 @@ var main_sm: LimboHSM
 var shoot_frame_triggered := false
 
 var double_saut_ok=true
-
+var dash_ok=true
+var portal
 signal color_changed(new_color: String)
 
 # ==============================
@@ -38,7 +39,7 @@ var current_incolorant_mode := IncolorantMode.GROW
 
 @export var death_y_limit: float = 1
 var is_dead := false
-
+var tp_ok
 # =====================================================
 # READY
 # =====================================================
@@ -52,9 +53,10 @@ func _ready():
 
 	rayon_sprite.z_index = -1
 	update_rayon_visual()
-	
+	main = get_tree().root.get_node("Main")
 	add_to_group("Player")
-
+	portal = get_tree().get_first_node_in_group("portail")
+	tp_ok = main.scene_courante in main.niveaux_completes
 	# Connection au signal de changement de couleur
 	color_selector.color_changed.connect(Callable(self, "_on_color_changed"))
 	
@@ -68,6 +70,8 @@ func _process(delta):
 	main = get_tree().root.get_node("Main")
 	if main.double_saut ==  false:
 		double_saut_ok=false
+	if main.dash == false:
+		dash_ok=false
 	pass
 
 # =====================================================
@@ -87,16 +91,21 @@ func update_color_from_manager(new_color: String):
 # =====================================================
 
 func _physics_process(delta: float) -> void:
-
+	
 	# Bloque le joueur pendant sélection couleur
 	if get_tree().root.get_node("Main").selecting_color:
 		return
-
+	if Input.is_action_just_pressed("tp") and main.teleporter_to_portail and tp_ok:
+		tp_to_portal()
+	if is_dashing:
+		move_and_slide()
+		
 	if not is_on_floor():
 		if Input.is_action_just_pressed("jump") and double_saut_ok:
 			velocity.y = jump_power * jump_multiplier
 			main_sm.dispatch(&"to_jump")
 			double_saut_ok=false
+		#if not is_dashing:
 		velocity += get_gravity() * delta
 
 	direction = Input.get_axis("move_left", "move_right")
@@ -111,6 +120,22 @@ func _physics_process(delta: float) -> void:
 		main_sm.dispatch(&"to_jump")
 		double_saut_ok=true
 
+	if Input.is_action_just_pressed("dash") and dash_ok:
+		dash_ok=false
+		main_sm.dispatch(&"to_dash")
+		var dash_direction = direction
+	
+		# Si le joueur n'appuie sur rien → dash dans la direction du sprite
+		if dash_direction == 0:
+			dash_direction = -1 if animation_sprite.flip_h else 1
+	
+		velocity.x = dash_direction * 600  # puissance du dash
+		velocity.y = 0  # optionnel : annule la chute pendant le dash
+		
+		
+	if is_on_floor():
+		dash_ok=true
+	
 	if Input.is_action_just_pressed("shoot") and couleur_active == "rouge":
 		main_sm.dispatch(&"to_shoot")
 
@@ -183,7 +208,10 @@ func initiate_state_machine():
 	var jump_state = LimboState.new().named("jump").call_on_enter(jump_start).call_on_update(jump_update)
 	var attack_state = LimboState.new().named("attack").call_on_enter(attack_start).call_on_update(attack_update)
 	var shoot_state = LimboState.new().named("shoot").call_on_enter(shoot_start).call_on_update(shoot_update)
-
+	var dash_state = LimboState.new().named("dash").call_on_enter(dash_start).call_on_update(dash_update)
+	
+	main_sm.add_child(dash_state)
+	
 	main_sm.add_child(idle_state)
 	main_sm.add_child(walk_state)
 	main_sm.add_child(jump_state)
@@ -204,6 +232,9 @@ func initiate_state_machine():
 
 	main_sm.add_transition(main_sm.ANYSTATE, shoot_state, &"to_shoot")
 	main_sm.add_transition(shoot_state, idle_state, &"state_ended")
+
+	main_sm.add_transition(main_sm.ANYSTATE, dash_state, &"to_dash")
+	main_sm.add_transition(dash_state, idle_state, &"state_ended")
 
 	main_sm.initialize(self)
 	main_sm.set_active(true)
@@ -236,6 +267,20 @@ func shoot_start():
 	shoot_frame_triggered = false
 func shoot_update(delta: float): pass
 
+var is_dashing = false
+var dash_timer = 0.0
+
+func dash_start():
+	is_dashing = true
+	dash_timer = 0.8
+	animation_sprite.play("dash")
+
+func dash_update(delta: float):
+	dash_timer -= delta
+	
+	if dash_timer <= 0:
+		is_dashing = false
+		main_sm.dispatch(&"state_ended")
 # =====================================================
 # SHOOT LOGIC
 # =====================================================
@@ -307,3 +352,8 @@ func check_red_block_collision():
 			# CONDITION CLÉ
 			if couleur_active == "rouge" and (animation_sprite.animation.begins_with("fall") || animation_sprite.animation.begins_with("shoot")):
 				collider.destroy()
+				
+func tp_to_portal():
+	if portal:
+		velocity = Vector2.ZERO
+		global_position = portal.global_position
