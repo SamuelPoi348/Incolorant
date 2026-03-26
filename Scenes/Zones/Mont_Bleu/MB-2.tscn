@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_q4c6c"]
 [ext_resource type="Texture2D" uid="uid://d6yb71luchiy" path="res://Sprites/MB.png" id="7_g3tuc"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_g11kn"]
+[ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_e0byg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4c6c"]
 texture = ExtResource("1_g11kn")
@@ -262,11 +263,11 @@ z_index = -1
 tile_set = SubResource("TileSet_e0byg")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(-65544, 1, 7, -65543, 65537, 7, -65542, 65537, 7, -65541, 65537, 7, -65540, 65537, 7, -65539, 65537, 7, -65538, 65537, 7, -65537, 65537, 7, -131072, 65537, 7, -131071, 65537, 7, -131070, 65537, 7, -131069, 65537, 7, -131080, 1, 5, -131079, 65537, 5, -131078, 65537, 5, -131077, 65537, 5, -131076, 65537, 5, -131075, 65537, 5, -131074, 65537, 5, -131073, 65537, 5, -196608, 65537, 5, -196607, 65537, 5, -196606, 65537, 5, -196605, 65537, 5, -196604, 65537, 5, -131068, 65537, 7, -131067, 65537, 7, -131066, 131073, 7, -196602, 131073, 5, -196603, 65537, 5)
+layer_0/tile_data = PackedInt32Array(-65544, 1, 6, -65543, 65537, 6, -65542, 65537, 6, -65541, 65537, 6, -65540, 65537, 6, -65539, 65537, 6, -65538, 65537, 6, -65537, 65537, 6, -131072, 65537, 6, -131071, 65537, 6, -131070, 65537, 6, -131069, 65537, 6, -131080, 1, 6, -131079, 65537, 6, -131078, 65537, 6, -131077, 65537, 6, -131076, 65537, 6, -131075, 65537, 6, -131074, 65537, 6, -131073, 65537, 6, -196608, 65537, 6, -196607, 65537, 6, -196606, 65537, 6, -196605, 65537, 6, -196604, 65537, 6, -131068, 65537, 6, -131067, 65537, 6, -131066, 131073, 6, -196602, 131073, 6, -196603, 65537, 6, -8, 1, 7, -7, 65537, 7, -6, 65537, 7, -5, 65537, 7, -4, 65537, 7, -3, 65537, 7, -2, 65537, 7, -1, 65537, 7, -65530, 131073, 7, -65531, 65537, 7, -65532, 65537, 7, -65533, 65537, 7, -65534, 65537, 7, -65535, 65537, 7, -65536, 65537, 7, -196616, 1, 5, -196615, 65537, 5, -196614, 65537, 5, -196613, 65537, 5, -196612, 65537, 5, -196611, 65537, 5, -196610, 65537, 5, -196609, 65537, 5, -262144, 65537, 5, -262143, 65537, 5, -262142, 65537, 5, -262141, 65537, 5, -262140, 65537, 5, -262139, 65537, 5, -262138, 131073, 5)
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_07khn")]
-position = Vector2(-5, -65)
+position = Vector2(-15, -80)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066477384]
 
@@ -288,22 +289,22 @@ offset_bottom = 8.0
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_q4c6c")]
 
 [node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_07khn")]
-position = Vector2(94, -64)
+position = Vector2(92, -83)
 spawn_position = Vector2(-670, -1209)
 niveau_termine = "res://Scenes/Zones/Mont_Bleu/MB-2.tscn"
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=286018991]
 
 [node name="Colorux" parent="ColoruxContainer" unique_id=1446487818 instance=ExtResource("7_g11kn")]
-position = Vector2(669, -71)
+position = Vector2(107, -155)
 id_colorux = "MB-2-C1"
 
 [node name="Colorux2" parent="ColoruxContainer" unique_id=1131334541 instance=ExtResource("7_g11kn")]
-position = Vector2(328, -71)
+position = Vector2(126, -156)
 id_colorux = "MB-2-C2"
 
 [node name="Colorux3" parent="ColoruxContainer" unique_id=1857926385 instance=ExtResource("7_g11kn")]
-position = Vector2(1128, -72)
+position = Vector2(155, -155)
 id_colorux = "MB-2-C3"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=295915036]
@@ -316,3 +317,9 @@ motion_mirroring = Vector2(720, 480)
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_g3tuc")
+
+[node name="Personnages" type="Node2D" parent="." unique_id=118744851]
+
+[node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_e0byg")]
+position = Vector2(52, -80)
+niveau = "montagne"
