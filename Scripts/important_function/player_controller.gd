@@ -18,7 +18,7 @@ var shoot_frame_triggered := false
 
 var double_saut_ok=true
 var dash_ok=true
-
+var portal
 signal color_changed(new_color: String)
 
 # ==============================
@@ -39,7 +39,7 @@ var current_incolorant_mode := IncolorantMode.GROW
 
 @export var death_y_limit: float = 1
 var is_dead := false
-
+var tp_ok
 # =====================================================
 # READY
 # =====================================================
@@ -53,9 +53,10 @@ func _ready():
 
 	rayon_sprite.z_index = -1
 	update_rayon_visual()
-	
+	main = get_tree().root.get_node("Main")
 	add_to_group("Player")
-
+	portal = get_tree().get_first_node_in_group("portail")
+	tp_ok = main.scene_courante in main.niveaux_completes
 	# Connection au signal de changement de couleur
 	color_selector.color_changed.connect(Callable(self, "_on_color_changed"))
 	
@@ -94,6 +95,8 @@ func _physics_process(delta: float) -> void:
 	# Bloque le joueur pendant sélection couleur
 	if get_tree().root.get_node("Main").selecting_color:
 		return
+	if Input.is_action_just_pressed("tp") and main.teleporter_to_portail and tp_ok:
+		tp_to_portal()
 	if is_dashing:
 		move_and_slide()
 		
@@ -102,6 +105,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jump_power * jump_multiplier
 			main_sm.dispatch(&"to_jump")
 			double_saut_ok=false
+		#if not is_dashing:
 		velocity += get_gravity() * delta
 
 	direction = Input.get_axis("move_left", "move_right")
@@ -348,3 +352,8 @@ func check_red_block_collision():
 			# CONDITION CLÉ
 			if couleur_active == "rouge" and (animation_sprite.animation.begins_with("fall") || animation_sprite.animation.begins_with("shoot")):
 				collider.destroy()
+				
+func tp_to_portal():
+	if portal:
+		velocity = Vector2.ZERO
+		global_position = portal.global_position
