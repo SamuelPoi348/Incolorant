@@ -72,6 +72,8 @@ func handle_color_input():
 		set_active_color("vert")
 	elif Input.is_action_just_pressed("ui_down") and main.icone_bleu:
 		set_active_color("bleu")
+	elif Input.is_action_just_pressed("base"):
+		set_active_color("")
 
 # ==========================
 # Gestion couleur

@@ -12,6 +12,14 @@ var icone_rouge =true;
 var icone_jaune =true;
 var icone_bleu =true;
 var icone_vert =true;
+
+var dash=true
+var double_saut=true
+var colorux_detector=true
+var teleporter_to_portail=true
+var golden_colorux=true
+
+var double_saut_ok=true
 # Colorux collectés par niveau
 var colorux_collectes := {}
 var niveau_courant
