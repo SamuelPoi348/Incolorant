@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dvwnw1isj6m8g"]
+
+[ext_resource type="Texture2D" uid="uid://r2u32k27o02y" path="res://Sprites/player.png" id="1_igrky"]
+[ext_resource type="Script" uid="uid://tsjuwl5kkdqk" path="res://Scripts/Tuto/tuto_de_base.gd" id="1_y8pkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo87x"]
+atlas = ExtResource("1_igrky")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wdtef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo87x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TutoDeBase" type="Control" unique_id=1483451385]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y8pkw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1089085595]
+layout_mode = 1
+offset_right = 394.0
+offset_bottom = 237.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ColorRect" unique_id=1781778901]
+position = Vector2(104, 76)
+rotation = -0.015099168
+scale = Vector2(2, 2.3668063)
+sprite_frames = SubResource("SpriteFrames_wdtef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=1998487869]
+position = Vector2(258, 16)
+rotation = -0.015099168
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wdtef")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect" unique_id=1241135370]
+position = Vector2(257, 46.000008)
+rotation = -0.015099168
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wdtef")
+flip_h = true
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=115331842]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Fermé
+"
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=806053183]
+layout_mode = 0
+offset_right = 236.0
+offset_bottom = 183.0
+rotation = -0.0015598373
+theme_override_font_sizes/font_size = 20
+text = "Avancé vers la droite=d
+Avancé vers la gauche=a
+Sauté=w
+ouvrir/fermer l'iventaire=tab
+Pause=esc
+Intéragir=e"
+
+[connection signal="button_down" from="ColorRect/Button" to="." method="_on_button_button_down"]
