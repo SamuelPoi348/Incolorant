@@ -3,6 +3,7 @@ extends Control
 @onready var pause_menu = $"../Pause"
 @onready var colorux_label = $Colorux
 @onready var vbox = $HBoxContainer/VBoxContainer
+@onready var vbox2 = $HBoxContainer/VBoxContainer2
 
 @onready var popup = $PopupDescription
 @onready var popup_icon = popup.get_node("MarginContainer/VBoxContainer/IconLarge")
@@ -33,6 +34,37 @@ const ITEMS = {
 	}
 }
 
+const SHOP_ITEMS = {
+	"colorux_detector": {
+		"name": "Colorux finder",
+		"texture": preload("res://Sprites/object/colorux_object.png"),
+		"description": "Vous permet de traquer le colorux le plus proche.\nVous pouvez aussi le désactiver."
+	},
+	
+	"dash": {
+		"name": "Flame exalté",
+		"texture": preload("res://Sprites/object/dash_object.png"),
+		"description": "Vous permet d'appuyer sur espace pour ensuite vous faire avancer à toute vitesse."
+	},
+	
+	"double_saut": {
+		"name": "Jump Jump fruit",
+		"texture": preload("res://Sprites/object/jump_object.png"),
+		"description": "Vous permet de faire un deuxième saut."
+	},
+	
+	"teleporter_to_portail": {
+		"name": "Livre TPTP",
+		"texture": preload("res://Sprites/object/tptp_object.png"),
+		"description": "Une téléportation vers un téléporteur si l'endroit a déjà été exploré auparavant (touche P)."
+	},
+	
+	"golden_colorux": {
+		"name": "Colorux doré",
+		"texture": preload("res://Sprites/object/Golden_object.png"),
+		"description": "Un cadeau du marchand… au moins l'odeur n'est pas mauvaise."
+	}
+}
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
@@ -66,17 +98,24 @@ func update_colorux():
 func update_inventory():
 	var main = get_tree().root.get_node("Main")
 	
-	# Vide le VBoxContainer avant de remplir
+	# 🔴 VIDE LES DEUX
 	for child in vbox.get_children():
 		child.queue_free()
+	for child in vbox2.get_children():
+		child.queue_free()
 	
-	# Ajoute uniquement les items débloqués
+	# 🎨 COULEURS (ancien système)
 	for color_name in ITEMS.keys():
 		if main.get("icone_" + color_name):
-			_add_inventory_item(color_name)
+			_add_inventory_item(color_name, vbox, ITEMS)
+	
+	# 🛒 MARCHAND (nouveau système)
+	for item_name in SHOP_ITEMS.keys():
+		if main.get(item_name):
+			_add_inventory_item(item_name, vbox2, SHOP_ITEMS)
 
-func _add_inventory_item(color_name: String) -> void:
-	var data = ITEMS[color_name]
+func _add_inventory_item(item_name: String, target_vbox: VBoxContainer, database: Dictionary) -> void:
+	var data = database[item_name]
 
 	var hbox = HBoxContainer.new()
 
@@ -89,19 +128,28 @@ func _add_inventory_item(color_name: String) -> void:
 	var label = Label.new()
 	label.text = data["name"]
 	hbox.add_child(label)
-
+	
+	if item_name == "colorux_detector":
+		var cb = CheckButton.new()
+		var main = get_tree().root.get_node("Main")
+		cb.button_pressed = main.detector_ok
+		cb.text = "Activer"
+		cb.connect("toggled", Callable(func(button_pressed: bool):_on_detector_toggled(button_pressed, cb)))
+		hbox.add_child(cb)
+	
 	hbox.mouse_filter = Control.MOUSE_FILTER_PASS
 
-	# ⚡ Correct pour Godot 4.6 : lambda pour passer color_name
 	hbox.connect("gui_input", Callable(func(event):
-		_on_item_gui_input_with_color(event, color_name)
+		_on_item_gui_input_with_data(event, data)
 	))
 
-	vbox.add_child(hbox)
+	target_vbox.add_child(hbox)
 
-func _on_item_gui_input_with_color(event: InputEvent, color_name: String) -> void:
+func _on_item_gui_input_with_data(event: InputEvent, data: Dictionary) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		_show_description(color_name)
+		popup_icon.texture = data["texture"]
+		popup_label.text = data["description"]
+		popup.popup_centered()
 
 func _show_description(color_name: String) -> void:
 	var data = ITEMS[color_name]
@@ -111,3 +159,7 @@ func _show_description(color_name: String) -> void:
 
 func _on_close_button_pressed() -> void:
 	popup.hide()
+	
+func _on_detector_toggled(button_pressed: bool, cb: CheckButton) -> void:
+	var main = get_tree().root.get_node("Main")
+	main.detector_ok = button_pressed

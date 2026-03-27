@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bglvjoxcatkml"]
+
+[ext_resource type="Texture2D" uid="uid://00m467672h1e" path="res://Sprites/détecteur.png" id="1_2vktr"]
+
+[node name="Détecteur" type="Node2D" unique_id=1806916849]
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=864621020]
+texture = ExtResource("1_2vktr")

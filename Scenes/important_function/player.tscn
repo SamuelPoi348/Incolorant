@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://r2u32k27o02y" path="res://Sprites/player.png" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://obryffhxs13g" path="res://Sprites/auraVert.png" id="3_vgqql"]
 [ext_resource type="Texture2D" uid="uid://drw7ur4ux4som" path="res://Sprites/reverseAuraVert.png" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://bglvjoxcatkml" path="res://Scenes/gimics/détecteur.tscn" id="5_76ima"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]
 radius = 5.0
@@ -772,3 +773,6 @@ scale = Vector2(2.5, 2.579)
 sprite_frames = SubResource("SpriteFrames_cvnsp")
 animation = &"reverseAuraVert"
 frame_progress = 0.8904892
+
+[node name="Détecteur" parent="." unique_id=1806916849 instance=ExtResource("5_76ima")]
+position = Vector2(0, -8)
