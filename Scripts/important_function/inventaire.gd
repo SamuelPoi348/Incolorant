@@ -128,7 +128,15 @@ func _add_inventory_item(item_name: String, target_vbox: VBoxContainer, database
 	var label = Label.new()
 	label.text = data["name"]
 	hbox.add_child(label)
-
+	
+	if item_name == "colorux_detector":
+		var cb = CheckButton.new()
+		var main = get_tree().root.get_node("Main")
+		cb.button_pressed = main.detector_ok
+		cb.text = "Activer"
+		cb.connect("toggled", Callable(func(button_pressed: bool):_on_detector_toggled(button_pressed, cb)))
+		hbox.add_child(cb)
+	
 	hbox.mouse_filter = Control.MOUSE_FILTER_PASS
 
 	hbox.connect("gui_input", Callable(func(event):
@@ -151,3 +159,7 @@ func _show_description(color_name: String) -> void:
 
 func _on_close_button_pressed() -> void:
 	popup.hide()
+	
+func _on_detector_toggled(button_pressed: bool, cb: CheckButton) -> void:
+	var main = get_tree().root.get_node("Main")
+	main.detector_ok = button_pressed
