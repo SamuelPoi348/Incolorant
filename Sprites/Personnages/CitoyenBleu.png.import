@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgq6rxd60ck1m"
-path="res://.godot/imported/CitoyenRouge.png-69344f3278bd5939d3dbda7798c52bc7.ctex"
+uid="uid://veok4iaompoi"
+path="res://.godot/imported/CitoyenBleu.png-fa2284c8380e577558f497fdd05a7828.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Personnages/CitoyenRouge.png"
-dest_files=["res://.godot/imported/CitoyenRouge.png-69344f3278bd5939d3dbda7798c52bc7.ctex"]
+source_file="res://Sprites/Personnages/CitoyenBleu.png"
+dest_files=["res://.godot/imported/CitoyenBleu.png-fa2284c8380e577558f497fdd05a7828.ctex"]
 
 [params]
 
