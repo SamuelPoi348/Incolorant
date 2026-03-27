@@ -13,10 +13,10 @@ var icone_jaune =true;
 var icone_bleu =true;
 var icone_vert =true;
 
-var colorux_detector=false
-var dash=false
-var double_saut=false
-var teleporter_to_portail=false
+var colorux_detector=true
+var dash=true
+var double_saut=true
+var teleporter_to_portail=true
 var golden_colorux=false
 
 
