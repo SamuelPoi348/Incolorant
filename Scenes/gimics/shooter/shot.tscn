@@ -3,13 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dnij72l4v2tve" path="res://Scenes/gimics/shooter/shot.png" id="1_akvpi"]
 [ext_resource type="Script" uid="uid://bnr74mnuf3581" path="res://Scenes/gimics/shooter/shot.gd" id="1_ncfdt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqb37"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b3xvw"]
+a = Vector2(0, -5)
+b = Vector2(0, 5)
 
-[node name="shot" type="Area2D" unique_id=738569671]
+[node name="shot" type="StaticBody2D" unique_id=1796660773]
 script = ExtResource("1_ncfdt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=73104891]
 texture = ExtResource("1_akvpi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203011977]
-shape = SubResource("RectangleShape2D_wqb37")
+shape = SubResource("SegmentShape2D_b3xvw")
