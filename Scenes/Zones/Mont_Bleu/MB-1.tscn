@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_o1rlu"]
 [ext_resource type="Texture2D" uid="uid://d6yb71luchiy" path="res://Sprites/MB.png" id="7_7ftom"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_g7t0c"]
+[ext_resource type="PackedScene" uid="uid://coulgnnwe8dm7" path="res://Scenes/gimics/shooter/shooter.tscn" id="10_7ad7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1rlu"]
 texture = ExtResource("1_g7t0c")
@@ -316,3 +317,6 @@ motion_mirroring = Vector2(720, 480)
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_7ftom")
+
+[node name="Shooter" parent="." unique_id=1948774045 instance=ExtResource("10_7ad7y")]
+position = Vector2(-113, -72)

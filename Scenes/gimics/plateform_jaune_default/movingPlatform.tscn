@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dl0qdi8vnugwu"]
 
-[ext_resource type="Script" uid="uid://dnow204mlyxmd" path="res://Test_MP/gimics/plateform_default/movingPlatform.gd" id="1_i2wo7"]
-[ext_resource type="Texture2D" uid="uid://bxy7s0fofw27i" path="res://Test_MP/gimics/plateform_default/plateforme_jaune.png" id="1_k8fph"]
+[ext_resource type="Script" uid="uid://dnow204mlyxmd" path="res://Scenes/gimics/plateform_jaune_default/movingPlatform.gd" id="1_i2wo7"]
+[ext_resource type="Texture2D" uid="uid://dxxcoyj642db7" path="res://Scenes/gimics/plateform_jaune_default/plateforme_jaune.png" id="1_k8fph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2wo7"]
 size = Vector2(48, 16)
@@ -13,4 +13,5 @@ script = ExtResource("1_i2wo7")
 shape = SubResource("RectangleShape2D_i2wo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=749048300]
+position = Vector2(0, -2)
 texture = ExtResource("1_k8fph")

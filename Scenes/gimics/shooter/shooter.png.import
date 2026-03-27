@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvpao3fiw05we"
-path="res://.godot/imported/shooter.png-cb9572b3b78c4505a96a604cff6ac672.ctex"
+uid="uid://c7tfy031r8l8t"
+path="res://.godot/imported/shooter.png-063c39d9d5d55aee99924b1f5da35184.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Test_MP/gimics/shooter/shooter.png"
-dest_files=["res://.godot/imported/shooter.png-cb9572b3b78c4505a96a604cff6ac672.ctex"]
+source_file="res://Scenes/gimics/shooter/shooter.png"
+dest_files=["res://.godot/imported/shooter.png-063c39d9d5d55aee99924b1f5da35184.ctex"]
 
 [params]
 

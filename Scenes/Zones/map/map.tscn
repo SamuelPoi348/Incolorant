@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dr14r7wuh0pf7" path="res://Scenes/ui/Miniature_Niveau.tscn" id="6_1cbo0"]
 [ext_resource type="PackedScene" uid="uid://bw53tpt7gvpsd" path="res://Scenes/gimics/ReversePlante.tscn" id="6_15fwv"]
 [ext_resource type="PackedScene" uid="uid://b8mioe85y385d" path="res://Scenes/gimics/ReversePlanteDesert.tscn" id="7_3eaxo"]
-[ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Test_MP/gimics/plateform_default/movingPlatform.tscn" id="8_uno31"]
+[ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Scenes/gimics/plateform_jaune_default/movingPlatform.tscn" id="8_uno31"]
 [ext_resource type="PackedScene" uid="uid://dg2w3v2m4ywsk" path="res://Scenes/gimics/PorteCouleurs.tscn" id="9_v5ly5"]
 [ext_resource type="PackedScene" uid="uid://d66gff4ytqiu" path="res://Scenes/gimics/Entrer_Niveau.tscn" id="10_nvd1r"]
 [ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="12_44jml"]

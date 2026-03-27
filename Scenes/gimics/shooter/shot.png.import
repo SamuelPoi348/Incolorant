@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxy7s0fofw27i"
-path="res://.godot/imported/plateforme_jaune.png-0260e2f488c3c9fae750c0ebcceb71fa.ctex"
+uid="uid://dnij72l4v2tve"
+path="res://.godot/imported/shot.png-1be063fef1a2e1185c70b8a6f3964803.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Test_MP/gimics/plateform_default/plateforme_jaune.png"
-dest_files=["res://.godot/imported/plateforme_jaune.png-0260e2f488c3c9fae750c0ebcceb71fa.ctex"]
+source_file="res://Scenes/gimics/shooter/shot.png"
+dest_files=["res://.godot/imported/shot.png-1be063fef1a2e1185c70b8a6f3964803.ctex"]
 
 [params]
 
