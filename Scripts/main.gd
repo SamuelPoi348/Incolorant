@@ -7,17 +7,17 @@ signal color_changed(new_color: String)
 var scene_stack: Array[PackedScene] = []
 var couleur_active: String = ""
 var selecting_color := false
-var colorux =0;
+var colorux =59;
 var icone_rouge =true;
 var icone_jaune =true;
 var icone_bleu =true;
 var icone_vert =true;
 
-var dash=true
-var double_saut=true
-var colorux_detector=true
-var teleporter_to_portail=true
-var golden_colorux=true
+var colorux_detector=false
+var dash=false
+var double_saut=false
+var teleporter_to_portail=false
+var golden_colorux=false
 
 
 # Colorux collectés par niveau

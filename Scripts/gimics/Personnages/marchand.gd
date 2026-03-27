@@ -2,6 +2,7 @@ extends Node2D
 
 var player_in_range = false
 @export var niveau = ""
+var boutique_ok=false
 var merchant_dialog_active: Array[String] =[]
 var merchant_dialog1: Array[String] = [
 	"Bienvenue, petit !",
@@ -53,10 +54,23 @@ func _ready():
 		merchant_dialog_active=merchant_dialog5
 		
 		
+func _process(delta):
+	if player_in_range and boutique_ok and !DialogManager.is_dialog_active:
+		boutique_ok = false
+		
+		# ouvrir la boutique
+		var shop = get_tree().current_scene.find_child("MarchandInventaire", true, false)
+		if shop:
+			shop.visible = true
+			get_tree().paused = true
+	
 func _unhandled_input(event):
 	if event.is_action_pressed("interagir") and player_in_range:
 		if !DialogManager.is_dialog_active:
 			DialogManager.start_dialog(global_position + Vector2(50,50), merchant_dialog_active)
+			
+			if niveau != "plage":
+				boutique_ok = true
 
 
 func _on_body_entered(body: Node2D) -> void:
