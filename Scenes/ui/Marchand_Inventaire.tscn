@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://cvce3rjro7uv8"]
+
+[ext_resource type="Script" uid="uid://bhhy3w2evxplv" path="res://Scripts/gimics/Personnages/marchand_inventaire.gd" id="1_fsvwq"]
+[ext_resource type="Texture2D" uid="uid://do6yl68kqxfgt" path="res://Sprites/Pause.png" id="2_d7bvp"]
+[ext_resource type="Texture2D" uid="uid://btwhqa1b2e57n" path="res://Sprites/object/colorux_object.png" id="3_rtcty"]
+[ext_resource type="Texture2D" uid="uid://do6mc5qpxec3t" path="res://Sprites/object/dash_object.png" id="4_s1psr"]
+[ext_resource type="Texture2D" uid="uid://620i6o5cqkxc" path="res://Sprites/colorux.png" id="4_s20bi"]
+[ext_resource type="Texture2D" uid="uid://buhlr8dijhbi1" path="res://Sprites/object/jump_object.png" id="5_s20bi"]
+[ext_resource type="Texture2D" uid="uid://cuaeti3yq8naj" path="res://Sprites/object/tptp_object.png" id="6_e4jpi"]
+[ext_resource type="Texture2D" uid="uid://dquunryyweii4" path="res://Sprites/object/Golden_object.png" id="7_sf2k4"]
+
+[sub_resource type="Gradient" id="Gradient_on1ie"]
+colors = PackedColorArray(0.5037685, 0.5037685, 0.50376844, 1, 0.47553682, 0.47553688, 0.47553682, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6benb"]
+gradient = SubResource("Gradient_on1ie")
+
+[node name="MarchandInventaire" type="Control" unique_id=160752201]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fsvwq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=720419948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d7bvp")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=844231193]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -453.0
+offset_top = -204.0
+offset_right = 453.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_6benb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect2" unique_id=514355443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Item0" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1284861874]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item0" unique_id=629465753]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Item1" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=251604271]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item1" unique_id=1383120957]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_rtcty")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item1" unique_id=1642282761]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Colorux finder: vous permet de traquer le colorux le plus proche vous pouvez aussi le désactiver"
+
+[node name="Item11" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=504985923]
+layout_mode = 2
+
+[node name="btn_colorux_finder" type="Button" parent="TextureRect2/VBoxContainer/Item11" unique_id=1531241279]
+layout_mode = 2
+text = "Acheter"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item11" unique_id=600526707]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_s20bi")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item11" unique_id=1271764054]
+layout_mode = 2
+text = "x3"
+
+[node name="Item2" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1000291086]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item2" unique_id=290961644]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_s1psr")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item2" unique_id=677247849]
+layout_mode = 2
+text = "Flame exalté: vous permet d'appuyer sur espace pour ensuite vous faire avancé à toute vitesse"
+
+[node name="Item21" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1966035249]
+layout_mode = 2
+
+[node name="Btn_flame" type="Button" parent="TextureRect2/VBoxContainer/Item21" unique_id=1162305316]
+layout_mode = 2
+text = "Acheter"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item21" unique_id=2060873826]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_s20bi")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item21" unique_id=1382767512]
+layout_mode = 2
+text = "x9"
+
+[node name="Item3" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1209085536]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item3" unique_id=304140189]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_s20bi")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item3" unique_id=782154409]
+layout_mode = 2
+text = "Jump Jump fruit: vous permet de faire un deuxième saut"
+
+[node name="Item31" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1565141635]
+layout_mode = 2
+
+[node name="btn_fruit" type="Button" parent="TextureRect2/VBoxContainer/Item31" unique_id=1249826349]
+layout_mode = 2
+text = "Acheter"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item31" unique_id=1115520365]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_s20bi")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item31" unique_id=2110055828]
+layout_mode = 2
+text = "x9"
+
+[node name="Item4" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=735334696]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item4" unique_id=619035852]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("6_e4jpi")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item4" unique_id=863999850]
+layout_mode = 2
+text = "Livre TPTP:  une téléportation vers un téléporteur si l'endroit à déja été explorer au par avant (touche p)"
+
+[node name="Item41" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1729486069]
+layout_mode = 2
+
+[node name="btn_TPTP" type="Button" parent="TextureRect2/VBoxContainer/Item41" unique_id=291457346]
+layout_mode = 2
+text = "Acheter"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item41" unique_id=487657052]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_s20bi")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item41" unique_id=1688470327]
+layout_mode = 2
+text = "x9"
+
+[node name="Item5" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1662738406]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item5" unique_id=525574321]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("7_sf2k4")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item5" unique_id=813752076]
+layout_mode = 2
+text = "Colorux d'orée: un cadeau du marchand au moins l'odeur n'est pas mauvaise"
+
+[node name="Item51" type="HBoxContainer" parent="TextureRect2/VBoxContainer" unique_id=1475896451]
+layout_mode = 2
+
+[node name="btn_golden" type="Button" parent="TextureRect2/VBoxContainer/Item51" unique_id=565389280]
+layout_mode = 2
+text = "Acheter"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/VBoxContainer/Item51" unique_id=2135246414]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_s20bi")
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer/Item51" unique_id=1586210879]
+layout_mode = 2
+text = "x9"
+
+[node name="Label" type="Label" parent="." unique_id=393484834]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_right = 57.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Objet en vente"
+
+[node name="Button" type="Button" parent="." unique_id=1890003441]
+layout_mode = 1
+offset_left = 123.0
+offset_top = 120.0
+offset_right = 184.0
+offset_bottom = 151.0
+text = "Retour"
+
+[connection signal="button_down" from="TextureRect2/VBoxContainer/Item11/btn_colorux_finder" to="." method="_on_btn_colorux_finder_button_down"]
+[connection signal="button_down" from="TextureRect2/VBoxContainer/Item21/Btn_flame" to="." method="_on_btn_flame_button_down"]
+[connection signal="button_down" from="TextureRect2/VBoxContainer/Item31/btn_fruit" to="." method="_on_btn_fruit_button_down"]
+[connection signal="button_down" from="TextureRect2/VBoxContainer/Item41/btn_TPTP" to="." method="_on_btn_tptp_button_down"]
+[connection signal="button_down" from="TextureRect2/VBoxContainer/Item51/btn_golden" to="." method="_on_btn_golden_button_down"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

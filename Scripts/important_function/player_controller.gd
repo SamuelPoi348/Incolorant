@@ -118,7 +118,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_power * jump_multiplier
 		main_sm.dispatch(&"to_jump")
-		double_saut_ok=true
 
 	if Input.is_action_just_pressed("dash") and dash_ok:
 		dash_ok=false
@@ -135,6 +134,7 @@ func _physics_process(delta: float) -> void:
 		
 	if is_on_floor():
 		dash_ok=true
+		double_saut_ok=true
 	
 	if Input.is_action_just_pressed("shoot") and couleur_active == "rouge":
 		main_sm.dispatch(&"to_shoot")
