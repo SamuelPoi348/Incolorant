@@ -3,6 +3,7 @@ class_name PlayerController
 
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var color_selector = $"../../CanvasLayer/ColorSelector"
+@onready var detecteur: Node2D = $Détecteur
 
 @export var speed: float = 10.0
 @export var jump_power: float = 10.0
@@ -59,6 +60,7 @@ func _ready():
 	tp_ok = main.scene_courante in main.niveaux_completes
 	# Connection au signal de changement de couleur
 	color_selector.color_changed.connect(Callable(self, "_on_color_changed"))
+	detecteur.visible = main.detector_ok
 	
 func _load_keybindings_from_settings():
 	var keybindings = ConfigFileHandler.load_keybindings()
@@ -68,6 +70,16 @@ func _load_keybindings_from_settings():
 
 func _process(delta):
 	main = get_tree().root.get_node("Main")
+	
+	# Mise à jour visibilité du détecteur selon presence de Colorux
+	var closest_colorux = find_closest_colorux()
+	detecteur.visible = main.detector_ok and closest_colorux != null
+	
+	# Positionner le détecteur devant le joueur et orienter vers le colorux
+	if detecteur.visible:
+		update_detecteur_position(closest_colorux)
+	
+	# Ton code existant
 	if main.double_saut ==  false:
 		double_saut_ok=false
 	if main.dash == false:
@@ -357,3 +369,33 @@ func tp_to_portal():
 	if portal:
 		velocity = Vector2.ZERO
 		global_position = portal.global_position
+		
+func update_detecteur_position(target: Node2D):
+	var orbit_radius = 0  # distance entre le joueur et le détecteur
+	var orbit_angle = 0.0  # tu peux modifier si tu veux le décaler
+
+	# Position en orbite autour du joueur
+	var offset = Vector2(cos(orbit_angle), sin(orbit_angle)) * orbit_radius
+	detecteur.global_position = global_position + offset
+
+	# Faire pointer le détecteur vers le Colorux le plus proche
+	if target:
+		var dir = (target.global_position - detecteur.global_position).normalized()
+		var pivot_correction = deg_to_rad(90)
+		detecteur.rotation = dir.angle() +pivot_correction
+		
+func find_closest_colorux() -> Node2D:
+	var container = get_node("../../ColoruxContainer")
+	if container == null:
+		print("❌ ColoruxContainer introuvable !")
+		return null
+	
+	var closest = null
+	var min_dist = INF
+	for c in container.get_children():
+		var dist = global_position.distance_to(c.global_position)
+		if dist < min_dist:
+			min_dist = dist
+			closest = c
+	
+	return closest
