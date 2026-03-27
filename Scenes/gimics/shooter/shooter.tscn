@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://coulgnnwe8dm7"]
 
-[ext_resource type="Script" uid="uid://bbxuo2i8rqjy1" path="res://Test_MP/gimics/shooter/shooter.gd" id="1_6wica"]
-[ext_resource type="Texture2D" uid="uid://cvpao3fiw05we" path="res://Test_MP/gimics/shooter/shooter.png" id="2_elo53"]
-[ext_resource type="PackedScene" uid="uid://ctpuabmocb0x1" path="res://Test_MP/gimics/shooter/shot.tscn" id="2_q3fcx"]
+[ext_resource type="Script" uid="uid://bbxuo2i8rqjy1" path="res://Scenes/gimics/shooter/shooter.gd" id="1_6wica"]
+[ext_resource type="Texture2D" uid="uid://c7tfy031r8l8t" path="res://Scenes/gimics/shooter/shooter.png" id="2_elo53"]
+[ext_resource type="PackedScene" uid="uid://ctpuabmocb0x1" path="res://Scenes/gimics/shooter/shot.tscn" id="2_q3fcx"]
 
 [node name="Shooter" type="Node2D" unique_id=1948774045]
 script = ExtResource("1_6wica")

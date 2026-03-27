@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4ai0r5j7o4gk"
-path="res://.godot/imported/ChefVert.png-776f7f5226c8474f5a89bff6252827ee.ctex"
+uid="uid://dnij72l4v2tve"
+path="res://.godot/imported/shot.png-1be063fef1a2e1185c70b8a6f3964803.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Personnages/ChefVert.png"
-dest_files=["res://.godot/imported/ChefVert.png-776f7f5226c8474f5a89bff6252827ee.ctex"]
+source_file="res://Scenes/gimics/shooter/shot.png"
+dest_files=["res://.godot/imported/shot.png-1be063fef1a2e1185c70b8a6f3964803.ctex"]
 
 [params]
 

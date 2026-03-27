@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyfxd1ke4e8x"
-path="res://.godot/imported/shot.png-4d3c0a4723431f247d4876cb336b01f1.ctex"
+uid="uid://veok4iaompoi"
+path="res://.godot/imported/CitoyenBleu.png-fa2284c8380e577558f497fdd05a7828.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Test_MP/gimics/shooter/shot.png"
-dest_files=["res://.godot/imported/shot.png-4d3c0a4723431f247d4876cb336b01f1.ctex"]
+source_file="res://Sprites/Personnages/CitoyenBleu.png"
+dest_files=["res://.godot/imported/CitoyenBleu.png-fa2284c8380e577558f497fdd05a7828.ctex"]
 
 [params]
 

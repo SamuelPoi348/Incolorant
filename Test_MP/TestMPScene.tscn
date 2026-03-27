@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cjcfnu7ka4871" path="res://Sprites/tiles_1.png" id="1_3ninb"]
 [ext_resource type="PackedScene" uid="uid://d2o7b31vqmebb" path="res://Scenes/important_function/player.tscn" id="2_2wmqj"]
 [ext_resource type="PackedScene" uid="uid://chyov13l0o7f" path="res://Scenes/ui/ColorSelector.tscn" id="3_2oupk"]
-[ext_resource type="PackedScene" uid="uid://coulgnnwe8dm7" path="res://Test_MP/gimics/shooter/shooter.tscn" id="4_qho23"]
-[ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Test_MP/gimics/plateform_default/movingPlatform.tscn" id="5_2wmqj"]
+[ext_resource type="PackedScene" uid="uid://coulgnnwe8dm7" path="res://Scenes/gimics/shooter/shooter.tscn" id="4_qho23"]
+[ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Scenes/gimics/plateform_jaune_default/movingPlatform.tscn" id="5_2wmqj"]
 [ext_resource type="PackedScene" uid="uid://dstmx7x8egju0" path="res://Scenes/gimics/Plante.tscn" id="6_qho23"]
 [ext_resource type="PackedScene" uid="uid://bto7esom5i4ec" path="res://Scenes/gimics/Socle_Rouge.tscn" id="7_lks6b"]
 
