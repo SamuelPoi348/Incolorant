@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://h6tifemeokta" path="res://Sprites/FV.png" id="7_aidfs"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_vwdr7"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_d5war"]
+[ext_resource type="PackedScene" uid="uid://ds0o6yag3whp1" path="res://Scenes/gimics/Personnages/Chef_vert.tscn" id="12_jsvk0"]
+[ext_resource type="PackedScene" uid="uid://hp1jt4hevp6k" path="res://Scenes/gimics/Icones/Icone_Vert.tscn" id="13_u4ihs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4l8n4"]
 texture = ExtResource("1_vwdr7")
@@ -309,6 +311,20 @@ id_colorux = "FV-2-C2"
 position = Vector2(165, -164)
 id_colorux = "FV-2-C3"
 
+[node name="Personnages" type="Node2D" parent="." unique_id=1604909183]
+
+[node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_d5war")]
+position = Vector2(55, -80)
+niveau = "forêt"
+
+[node name="ChefVert" parent="Personnages" unique_id=1429482905 instance=ExtResource("12_jsvk0")]
+position = Vector2(180, -72)
+
+[node name="objet" type="Node2D" parent="." unique_id=674032018]
+
+[node name="IconeVert" parent="objet" unique_id=856214282 instance=ExtResource("13_u4ihs")]
+position = Vector2(185, -157)
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=319021728]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=488871940]
@@ -321,9 +337,3 @@ z_index = -4096
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_aidfs")
-
-[node name="Personnages" type="Node2D" parent="." unique_id=1604909183]
-
-[node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_d5war")]
-position = Vector2(55, -80)
-niveau = "forêt"

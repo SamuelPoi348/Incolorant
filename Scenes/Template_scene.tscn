@@ -843,3 +843,5 @@ offset_bottom = 8.0
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_a4o6c")]
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1135758416]
+
+[node name="objet" type="Node2D" parent="." unique_id=582796078]

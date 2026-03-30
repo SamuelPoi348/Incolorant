@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="7_gnbre"]
 [ext_resource type="PackedScene" uid="uid://cvce3rjro7uv8" path="res://Scenes/ui/Marchand_Inventaire.tscn" id="7_hhuti"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_t3gkf"]
+[ext_resource type="PackedScene" uid="uid://d1rgljw3n5ree" path="res://Scenes/gimics/Icones/Icone_Rouge.tscn" id="11_gsvdn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1cic"]
 texture = ExtResource("1_56t25")
@@ -309,6 +310,17 @@ id_colorux = "VR-2-C2"
 position = Vector2(155, -150)
 id_colorux = "VR-2-C3"
 
+[node name="Personnages" type="Node2D" parent="." unique_id=1413784151]
+
+[node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_t3gkf")]
+position = Vector2(38, -80)
+niveau = "volcan"
+
+[node name="objet" type="Node2D" parent="." unique_id=910938587]
+
+[node name="IconeRouge" parent="objet" unique_id=813626161 instance=ExtResource("11_gsvdn")]
+position = Vector2(181, -144)
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=919726807]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1255828594]
@@ -320,9 +332,3 @@ z_index = -4096
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_gnbre")
-
-[node name="Personnages" type="Node2D" parent="." unique_id=1413784151]
-
-[node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_t3gkf")]
-position = Vector2(38, -80)
-niveau = "volcan"

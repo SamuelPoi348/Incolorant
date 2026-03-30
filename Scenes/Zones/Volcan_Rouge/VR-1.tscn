@@ -316,3 +316,5 @@ motion_mirroring = Vector2(720, 480)
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_wni4q")
+
+[node name="objet" type="Node2D" parent="." unique_id=1629813995]

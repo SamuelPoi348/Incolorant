@@ -305,6 +305,8 @@ id_colorux = "FV-3-C2"
 position = Vector2(155, -153)
 id_colorux = "FV-3-C3"
 
+[node name="Objet" type="Node2D" parent="." unique_id=1539990687]
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1895798271]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=877795032]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://h4e0re1p7u06"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kr7o"]
+
+[node name="HabitantBleu" type="Area2D" unique_id=646324395]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866118146]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752512267]
+sprite_frames = SubResource("SpriteFrames_3kr7o")

@@ -297,6 +297,8 @@ id_colorux = "DJ-1-C2"
 position = Vector2(152, -156)
 id_colorux = "DJ-1-C3"
 
+[node name="objet" type="Node2D" parent="." unique_id=1219051589]
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=845654400]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1920744424]
