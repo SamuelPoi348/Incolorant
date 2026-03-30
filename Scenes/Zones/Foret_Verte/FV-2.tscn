@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cvce3rjro7uv8" path="res://Scenes/ui/Marchand_Inventaire.tscn" id="7_4nbqi"]
 [ext_resource type="Texture2D" uid="uid://h6tifemeokta" path="res://Sprites/FV.png" id="7_aidfs"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_vwdr7"]
+[ext_resource type="PackedScene" uid="uid://cle18v3bes4wa" path="res://Scenes/ui/Tuto/Tuto_Vert.tscn" id="8_u4ihs"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_d5war"]
 [ext_resource type="PackedScene" uid="uid://ds0o6yag3whp1" path="res://Scenes/gimics/Personnages/Chef_vert.tscn" id="12_jsvk0"]
 [ext_resource type="PackedScene" uid="uid://hp1jt4hevp6k" path="res://Scenes/gimics/Icones/Icone_Vert.tscn" id="13_u4ihs"]
@@ -292,10 +293,17 @@ offset_bottom = 8.0
 
 [node name="MarchandInventaire" parent="CanvasLayer" unique_id=160752201 instance=ExtResource("7_4nbqi")]
 
+[node name="TutoVert" parent="CanvasLayer" unique_id=987715121 instance=ExtResource("8_u4ihs")]
+
 [node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_ehp7p")]
 position = Vector2(99, -83)
 spawn_position = Vector2(-543, -570)
 niveau_termine = "res://Scenes/Zones/Foret_verte/FV-2.tscn"
+
+[node name="objet" type="Node2D" parent="." unique_id=674032018]
+
+[node name="IconeVert" parent="objet" unique_id=856214282 instance=ExtResource("13_u4ihs")]
+position = Vector2(185, -157)
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1081188812]
 
@@ -319,11 +327,6 @@ niveau = "forêt"
 
 [node name="ChefVert" parent="Personnages" unique_id=1429482905 instance=ExtResource("12_jsvk0")]
 position = Vector2(180, -72)
-
-[node name="objet" type="Node2D" parent="." unique_id=674032018]
-
-[node name="IconeVert" parent="objet" unique_id=856214282 instance=ExtResource("13_u4ihs")]
-position = Vector2(185, -157)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=319021728]
 
