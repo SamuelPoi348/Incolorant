@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_commencer_button_down() -> void:
 	await get_tree().create_timer(1).timeout
-	get_tree().root.get_node("Main").change_scene(l1)
+	get_tree().root.get_node("Main").change_scene(test)
 
 
 func _on_option_button_down() -> void:

@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://dwp1il8wx855r"]
+
+[ext_resource type="Script" uid="uid://dsvg4swqct0fh" path="res://Scripts/Tuto/tuto_rouge.gd" id="1_iftwl"]
+[ext_resource type="Texture2D" uid="uid://dgkdaxaj1i1y" path="res://Sprites/Sphere_Rouge.png" id="2_raeji"]
+[ext_resource type="Texture2D" uid="uid://brmbkwajoq4ev" path="res://Sprites/red_block.png" id="3_jreil"]
+[ext_resource type="Texture2D" uid="uid://df8ge7s1223dn" path="res://Sprites/socle.png" id="4_2js52"]
+[ext_resource type="Texture2D" uid="uid://d3ybi31osxp26" path="res://Sprites/Récepteur.png" id="5_uwity"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxxxu"]
+atlas = ExtResource("2_raeji")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0v6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxxxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doc72"]
+atlas = ExtResource("3_jreil")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyenq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doc72")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebrrc"]
+atlas = ExtResource("4_2js52")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywi5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebrrc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbj5s"]
+atlas = ExtResource("5_uwity")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25lt4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbj5s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TutoRouge" type="Control" unique_id=4588583 groups=["tuto_rouge"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iftwl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1268785091]
+layout_mode = 0
+offset_right = 498.0
+offset_bottom = 281.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1159218532]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Fermé"
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=947986240]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+text = "Une fois la couleur rouge activée, vous pouvez 
+détruire certains blocs et 
+projeter une force rouge avec R."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=762188723]
+position = Vector2(217, 202)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_t0v6g")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect" unique_id=1513771118]
+position = Vector2(59, 146)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wyenq")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ColorRect" unique_id=687503746]
+position = Vector2(216, 203)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ywi5u")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="ColorRect" unique_id=1379942181]
+position = Vector2(321, 200)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_25lt4")
+
+[connection signal="button_down" from="ColorRect/Button" to="." method="_on_button_button_down"]

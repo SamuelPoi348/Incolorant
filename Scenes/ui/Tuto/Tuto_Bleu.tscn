@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://l0e5lv8ksfk8"]
+
+[ext_resource type="Script" uid="uid://7o2cblvqrqs" path="res://Scripts/Tuto/tuto_bleu.gd" id="1_ktmy7"]
+[ext_resource type="Texture2D" uid="uid://c7tfy031r8l8t" path="res://Scenes/gimics/shooter/shooter.png" id="2_b0dnr"]
+[ext_resource type="Texture2D" uid="uid://dnij72l4v2tve" path="res://Scenes/gimics/shooter/shot.png" id="3_8eojw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beu3g"]
+atlas = ExtResource("2_b0dnr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of7gb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beu3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsjab"]
+atlas = ExtResource("3_8eojw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lrre1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsjab")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TutoBleu" type="Control" unique_id=878060377 groups=["tuto_bleu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktmy7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=620993186]
+layout_mode = 0
+offset_right = 498.0
+offset_bottom = 281.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1714430500]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Fermé"
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1230486529]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 20
+text = "Une fois la couleur bleue active, tous les
+ projectiles bleus environnants seront ralentis."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=814896792]
+position = Vector2(85, 213)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_of7gb")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect" unique_id=490516014]
+position = Vector2(86, 155)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lrre1")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ColorRect" unique_id=422335661]
+position = Vector2(86, 191)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lrre1")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="ColorRect" unique_id=758402461]
+position = Vector2(86, 173)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lrre1")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="ColorRect" unique_id=116960792]
+position = Vector2(185, 214)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_of7gb")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="ColorRect" unique_id=744102807]
+position = Vector2(184, 90.00001)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lrre1")
+
+[connection signal="button_down" from="ColorRect/Button" to="." method="_on_button_button_down"]

@@ -10,7 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_eexp4"]
 [ext_resource type="PackedScene" uid="uid://dstmx7x8egju0" path="res://Scenes/gimics/Plante.tscn" id="6_l8k0f"]
 [ext_resource type="PackedScene" uid="uid://bto7esom5i4ec" path="res://Scenes/gimics/Socle_Rouge.tscn" id="7_5of7f"]
+[ext_resource type="PackedScene" uid="uid://l0e5lv8ksfk8" path="res://Scenes/ui/Tuto/Tuto_Bleu.tscn" id="7_nt830"]
+[ext_resource type="PackedScene" uid="uid://cle18v3bes4wa" path="res://Scenes/ui/Tuto/Tuto_Vert.tscn" id="8_2gv0a"]
+[ext_resource type="PackedScene" uid="uid://icsjk8c3nybk" path="res://Scenes/ui/Tuto/Tuto_Jaune.tscn" id="9_uoacr"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="9_w77cg"]
+[ext_resource type="PackedScene" uid="uid://dwp1il8wx855r" path="res://Scenes/ui/Tuto/Tuto_Rouge.tscn" id="10_fchqj"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/Red_Block.tscn" id="11_mrr4h"]
 [ext_resource type="PackedScene" uid="uid://bp0cyd54jqawu" path="res://Scenes/gimics/Icones/Icone_Bleu.tscn" id="12_1x5pa"]
 [ext_resource type="PackedScene" uid="uid://hp1jt4hevp6k" path="res://Scenes/gimics/Icones/Icone_Vert.tscn" id="13_eexp4"]
@@ -852,6 +856,14 @@ offset_bottom = 8.0
 [node name="Inventaire" parent="CanvasLayer" unique_id=231182733 instance=ExtResource("5_358af")]
 
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_eexp4")]
+
+[node name="TutoBleu" parent="CanvasLayer" unique_id=878060377 instance=ExtResource("7_nt830")]
+
+[node name="TutoVert" parent="CanvasLayer" unique_id=987715121 instance=ExtResource("8_2gv0a")]
+
+[node name="TutoJaune" parent="CanvasLayer" unique_id=855135342 instance=ExtResource("9_uoacr")]
+
+[node name="TutoRouge" parent="CanvasLayer" unique_id=4588583 instance=ExtResource("10_fchqj")]
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1366766055]
 position = Vector2(0, -3)

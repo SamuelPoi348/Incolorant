@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cle18v3bes4wa"]
+
+[ext_resource type="Script" uid="uid://bj7bsokuxh3fo" path="res://Scripts/Tuto/tuto_vert.gd" id="1_mg5ed"]
+[ext_resource type="Texture2D" uid="uid://b0a3whf0vfj7" path="res://Sprites/plante.png" id="2_sef1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t082g"]
+atlas = ExtResource("2_sef1u")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj107"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t082g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sef1u"]
+atlas = ExtResource("2_sef1u")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t082g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sef1u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TutoVert" type="Control" unique_id=987715121 groups=["tuto_vert"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mg5ed")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1508261408]
+layout_mode = 0
+offset_right = 498.0
+offset_bottom = 281.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1768209908]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Fermé"
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=686391507]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Une fois la couleur verte activer vous pouvez changer de mode 
+avec T pour le mode qui permet la croissance de plante ou 
+la dégradation de celles-ci."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=1170610218]
+position = Vector2(391, 110)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mj107")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect" unique_id=974795325]
+position = Vector2(393, 150)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_t082g")
+flip_h = true
+
+[connection signal="button_down" from="ColorRect/Button" to="." method="_on_button_button_down"]

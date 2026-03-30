@@ -1,7 +1,17 @@
 extends Area2D
 
+var main
 
+func _ready():
+	main = get_tree().root.get_node("Main")
+	if main.icone_vert:
+		visible=false
+	pass
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerController:
-		get_tree().root.get_node("Main").icone_vert = true
-		queue_free() # optionnel si c'est un collectible
+		main.icone_vert = true
+		for node in get_tree().get_nodes_in_group("tuto_vert"):
+			node.visible = true
+		
+		queue_free()

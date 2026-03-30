@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://icsjk8c3nybk"]
+
+[ext_resource type="Texture2D" uid="uid://dxxcoyj642db7" path="res://Scenes/gimics/plateform_jaune_default/plateforme_jaune.png" id="1_bqaqv"]
+[ext_resource type="Script" uid="uid://hqkht8p4a4w5" path="res://Scripts/Tuto/tuto_jaune.gd" id="1_v62em"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v62em"]
+atlas = ExtResource("1_bqaqv")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_re1db"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v62em")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TutoJaune" type="Control" unique_id=855135342 groups=["tuto_jaune"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v62em")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1020167764]
+layout_mode = 1
+offset_right = 498.0
+offset_bottom = 281.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=2077396563]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Fermé"
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1920263413]
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 20
+text = "Une fois la couleur jaune active,en appuyant sur T 
+ des platformes jaune méchanique se déplaceront."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=130214358]
+position = Vector2(60, 168)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_re1db")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect" unique_id=151957393]
+position = Vector2(366, 236)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_re1db")
+
+[connection signal="button_down" from="ColorRect/Button" to="." method="_on_button_button_down"]
