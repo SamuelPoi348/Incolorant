@@ -318,5 +318,7 @@ position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_7ftom")
 
-[node name="Shooter" parent="." unique_id=1948774045 instance=ExtResource("10_7ad7y")]
+[node name="objet" type="Node2D" parent="." unique_id=133279544]
+
+[node name="Shooter" parent="objet" unique_id=1948774045 instance=ExtResource("10_7ad7y")]
 position = Vector2(-113, -72)

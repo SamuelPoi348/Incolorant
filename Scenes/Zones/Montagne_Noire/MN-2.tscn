@@ -294,6 +294,8 @@ position = Vector2(93, -65)
 spawn_position = Vector2(-3, -1176)
 niveau_termine = "res://Scenes/Zones/Montagne_Noire/MN-2.tscn"
 
+[node name="Objet" type="Node2D" parent="." unique_id=699282270]
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1595360052]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=946403035]

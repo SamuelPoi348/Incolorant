@@ -17,7 +17,9 @@ var input_actions = {
 	"switch_incolorant_mode": "intéraction spéciale (jaune et vert)",
 	"color_select": "changement de couleur",
 	"interagir": "intéragir",
-	"inventaire": "inventaire"
+	"inventaire": "inventaire",
+	"dash":"dash",
+	"tp":"téléporter"
 }
 
 func _ready():

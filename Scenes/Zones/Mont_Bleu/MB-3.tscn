@@ -306,6 +306,8 @@ id_colorux = "MB-3-C2"
 position = Vector2(174, -157)
 id_colorux = "MB-3-C3"
 
+[node name="objet" type="Node2D" parent="." unique_id=678842342]
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1733175962]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1023610149]

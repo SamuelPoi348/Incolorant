@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_gyws1"]
 [ext_resource type="PackedScene" uid="uid://cvce3rjro7uv8" path="res://Scenes/ui/Marchand_Inventaire.tscn" id="7_xbcb3"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_nqic7"]
+[ext_resource type="PackedScene" uid="uid://b3t3axm8n6ech" path="res://Scenes/gimics/Icones/Icone_Jaune.tscn" id="11_c2q2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyws1"]
 texture = ExtResource("1_gyws1")
@@ -302,6 +303,17 @@ id_colorux = "DJ-2-C2"
 position = Vector2(164, -156)
 id_colorux = "DJ-2-C3"
 
+[node name="Personnages" type="Node2D" parent="." unique_id=2085703030]
+
+[node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_nqic7")]
+position = Vector2(56, -80)
+niveau = "desert"
+
+[node name="objet" type="Node2D" parent="." unique_id=591123508]
+
+[node name="IconeJaune" parent="objet" unique_id=270534899 instance=ExtResource("11_c2q2q")]
+position = Vector2(184, -150)
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1212277100]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=750015702]
@@ -313,9 +325,3 @@ motion_mirroring = Vector2(720, 480)
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_fww6y")
-
-[node name="Personnages" type="Node2D" parent="." unique_id=2085703030]
-
-[node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_nqic7")]
-position = Vector2(56, -80)
-niveau = "desert"

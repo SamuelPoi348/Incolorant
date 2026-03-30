@@ -887,14 +887,14 @@ position = Vector2(106, -56)
 [node name="RécepteurRouge" parent="objet" unique_id=2132520947 instance=ExtResource("13_ov24e")]
 position = Vector2(-187, -64)
 
-[node name="IconeBleu" parent="." unique_id=308775690 instance=ExtResource("12_1x5pa")]
+[node name="IconeBleu" parent="objet" unique_id=308775690 instance=ExtResource("12_1x5pa")]
 position = Vector2(57, -98)
 
-[node name="IconeVert" parent="." unique_id=856214282 instance=ExtResource("13_eexp4")]
+[node name="IconeVert" parent="objet" unique_id=856214282 instance=ExtResource("13_eexp4")]
 position = Vector2(-55, -96)
 
-[node name="IconeJaune" parent="." unique_id=270534899 instance=ExtResource("14_ov24e")]
+[node name="IconeJaune" parent="objet" unique_id=270534899 instance=ExtResource("14_ov24e")]
 position = Vector2(89, -112)
 
-[node name="IconeRouge" parent="." unique_id=813626161 instance=ExtResource("15_7dpnj")]
+[node name="IconeRouge" parent="objet" unique_id=813626161 instance=ExtResource("15_7dpnj")]
 position = Vector2(-88, -112)
