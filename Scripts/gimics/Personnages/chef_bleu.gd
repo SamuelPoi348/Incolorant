@@ -18,7 +18,9 @@ var chef_rouge_dialogue_active_2: Array[String] = [
 func _process(delta: float) -> void:
 	if DialogManager.is_dialog_active:
 		anim.play("default")
-		
+	else:
+		anim.stop()
+
 func _unhandled_input(event):
 	if event.is_action_pressed("interagir") and player_in_range:
 		if !DialogManager.is_dialog_active:
