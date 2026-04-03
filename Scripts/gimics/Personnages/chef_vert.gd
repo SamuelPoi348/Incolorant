@@ -20,6 +20,15 @@ var chef_vert_dialog_active: Array[String] = [
 	"mais c’était dans un des manuscrits de mes ancêtres."
 ]
 
+func _ready():
+	DialogManager.dialog_finished.connect(_on_dialog_finished)
+	
+func _on_dialog_finished():
+	var portes = get_tree().get_nodes_in_group("Porte_Verte")
+	
+	for porte in portes:
+		porte.ouvrir_ok = true
+		
 func _process(delta: float) -> void:
 	if DialogManager.is_dialog_active:
 		anim.play("default")

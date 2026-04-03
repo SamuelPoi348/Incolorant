@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://btsiftm52hy07" path="res://Scenes/gimics/maison_vert.tscn" id="23_7xtpk"]
 [ext_resource type="PackedScene" uid="uid://ds0o6yag3whp1" path="res://Scenes/gimics/Personnages/Chef_vert.tscn" id="23_srr3l"]
 [ext_resource type="PackedScene" uid="uid://csn0janf5mk7b" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="24_q2wbp"]
+[ext_resource type="PackedScene" uid="uid://b6s0t1rtwemwf" path="res://Scenes/gimics/Porte_verte.tscn" id="24_yehb6"]
 [ext_resource type="PackedScene" uid="uid://bt40rv0xp8neq" path="res://Scenes/gimics/Personnages/Chef_Jaune.tscn" id="26_38v75"]
 [ext_resource type="PackedScene" uid="uid://bbh3h6hu2ckvs" path="res://Scenes/gimics/Personnages/Chef_bleu.tscn" id="27_7xtpk"]
 
@@ -972,7 +973,7 @@ offset_bottom = 8.0
 position = Vector2(0, -3)
 
 [node name="Colorux" parent="ColoruxContainer" unique_id=1446487818 instance=ExtResource("9_w77cg")]
-position = Vector2(0, -131)
+position = Vector2(-12, -179)
 
 [node name="objet" type="Node2D" parent="." unique_id=496070941]
 
@@ -1016,15 +1017,18 @@ position = Vector2(-85, -177)
 
 [node name="Plante2" parent="objet" unique_id=338373719 instance=ExtResource("22_srr3l")]
 position = Vector2(-367, -97)
-rotation = 3.1415927
+scale = Vector2(1, 1)
 
 [node name="MaisonVert" parent="objet" unique_id=398922662 instance=ExtResource("23_7xtpk")]
 position = Vector2(-76, -49)
 
+[node name="PorteVerte" parent="objet" unique_id=2006696984 instance=ExtResource("24_yehb6")]
+position = Vector2(69, -48)
+
 [node name="Personnages" type="Node2D" parent="." unique_id=28805610]
 
 [node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("22_fchqj")]
-position = Vector2(8, -192)
+position = Vector2(20, -192)
 
 [node name="ChefVert" parent="Personnages" unique_id=1429482905 instance=ExtResource("23_srr3l")]
 position = Vector2(-151, -104)
