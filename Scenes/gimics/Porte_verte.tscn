@@ -63,13 +63,32 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gykxu"]
 size = Vector2(30, 43)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc6l1"]
+size = Vector2(30, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi61x"]
+size = Vector2(24, 9)
+
 [node name="PorteVerte" type="StaticBody2D" unique_id=1084665636 groups=["Porte_Verte"]]
 script = ExtResource("1_fc6l1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=195595253]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_kdhro")
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207695149]
 position = Vector2(0, -21.5)
 shape = SubResource("RectangleShape2D_gykxu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2088024724]
+position = Vector2(0, -38.25)
+shape = SubResource("RectangleShape2D_fc6l1")
+
+[node name="CS2D" type="Area2D" parent="." unique_id=1888369481]
+position = Vector2(0, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CS2D" unique_id=916421905]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_fi61x")
