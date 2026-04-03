@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://b6ojxcomqhpc8"]
+
+[ext_resource type="Script" uid="uid://d0w0jkqud7gis" path="res://Scripts/gimics/plante.gd" id="1_5hm6c"]
+[ext_resource type="Texture2D" uid="uid://cp2p7uvrvj1w2" path="res://Sprites/GrassPlateform.png" id="2_5hm6c"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5hm6c"]
+a = Vector2(-56, -0.5)
+b = Vector2(72, -0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34yrk"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 0, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fllum"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 16, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cywg7"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 32, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1d5e"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 48, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow7bl"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 64, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1batg"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 80, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a46h4"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 96, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0av0"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 112, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al62y"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 128, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocus0"]
+atlas = ExtResource("2_5hm6c")
+region = Rect2(0, 144, 128, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ld8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34yrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fllum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cywg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1d5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow7bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1batg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a46h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0av0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al62y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocus0")
+}],
+"loop": false,
+"name": &"grow",
+"speed": 5.0
+}]
+
+[node name="Plante" type="StaticBody2D" unique_id=1052336278 groups=["Plante"]]
+collision_layer = 2
+script = ExtResource("1_5hm6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614946437]
+position = Vector2(56, -9.5)
+shape = SubResource("SegmentShape2D_5hm6c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348628331]
+position = Vector2(64, -9)
+sprite_frames = SubResource("SpriteFrames_8ld8s")
+animation = &"grow"
+frame = 9
+frame_progress = 1.0

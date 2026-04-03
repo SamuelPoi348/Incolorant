@@ -22,8 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://b3t3axm8n6ech" path="res://Scenes/gimics/Icones/Icone_Jaune.tscn" id="14_ov24e"]
 [ext_resource type="PackedScene" uid="uid://d1rgljw3n5ree" path="res://Scenes/gimics/Icones/Icone_Rouge.tscn" id="15_7dpnj"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="22_fchqj"]
+[ext_resource type="PackedScene" uid="uid://b6ojxcomqhpc8" path="res://Scenes/gimics/Vine.tscn" id="22_srr3l"]
 [ext_resource type="PackedScene" uid="uid://ds0o6yag3whp1" path="res://Scenes/gimics/Personnages/Chef_vert.tscn" id="23_srr3l"]
 [ext_resource type="PackedScene" uid="uid://csn0janf5mk7b" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="24_q2wbp"]
+[ext_resource type="PackedScene" uid="uid://bt40rv0xp8neq" path="res://Scenes/gimics/Personnages/Chef_Jaune.tscn" id="26_38v75"]
+[ext_resource type="PackedScene" uid="uid://bbh3h6hu2ckvs" path="res://Scenes/gimics/Personnages/Chef_bleu.tscn" id="27_7xtpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nne2s"]
 texture = ExtResource("1_nx0gy")
@@ -914,6 +917,10 @@ position = Vector2(89, -112)
 [node name="IconeRouge" parent="objet" unique_id=813626161 instance=ExtResource("15_7dpnj")]
 position = Vector2(-88, -112)
 
+[node name="Plante2" parent="objet" unique_id=338373719 instance=ExtResource("22_srr3l")]
+position = Vector2(-367, -97)
+rotation = 3.1415927
+
 [node name="Personnages" type="Node2D" parent="." unique_id=28805610]
 
 [node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("22_fchqj")]
@@ -924,3 +931,9 @@ position = Vector2(-151, -104)
 
 [node name="ChefRouge" parent="Personnages" unique_id=2060238255 instance=ExtResource("24_q2wbp")]
 position = Vector2(-216, -112)
+
+[node name="ChefJaune" parent="Personnages" unique_id=528483132 instance=ExtResource("26_38v75")]
+position = Vector2(-280, -111)
+
+[node name="ChefBleu" parent="Personnages" unique_id=1606303333 instance=ExtResource("27_7xtpk")]
+position = Vector2(-342, -104)
