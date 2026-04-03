@@ -1017,7 +1017,7 @@ position = Vector2(-85, -177)
 
 [node name="Plante2" parent="objet" unique_id=338373719 instance=ExtResource("22_srr3l")]
 position = Vector2(-367, -97)
-rotation = 3.1415927
+scale = Vector2(1, 1)
 
 [node name="MaisonVert" parent="objet" unique_id=398922662 instance=ExtResource("23_7xtpk")]
 position = Vector2(-76, -49)

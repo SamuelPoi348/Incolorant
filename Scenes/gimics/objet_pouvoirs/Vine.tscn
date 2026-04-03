@@ -86,6 +86,9 @@ animations = [{
 }]
 
 [node name="Plante" type="StaticBody2D" unique_id=1052336278 groups=["Plante"]]
+position = Vector2(0, -37)
+rotation = 3.1415927
+scale = Vector2(-1, 1)
 collision_layer = 2
 script = ExtResource("1_5hm6c")
 
