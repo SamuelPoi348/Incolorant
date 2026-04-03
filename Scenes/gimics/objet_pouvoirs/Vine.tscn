@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cp2p7uvrvj1w2" path="res://Sprites/GrassPlateform.png" id="2_5hm6c"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5hm6c"]
-a = Vector2(-56, -0.5)
-b = Vector2(72, -0.5)
+a = Vector2(-72, -0.49999332)
+b = Vector2(56, -0.50000477)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_34yrk"]
 atlas = ExtResource("2_5hm6c")
@@ -91,11 +91,11 @@ script = ExtResource("1_5hm6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614946437]
 position = Vector2(56, -9.5)
+rotation = 3.1415927
 shape = SubResource("SegmentShape2D_5hm6c")
+one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348628331]
 position = Vector2(64, -9)
 sprite_frames = SubResource("SpriteFrames_8ld8s")
 animation = &"grow"
-frame = 9
-frame_progress = 1.0
