@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dppgdtjstgjji"]
+
+[ext_resource type="Script" uid="uid://d0w0jkqud7gis" path="res://Scripts/gimics/plante.gd" id="1_k60ig"]
+[ext_resource type="Texture2D" uid="uid://cp2p7uvrvj1w2" path="res://Sprites/GrassPlateform.png" id="2_xkocj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hkdf"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 144, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k60ig"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 0, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1p1k"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 16, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkocj"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 32, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oenom"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 48, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ukfn"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 64, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi221"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 80, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jpgq"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 96, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x623w"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 112, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mye7b"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 128, 128, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exe2t"]
+atlas = ExtResource("2_xkocj")
+region = Rect2(0, 144, 128, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ld8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hkdf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k60ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1p1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkocj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oenom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi221")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jpgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x623w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mye7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exe2t")
+}],
+"loop": false,
+"name": &"grow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17tip"]
+size = Vector2(128, 13)
+
+[node name="Plante" type="StaticBody2D" unique_id=1052336278 groups=["Plante"]]
+script = ExtResource("1_k60ig")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348628331]
+position = Vector2(64, -8)
+sprite_frames = SubResource("SpriteFrames_8ld8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614946437]
+position = Vector2(64, -9.5)
+shape = SubResource("RectangleShape2D_17tip")
+one_way_collision = true

@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://b68yvpymfe46l" path="res://Sprites/MaisonVert.png" id="1_26m0p"]
 
 [node name="MaisonVert" type="StaticBody2D" unique_id=997344036]
+light_mask = 3
+visibility_layer = 512
+z_index = -10
+scale = Vector2(1.5, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=995800923]
 position = Vector2(0, -32)
