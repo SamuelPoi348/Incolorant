@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var anim = $AnimatedSprite2D
 var player_in_range = false
 var chef_vert_dialog_active: Array[String] = [
 	"Tu dois être le nouveau, celui que le marchand a mentionné s’être réveillé.",
@@ -18,11 +19,26 @@ var chef_vert_dialog_active: Array[String] = [
 	"en restant appuyé sur la touche C. Je ne sais pas ce que cela veut dire,",
 	"mais c’était dans un des manuscrits de mes ancêtres."
 ]
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if DialogManager.is_dialog_active:
+		anim.play("default")
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("interagir") and player_in_range:
+		if !DialogManager.is_dialog_active:
+			DialogManager.start_dialog(global_position + Vector2(50,50), chef_vert_dialog_active)
+			
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is PlayerController:
+		player_in_range = true
+	else: 
+		player_in_range = false
+		DialogManager.dialog_lines= []
+
+
+func _on_body_exited(body: Node2D) -> void:
+	player_in_range = false
+	DialogManager.dialog_lines= []

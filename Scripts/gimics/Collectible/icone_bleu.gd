@@ -4,6 +4,7 @@ func _ready():
 	main = get_tree().root.get_node("Main")
 	if main.icone_bleu:
 		visible=false
+		
 	pass
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerController:
