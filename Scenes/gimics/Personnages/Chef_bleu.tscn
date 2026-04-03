@@ -1,10 +1,58 @@
 [gd_scene format=3 uid="uid://bbh3h6hu2ckvs"]
 
+[ext_resource type="Script" uid="uid://6g3dgdy34xr6" path="res://Scripts/gimics/Personnages/chef_bleu.gd" id="1_5xugt"]
+[ext_resource type="Texture2D" uid="uid://ctteleg4wwwsk" path="res://Sprites/Personnages/ChefBleu.png" id="1_jxklm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xugt"]
+atlas = ExtResource("1_jxklm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvk4v"]
+atlas = ExtResource("1_jxklm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or1ht"]
+atlas = ExtResource("1_jxklm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d2ni"]
+atlas = ExtResource("1_jxklm")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mbiqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xugt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvk4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or1ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d2ni")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jymw"]
+size = Vector2(34, 20)
 
 [node name="ChefBleu" type="Area2D" unique_id=1606303333]
+script = ExtResource("1_5xugt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=935783790]
 sprite_frames = SubResource("SpriteFrames_mbiqy")
+frame = 2
+frame_progress = 0.5777565
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1007139790]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_4jymw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

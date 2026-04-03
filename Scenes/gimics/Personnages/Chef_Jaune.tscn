@@ -1,10 +1,51 @@
 [gd_scene format=3 uid="uid://bt40rv0xp8neq"]
 
+[ext_resource type="Script" uid="uid://nthrusbf0eex" path="res://Scripts/gimics/Personnages/chef_jaune.gd" id="1_dvi86"]
+[ext_resource type="Texture2D" uid="uid://ch2436dilqaac" path="res://Sprites/Personnages/ChefJaune.png" id="1_s0org"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvi86"]
+atlas = ExtResource("1_s0org")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5ki6"]
+atlas = ExtResource("1_s0org")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcqxm"]
+atlas = ExtResource("1_s0org")
+region = Rect2(32, 0, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_t02qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvi86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ki6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcqxm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_outfd"]
+size = Vector2(48, 35)
 
 [node name="ChefJaune" type="Area2D" unique_id=528483132]
+script = ExtResource("1_dvi86")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1291334811]
 sprite_frames = SubResource("SpriteFrames_t02qf")
+frame = 1
+frame_progress = 0.7417384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=69089685]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_outfd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
