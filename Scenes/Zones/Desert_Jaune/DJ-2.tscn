@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cvce3rjro7uv8" path="res://Scenes/ui/Marchand_Inventaire.tscn" id="7_xbcb3"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_nqic7"]
 [ext_resource type="PackedScene" uid="uid://b3t3axm8n6ech" path="res://Scenes/gimics/Icones/Icone_Jaune.tscn" id="11_c2q2q"]
+[ext_resource type="PackedScene" uid="uid://bt40rv0xp8neq" path="res://Scenes/gimics/Personnages/Chef_Jaune.tscn" id="11_vgdmj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyws1"]
 texture = ExtResource("1_gyws1")
@@ -308,6 +309,9 @@ id_colorux = "DJ-2-C3"
 [node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_nqic7")]
 position = Vector2(56, -80)
 niveau = "desert"
+
+[node name="ChefJaune" parent="Personnages" unique_id=528483132 instance=ExtResource("11_vgdmj")]
+position = Vector2(-82, -79)
 
 [node name="objet" type="Node2D" parent="." unique_id=591123508]
 

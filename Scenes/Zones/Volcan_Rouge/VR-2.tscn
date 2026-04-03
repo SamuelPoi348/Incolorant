@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="7_gnbre"]
 [ext_resource type="PackedScene" uid="uid://cvce3rjro7uv8" path="res://Scenes/ui/Marchand_Inventaire.tscn" id="7_hhuti"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_t3gkf"]
+[ext_resource type="PackedScene" uid="uid://csn0janf5mk7b" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="11_ci2t5"]
 [ext_resource type="PackedScene" uid="uid://d1rgljw3n5ree" path="res://Scenes/gimics/Icones/Icone_Rouge.tscn" id="11_gsvdn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1cic"]
@@ -315,6 +316,10 @@ id_colorux = "VR-2-C3"
 [node name="Marchand" parent="Personnages" unique_id=1693659385 instance=ExtResource("10_t3gkf")]
 position = Vector2(38, -80)
 niveau = "volcan"
+
+[node name="ChefRouge" parent="Personnages" unique_id=2060238255 instance=ExtResource("11_ci2t5")]
+position = Vector2(-88, -98)
+scale = Vector2(2, 2)
 
 [node name="objet" type="Node2D" parent="." unique_id=910938587]
 

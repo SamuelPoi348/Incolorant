@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bto7esom5i4ec"]
 
-[ext_resource type="Texture2D" uid="uid://ccrbfoyl038d" path="res://Sprites/socle.png" id="1_nc5l0"]
+[ext_resource type="Texture2D" uid="uid://df8ge7s1223dn" path="res://Sprites/socle.png" id="1_nc5l0"]
 [ext_resource type="Script" uid="uid://lt0f88lbl2i2" path="res://Scripts/gimics/socle_rouge.gd" id="1_shwas"]
-[ext_resource type="PackedScene" uid="uid://5ja8mfhup5t3" path="res://Scenes/gimics/SphereRouge.tscn" id="2_u41tj"]
+[ext_resource type="PackedScene" uid="uid://5ja8mfhup5t3" path="res://Scenes/gimics/objet_pouvoirs/SphereRouge.tscn" id="2_u41tj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u41tj"]
 size = Vector2(14, 7)
