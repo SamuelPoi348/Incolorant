@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b6s0t1rtwemwf"]
+
+[ext_resource type="Script" uid="uid://5qklalwxi786" path="res://porte_verte.gd" id="1_fc6l1"]
+[ext_resource type="Texture2D" uid="uid://bunbrl5wii2u2" path="res://Sprites/PorteZoneVert.png" id="1_xl5no"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc6l1"]
+atlas = ExtResource("1_xl5no")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi61x"]
+atlas = ExtResource("1_xl5no")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5na7p"]
+atlas = ExtResource("1_xl5no")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iraf5"]
+atlas = ExtResource("1_xl5no")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wios"]
+atlas = ExtResource("1_xl5no")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j77hw"]
+atlas = ExtResource("1_xl5no")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ipw"]
+atlas = ExtResource("1_xl5no")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdhro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc6l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi61x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5na7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iraf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wios")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j77hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8ipw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gykxu"]
+size = Vector2(30, 43)
+
+[node name="PorteVerte" type="StaticBody2D" unique_id=1084665636 groups=["Porte_Verte"]]
+script = ExtResource("1_fc6l1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=195595253]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_kdhro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207695149]
+position = Vector2(0, -21.5)
+shape = SubResource("RectangleShape2D_gykxu")

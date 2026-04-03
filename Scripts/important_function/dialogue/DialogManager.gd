@@ -1,6 +1,6 @@
 extends Node
 
-
+signal dialog_finished
 @onready var text_box_scene = preload("res://Scenes/important_function/dialogue/text_box.tscn")
 
 var dialog_lines: Array[String] = []
@@ -46,6 +46,7 @@ func _unhandled_input(event: InputEvent):
 		if current_line_index >= dialog_lines.size():
 			is_dialog_active = false
 			current_line_index = 0
+			emit_signal("dialog_finished")
 			return
 		
 		_show_text_box()
