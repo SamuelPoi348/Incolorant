@@ -1,11 +1,13 @@
 extends Area2D
 
 var main
+@onready var collision = $CollisionShape2D
 
 func _ready():
 	main = get_tree().root.get_node("Main")
 	if main.icone_jaune:
 		visible=false
+		collision.disabled = true
 	pass
 	
 func _on_body_entered(body: Node2D) -> void:
