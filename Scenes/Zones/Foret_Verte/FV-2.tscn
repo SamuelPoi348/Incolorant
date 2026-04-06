@@ -646,9 +646,14 @@ rotation = 1.5707964
 scale = Vector2(0.6, -1)
 
 [node name="Plante4" parent="objet/vigne" unique_id=729546046 instance=ExtResource("14_52lse")]
-position = Vector2(929, -416)
+position = Vector2(909, -416)
 rotation = 1.5707964
-scale = Vector2(0.6, -1)
+scale = Vector2(0.6, 1)
+
+[node name="Plante5" parent="objet/vigne" unique_id=50142763 instance=ExtResource("14_52lse")]
+position = Vector2(1028, -416)
+rotation = 1.5707964
+scale = Vector2(1, -1)
 
 [node name="MaisonVert" parent="objet" unique_id=398922662 instance=ExtResource("13_0kbb3")]
 position = Vector2(266, -222)
