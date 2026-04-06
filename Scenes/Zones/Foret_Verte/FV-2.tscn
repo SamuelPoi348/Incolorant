@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dppgdtjstgjji" path="res://Scenes/gimics/objet_pouvoirs/ReverseVine.tscn" id="14_52lse"]
 [ext_resource type="PackedScene" uid="uid://b6ojxcomqhpc8" path="res://Scenes/gimics/objet_pouvoirs/Vine.tscn" id="14_x6oha"]
 [ext_resource type="PackedScene" uid="uid://b6s0t1rtwemwf" path="res://Scenes/gimics/Porte_verte.tscn" id="15_p1to1"]
+[ext_resource type="PackedScene" uid="uid://ch4u51ax33xf8" path="res://Scenes/gimics/Personnages/habitant_vert.tscn" id="20_glcqd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40nwd"]
 texture = ExtResource("1_v66jv")
@@ -691,6 +692,21 @@ niveau = "forêt"
 
 [node name="ChefVert" parent="Personnages" unique_id=1429482905 instance=ExtResource("12_jsvk0")]
 position = Vector2(825, -312)
+
+[node name="HabitantVert" parent="Personnages" unique_id=1738442084 instance=ExtResource("20_glcqd")]
+position = Vector2(395, -167)
+
+[node name="HabitantVert2" parent="Personnages" unique_id=465328988 instance=ExtResource("20_glcqd")]
+position = Vector2(435, -166)
+
+[node name="HabitantVert3" parent="Personnages" unique_id=1877555294 instance=ExtResource("20_glcqd")]
+position = Vector2(247, -230)
+
+[node name="HabitantVert4" parent="Personnages" unique_id=892661974 instance=ExtResource("20_glcqd")]
+position = Vector2(418, -343)
+
+[node name="HabitantVert5" parent="Personnages" unique_id=1997736567 instance=ExtResource("20_glcqd")]
+position = Vector2(224, -405)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=319021728]
 

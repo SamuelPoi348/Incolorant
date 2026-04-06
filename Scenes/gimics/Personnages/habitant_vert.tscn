@@ -1,10 +1,39 @@
 [gd_scene format=3 uid="uid://ch4u51ax33xf8"]
 
+[ext_resource type="Texture2D" uid="uid://8ncu5oe34dt7" path="res://Sprites/Personnages/CitoyenVert.png" id="1_341dd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu2hb"]
+atlas = ExtResource("1_341dd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8a0i"]
+atlas = ExtResource("1_341dd")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_m75ry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu2hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8a0i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_341dd"]
+size = Vector2(30, 18)
 
 [node name="HabitantVert" type="Area2D" unique_id=1738442084]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=480278229]
 sprite_frames = SubResource("SpriteFrames_m75ry")
+autoplay = "default"
+frame_progress = 0.7220093
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=517051366]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_341dd")
