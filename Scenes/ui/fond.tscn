@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bffkxccsypija"]
+
+[ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="1_c7h8e"]
+[ext_resource type="Script" uid="uid://bpym6wft67w16" path="res://Scenes/ui/fond.gd" id="1_vihq1"]
+
+[node name="Fond" type="ParallaxBackground" unique_id=1383329915]
+script = ExtResource("1_vihq1")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=1008294672]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=24266671]
+texture = ExtResource("1_c7h8e")

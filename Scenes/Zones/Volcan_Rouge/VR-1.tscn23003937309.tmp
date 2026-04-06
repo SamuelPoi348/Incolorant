@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_3xnug"]
 [ext_resource type="PackedScene" uid="uid://cibc5o8iblogx" path="res://Scenes/gimics/portail.tscn" id="6_lp7ga"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_0grji"]
-[ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="7_wni4q"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="10_11d4y"]
+[ext_resource type="PackedScene" uid="uid://bffkxccsypija" path="res://Scenes/ui/fond.tscn" id="11_11d4y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11d4y"]
 texture = ExtResource("1_h48xp")
@@ -470,14 +470,4 @@ position = Vector2(1097, -472)
 [node name="RedBlock17" parent="objet/rouge" unique_id=1483940567 instance=ExtResource("10_11d4y")]
 position = Vector2(1113, -472)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=2057268673]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1944768094]
-motion_scale = Vector2(0.9, 0.8)
-motion_mirroring = Vector2(720, 480)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=449305050]
-z_index = -4096
-position = Vector2(46.5, -245)
-scale = Vector2(2.253125, 3)
-texture = ExtResource("7_wni4q")
+[node name="Fond" parent="." unique_id=1383329915 instance=ExtResource("11_11d4y")]
