@@ -28,13 +28,15 @@ func _ready():
 func grow():
 	if est_grande:
 		return
-
-	sprite.play("grow")
-	await sprite.animation_finished
-
+		
 	est_grande = true
 	set_player_passable(false)
 	self.collision_layer = LAYER_JOUEUR
+	
+	sprite.play("grow")
+	await sprite.animation_finished
+
+	
 
 func shrink():
 	if not est_grande:

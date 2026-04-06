@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj7bsokuxh3fo" path="res://Scripts/Tuto/tuto_vert.gd" id="1_mg5ed"]
 [ext_resource type="Texture2D" uid="uid://b0a3whf0vfj7" path="res://Sprites/plante.png" id="2_sef1u"]
+[ext_resource type="Texture2D" uid="uid://cp2p7uvrvj1w2" path="res://Sprites/GrassPlateform.png" id="3_t082g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t082g"]
 atlas = ExtResource("2_sef1u")
@@ -27,6 +28,21 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sef1u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj107"]
+atlas = ExtResource("3_t082g")
+region = Rect2(0, 0, 128, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dc3st"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj107")
 }],
 "loop": true,
 "name": &"default",
@@ -79,5 +95,9 @@ position = Vector2(393, 150)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t082g")
 flip_h = true
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ColorRect" unique_id=27503365]
+position = Vector2(73, 186)
+sprite_frames = SubResource("SpriteFrames_dc3st")
 
 [connection signal="button_down" from="ColorRect/Button" to="." method="_on_button_button_down"]

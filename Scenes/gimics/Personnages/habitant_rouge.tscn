@@ -1,10 +1,60 @@
 [gd_scene format=3 uid="uid://cg3l3jcwq36k3"]
 
+[ext_resource type="Texture2D" uid="uid://cgq6rxd60ck1m" path="res://Sprites/Personnages/CitoyenRouge.png" id="1_dbrd6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhbbo"]
+atlas = ExtResource("1_dbrd6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bej66"]
+atlas = ExtResource("1_dbrd6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxf55"]
+atlas = ExtResource("1_dbrd6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goln0"]
+atlas = ExtResource("1_dbrd6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tsjk"]
+atlas = ExtResource("1_dbrd6")
+region = Rect2(64, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3a4bt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhbbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bej66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxf55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goln0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tsjk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mksyw"]
+size = Vector2(26, 19)
 
 [node name="HabitantRouge" type="Area2D" unique_id=167728985]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776003208]
 sprite_frames = SubResource("SpriteFrames_3a4bt")
+autoplay = "default"
+frame_progress = 0.3420793
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1206456721]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_mksyw")

@@ -1,10 +1,53 @@
 [gd_scene format=3 uid="uid://h4e0re1p7u06"]
 
+[ext_resource type="Texture2D" uid="uid://veok4iaompoi" path="res://Sprites/Personnages/CitoyenBleu.png" id="1_4nowu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jb6a"]
+atlas = ExtResource("1_4nowu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwsca"]
+atlas = ExtResource("1_4nowu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amhw0"]
+atlas = ExtResource("1_4nowu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yxx0"]
+atlas = ExtResource("1_4nowu")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3kr7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jb6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwsca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amhw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yxx0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe1hn"]
+size = Vector2(24, 18)
 
 [node name="HabitantBleu" type="Area2D" unique_id=646324395]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866118146]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752512267]
 sprite_frames = SubResource("SpriteFrames_3kr7o")
+autoplay = "default"
+frame_progress = 0.7651412
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866118146]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_oe1hn")

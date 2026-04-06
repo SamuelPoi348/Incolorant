@@ -38,7 +38,7 @@ var current_incolorant_mode := IncolorantMode.GROW
 @onready var rayon_vert: Area2D = $RayonVert
 @onready var rayon_sprite: AnimatedSprite2D = $RayonVert/RayonSprite
 
-@export var death_y_limit: float = 1
+@export var death_y_limit: float = -20
 var is_dead := false
 var tp_ok
 # =====================================================

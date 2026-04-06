@@ -1,10 +1,53 @@
 [gd_scene format=3 uid="uid://cvq3py06lyoj8"]
 
+[ext_resource type="Texture2D" uid="uid://dssdwke0jww08" path="res://Sprites/Personnages/JauneHabitant.png" id="1_2ibf4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx557"]
+atlas = ExtResource("1_2ibf4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyy72"]
+atlas = ExtResource("1_2ibf4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gikyv"]
+atlas = ExtResource("1_2ibf4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuioc"]
+atlas = ExtResource("1_2ibf4")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_od4pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx557")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyy72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gikyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuioc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3isal"]
+size = Vector2(26, 18)
 
 [node name="HabitantJaune" type="Area2D" unique_id=1630004631]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=123478070]
 sprite_frames = SubResource("SpriteFrames_od4pi")
+autoplay = "default"
+frame_progress = 0.13509199
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1374601570]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_3isal")

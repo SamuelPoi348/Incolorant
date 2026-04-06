@@ -1,7 +1,7 @@
 extends Control
 @onready var test = preload("res://Scenes/ScenePresentation.tscn")
 @onready var l1 = preload("res://Scenes/Zones/Plage_Grise/PG-1.tscn")
-@onready var FV1 = preload("res://Scenes/Zones/Foret_Verte/FV-2.tscn")
+@onready var FV1 = preload("res://Scenes/Zones/Foret_Verte/FV-3.tscn")
 
 @onready var option = preload("res://Scenes/ui/option.tscn")
 # Called when the node enters the scene tree for the first time.
