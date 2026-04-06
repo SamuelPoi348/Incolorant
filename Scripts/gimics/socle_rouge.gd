@@ -2,7 +2,7 @@
 extends Node2D
 
 @export var sphere_scene : PackedScene
-@export var spawn_offset : Vector2 = Vector2(0, 0)  # Position de la sphère au-dessus du socle
+@export var spawn_offset : Vector2 = Vector2(0, 2)  # Position de la sphère au-dessus du socle
 
 var sphere_active : Node = null
 

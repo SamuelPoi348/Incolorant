@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ciihfipy0t63o" path="res://Scripts/gimics/sphere_rouge.gd" id="1_x5gwf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2xg1w"]
-radius = 7.071068
+radius = 7.0
 
 [node name="SphereRouge" type="Area2D" unique_id=1404849168 groups=["SphereRouge"]]
 position = Vector2(0, -6)
