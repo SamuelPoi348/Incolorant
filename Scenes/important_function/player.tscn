@@ -739,7 +739,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=309571845]
+[node name="Player" type="CharacterBody2D" unique_id=309571845 groups=["Player_niv"]]
 z_index = 1
 script = ExtResource("1_7dd06")
 speed = 5.0
@@ -755,8 +755,7 @@ shape = SubResource("CapsuleShape2D_7dd06")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1814285928]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_tx1dd")
-animation = &"dash"
-frame = 3
+animation = &"Attack"
 
 [node name="RayonVert" type="Area2D" parent="." unique_id=1092913360]
 collision_layer = 3

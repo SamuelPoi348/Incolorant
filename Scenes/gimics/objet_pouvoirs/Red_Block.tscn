@@ -42,6 +42,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txdb4"]
+size = Vector2(16, 16)
+
 [node name="RedBlock" type="StaticBody2D" unique_id=1623874555 groups=["RedBlock"]]
 script = ExtResource("1_8qh7e")
 
@@ -51,5 +54,10 @@ shape = SubResource("RectangleShape2D_b8b13")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1169478539]
 sprite_frames = SubResource("SpriteFrames_eof3l")
 animation = &"destruction"
+
+[node name="SphereDetector" type="Area2D" parent="." unique_id=1756429921]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SphereDetector" unique_id=83979438]
+shape = SubResource("RectangleShape2D_txdb4")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

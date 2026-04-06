@@ -3,15 +3,15 @@ extends Area2D
 var player_in_range = false
 var first_dialog_done = false
 @onready var anim = $AnimatedSprite2D
-var chef_rouge_dialog_active: Array[String] = [
-	"T'est le petit qui a fait ses preuves chez les autres tribus.",
-	"Je suis le chef rouge, bouillonnant comme ce volcan.",
-	"Montre-moi ce que tu as dans le ventre, ou plutôt dans l'arène.",
-	"Si tu parviens à m'impressionner, moi et mes sujets,",
-	"je te donnerai l'icône rouge pour que tu ailles pourfendre ce dragon."
+var chef_jaune_dialog_active: Array[String] = [
+	"Salut mon gars t'est allé dans la forêt hein.",
+	"Tu est dans mon territoire alors si tu veut faire parti des notres il vas falloir que tu parcours ma ville.",
+	"Je vais être clément avec toi je vais te laisser une minute",
+	"Si tu n'y arrive pas je relâche mes citoyen sur toi,",
+	"je te le dis tous de suite ils te tueront!"
 ]
-var chef_rouge_dialogue_active_2: Array[String] = [
-	"Tu vas y aller, tabarnak, ou je te lance moi-même dedans !"
+var chef_jaune_dialogue_active_2: Array[String] = [
+	"Tu vas y aller oui, sinon je te laisse 1 seconde!"
 ]
 
 
@@ -25,10 +25,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("interagir") and player_in_range:
 		if !DialogManager.is_dialog_active:
 			if !first_dialog_done:
-				DialogManager.start_dialog(global_position + Vector2(50,50), chef_rouge_dialog_active)
+				DialogManager.start_dialog(global_position + Vector2(50,50), chef_jaune_dialog_active)
 				first_dialog_done = true
 			else:
-				DialogManager.start_dialog(global_position + Vector2(50,50), chef_rouge_dialogue_active_2)
+				DialogManager.start_dialog(global_position + Vector2(50,50), chef_jaune_dialogue_active_2)
 
 
 

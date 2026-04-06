@@ -14,13 +14,11 @@ func _ready():
 
 func _on_sphere_entered(area):
 	if area.is_in_group("SphereRouge"):
-		print("sphere touche")
 		if animation_sprite.sprite_frames.has_animation("Remplis"):
 			animation_sprite.play("Remplis")
 
 
 func _on_sphere_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("SphereRouge"):
-		print("sphere touche")
 		if animation_sprite.sprite_frames.has_animation("Remplis"):
 			animation_sprite.play("Remplis")
