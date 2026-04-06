@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5ja8mfhup5t3" path="res://Scenes/gimics/objet_pouvoirs/SphereRouge.tscn" id="2_u41tj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u41tj"]
-size = Vector2(14, 7)
+size = Vector2(16, 11)
 
 [node name="SocleRouge" type="Node2D" unique_id=1837167805 groups=["SocleRouge"]]
 position = Vector2(0, -16)
@@ -16,9 +16,11 @@ sphere_scene = ExtResource("2_u41tj")
 texture = ExtResource("1_nc5l0")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2100304155]
+position = Vector2(0, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=475341175]
+position = Vector2(0, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1152653441]
-position = Vector2(0, 12.5)
+position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_u41tj")

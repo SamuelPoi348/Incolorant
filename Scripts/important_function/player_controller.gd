@@ -307,7 +307,7 @@ func lancer_projectile():
 			distance_min = distance
 			socle_plus_proche = socle
 
-	if socle_plus_proche and distance_min <= 20:
+	if socle_plus_proche and distance_min <= 24:
 		var direction_shoot := Vector2.RIGHT if global_position.x < socle_plus_proche.global_position.x else Vector2.LEFT
 		socle_plus_proche.lancer_sphere(direction_shoot)
 
