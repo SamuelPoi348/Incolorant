@@ -18,8 +18,12 @@ func _on_commencer_button_down() -> void:
 
 
 func _on_option_button_down() -> void:
-	get_tree().root.get_node("Main").change_scene(option)
-
+	var option = get_tree().get_first_node_in_group("Option")
+	
+	if option:
+		option.visible = true
+		option.process_mode = Node.PROCESS_MODE_ALWAYS
+		#visible = false
 
 func _on_quitter_button_down() -> void:
 	get_tree().quit()

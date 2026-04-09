@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_iy5dg"]
 [ext_resource type="PackedScene" uid="uid://cibc5o8iblogx" path="res://Scenes/gimics/portail.tscn" id="7_n1vpi"]
 [ext_resource type="PackedScene" uid="uid://dvwnw1isj6m8g" path="res://Scenes/ui/Tuto/Tuto_de_base.tscn" id="7_ui1w0"]
+[ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="8_gswsw"]
 [ext_resource type="Texture2D" uid="uid://cjq87r1o7unlb" path="res://Sprites/PG.png" id="8_ni6gp"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_njbr7"]
 
@@ -291,6 +292,8 @@ offset_bottom = 8.0
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_iy5dg")]
 
 [node name="TutoDeBase" parent="CanvasLayer" unique_id=1483451385 instance=ExtResource("7_ui1w0")]
+
+[node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("8_gswsw")]
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1135758416]
 

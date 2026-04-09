@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var anim = $AnimatedSprite2D
+var mon_dialogue = false
 var player_in_range = false
 var chef_vert_dialog_active: Array[String] = [
 	"Tu dois être le nouveau, celui que le marchand a mentionné s’être réveillé.",
@@ -24,6 +25,11 @@ func _ready():
 	DialogManager.dialog_finished.connect(_on_dialog_finished)
 	
 func _on_dialog_finished():
+	if not mon_dialogue:
+		return
+	
+	mon_dialogue = false
+	
 	var portes = get_tree().get_nodes_in_group("Porte_Verte")
 	
 	for porte in portes:
@@ -38,6 +44,7 @@ func _process(delta: float) -> void:
 func _unhandled_input(event):
 	if event.is_action_pressed("interagir") and player_in_range:
 		if !DialogManager.is_dialog_active:
+			mon_dialogue = true
 			DialogManager.start_dialog(global_position + Vector2(50,50), chef_vert_dialog_active)
 			
 

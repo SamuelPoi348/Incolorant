@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dr14r7wuh0pf7" path="res://Scenes/ui/Miniature_Niveau.tscn" id="6_1cbo0"]
 [ext_resource type="PackedScene" uid="uid://bw53tpt7gvpsd" path="res://Scenes/gimics/objet_pouvoirs/ReversePlante.tscn" id="6_15fwv"]
 [ext_resource type="PackedScene" uid="uid://b8mioe85y385d" path="res://Scenes/gimics/objet_pouvoirs/ReversePlanteDesert.tscn" id="7_3eaxo"]
+[ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="7_ul5t4"]
 [ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Scenes/gimics/plateform_jaune_default/movingPlatform.tscn" id="8_uno31"]
 [ext_resource type="PackedScene" uid="uid://dg2w3v2m4ywsk" path="res://Scenes/gimics/PorteCouleurs.tscn" id="9_v5ly5"]
 [ext_resource type="PackedScene" uid="uid://d66gff4ytqiu" path="res://Scenes/gimics/Entrer_Niveau.tscn" id="10_nvd1r"]
@@ -69,6 +70,8 @@ offset_bottom = 8.0
 [node name="MiniatureNiveau" parent="CanvasLayer" unique_id=1698629210 instance=ExtResource("6_1cbo0")]
 
 [node name="Pause" parent="CanvasLayer" unique_id=1093160640 instance=ExtResource("4_15fwv")]
+
+[node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("7_ul5t4")]
 
 [node name="buisson_forêt" type="Node2D" parent="." unique_id=1473800385]
 
