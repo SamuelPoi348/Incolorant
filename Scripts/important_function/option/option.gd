@@ -7,6 +7,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	visible=false
 	var video_settings = ConfigFileHandler.load_video_setting()
 	fullScreenControl.button_pressed =video_settings.fullscreen
 	
@@ -20,4 +22,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_quitter_button_down() -> void:
-	get_tree().root.get_node("Main").go_back()
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
+	var pause = get_tree().get_first_node_in_group("Pause")
+	if pause:
+		pause.visible = true
