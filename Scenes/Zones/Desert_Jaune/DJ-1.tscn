@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ftnbg3yo7ssj" path="res://Scenes/ui/Inventaire.tscn" id="5_srpe1"]
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_4js58"]
 [ext_resource type="PackedScene" uid="uid://cibc5o8iblogx" path="res://Scenes/gimics/portail.tscn" id="6_vl5sv"]
+[ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="7_3l8i8"]
 [ext_resource type="Texture2D" uid="uid://hp5bkt36yh5a" path="res://Sprites/DJ.png" id="7_53i2n"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_l4akf"]
 
@@ -277,6 +278,8 @@ offset_bottom = 8.0
 [node name="Inventaire" parent="CanvasLayer" unique_id=231182733 instance=ExtResource("5_srpe1")]
 
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_4js58")]
+
+[node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("7_3l8i8")]
 
 [node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_vl5sv")]
 position = Vector2(89, -81)

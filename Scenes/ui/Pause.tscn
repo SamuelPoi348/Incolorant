@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://rsqk818hgbos" path="res://Scripts/important_function/option/pause.gd" id="1_tfrdh"]
 [ext_resource type="Texture2D" uid="uid://do6yl68kqxfgt" path="res://Sprites/Pause.png" id="2_loir0"]
 
-[node name="Pause" type="Control" unique_id=1093160640]
+[node name="Pause" type="Control" unique_id=1093160640 groups=["Pause"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

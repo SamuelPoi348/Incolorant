@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_56t25"]
 [ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="7_gnbre"]
 [ext_resource type="PackedScene" uid="uid://cvce3rjro7uv8" path="res://Scenes/ui/Marchand_Inventaire.tscn" id="7_hhuti"]
+[ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="9_v1qtd"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_t3gkf"]
 [ext_resource type="PackedScene" uid="uid://csn0janf5mk7b" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="11_ci2t5"]
 [ext_resource type="PackedScene" uid="uid://d1rgljw3n5ree" path="res://Scenes/gimics/Icones/Icone_Rouge.tscn" id="11_gsvdn"]
@@ -400,6 +401,8 @@ offset_bottom = 8.0
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_f1cic")]
 
 [node name="MarchandInventaire" parent="CanvasLayer" unique_id=160752201 instance=ExtResource("7_hhuti")]
+
+[node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("9_v1qtd")]
 
 [node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_n0p8b")]
 position = Vector2(78, -81)

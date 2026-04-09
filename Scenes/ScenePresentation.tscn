@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="9_w77cg"]
 [ext_resource type="PackedScene" uid="uid://dwp1il8wx855r" path="res://Scenes/ui/Tuto/Tuto_Rouge.tscn" id="10_fchqj"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="11_mrr4h"]
+[ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="11_wn6ip"]
 [ext_resource type="PackedScene" uid="uid://bp0cyd54jqawu" path="res://Scenes/gimics/Icones/Icone_Bleu.tscn" id="12_1x5pa"]
 [ext_resource type="PackedScene" uid="uid://hp1jt4hevp6k" path="res://Scenes/gimics/Icones/Icone_Vert.tscn" id="13_eexp4"]
 [ext_resource type="PackedScene" uid="uid://doih7jthpl07x" path="res://Scenes/gimics/objet_pouvoirs/Récepteur_Rouge.tscn" id="13_ov24e"]
@@ -704,6 +705,8 @@ offset_bottom = 8.0
 [node name="TutoJaune" parent="CanvasLayer" unique_id=855135342 instance=ExtResource("9_uoacr")]
 
 [node name="TutoRouge" parent="CanvasLayer" unique_id=4588583 instance=ExtResource("10_fchqj")]
+
+[node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("11_wn6ip")]
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1366766055]
 position = Vector2(0, -3)

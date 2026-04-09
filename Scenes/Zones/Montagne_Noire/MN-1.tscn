@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cibc5o8iblogx" path="res://Scenes/gimics/portail.tscn" id="6_0my0a"]
 [ext_resource type="Texture2D" uid="uid://cfme02mhqwxkx" path="res://Sprites/Tiles/Gris.png" id="6_bf1np"]
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_kevd4"]
+[ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="7_11e57"]
 [ext_resource type="Texture2D" uid="uid://dehryhg0otrum" path="res://Sprites/MN.png" id="7_bf1np"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kevd4"]
@@ -286,6 +287,8 @@ offset_bottom = 8.0
 [node name="Inventaire" parent="CanvasLayer" unique_id=231182733 instance=ExtResource("5_8umsy")]
 
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_kevd4")]
+
+[node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("7_11e57")]
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1135758416]
 
