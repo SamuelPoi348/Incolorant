@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bnr74mnuf3581" path="res://Scenes/gimics/shooter/shot.gd" id="1_ncfdt"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_b3xvw"]
-a = Vector2(0, -5)
-b = Vector2(0, 5)
+a = Vector2(-7, 0)
+b = Vector2(7, 0)
 
 [node name="shot" type="StaticBody2D" unique_id=1796660773]
 script = ExtResource("1_ncfdt")

@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://dnow204mlyxmd" path="res://Scenes/gimics/plateform_jaune_default/movingPlatform.gd" id="1_i2wo7"]
 [ext_resource type="Texture2D" uid="uid://dxxcoyj642db7" path="res://Scenes/gimics/plateform_jaune_default/plateforme_jaune.png" id="1_k8fph"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wljmj"]
-size = Vector2(48, 7)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0jafh"]
+a = Vector2(24, -6)
+b = Vector2(-24, -6)
 
-[node name="MovingPlatform" type="CharacterBody2D" unique_id=2126571110]
+[node name="MovingPlatform" type="RigidBody2D" unique_id=1113840505]
 script = ExtResource("1_i2wo7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1913557795]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_wljmj")
+shape = SubResource("SegmentShape2D_0jafh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=749048300]
 position = Vector2(0, -2)

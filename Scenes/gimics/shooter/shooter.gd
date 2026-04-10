@@ -2,7 +2,7 @@ extends Node2D
 
 @export var shot_scene: PackedScene
 @export var base_fire_rate: float = 20  # shots per second
-
+@export var max_distance: float = 500.0
 @onready var timer: Timer = $Timer
 
 var slow_multiplier: float = 1.0
@@ -34,6 +34,7 @@ func shoot():
 
 	var shot = shot_scene.instantiate()
 	shot.global_position = global_position
+	shot.max_distance = max_distance
 	shot.direction = Vector2.UP.rotated(rotation)
 
 	get_tree().current_scene.add_child(shot)
