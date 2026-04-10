@@ -27,6 +27,7 @@ func _on_recommencer_button_down() -> void:
 
 
 func _on_retour_button_down() -> void:
+	main.color_locked = false
 	Engine.time_scale = 1.0
 	spawn_position = main.position_courante
 	var scene_resource = preload("res://Scenes/Zones/map/map.tscn") 

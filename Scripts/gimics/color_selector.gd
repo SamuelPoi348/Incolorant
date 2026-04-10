@@ -44,6 +44,12 @@ func _ready():
 func _process(delta):
 	var main = get_tree().root.get_node("Main")
 	
+	if main.color_locked:
+		if main.selecting_color:
+			main.set_selecting_color(false)
+			hide_selector()
+		return
+		
 	# 👇 NOUVEAU CHECK
 	if not has_any_color_available():
 		if main.selecting_color:
