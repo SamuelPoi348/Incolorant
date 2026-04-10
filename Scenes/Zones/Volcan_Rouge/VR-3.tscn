@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cs6d8s4ppnijm"]
 
+[ext_resource type="Script" uid="uid://1pth4r21bvna" path="res://Scenes/Zones/Volcan_Rouge/vr_3.gd" id="1_5fy70"]
 [ext_resource type="Texture2D" uid="uid://dmb6mcrgnhcjx" path="res://Sprites/Tiles/Rouge.png" id="1_483fg"]
 [ext_resource type="Texture2D" uid="uid://dgcgy5p2uypx7" path="res://Sprites/Tiles/ArenaRouge.png" id="1_c6qke"]
 [ext_resource type="PackedScene" uid="uid://d2o7b31vqmebb" path="res://Scenes/important_function/player.tscn" id="2_ua1k7"]
@@ -11,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_483fg"]
 [ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="7_p0in1"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="8_b8hql"]
+[ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="12_nhp1u"]
+[ext_resource type="PackedScene" uid="uid://b8iaotsmkk4hh" path="res://Scenes/gimics/pdp_Rouge.tscn" id="13_x0m3d"]
+[ext_resource type="PackedScene" uid="uid://dlpyj8qq0c8p3" path="res://Scenes/gimics/platefrome.tscn" id="15_byxxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8hql"]
 texture = ExtResource("1_c6qke")
@@ -364,19 +368,34 @@ terrain_set_0/terrain_5/color = Color(9.62615e-07, 0.46282917, 0.7140708, 1)
 sources/1 = SubResource("TileSetAtlasSource_td0hx")
 sources/0 = SubResource("TileSetAtlasSource_b8hql")
 
-[node name="VR-3" type="Node2D" unique_id=959670977]
+[sub_resource type="Curve2D" id="Curve2D_byxxx"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -35, 29, 0, 0, 0, 0, -35, -14)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_j7qub"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -35, 29, 0, 0, 0, 0, 3, 9, 0, 0, 0, 0, -35, -14)
+}
+point_count = 3
+
+[node name="VR-3" type="Node2D" unique_id=959670977 groups=["Niveau"]]
 z_index = -4096
+script = ExtResource("1_5fy70")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1663557093]
 z_index = -1
 tile_set = SubResource("TileSet_c6qke")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(-65544, 1, 1, -65543, 65537, 1, -65542, 65537, 1, -65541, 65537, 1, -65540, 65537, 1, -65539, 65537, 1, -65538, 65537, 1, -65537, 65537, 1, -131072, 65537, 1, -131071, 65537, 1, -131070, 65537, 1, -131069, 65537, 1, -131080, 1, 1, -131079, 65537, 1, -131078, 65537, 1, -131077, 65537, 1, -131076, 65537, 1, -131075, 65537, 1, -131074, 65537, 1, -131073, 65537, 1, -196608, 65537, 1, -196607, 65537, 1, -196606, 65537, 1, -196605, 65537, 1, -196604, 65537, 1, -131068, 65537, 1, -131067, 65537, 1, -131066, 131073, 1, -196602, 131073, 1, -196603, 65537, 1, -8, 1, 2, -7, 65537, 2, -6, 65537, 2, -5, 65537, 2, -4, 65537, 2, -3, 65537, 2, -2, 65537, 2, -1, 65537, 2, -65536, 65537, 2, -65535, 65537, 1, -65534, 65537, 1, -65533, 65537, 1, -65532, 65537, 2, -65531, 65537, 2, -65530, 131073, 2, -196616, 1, 0, -196615, 65537, 0, -196614, 65537, 0, -196613, 65537, 0, -196612, 65537, 0, -196611, 65537, 0, -196610, 65537, 0, -196609, 65537, 0, -262144, 65537, 0, -262143, 65537, 0, -262142, 65537, 0, -262141, 65537, 0, -262140, 65537, 0, -262139, 65537, 0, -262138, 131073, 0, 1, 1, 2, 2, 131073, 2)
+layer_0/tile_data = PackedInt32Array(1, 1, 3, 2, 131073, 3, -196611, 0, 3, -196610, 131072, 3, -524279, 196608, 3, -655325, 196608, 3, -393178, 65536, 3, -393177, 65536, 3, -393176, 65536, 3, -393175, 65536, 3, -393174, 65536, 3, -393173, 131072, 3, -393179, 65536, 3, -393180, 0, 3, -1114069, 0, 0, -1048533, 0, 2, -1048532, 65536, 2, -1114068, 65536, 0, -1114067, 65536, 0, -1048531, 65536, 2, -1048530, 131072, 2, -1114066, 131072, 0)
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_ua1k7")]
-position = Vector2(-21, -81)
+position = Vector2(567, -163)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066477384]
 
@@ -399,23 +418,18 @@ offset_bottom = 8.0
 
 [node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("8_b8hql")]
 
-[node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_ua1k7")]
-position = Vector2(77, -80)
-spawn_position = Vector2(1019, -1344)
-niveau_termine = "res://Scenes/Zones/Volcan_Rouge/VR-3.tscn"
-
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1362018082]
 
 [node name="Colorux" parent="ColoruxContainer" unique_id=1446487818 instance=ExtResource("7_483fg")]
-position = Vector2(111, -152)
+position = Vector2(408, -73)
 id_colorux = "VR-3-C1"
 
 [node name="Colorux2" parent="ColoruxContainer" unique_id=1984848397 instance=ExtResource("7_483fg")]
-position = Vector2(137, -154)
+position = Vector2(639, -647)
 id_colorux = "VR-3-C2"
 
 [node name="Colorux3" parent="ColoruxContainer" unique_id=722900740 instance=ExtResource("7_483fg")]
-position = Vector2(163, -156)
+position = Vector2(606, -67)
 id_colorux = "VR-3-C3"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=261732728]
@@ -430,3 +444,75 @@ scale = Vector2(2.253125, 3)
 texture = ExtResource("7_p0in1")
 
 [node name="objet" type="Node2D" parent="." unique_id=1291357085]
+
+[node name="Portail" parent="objet" unique_id=1699174887 instance=ExtResource("6_ua1k7")]
+position = Vector2(572, -39)
+spawn_position = Vector2(1019, -1344)
+niveau_termine = "res://Scenes/Zones/Volcan_Rouge/VR-3.tscn"
+
+[node name="bloc" type="Node2D" parent="objet" unique_id=333467050]
+
+[node name="RedBlock" parent="objet/bloc" unique_id=1623874555 instance=ExtResource("12_nhp1u")]
+position = Vector2(10, -88)
+
+[node name="RedBlock2" parent="objet/bloc" unique_id=2144916303 instance=ExtResource("12_nhp1u")]
+position = Vector2(90, -88)
+
+[node name="RedBlock3" parent="objet/bloc" unique_id=592870665 instance=ExtResource("12_nhp1u")]
+position = Vector2(42, -88)
+
+[node name="RedBlock4" parent="objet/bloc" unique_id=715191068 instance=ExtResource("12_nhp1u")]
+position = Vector2(74, -88)
+
+[node name="RedBlock5" parent="objet/bloc" unique_id=553259966 instance=ExtResource("12_nhp1u")]
+position = Vector2(106, -88)
+
+[node name="RedBlock6" parent="objet/bloc" unique_id=1261637727 instance=ExtResource("12_nhp1u")]
+position = Vector2(296, -122)
+
+[node name="RedBlock7" parent="objet/bloc" unique_id=624329777 instance=ExtResource("12_nhp1u")]
+position = Vector2(424, -74)
+
+[node name="RedBlock8" parent="objet/bloc" unique_id=1378641732 instance=ExtResource("12_nhp1u")]
+position = Vector2(328, -122)
+
+[node name="RedBlock9" parent="objet/bloc" unique_id=597060757 instance=ExtResource("12_nhp1u")]
+position = Vector2(360, -122)
+
+[node name="RedBlock10" parent="objet/bloc" unique_id=1286189965 instance=ExtResource("12_nhp1u")]
+position = Vector2(408, -58)
+
+[node name="RedBlock11" parent="objet/bloc" unique_id=1269477581 instance=ExtResource("12_nhp1u")]
+position = Vector2(376, -90)
+
+[node name="RedBlock12" parent="objet/bloc" unique_id=1706398935 instance=ExtResource("12_nhp1u")]
+position = Vector2(408, -138)
+
+[node name="RedBlock13" parent="objet/bloc" unique_id=1337920789 instance=ExtResource("12_nhp1u")]
+position = Vector2(440, -90)
+
+[node name="RedBlock14" parent="objet/bloc" unique_id=1056774630 instance=ExtResource("12_nhp1u")]
+position = Vector2(456, -106)
+
+[node name="RedBlock15" parent="objet/bloc" unique_id=1413873686 instance=ExtResource("12_nhp1u")]
+position = Vector2(472, -122)
+
+[node name="RedBlock16" parent="objet/bloc" unique_id=1529477815 instance=ExtResource("12_nhp1u")]
+position = Vector2(520, -122)
+
+[node name="RedBlock17" parent="objet/bloc" unique_id=931304575 instance=ExtResource("12_nhp1u")]
+position = Vector2(424, -154)
+
+[node name="PdpRouge" parent="objet" unique_id=707340213 instance=ExtResource("13_x0m3d")]
+position = Vector2(567, -158)
+
+[node name="Platefrome" parent="objet" unique_id=1208841857 instance=ExtResource("15_byxxx")]
+position = Vector2(680, -151)
+curve = SubResource("Curve2D_byxxx")
+path_time = 0.2
+ease = 2
+transition = 4
+
+[node name="Platefrome2" parent="objet" unique_id=479355830 instance=ExtResource("15_byxxx")]
+position = Vector2(782, -159)
+curve = SubResource("Curve2D_j7qub")

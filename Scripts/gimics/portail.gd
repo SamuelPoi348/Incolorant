@@ -15,6 +15,7 @@ func _ready():
 
 func _process(_delta):
 	if player_inside and Input.is_action_just_pressed("interagir"):
+		main.color_locked =false
 		# Marque le niveau comme terminé si défini
 		if niveau_termine != "":
 			main.marquer_niveau_complet(niveau_termine)
