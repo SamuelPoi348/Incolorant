@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 var fermé_ok = true
+var récepteur_ok = true
 @onready var anim = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
 @onready var c = $Area2D
@@ -12,9 +13,10 @@ func _ready() -> void:
 	collision.disabled=true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if not fermé_ok:
+		if récepteur_ok && tous_les_recepteurs_remplis():
+			ouvrir_toutes_les_portes()
 	
 func _on_c_body_entered(body):
 	if body is PlayerController:
@@ -27,4 +29,21 @@ func _on_c4_body_entered(body):
 				porte.fermé_ok = false
 				porte.anim.play("fermé")
 				porte.collision.set_deferred("disabled", false)
+	
+func ouvrir_toutes_les_portes():
+	for porte in get_tree().get_nodes_in_group("Porte_Rouge"):
+		porte.ouvrir()
+	récepteur_ok=false
+		
+func ouvrir():
+	if not fermé_ok:
+		fermé_ok = true
+		anim.play("ouvrir") # adapte au nom de ton anim
+		collision.set_deferred("disabled", true)
+					
+func tous_les_recepteurs_remplis() -> bool:
+	for r in get_tree().get_nodes_in_group("Récepteur_Rouge"):
+		if r.animation_sprite.animation != "Remplis":
+			return false
+	return true
 		
