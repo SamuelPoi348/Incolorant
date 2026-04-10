@@ -8,7 +8,8 @@ var chef_rouge_dialog_active: Array[String] = [
 	"Je suis le chef rouge, bouillonnant comme ce volcan.",
 	"Montre-moi ce que tu as dans le ventre, ou plutôt dans l'arène.",
 	"Si tu parviens à m'impressionner, moi et mes sujets,",
-	"tu partirera avec l'icône rouge pour que tu ailles pourfendre ce dragon."
+	"tu partirera avec l'icône rouge pour que tu ailles pourfendre ce dragon.",
+	"Il te suffit de remplir chacun des détecteurs en moins d'une minute allez!"
 ]
 var chef_rouge_dialogue_active_2: Array[String] = [
 	"Tu vas y aller, tabarnak, ou je te lance moi-même dedans !"

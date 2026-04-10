@@ -11,3 +11,4 @@ func _ready() -> void:
 func _on_c_body_entered(body):
 	if body is PlayerController:
 		anim.play("appuyer")
+		get_tree().get_first_node_in_group("Niveau").arreter_timer()
