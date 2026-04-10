@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_eexp4"]
 [ext_resource type="PackedScene" uid="uid://dstmx7x8egju0" path="res://Scenes/gimics/objet_pouvoirs/Plante.tscn" id="6_l8k0f"]
 [ext_resource type="PackedScene" uid="uid://bto7esom5i4ec" path="res://Scenes/gimics/objet_pouvoirs/Socle_Rouge.tscn" id="7_5of7f"]
-[ext_resource type="PackedScene" uid="uid://l0e5lv8ksfk8" path="res://Scenes/ui/Tuto/Tuto_Bleu.tscn" id="7_nt830"]
-[ext_resource type="PackedScene" uid="uid://cle18v3bes4wa" path="res://Scenes/ui/Tuto/Tuto_Vert.tscn" id="8_2gv0a"]
-[ext_resource type="PackedScene" uid="uid://icsjk8c3nybk" path="res://Scenes/ui/Tuto/Tuto_Jaune.tscn" id="9_uoacr"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/Tuto/Tuto_Bleu.tscn" id="7_nt830"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/Tuto/Tuto_Vert.tscn" id="8_2gv0a"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/Tuto/Tuto_Jaune.tscn" id="9_uoacr"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="9_w77cg"]
-[ext_resource type="PackedScene" uid="uid://dwp1il8wx855r" path="res://Scenes/ui/Tuto/Tuto_Rouge.tscn" id="10_fchqj"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/Tuto/Tuto_Rouge.tscn" id="10_fchqj"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="11_mrr4h"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="11_wn6ip"]
 [ext_resource type="PackedScene" uid="uid://bp0cyd54jqawu" path="res://Scenes/gimics/Icones/Icone_Bleu.tscn" id="12_1x5pa"]
@@ -24,16 +24,16 @@
 [ext_resource type="PackedScene" uid="uid://d1rgljw3n5ree" path="res://Scenes/gimics/Icones/Icone_Rouge.tscn" id="15_7dpnj"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="22_fchqj"]
 [ext_resource type="PackedScene" uid="uid://b6ojxcomqhpc8" path="res://Scenes/gimics/objet_pouvoirs/Vine.tscn" id="22_srr3l"]
-[ext_resource type="PackedScene" uid="uid://btsiftm52hy07" path="res://Scenes/gimics/maison_vert.tscn" id="23_7xtpk"]
-[ext_resource type="PackedScene" uid="uid://ds0o6yag3whp1" path="res://Scenes/gimics/Personnages/Chef_vert.tscn" id="23_srr3l"]
-[ext_resource type="PackedScene" uid="uid://csn0janf5mk7b" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="24_q2wbp"]
-[ext_resource type="PackedScene" uid="uid://b6s0t1rtwemwf" path="res://Scenes/gimics/Porte_verte.tscn" id="24_yehb6"]
-[ext_resource type="PackedScene" uid="uid://bt40rv0xp8neq" path="res://Scenes/gimics/Personnages/Chef_Jaune.tscn" id="26_38v75"]
-[ext_resource type="PackedScene" uid="uid://bbh3h6hu2ckvs" path="res://Scenes/gimics/Personnages/Chef_bleu.tscn" id="27_7xtpk"]
-[ext_resource type="PackedScene" uid="uid://cg3l3jcwq36k3" path="res://Scenes/gimics/Personnages/habitant_rouge.tscn" id="30_psosj"]
-[ext_resource type="PackedScene" uid="uid://ch4u51ax33xf8" path="res://Scenes/gimics/Personnages/habitant_vert.tscn" id="31_kaamw"]
-[ext_resource type="PackedScene" uid="uid://h4e0re1p7u06" path="res://Scenes/gimics/Personnages/habitant_bleu.tscn" id="32_jp41u"]
-[ext_resource type="PackedScene" uid="uid://cvq3py06lyoj8" path="res://Scenes/gimics/Personnages/habitant_Jaune.tscn" id="33_78jdp"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/maison_vert.tscn" id="23_7xtpk"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/Chef_vert.tscn" id="23_srr3l"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="24_q2wbp"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Porte_verte.tscn" id="24_yehb6"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/Chef_Jaune.tscn" id="26_38v75"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/Chef_bleu.tscn" id="27_7xtpk"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/habitant_rouge.tscn" id="30_psosj"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/habitant_vert.tscn" id="31_kaamw"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/habitant_bleu.tscn" id="32_jp41u"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Personnages/habitant_Jaune.tscn" id="33_78jdp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wn6ip"]
 texture = ExtResource("1_78jdp")
@@ -729,15 +729,25 @@ position = Vector2(509, -48)
 position = Vector2(392, -64)
 
 [node name="MovingPlatform" parent="objet" unique_id=333681283 instance=ExtResource("5_i1x4o")]
-position = Vector2(158, -102)
+position = Vector2(117, -91)
 move_offset = Vector2(96, 0)
 
 [node name="MovingPlatform2" parent="objet" unique_id=2085814166 instance=ExtResource("5_i1x4o")]
-position = Vector2(267, -129)
-move_offset = Vector2(-96, 0)
+position = Vector2(243, -82)
+move_offset = Vector2(-180, 0)
 
 [node name="Shooter" parent="objet" unique_id=1948774045 instance=ExtResource("4_vojvv")]
-position = Vector2(319, -56)
+position = Vector2(333, -69)
+
+[node name="Shooter3" parent="objet" unique_id=428231176 instance=ExtResource("4_vojvv")]
+position = Vector2(380, -70)
+
+[node name="Shooter4" parent="objet" unique_id=1701714789 instance=ExtResource("4_vojvv")]
+position = Vector2(432, -71)
+
+[node name="Shooter2" parent="objet" unique_id=732075853 instance=ExtResource("4_vojvv")]
+position = Vector2(285, -87)
+rotation = 1.5376525
 
 [node name="RécepteurRouge" parent="objet" unique_id=2132520947 instance=ExtResource("13_ov24e")]
 position = Vector2(470, -56)
