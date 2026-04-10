@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dgcgy5p2uypx7" path="res://Sprites/Tiles/ArenaRouge.png" id="1_2ob6f"]
 [ext_resource type="Texture2D" uid="uid://dmb6mcrgnhcjx" path="res://Sprites/Tiles/Rouge.png" id="1_56t25"]
+[ext_resource type="Script" uid="uid://brhsjnqht16l4" path="res://Scenes/Zones/Volcan_Rouge/vr_2.gd" id="1_v2w43"]
 [ext_resource type="PackedScene" uid="uid://d2o7b31vqmebb" path="res://Scenes/important_function/player.tscn" id="2_n0p8b"]
 [ext_resource type="PackedScene" uid="uid://chyov13l0o7f" path="res://Scenes/ui/ColorSelector.tscn" id="3_gnbre"]
 [ext_resource type="PackedScene" uid="uid://bwykgnh8afv5q" path="res://Scenes/ui/Pause.tscn" id="4_56t25"]
@@ -374,7 +375,8 @@ terrain_set_0/terrain_5/color = Color(9.62615e-07, 0.46282917, 0.7140708, 1)
 sources/1 = SubResource("TileSetAtlasSource_f1cic")
 sources/0 = SubResource("TileSetAtlasSource_v1qtd")
 
-[node name="VR-2" type="Node2D" unique_id=959670977]
+[node name="VR-2" type="Node2D" unique_id=959670977 groups=["Niveau"]]
+script = ExtResource("1_v2w43")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1652473887]
 z_index = -1
@@ -555,3 +557,7 @@ z_index = -4096
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_gnbre")
+
+[node name="Timer" type="Timer" parent="." unique_id=311492344]
+wait_time = 60.0
+one_shot = true

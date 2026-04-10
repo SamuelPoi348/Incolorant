@@ -29,6 +29,8 @@ func _on_c4_body_entered(body):
 				porte.fermé_ok = false
 				porte.anim.play("fermé")
 				porte.collision.set_deferred("disabled", false)
+				# 👉 lancer le timer UNE SEULE FOIS
+		get_tree().get_first_node_in_group("Niveau").lancer_timer()
 	
 func ouvrir_toutes_les_portes():
 	for porte in get_tree().get_nodes_in_group("Porte_Rouge"):
