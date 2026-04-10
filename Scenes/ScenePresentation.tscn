@@ -729,7 +729,7 @@ position = Vector2(509, -48)
 position = Vector2(392, -64)
 
 [node name="MovingPlatform" parent="objet" unique_id=333681283 instance=ExtResource("5_i1x4o")]
-position = Vector2(117, -91)
+position = Vector2(117, -95)
 move_offset = Vector2(96, 0)
 
 [node name="MovingPlatform2" parent="objet" unique_id=2085814166 instance=ExtResource("5_i1x4o")]
@@ -746,7 +746,7 @@ position = Vector2(380, -70)
 position = Vector2(432, -71)
 
 [node name="Shooter2" parent="objet" unique_id=732075853 instance=ExtResource("4_vojvv")]
-position = Vector2(285, -87)
+position = Vector2(297, -91)
 rotation = 1.5376525
 
 [node name="RécepteurRouge" parent="objet" unique_id=2132520947 instance=ExtResource("13_ov24e")]
