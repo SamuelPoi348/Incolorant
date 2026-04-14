@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bm2dcghu00sdn"]
+
+[ext_resource type="Texture2D" uid="uid://dykgnuqor532u" path="res://Sprites/PorteZoneBleu.png" id="2_e4bol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7heri"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yoai"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn7ef"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa11k"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wttu8"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqloh"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl07b"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbvfs"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(256, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr1pv"]
+atlas = ExtResource("2_e4bol")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdhro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7heri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yoai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn7ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa11k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wttu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqloh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl07b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbvfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr1pv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gykxu"]
+size = Vector2(30, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc6l1"]
+size = Vector2(30, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi61x"]
+size = Vector2(24, 9)
+
+[node name="PorteBleu" type="StaticBody2D" unique_id=1084665636 groups=["Porte_Verte"]]
+scale = Vector2(3, 3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=195595253]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_kdhro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207695149]
+position = Vector2(0, -21.5)
+shape = SubResource("RectangleShape2D_gykxu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2088024724]
+position = Vector2(0, -38.25)
+shape = SubResource("RectangleShape2D_fc6l1")
+
+[node name="CS2D" type="Area2D" parent="." unique_id=1888369481]
+position = Vector2(0, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CS2D" unique_id=916421905]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_fi61x")

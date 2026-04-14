@@ -1,5 +1,5 @@
 extends Control
-@onready var test = preload("res://Scenes/ScenePresentation.tscn")
+@onready var test = preload("res://Scenes/Zones/Mont_Bleu/MB-2.tscn")
 @onready var l1 = preload("res://Scenes/Zones/Plage_Grise/PG-1.tscn")
 @onready var FV1 = preload("res://Scenes/Zones/Foret_Verte/FV-2.tscn")
 @onready var VR1 = preload("res://Scenes/Zones/Volcan_Rouge/VR-3.tscn")
