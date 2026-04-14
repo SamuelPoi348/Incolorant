@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://ch4u51ax33xf8" path="res://Scenes/gimics/Personnages/habitant_vert.tscn" id="31_kaamw"]
 [ext_resource type="PackedScene" uid="uid://h4e0re1p7u06" path="res://Scenes/gimics/Personnages/habitant_bleu.tscn" id="32_jp41u"]
 [ext_resource type="PackedScene" uid="uid://cvq3py06lyoj8" path="res://Scenes/gimics/Personnages/habitant_Jaune.tscn" id="33_78jdp"]
+[ext_resource type="PackedScene" uid="uid://cayvei6ruglj4" path="res://Scenes/gimics/objet_pouvoirs/ReverseSpruceTree.tscn" id="35_rttju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wn6ip"]
 texture = ExtResource("1_78jdp")
@@ -804,3 +805,6 @@ position = Vector2(-344, -184)
 
 [node name="HabitantJaune" parent="Personnages" unique_id=1630004631 instance=ExtResource("33_78jdp")]
 position = Vector2(-281, -184)
+
+[node name="Plante" parent="." unique_id=1272667177 instance=ExtResource("35_rttju")]
+position = Vector2(188, -49)
