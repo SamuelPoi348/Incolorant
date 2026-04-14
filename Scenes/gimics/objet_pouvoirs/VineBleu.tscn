@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://d0tgkqgmjksxk"]
+
+[ext_resource type="Script" uid="uid://d0w0jkqud7gis" path="res://Scripts/gimics/plante.gd" id="1_qlf6h"]
+[ext_resource type="Texture2D" uid="uid://bb5l1f8e3pt66" path="res://Sprites/BleuPlateformeVert.png" id="2_qlf6h"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5hm6c"]
+a = Vector2(-72, -0.49999332)
+b = Vector2(56, -0.50000477)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cfqp"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13a6y"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 16, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iwoh"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 32, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1hh4"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vguyw"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 64, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf3tv"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 80, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqw6j"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 96, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55bi8"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 112, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvmgr"]
+atlas = ExtResource("2_qlf6h")
+region = Rect2(0, 128, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ld8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cfqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13a6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iwoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1hh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vguyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf3tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqw6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55bi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvmgr")
+}],
+"loop": false,
+"name": &"grow",
+"speed": 5.0
+}]
+
+[node name="Plante" type="StaticBody2D" unique_id=1052336278 groups=["Plante"]]
+position = Vector2(0, -37)
+rotation = 3.1415927
+scale = Vector2(-1, 1)
+collision_layer = 2
+script = ExtResource("1_qlf6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614946437]
+position = Vector2(56, -9.5)
+rotation = 3.1415927
+shape = SubResource("SegmentShape2D_5hm6c")
+one_way_collision = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348628331]
+position = Vector2(64, -13)
+sprite_frames = SubResource("SpriteFrames_8ld8s")
+animation = &"grow"
+frame = 7
+frame_progress = 0.5516849
+flip_v = true
