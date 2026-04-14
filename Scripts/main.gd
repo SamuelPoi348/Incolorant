@@ -30,6 +30,8 @@ var scene_courante
 # Liste des niveaux complétés
 var niveaux_completes: Array[String] = []
 
+var color_locked = false
+
 # 🔥 Charge automatiquement le menu principal au lancement
 func _ready():
 # Charger la scène option en arrière-plan

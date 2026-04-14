@@ -1,0 +1,30 @@
+extends Node2D
+
+@onready var time = $Timer
+var timer_actif = false
+var temps_precedent = -1
+
+func _ready() -> void:
+	time.timeout.connect(_on_timer_timeout)
+
+func _process(delta: float) -> void:
+	if timer_actif:
+		var temps_restant = int(time.time_left)
+		
+		if temps_restant != temps_precedent:
+			temps_precedent = temps_restant
+			print("Temps restant :", temps_restant)
+
+func lancer_timer():
+	if not timer_actif:
+		timer_actif = true
+		time.start()
+
+func arreter_timer():
+	if timer_actif:
+		timer_actif = false
+		time.stop()
+
+func _on_timer_timeout():
+	for joueur in get_tree().get_nodes_in_group("Player"):
+		joueur.die()

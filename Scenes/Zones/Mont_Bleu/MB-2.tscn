@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d6yb71luchiy" path="res://Sprites/MB.png" id="7_g3tuc"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_g11kn"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="8_t0yhm"]
+[ext_resource type="PackedScene" uid="uid://l0e5lv8ksfk8" path="res://Scenes/ui/Tuto/Tuto_Bleu.tscn" id="9_nc1wh"]
 [ext_resource type="PackedScene" uid="uid://cxwjwidicchwt" path="res://Scenes/gimics/Personnages/Marchand.tscn" id="10_e0byg"]
 [ext_resource type="PackedScene" uid="uid://bp0cyd54jqawu" path="res://Scenes/gimics/Icones/Icone_Bleu.tscn" id="11_7fshp"]
 [ext_resource type="PackedScene" uid="uid://bbh3h6hu2ckvs" path="res://Scenes/gimics/Personnages/Chef_bleu.tscn" id="11_xhedw"]
@@ -295,6 +296,8 @@ offset_bottom = 8.0
 [node name="MarchandInventaire" parent="CanvasLayer" unique_id=160752201 instance=ExtResource("7_48tar")]
 
 [node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("8_t0yhm")]
+
+[node name="TutoBleu" parent="CanvasLayer" unique_id=878060377 instance=ExtResource("9_nc1wh")]
 
 [node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_07khn")]
 position = Vector2(92, -83)

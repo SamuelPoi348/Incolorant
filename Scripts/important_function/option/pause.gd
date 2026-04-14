@@ -54,6 +54,7 @@ func _on_quitter_button_down() -> void:
 
 
 func _on_quitter_map_button_down() -> void:
+	main.color_locked =false
 	main.scene_courante = "mort"
 	get_tree().paused = false
 	Engine.time_scale = 1.0
