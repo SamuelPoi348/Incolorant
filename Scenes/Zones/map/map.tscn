@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://druvj3xm5so58"]
 
+[ext_resource type="Script" uid="uid://clqiw14lp06" path="res://Scenes/Zones/map/map.gd" id="1_0nlug"]
 [ext_resource type="PackedScene" uid="uid://b43ijeo1r2ndm" path="res://Scenes/Zones/map/player_map.tscn" id="1_ep2eh"]
 [ext_resource type="Texture2D" uid="uid://021kv7vx210s" path="res://Scenes/Zones/map/map.png" id="2_52fjb"]
 [ext_resource type="PackedScene" uid="uid://chyov13l0o7f" path="res://Scenes/ui/ColorSelector.tscn" id="3_51d0u"]
@@ -21,6 +22,7 @@
 
 [node name="Map" type="Node2D" unique_id=295114600]
 position = Vector2(0, -900)
+script = ExtResource("1_0nlug")
 
 [node name="PlayerMap" parent="." unique_id=1230117236 instance=ExtResource("1_ep2eh")]
 top_level = true
