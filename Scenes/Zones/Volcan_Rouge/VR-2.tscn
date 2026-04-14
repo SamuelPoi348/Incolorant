@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dwp1il8wx855r" path="res://Scenes/ui/Tuto/Tuto_Rouge.tscn" id="11_fhvd3"]
 [ext_resource type="PackedScene" uid="uid://d1rgljw3n5ree" path="res://Scenes/gimics/Icones/Icone_Rouge.tscn" id="11_gsvdn"]
 [ext_resource type="PackedScene" uid="uid://cg3l3jcwq36k3" path="res://Scenes/gimics/Personnages/habitant_rouge.tscn" id="13_cs6bn"]
-[ext_resource type="PackedScene" uid="uid://cqohnecbg2712" path="res://Scenes/gimics/Porte_Rouge.tscn" id="15_relwu"]
+[ext_resource type="PackedScene" path="res://Scenes/gimics/Porte_Rouge.tscn" id="15_relwu"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="17_ckhto"]
 [ext_resource type="PackedScene" uid="uid://bto7esom5i4ec" path="res://Scenes/gimics/objet_pouvoirs/Socle_Rouge.tscn" id="18_xstvn"]
 [ext_resource type="PackedScene" uid="uid://doih7jthpl07x" path="res://Scenes/gimics/objet_pouvoirs/Récepteur_Rouge.tscn" id="19_tu0du"]

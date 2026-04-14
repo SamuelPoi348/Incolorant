@@ -345,6 +345,6 @@ texture = ExtResource("7_7ftom")
 [node name="objet" type="Node2D" parent="." unique_id=133279544]
 
 [node name="Shooter" parent="objet" unique_id=1948774045 instance=ExtResource("10_7ad7y")]
-position = Vector2(272, -70)
-rotation = 0.37347993
+position = Vector2(244, -69.99999)
+rotation = 0.66663104
 max_distance = 100.0
