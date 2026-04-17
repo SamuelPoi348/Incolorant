@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cayvei6ruglj4" path="res://Scenes/gimics/objet_pouvoirs/ReverseSpruceTree.tscn" id="16_0ykc5"]
 [ext_resource type="Texture2D" uid="uid://xnmxbi3r35do" path="res://Sprites/Igloo.png" id="17_skgov"]
 [ext_resource type="PackedScene" uid="uid://coulgnnwe8dm7" path="res://Scenes/gimics/shooter/shooter.tscn" id="18_7wejq"]
+[ext_resource type="PackedScene" uid="uid://c2g21uurvw4mg" path="res://Scenes/gimics/foyer.tscn" id="18_kl6me"]
 [ext_resource type="PackedScene" uid="uid://h4e0re1p7u06" path="res://Scenes/gimics/Personnages/habitant_bleu.tscn" id="19_5whfd"]
 [ext_resource type="PackedScene" uid="uid://bm2dcghu00sdn" path="res://Scenes/gimics/Porte_bleu.tscn" id="20_02qxp"]
 
@@ -277,10 +278,7 @@ position = Vector2(591, -111.00001)
 position = Vector2(753, -191)
 
 [node name="Plante5" parent="Plantes" unique_id=1622242925 instance=ExtResource("16_0ykc5")]
-position = Vector2(1395, -176)
-
-[node name="Plante6" parent="Plantes" unique_id=485414417 instance=ExtResource("16_0ykc5")]
-position = Vector2(1491, -127)
+position = Vector2(1389, -176)
 
 [node name="Plante7" parent="Plantes" unique_id=374041265 instance=ExtResource("16_0ykc5")]
 position = Vector2(1783, -336)
@@ -300,7 +298,7 @@ layer_0/tile_data = PackedInt32Array(-65544, 65537, 6, -65543, 65537, 6, -65542,
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_07khn")]
-position = Vector2(-33, -85)
+position = Vector2(1432, -176)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066477384]
 
@@ -353,24 +351,29 @@ position = Vector2(174, -81)
 niveau = "montagne"
 
 [node name="ChefBleu" parent="Personnages" unique_id=1606303333 instance=ExtResource("11_xhedw")]
-position = Vector2(1689, -185)
+position = Vector2(1689, -184)
 
 [node name="Habitants" type="Node2D" parent="Personnages" unique_id=913999794]
 
 [node name="HabitantBleu" parent="Personnages/Habitants" unique_id=646324395 instance=ExtResource("19_5whfd")]
-position = Vector2(1936, -72)
+position = Vector2(1938, -64)
+village_position = Vector2(1600, -176)
 
 [node name="HabitantBleu2" parent="Personnages/Habitants" unique_id=59162324 instance=ExtResource("19_5whfd")]
-position = Vector2(981, -72)
+position = Vector2(981, -64)
+village_position = Vector2(1518, -128)
 
 [node name="HabitantBleu3" parent="Personnages/Habitants" unique_id=641239943 instance=ExtResource("19_5whfd")]
-position = Vector2(1892, -280)
+position = Vector2(1891, -272)
+village_position = Vector2(1493, -128)
 
 [node name="HabitantBleu4" parent="Personnages/Habitants" unique_id=1941462827 instance=ExtResource("19_5whfd")]
-position = Vector2(1915, -424)
+position = Vector2(1918, -416)
+village_position = Vector2(1660, -176)
 
 [node name="HabitantBleu5" parent="Personnages/Habitants" unique_id=1044165173 instance=ExtResource("19_5whfd")]
-position = Vector2(1608, -536)
+position = Vector2(1608, -528)
+village_position = Vector2(1432, -176)
 
 [node name="objet" type="Node2D" parent="." unique_id=1877444567]
 
@@ -378,27 +381,30 @@ position = Vector2(1608, -536)
 position = Vector2(1689, -202)
 
 [node name="Igloo" type="Sprite2D" parent="objet" unique_id=519129882]
-position = Vector2(1752, -208)
+position = Vector2(1760, -208)
 scale = Vector2(2, 2)
 texture = ExtResource("17_skgov")
 flip_h = true
 
 [node name="Igloo2" type="Sprite2D" parent="objet" unique_id=494965204]
-position = Vector2(1956, -76)
+position = Vector2(1536, -140)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("17_skgov")
 flip_h = true
 
 [node name="Igloo3" type="Sprite2D" parent="objet" unique_id=1322881734]
-position = Vector2(945, -76)
+position = Vector2(1583, -188)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("17_skgov")
 
 [node name="Igloo4" type="Sprite2D" parent="objet" unique_id=341709416]
-position = Vector2(1939, -428)
-scale = Vector2(0.75, 0.75)
+position = Vector2(1475, -140)
+scale = Vector2(-0.75, 0.75)
 texture = ExtResource("17_skgov")
 flip_h = true
+
+[node name="Foyer" parent="objet" unique_id=205892493 instance=ExtResource("18_kl6me")]
+position = Vector2(1637, -176)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=295915036]
 
@@ -433,19 +439,14 @@ rotation = -1.1519173
 max_distance = 240.0
 
 [node name="Shooter17" parent="Shooters" unique_id=782854843 instance=ExtResource("18_7wejq")]
-position = Vector2(1658, -469.0001)
-rotation = 0.22510406
+position = Vector2(1789, -542)
+rotation = -0.89043725
 max_distance = 240.0
 
 [node name="Shooter15" parent="Shooters" unique_id=142785761 instance=ExtResource("18_7wejq")]
 position = Vector2(1789.0001, -529.0001)
-rotation = 4.0884147
+rotation = 4.363323
 max_distance = 240.0
-
-[node name="Shooter16" parent="Shooters" unique_id=600900965 instance=ExtResource("18_7wejq")]
-position = Vector2(1805.0001, -526)
-rotation = 2.7152572
-max_distance = 110.0
 
 [node name="Shooter10" parent="Shooters" unique_id=124060491 instance=ExtResource("18_7wejq")]
 position = Vector2(1728.9999, -274.0001)
@@ -494,6 +495,11 @@ max_distance = 40.0
 position = Vector2(1895, -216)
 rotation = -3.1415925
 max_distance = 40.0
+
+[node name="Shooter18" parent="Shooters" unique_id=220231202 instance=ExtResource("18_7wejq")]
+position = Vector2(1642, -456)
+rotation = 4.712389
+max_distance = 240.0
 
 [node name="PorteBleu" parent="." unique_id=1084665636 instance=ExtResource("20_02qxp")]
 position = Vector2(2056, -176)

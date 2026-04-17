@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://h4e0re1p7u06"]
 
 [ext_resource type="Texture2D" uid="uid://veok4iaompoi" path="res://Sprites/Personnages/CitoyenBleu.png" id="1_4nowu"]
-[ext_resource type="Script" path="res://Scenes/gimics/Personnages/habitant_bleu.gd" id="2_xdfac"]
+[ext_resource type="Script" uid="uid://dwhnxy3od57jw" path="res://Scenes/gimics/Personnages/habitant_bleu.gd" id="2_xdfac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jb6a"]
 atlas = ExtResource("1_4nowu")
@@ -46,10 +46,11 @@ size = Vector2(24, 18)
 script = ExtResource("2_xdfac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752512267]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3kr7o")
 autoplay = "default"
 frame_progress = 0.7651412
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866118146]
-position = Vector2(0, -1)
+position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_oe1hn")
