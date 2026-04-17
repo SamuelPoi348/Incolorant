@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dxxcoyj642db7" path="res://Scenes/gimics/plateform_jaune_default/plateforme_jaune.png" id="1_k8fph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wljmj"]
-size = Vector2(48, 7)
+size = Vector2(48, 7.5)
 
 [node name="MovingPlatform" type="CharacterBody2D" unique_id=2126571110]
 script = ExtResource("1_i2wo7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1913557795]
-position = Vector2(0, -3)
+position = Vector2(0, -3.25)
 shape = SubResource("RectangleShape2D_wljmj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=749048300]
