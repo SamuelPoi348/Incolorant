@@ -2,6 +2,8 @@ extends StaticBody2D
 
 var fermé_ok = true
 var récepteur_ok = true
+var first_timer = true
+var first_ouverture=true
 @onready var anim = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
 @onready var c = $Area2D
@@ -30,12 +32,16 @@ func _on_c4_body_entered(body):
 				porte.anim.play("fermé")
 				porte.collision.set_deferred("disabled", false)
 				# 👉 lancer le timer UNE SEULE FOIS
-		get_tree().get_first_node_in_group("Niveau").lancer_timer()
+		if first_timer:
+			first_timer=false
+			get_tree().get_first_node_in_group("Niveau").lancer_timer()
 	
 func ouvrir_toutes_les_portes():
-	for porte in get_tree().get_nodes_in_group("Porte_Rouge"):
-		porte.ouvrir()
-	récepteur_ok=false
+	if first_ouverture:
+		first_ouverture=false
+		for porte in get_tree().get_nodes_in_group("Porte_Rouge"):
+			porte.ouvrir()
+		récepteur_ok=false
 		
 func ouvrir():
 	if not fermé_ok:
