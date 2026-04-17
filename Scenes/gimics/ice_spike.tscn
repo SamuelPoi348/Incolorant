@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://svouf30wiosb"]
+
+[ext_resource type="Script" uid="uid://dx6fhukcqawms" path="res://Scripts/gimics/ice_spike.gd" id="1_2ti1w"]
+[ext_resource type="Texture2D" uid="uid://bxnxwdc6uy40y" path="res://Sprites/Spike.png" id="1_byu6q"]
+
+[node name="IceSpike" type="Area2D" unique_id=1068259082]
+script = ExtResource("1_2ti1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=197485914]
+position = Vector2(0, -8)
+texture = ExtResource("1_byu6q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=372214144]
+position = Vector2(-6, 0)
+build_mode = 1
+polygon = PackedVector2Array(0, 0, 11, 0, 5.5, -13)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
