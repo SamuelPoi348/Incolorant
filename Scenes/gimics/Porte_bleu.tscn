@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bm2dcghu00sdn"]
 
 [ext_resource type="Texture2D" uid="uid://dykgnuqor532u" path="res://Sprites/PorteZoneBleu.png" id="2_e4bol"]
+[ext_resource type="Script" path="res://Scenes/gimics/porte_bleu.gd" id="3_pqrst"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7heri"]
 atlas = ExtResource("2_e4bol")
@@ -82,8 +83,9 @@ size = Vector2(30, 9.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi61x"]
 size = Vector2(24, 9)
 
-[node name="PorteBleu" type="StaticBody2D" unique_id=1084665636 groups=["Porte_Verte"]]
+[node name="PorteBleu" type="StaticBody2D" unique_id=1084665636 groups=["Porte_Bleu"]]
 scale = Vector2(3, 3)
+script = ExtResource("3_pqrst")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=195595253]
 position = Vector2(0, -24)
