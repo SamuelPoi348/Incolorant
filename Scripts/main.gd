@@ -15,7 +15,7 @@ var icone_vert =true;
 
 var colorux_detector=true
 var dash=true
-var double_saut=false
+var double_saut=true
 var teleporter_to_portail=true
 var golden_colorux=false
 

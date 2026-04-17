@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bb5l1f8e3pt66" path="res://Sprites/BleuPlateformeVert.png" id="2_qlf6h"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5hm6c"]
-a = Vector2(-72, -0.49999332)
+a = Vector2(32, -0.5000001)
 b = Vector2(56, -0.50000477)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cfqp"]
@@ -79,22 +79,20 @@ animations = [{
 }]
 
 [node name="Plante" type="StaticBody2D" unique_id=1052336278 groups=["Plante"]]
-position = Vector2(0, -37)
 rotation = 3.1415927
 scale = Vector2(-1, 1)
 collision_layer = 2
 script = ExtResource("1_qlf6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614946437]
-position = Vector2(56, -9.5)
+position = Vector2(112, 3.0000095)
 rotation = 3.1415927
+scale = Vector2(2, 2)
 shape = SubResource("SegmentShape2D_5hm6c")
 one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348628331]
-position = Vector2(64, -13)
+position = Vector2(24, 1.9073486e-06)
 sprite_frames = SubResource("SpriteFrames_8ld8s")
 animation = &"grow"
-frame = 7
-frame_progress = 0.5516849
 flip_v = true
