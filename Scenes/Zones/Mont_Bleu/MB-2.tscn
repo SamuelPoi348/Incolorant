@@ -298,7 +298,7 @@ layer_0/tile_data = PackedInt32Array(-65544, 65537, 6, -65543, 65537, 6, -65542,
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_07khn")]
-position = Vector2(1613, -208)
+position = Vector2(1432, -176)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066477384]
 
@@ -356,19 +356,24 @@ position = Vector2(1689, -184)
 [node name="Habitants" type="Node2D" parent="Personnages" unique_id=913999794]
 
 [node name="HabitantBleu" parent="Personnages/Habitants" unique_id=646324395 instance=ExtResource("19_5whfd")]
-position = Vector2(1936, -72)
+position = Vector2(1938, -64)
+village_position = Vector2(1600, -176)
 
 [node name="HabitantBleu2" parent="Personnages/Habitants" unique_id=59162324 instance=ExtResource("19_5whfd")]
-position = Vector2(981, -72)
+position = Vector2(981, -64)
+village_position = Vector2(1518, -128)
 
 [node name="HabitantBleu3" parent="Personnages/Habitants" unique_id=641239943 instance=ExtResource("19_5whfd")]
-position = Vector2(1892, -280)
+position = Vector2(1891, -272)
+village_position = Vector2(1493, -128)
 
 [node name="HabitantBleu4" parent="Personnages/Habitants" unique_id=1941462827 instance=ExtResource("19_5whfd")]
-position = Vector2(1915, -424)
+position = Vector2(1918, -416)
+village_position = Vector2(1660, -176)
 
 [node name="HabitantBleu5" parent="Personnages/Habitants" unique_id=1044165173 instance=ExtResource("19_5whfd")]
-position = Vector2(1608, -536)
+position = Vector2(1608, -528)
+village_position = Vector2(1432, -176)
 
 [node name="objet" type="Node2D" parent="." unique_id=1877444567]
 

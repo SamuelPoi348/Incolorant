@@ -3,6 +3,7 @@ extends Area2D
 @export var habitant_id: int = 0
 var visited = false
 var waiting_for_dialog_end=false
+@export var village_position: Vector2
 
 var dialogues_random: Array = [
 	["Merciiii !!! Tu m'as trouvé !"] as Array[String],
@@ -34,4 +35,4 @@ func is_visited() -> bool:
 func _on_dialog_finished():
 	if waiting_for_dialog_end:
 		waiting_for_dialog_end = false
-		visible = false
+		global_position = village_position
