@@ -9,7 +9,8 @@ var chef_rouge_dialog_active: Array[String] = [
 	"Montre-moi ce que tu as dans le ventre, ou plutôt dans l'arène.",
 	"Si tu parviens à m'impressionner, moi et mes sujets,",
 	"tu partirera avec l'icône rouge pour que tu ailles pourfendre ce dragon.",
-	"Il te suffit de remplir chacun des détecteurs en moins d'une minute allez!"
+	"Il te suffit de remplir chacun des détecteurs en moins d'une minute allez!",
+	"A et aussi le système des lanceurs est très anciens alors la vitesse et durré sont aléatoire!!"
 ]
 var chef_rouge_dialogue_active_2: Array[String] = [
 	"Tu vas y aller, tabarnak, ou je te lance moi-même dedans !"

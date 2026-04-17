@@ -17,8 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://csn0janf5mk7b" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="11_ci2t5"]
 [ext_resource type="PackedScene" uid="uid://dwp1il8wx855r" path="res://Scenes/ui/Tuto/Tuto_Rouge.tscn" id="11_fhvd3"]
 [ext_resource type="PackedScene" uid="uid://d1rgljw3n5ree" path="res://Scenes/gimics/Icones/Icone_Rouge.tscn" id="11_gsvdn"]
+[ext_resource type="PackedScene" uid="uid://bghe7y6e6c7yu" path="res://Scenes/ui/Timer_zone_Rouge.tscn" id="12_iptnk"]
 [ext_resource type="PackedScene" uid="uid://cg3l3jcwq36k3" path="res://Scenes/gimics/Personnages/habitant_rouge.tscn" id="13_cs6bn"]
-[ext_resource type="PackedScene" path="res://Scenes/gimics/Porte_Rouge.tscn" id="15_relwu"]
+[ext_resource type="PackedScene" uid="uid://cqohnecbg2712" path="res://Scenes/gimics/Porte_Rouge.tscn" id="15_relwu"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="17_ckhto"]
 [ext_resource type="PackedScene" uid="uid://bto7esom5i4ec" path="res://Scenes/gimics/objet_pouvoirs/Socle_Rouge.tscn" id="18_xstvn"]
 [ext_resource type="PackedScene" uid="uid://doih7jthpl07x" path="res://Scenes/gimics/objet_pouvoirs/Récepteur_Rouge.tscn" id="19_tu0du"]
@@ -414,6 +415,14 @@ offset_bottom = 8.0
 [node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("9_v1qtd")]
 
 [node name="TutoRouge" parent="CanvasLayer" unique_id=4588583 instance=ExtResource("11_fhvd3")]
+
+[node name="TimerZoneRouge" parent="CanvasLayer" unique_id=1264753090 instance=ExtResource("12_iptnk")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
+scale = Vector2(2, 2)
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=642769548]
 
