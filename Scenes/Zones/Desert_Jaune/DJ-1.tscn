@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="7_3l8i8"]
 [ext_resource type="Texture2D" uid="uid://hp5bkt36yh5a" path="res://Sprites/DJ.png" id="7_53i2n"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_l4akf"]
+[ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Scenes/gimics/plateform_jaune_default/movingPlatform.tscn" id="8_moving"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jg3i"]
 texture = ExtResource("1_l4akf")
@@ -316,3 +317,6 @@ z_index = -4096
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_53i2n")
+
+[node name="MovingPlatform" parent="." unique_id=2126571110 instance=ExtResource("8_moving")]
+position = Vector2(138, -75)
