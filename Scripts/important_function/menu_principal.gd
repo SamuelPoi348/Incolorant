@@ -5,7 +5,6 @@ extends Control
 @onready var VR1 = preload("res://Scenes/Zones/Volcan_Rouge/VR-2.tscn")
 @onready var MB1 = preload("res://Scenes/Zones/Mont_Bleu/MB-2.tscn")
 @onready var DJ1 = preload("res://Scenes/Zones/Desert_Jaune/DJ-2.tscn")
-@onready var DJ1 = preload("res://Scenes/Zones/Desert_Jaune/DJ-3.tscn")
 
 @onready var option = preload("res://Scenes/ui/option.tscn")
 # Called when the node enters the scene tree for the first time.
