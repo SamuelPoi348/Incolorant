@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c5sxem56ohjp8"]
+
+[ext_resource type="Script" uid="uid://by7xupr13hxnt" path="res://Scripts/gimics/giant_cactus_ball.gd" id="1_lwdem"]
+[ext_resource type="Texture2D" uid="uid://1guow4wplo06" path="res://Sprites/CactusBallGIANT.png" id="1_u4iov"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4iov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4iov"]
+size = Vector2(20, 596)
+
+[node name="GiantCactusBall" type="Node2D" unique_id=201981064]
+script = ExtResource("1_lwdem")
+
+[node name="CactusBallGiant" type="Sprite2D" parent="." unique_id=860311995]
+z_index = 1000
+scale = Vector2(8, 8)
+texture = ExtResource("1_u4iov")
+
+[node name="KillDetect" type="Area2D" parent="CactusBallGiant" unique_id=1059219532]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CactusBallGiant/KillDetect" unique_id=233141586]
+scale = Vector2(1.4665046, 1.5455277)
+shape = SubResource("CircleShape2D_u4iov")
+
+[node name="BallTweenStart" type="Area2D" parent="." unique_id=1019551770]
+position = Vector2(157, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallTweenStart" unique_id=1258962015]
+position = Vector2(0, 384)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_u4iov")

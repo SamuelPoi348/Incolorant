@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://crw0vw86rei1h"]
+
+[ext_resource type="Texture2D" uid="uid://bn52ea5swr6pf" path="res://Sprites/Building.png" id="1_bhphi"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bhphi"]
+a = Vector2(-24.333334, 15.666666)
+b = Vector2(24.333334, 15.666666)
+
+[node name="Building" type="Sprite2D" unique_id=795040304]
+z_index = -1000
+y_sort_enabled = true
+
+[node name="Building" type="Sprite2D" parent="." unique_id=177865451]
+z_index = -1000
+position = Vector2(0, -120)
+scale = Vector2(3, 3)
+texture = ExtResource("1_bhphi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1599989085]
+position = Vector2(0, -120)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1954178848]
+shape = SubResource("SegmentShape2D_bhphi")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=989522464]
+position = Vector2(2, -171)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1997501390]
+shape = SubResource("SegmentShape2D_bhphi")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=570063703]
+position = Vector2(2, -226)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1254150413]
+shape = SubResource("SegmentShape2D_bhphi")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1068442645]
+position = Vector2(1, -282)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=440502180]
+shape = SubResource("SegmentShape2D_bhphi")
