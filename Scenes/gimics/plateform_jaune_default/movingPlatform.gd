@@ -11,8 +11,10 @@ var target_position: Vector2
 var current_state: PlatformState = PlatformState.AT_ORIGIN
 var moving_to_target: bool = false
 
+@onready var a = $Area2D
 
 func _ready():
+	a.body_entered.connect(_on_a_body_entered)
 	origin_position = global_position
 	target_position = origin_position + move_offset
 	add_to_group("YellowPlatform")
@@ -39,3 +41,7 @@ func _move_platform(delta):
 
 	var movement = direction.normalized() * move_speed * delta
 	global_position += movement
+	
+func _on_a_body_entered(body):
+	if body is PlayerController:
+		body.die()

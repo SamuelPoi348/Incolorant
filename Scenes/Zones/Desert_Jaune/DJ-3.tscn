@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="7_5glt2"]
 [ext_resource type="Texture2D" uid="uid://hp5bkt36yh5a" path="res://Sprites/DJ.png" id="7_6dkia"]
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_17ulc"]
+[ext_resource type="PackedScene" uid="uid://dl0qdi8vnugwu" path="res://Scenes/gimics/plateform_jaune_default/movingPlatform.tscn" id="10_r3q7t"]
+[ext_resource type="PackedScene" uid="uid://dppgdtjstgjji" path="res://Scenes/gimics/objet_pouvoirs/ReverseVine.tscn" id="11_ijud1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17ulc"]
 texture = ExtResource("1_17ulc")
@@ -263,11 +265,11 @@ z_index = -1
 tile_set = SubResource("TileSet_cx2n0")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(-65544, 1, 6, -65543, 65537, 6, -65542, 65537, 6, -65541, 65537, 6, -65540, 65537, 6, -65539, 65537, 6, -65538, 65537, 6, -65537, 65537, 6, -131072, 65537, 6, -131071, 65537, 6, -131070, 65537, 6, -131069, 65537, 6, -131080, 1, 6, -131079, 65537, 6, -131078, 65537, 6, -131077, 65537, 6, -131076, 65537, 6, -131075, 65537, 6, -131074, 65537, 6, -131073, 65537, 6, -196608, 65537, 6, -196607, 65537, 6, -196606, 65537, 6, -196605, 65537, 6, -196604, 65537, 6, -131068, 65537, 6, -131067, 65537, 6, -131066, 131073, 6, -196602, 131073, 6, -196603, 65537, 6, -8, 1, 7, -7, 65537, 7, -6, 65537, 7, -5, 65537, 7, -4, 65537, 7, -3, 65537, 7, -2, 65537, 7, -1, 65537, 7, -65536, 65537, 7, -65535, 65537, 7, -65534, 65537, 7, -65533, 65537, 7, -65532, 65537, 7, -65531, 65537, 7, -65530, 131073, 7, -196616, 1, 5, -196615, 65537, 5, -196614, 65537, 5, -196613, 65537, 5, -196612, 65537, 5, -196611, 65537, 5, -196610, 65537, 5, -196609, 65537, 5, -262144, 65537, 5, -262143, 65537, 5, -262142, 65537, 5, -262141, 65537, 5, -262140, 65537, 5, -262139, 65537, 5, -262138, 131073, 5)
+layer_0/tile_data = PackedInt32Array(-1048542, 1, 3, -1048541, 65537, 3, -1048540, 131073, 3)
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_ficu8")]
-position = Vector2(-7, -80)
+position = Vector2(914, -291)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=647874913]
 
@@ -291,25 +293,157 @@ offset_bottom = 8.0
 [node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("7_5glt2")]
 
 [node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_ficu8")]
-position = Vector2(91, -82)
+position = Vector2(1083, -362)
 spawn_position = Vector2(1193, -472)
 niveau_termine = "res://Scenes/Zones/Desert_Jaune/DJ-3.tscn"
 
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1426659137]
 
 [node name="Colorux" parent="ColoruxContainer" unique_id=1446487818 instance=ExtResource("7_17ulc")]
-position = Vector2(113, -155)
+position = Vector2(-253, -368)
 id_colorux = "DJ-3-C1"
 
 [node name="Colorux2" parent="ColoruxContainer" unique_id=287481002 instance=ExtResource("7_17ulc")]
-position = Vector2(130, -155)
+position = Vector2(470, -183)
 id_colorux = "DJ-3-C2"
 
 [node name="Colorux3" parent="ColoruxContainer" unique_id=485720065 instance=ExtResource("7_17ulc")]
-position = Vector2(156, -158)
+position = Vector2(579, -451)
 id_colorux = "DJ-3-C3"
 
 [node name="objet" type="Node2D" parent="." unique_id=991272923]
+
+[node name="MovingPlatform" parent="objet" unique_id=2126571110 instance=ExtResource("10_r3q7t")]
+position = Vector2(-100, -65)
+move_offset = Vector2(100, 0)
+
+[node name="MovingPlatform2" parent="objet" unique_id=457368337 instance=ExtResource("10_r3q7t")]
+position = Vector2(0, -150)
+move_offset = Vector2(0, 65)
+
+[node name="MovingPlatform3" parent="objet" unique_id=84084387 instance=ExtResource("10_r3q7t")]
+position = Vector2(31, -181)
+rotation = 4.712389
+move_offset = Vector2(-50, 0)
+
+[node name="MovingPlatform4" parent="objet" unique_id=926971984 instance=ExtResource("10_r3q7t")]
+position = Vector2(-31, -181)
+rotation = 1.5707964
+move_offset = Vector2(-50, 0)
+
+[node name="MovingPlatform5" parent="objet" unique_id=255400440 instance=ExtResource("10_r3q7t")]
+position = Vector2(0, -212)
+rotation = 3.1415927
+
+[node name="MovingPlatform6" parent="objet" unique_id=31278020 instance=ExtResource("10_r3q7t")]
+position = Vector2(-45, -206)
+move_offset = Vector2(0, -100)
+
+[node name="MovingPlatform7" parent="objet" unique_id=1206354291 instance=ExtResource("10_r3q7t")]
+position = Vector2(-45, -356)
+rotation = 3.1415927
+move_offset = Vector2(0, 50)
+
+[node name="MovingPlatform8" parent="objet" unique_id=1668930239 instance=ExtResource("10_r3q7t")]
+position = Vector2(-90, -350)
+move_offset = Vector2(-100, 100)
+
+[node name="MovingPlatform9" parent="objet" unique_id=889412165 instance=ExtResource("10_r3q7t")]
+position = Vector2(-240, -350)
+rotation = 3.1415927
+move_offset = Vector2(50, 50)
+
+[node name="MovingPlatform10" parent="objet" unique_id=1800718458 instance=ExtResource("10_r3q7t")]
+position = Vector2(-240, -250)
+rotation = 1.5707964
+move_offset = Vector2(0, 0)
+
+[node name="MovingPlatform11" parent="objet" unique_id=1750618242 instance=ExtResource("10_r3q7t")]
+position = Vector2(-240, -440)
+move_offset = Vector2(0, 50)
+
+[node name="MovingPlatform12" parent="objet" unique_id=845185343 instance=ExtResource("10_r3q7t")]
+position = Vector2(-221, -370)
+rotation = 1.5707964
+move_offset = Vector2(50, 50)
+
+[node name="MovingPlatform13" parent="objet" unique_id=110569725 instance=ExtResource("10_r3q7t")]
+position = Vector2(-300, -371)
+rotation = 4.712389
+move_offset = Vector2(35, 0)
+
+[node name="MovingPlatform14" parent="objet" unique_id=50839108 instance=ExtResource("10_r3q7t")]
+position = Vector2(71, -206)
+move_offset = Vector2(100, 0)
+
+[node name="MovingPlatform15" parent="objet" unique_id=741020475 instance=ExtResource("10_r3q7t")]
+position = Vector2(271, -206)
+rotation = 3.1415927
+move_offset = Vector2(-100, 0)
+
+[node name="MovingPlatform16" parent="objet" unique_id=592870005 instance=ExtResource("10_r3q7t")]
+position = Vector2(271, -250)
+move_offset = Vector2(100, 0)
+
+[node name="MovingPlatform17" parent="objet" unique_id=1821536057 instance=ExtResource("10_r3q7t")]
+position = Vector2(471, -251)
+rotation = 3.1415927
+move_offset = Vector2(-100, 0)
+
+[node name="MovingPlatform18" parent="objet" unique_id=263604661 instance=ExtResource("10_r3q7t")]
+position = Vector2(471, -170)
+move_offset = Vector2(100, 0)
+
+[node name="MovingPlatform19" parent="objet" unique_id=448002209 instance=ExtResource("10_r3q7t")]
+position = Vector2(568, -335)
+move_offset = Vector2(0, 75)
+
+[node name="Plante" parent="objet/MovingPlatform19" unique_id=1052336278 instance=ExtResource("11_ijud1")]
+position = Vector2(8, -7)
+rotation = 4.712389
+scale = Vector2(1, -1)
+
+[node name="Plante2" parent="objet/MovingPlatform19" unique_id=831125180 instance=ExtResource("11_ijud1")]
+position = Vector2(14, -7)
+rotation = 4.712389
+
+[node name="MovingPlatform20" parent="objet" unique_id=286808927 instance=ExtResource("10_r3q7t")]
+position = Vector2(1083, -386)
+rotation = 3.1415927
+move_offset = Vector2(0, 0)
+
+[node name="MovingPlatform21" parent="objet" unique_id=843591377 instance=ExtResource("10_r3q7t")]
+position = Vector2(1052, -356)
+rotation = 1.5707964
+move_offset = Vector2(25, 0)
+
+[node name="MovingPlatform22" parent="objet" unique_id=1960343647 instance=ExtResource("10_r3q7t")]
+position = Vector2(1114, -356)
+rotation = 4.712389
+move_offset = Vector2(-25, 0)
+
+[node name="MovingPlatform23" parent="objet" unique_id=1059473393 instance=ExtResource("10_r3q7t")]
+position = Vector2(616, -335)
+move_offset = Vector2(100, 50)
+
+[node name="MovingPlatform24" parent="objet" unique_id=895948829 instance=ExtResource("10_r3q7t")]
+position = Vector2(716, -285)
+rotation = 3.1415927
+move_offset = Vector2(0, 0)
+
+[node name="MovingPlatform25" parent="objet" unique_id=663062074 instance=ExtResource("10_r3q7t")]
+position = Vector2(716, -278)
+rotation = 3.1415927
+move_offset = Vector2(100, 50)
+
+[node name="MovingPlatform26" parent="objet" unique_id=1999935262 instance=ExtResource("10_r3q7t")]
+position = Vector2(916, -271)
+move_offset = Vector2(-100, 50)
+
+[node name="MovingPlatform27" parent="objet" unique_id=1404227682 instance=ExtResource("10_r3q7t")]
+position = Vector2(1083, -331)
+rotation = 3.1415927
+move_offset = Vector2(-150, 50)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1574321766]
 

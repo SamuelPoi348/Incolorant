@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wljmj"]
 size = Vector2(48, 7.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jafh"]
+size = Vector2(19, 4)
+
 [node name="MovingPlatform" type="CharacterBody2D" unique_id=2126571110]
 script = ExtResource("1_i2wo7")
 
@@ -16,3 +19,9 @@ shape = SubResource("RectangleShape2D_wljmj")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=749048300]
 position = Vector2(0, -2)
 texture = ExtResource("1_k8fph")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=165669469]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=77394335]
+position = Vector2(-4.5, 2)
+shape = SubResource("RectangleShape2D_0jafh")
