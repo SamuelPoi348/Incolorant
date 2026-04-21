@@ -30,7 +30,7 @@ var merchant_dialog3: Array[String] = [
 var merchant_dialog4: Array[String] = [
 	"Salut, petit !",
 	"Pourquoi je reste en dehors de la ville ?",
-	"J'ai peut-être emprunté quelque chose de leurs inventions.",
+	"J'ai peut-être emprunté une de leurs inventions.",
 	"Tu veux voir ma marchandise ?"
 ]
 
