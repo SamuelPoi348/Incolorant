@@ -42,6 +42,7 @@ animations = [{
 size = Vector2(26, 18)
 
 [node name="HabitantJaune" type="Area2D" unique_id=1630004631]
+z_index = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=123478070]
 sprite_frames = SubResource("SpriteFrames_od4pi")
