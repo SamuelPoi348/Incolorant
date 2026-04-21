@@ -20,6 +20,11 @@ func _ready():
 	add_to_group("YellowPlatform")
 
 func _physics_process(delta):
+	var main = get_tree().root.get_node("Main")
+	
+	# 🚫 Stop total pendant la sélection
+	if main.selecting_color:
+		return
 	process_physics_priority = -1
 	if current_state == PlatformState.MOVING:
 		_move_platform(delta)
