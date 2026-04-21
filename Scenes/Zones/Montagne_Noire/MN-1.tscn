@@ -273,7 +273,7 @@ layer_0/tile_data = PackedInt32Array(-262144, 131073, 5, -196609, 1, 5, -131073,
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_8xged")]
-position = Vector2(1, -95)
+position = Vector2(170, -145)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066477384]
 
@@ -330,9 +330,10 @@ position = Vector2(174.99998, -82.99999)
 rotation = 5.8227353
 
 [node name="MovingPlatform" parent="Objet" unique_id=2126571110 instance=ExtResource("12_v7d48")]
-position = Vector2(198.00002, -120.000015)
+position = Vector2(198.00002, -120)
 rotation = -0.21421224
 move_offset = Vector2(200, -200)
+showGhost = true
 
 [node name="RedBlock5" parent="Objet" unique_id=1975791771 instance=ExtResource("11_3nqcd")]
 position = Vector2(424, -296)
@@ -344,6 +345,7 @@ position = Vector2(440, -296)
 position = Vector2(429, -264)
 rotation = 0.48498833
 move_offset = Vector2(200, -200)
+showGhost = true
 
 [node name="Plante4" parent="Objet" unique_id=812777906 instance=ExtResource("10_r5s88")]
 position = Vector2(464, -336)
@@ -368,6 +370,7 @@ position = Vector2(722, -379)
 [node name="MovingPlatform3" parent="Objet" unique_id=356230487 instance=ExtResource("12_v7d48")]
 position = Vector2(870, -346)
 move_offset = Vector2(0, 0)
+showGhost = true
 
 [node name="Plante" parent="Objet/MovingPlatform3" unique_id=1189056292 instance=ExtResource("14_82fpn")]
 position = Vector2(-29, -7)
@@ -408,6 +411,7 @@ max_distance = 200.0
 
 [node name="MovingPlatform4" parent="Objet" unique_id=1490203374 instance=ExtResource("12_v7d48")]
 position = Vector2(1271, -173)
+showGhost = true
 
 [node name="Plante6" parent="Objet/MovingPlatform4" unique_id=1543408521 instance=ExtResource("9_hta3e")]
 position = Vector2(14, -7)
@@ -425,6 +429,7 @@ max_distance = 300.0
 position = Vector2(1595, -311)
 rotation = 4.712389
 move_offset = Vector2(-100, 0)
+showGhost = true
 
 [node name="RedBlock12" parent="Objet" unique_id=1934501204 instance=ExtResource("11_3nqcd")]
 position = Vector2(1656, -328)
