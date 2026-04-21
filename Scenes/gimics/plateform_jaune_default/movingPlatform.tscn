@@ -20,6 +20,11 @@ shape = SubResource("RectangleShape2D_wljmj")
 position = Vector2(0, -2)
 texture = ExtResource("1_k8fph")
 
+[node name="SpriteIgnore" type="Sprite2D" parent="." unique_id=1722053965]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(0, -2)
+texture = ExtResource("1_k8fph")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=165669469]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=77394335]
