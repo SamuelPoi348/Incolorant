@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byhp0v0hrqfuk"]
+
+[ext_resource type="Script" uid="uid://cao1rbwyay8ln" path="res://Scenes/gimics/shooter_final/shot.gd" id="1_bku05"]
+[ext_resource type="Texture2D" uid="uid://05d08kbi2reo" path="res://Scenes/gimics/shooter_final/FinalTurretProjectile.png" id="2_bku05"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b3xvw"]
+a = Vector2(-7, 1)
+b = Vector2(7, -1)
+
+[node name="shot" type="StaticBody2D" unique_id=1796660773]
+script = ExtResource("1_bku05")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=73104891]
+texture = ExtResource("2_bku05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203011977]
+shape = SubResource("SegmentShape2D_b3xvw")
