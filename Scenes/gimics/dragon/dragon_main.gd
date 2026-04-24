@@ -10,6 +10,7 @@ extends StaticBody2D
 
 # Segment Configuration
 @export var segment_scene: PackedScene
+@export var segment_scene_vert: PackedScene
 @export var num_segments: int = 5
 @export var segment_spacing: float = 25.0
 @export var movement_speed: float = 150.0
@@ -32,13 +33,20 @@ func _ready():
 	
 	# Initialize segment positions
 	for i in range(num_segments - 1):
-		if segment_scene:
+		if i == 2:
+			var seg = segment_scene_vert.instantiate()
+			get_parent().add_child.call_deferred(seg)
+			segments.append(seg)
+			segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
+		elif segment_scene:
 			var seg = segment_scene.instantiate()
 			get_parent().add_child.call_deferred(seg)
 			segments.append(seg)
 			segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
 		else:
 			segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
+
+
 
 
 func _process(delta):

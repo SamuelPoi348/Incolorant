@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dsav0tvqp7n0m"]
+[gd_scene format=3 uid="uid://ql6jsqk0y4rd"]
 
-[ext_resource type="Texture2D" uid="uid://c6yxtsohad6ov" path="res://Scenes/gimics/dragon/Segment.png" id="1_6ssyc"]
+[ext_resource type="Texture2D" uid="uid://b2521h4d1d8i" path="res://Scenes/gimics/dragon/SegmentVert.png" id="1_lkeql"]
 
 [sub_resource type="GDScript" id="GDScript_6ssyc"]
 script/source = "# Segment.gd — on the Node2D root
@@ -21,10 +21,10 @@ script = SubResource("GDScript_6ssyc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=701797270]
 scale = Vector2(2, 2)
-texture = ExtResource("1_6ssyc")
+texture = ExtResource("1_lkeql")
+hframes = 5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=993320397]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1329102026]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_6ssyc")
