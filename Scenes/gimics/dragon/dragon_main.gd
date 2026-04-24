@@ -107,9 +107,24 @@ func _update_visuals():
 	"""Update the visual representation of the dragon"""
 	global_position = head_position
 	
+	# Rotate head based on current direction
+	if current_direction.length() > 0:
+		rotation = current_direction.angle()
+	
+	# Rotate and update each segment based on direction towards next segment
 	for i in range(segments.size()):
 		if segments[i] != null and i < segment_positions.size():
 			segments[i].global_position = segment_positions[i]
+			
+			# Calculate direction this segment should face
+			if i == 0:
+				# First segment faces towards the head
+				var direction_to_head = (head_position - segment_positions[i]).normalized()
+				segments[i].rotation = direction_to_head.angle()
+			else:
+				# Other segments face towards the segment ahead
+				var direction_to_next = (segment_positions[i - 1] - segment_positions[i]).normalized()
+				segments[i].rotation = direction_to_next.angle()
 
 
 # ==============================================================================

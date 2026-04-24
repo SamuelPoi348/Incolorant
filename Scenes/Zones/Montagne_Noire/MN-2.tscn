@@ -314,3 +314,4 @@ texture = ExtResource("7_nk2bd")
 
 [node name="DragonMain" parent="." unique_id=1114054651 instance=ExtResource("3_4muy2")]
 position = Vector2(166, -89)
+num_segments = 10
