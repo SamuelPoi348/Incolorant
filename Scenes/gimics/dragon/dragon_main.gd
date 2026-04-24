@@ -15,8 +15,6 @@ extends StaticBody2D
 @export var segment_spacing: float = 25.0
 @export var movement_speed: float = 150.0
 @export var follow_speed_multiplier: float = 1.0
-@export var spawn_direction: String = "down"  # "left", "right", "up", "down"
-@export var segment_offset: float = 30.0  # perpendicular offset distance
 
 # Internal State
 var head_position: Vector2 = Vector2.ZERO
@@ -32,6 +30,8 @@ func _ready():
 	head_position = global_position
 	
 	# Initialize segment positions
+	# CHANGER LES SEGMENTS ICI
+	#  
 	for i in range(num_segments - 1):
 		if i == 2:
 			var seg = segment_scene_vert.instantiate()
@@ -50,20 +50,16 @@ func _ready():
 
 
 func _process(delta):
-	# Handle debug input
 	_handle_input()
 	
-	# Move head if direction is set
 	if current_direction.length() > 0:
 		is_moving = true
 		head_position += current_direction * movement_speed * delta
 	else:
 		is_moving = false
 	
-	# Update segment positions (they follow the previous segment)
 	_update_segments(delta)
 	
-	# Update visual positions
 	_update_visuals()
 
 
@@ -80,7 +76,6 @@ func _handle_input():
 	if Input.is_action_pressed("ui_right"):
 		input_direction.x += 1
 	
-	# Normalize to prevent faster diagonal movement
 	if input_direction.length() > 0:
 		current_direction = input_direction.normalized()
 	else:
@@ -92,22 +87,17 @@ func _update_segments(delta):
 	if segment_positions.size() == 0:
 		return
 	
-	# First segment (behind head) follows the head at segment_spacing distance
 	var direction_to_head = (head_position - segment_positions[0]).normalized()
 	var target_pos = head_position - direction_to_head * segment_spacing
 	segment_positions[0] = segment_positions[0].lerp(target_pos, follow_speed_multiplier * delta * 5.0)
 	
-	# All other segments follow the segment ahead of them while maintaining spacing
 	for i in range(1, segment_positions.size()):
 		var prev_segment_pos = segment_positions[i - 1]
 		var current_pos = segment_positions[i]
 		
-		# Calculate direction from current segment to previous segment
 		var direction = (prev_segment_pos - current_pos).normalized()
-		# Target position is segment_spacing units away from previous segment
 		var target_pos_1 = prev_segment_pos - direction * segment_spacing
 		
-		# Smooth following movement while maintaining spacing
 		segment_positions[i] = current_pos.lerp(target_pos_1, follow_speed_multiplier * delta * 5.0)
 
 
@@ -115,22 +105,17 @@ func _update_visuals():
 	"""Update the visual representation of the dragon"""
 	global_position = head_position
 	
-	# Rotate head based on current direction
 	if current_direction.length() > 0:
 		rotation = current_direction.angle()
 	
-	# Rotate and update each segment based on direction towards next segment
 	for i in range(segments.size()):
 		if segments[i] != null and i < segment_positions.size():
 			segments[i].global_position = segment_positions[i]
 			
-			# Calculate direction this segment should face
 			if i == 0:
-				# First segment faces towards the head
 				var direction_to_head = (head_position - segment_positions[i]).normalized()
 				segments[i].rotation = direction_to_head.angle()
 			else:
-				# Other segments face towards the segment ahead
 				var direction_to_next = (segment_positions[i - 1] - segment_positions[i]).normalized()
 				segments[i].rotation = direction_to_next.angle()
 
