@@ -10,6 +10,7 @@ extends StaticBody2D
 
 # Segment Configuration
 @export var segment_scene: PackedScene
+@export var segment_scene_with_shooter: PackedScene
 @export var segment_scene_vert: PackedScene
 @export var num_segments: int = 5
 @export var segment_spacing: float = 25.0
@@ -33,18 +34,20 @@ func _ready():
 	# CHANGER LES SEGMENTS ICI
 	#  
 	for i in range(num_segments - 1):
+		var seg
+
 		if i == 2:
-			var seg = segment_scene_vert.instantiate()
-			get_parent().add_child.call_deferred(seg)
-			segments.append(seg)
-			segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
-		elif segment_scene:
-			var seg = segment_scene.instantiate()
-			get_parent().add_child.call_deferred(seg)
-			segments.append(seg)
-			segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
+			seg = segment_scene_vert.instantiate()
+		elif i == 4:
+			seg = segment_scene_with_shooter.instantiate()
 		else:
-			segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
+			seg = segment_scene.instantiate()
+	
+
+		get_parent().add_child.call_deferred(seg)
+		segments.append(seg)
+		segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
+
 
 
 
