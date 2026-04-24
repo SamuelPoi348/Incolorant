@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c0hsbdqc6m8x8"]
+
+[ext_resource type="Script" uid="uid://cra11aen82ddp" path="res://Scenes/gimics/dragon/dragon_main.gd" id="1_duuk7"]
+[ext_resource type="Texture2D" uid="uid://cwg7ug32c558b" path="res://Scenes/gimics/dragon/Head.png" id="1_nianq"]
+[ext_resource type="PackedScene" uid="uid://dsav0tvqp7n0m" path="res://Scenes/gimics/dragon/segment.tscn" id="2_huqop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duuk7"]
+size = Vector2(60, 42)
+
+[node name="DragonMain" type="StaticBody2D" unique_id=819733527]
+script = ExtResource("1_duuk7")
+segment_scene = ExtResource("2_huqop")
+follow_speed_multiplier = 7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=790484342]
+scale = Vector2(2, 2)
+texture = ExtResource("1_nianq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823616375]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_duuk7")
