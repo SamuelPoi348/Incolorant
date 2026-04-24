@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ql6jsqk0y4rd"]
+
+[ext_resource type="Texture2D" uid="uid://b2521h4d1d8i" path="res://Scenes/gimics/dragon/SegmentVert.png" id="1_lkeql"]
+
+[sub_resource type="GDScript" id="GDScript_6ssyc"]
+script/source = "# Segment.gd — on the Node2D root
+extends Node2D
+
+func _ready():
+	if has_meta(\"spawn_position\"):
+		global_position = get_meta(\"spawn_position\")
+		remove_meta(\"spawn_position\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ssyc"]
+size = Vector2(32, 37)
+
+[node name="Segment" type="Node2D" unique_id=1161550878]
+scale = Vector2(2, 2)
+script = SubResource("GDScript_6ssyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=701797270]
+scale = Vector2(2, 2)
+texture = ExtResource("1_lkeql")
+hframes = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=993320397]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1329102026]
+shape = SubResource("RectangleShape2D_6ssyc")
