@@ -92,6 +92,11 @@ func _process(delta):
 	if pf == null:
 		return
 	check_boss_state()
+	
+	# DEBUG: Press J to kill boss
+	if Input.is_action_just_pressed("ui_j"):
+		kill_boss()
+	
 	# avancer sur le chemin
 	pf.progress += speed * delta
 	
@@ -256,3 +261,93 @@ func play_head_hit_anim():
 func kill_boss():
 	print("💀 BOSS DEAD")
 	head_vulnerable = false
+	
+	# 1️⃣ FREEZE THE DRAGON
+	freeze()
+	speed = 0
+	
+	# 1️⃣.5️⃣ FREEZE THE PLAYER
+	var player = null
+	# Try to find PlayerController script instance
+	for node in get_tree().get_nodes_in_group("Player"):
+		player = node
+		break
+	if player:
+		player.set_physics_process(false)
+		print("❄️ Player frozen:", player.name)
+	
+	# 2️⃣ SCREEN SHAKE + FADE ANIMATION + PLAYER TELEPORT
+	await _screen_shake_and_fade(player)
+	
+	# 3️⃣ RE-ENABLE PLAYER PHYSICS SO CAMERA TRACKS THEM
+	if player:
+		player.set_physics_process(true)
+		print("✅ Player physics re-enabled")
+	
+	# 4️⃣ CALL POST-BOSS FUNCTION
+	post_kill_boss()
+
+
+func _screen_shake_and_fade(player: Node) -> void:
+	var camera = player.get_node_or_null("Camera2D")  # Get from player, not viewport
+	if camera == null:
+		print("⚠️ No camera found on player")
+		return
+
+	var shake_intensity = 7.0
+	var shake_duration = 2.5
+	var fade_duration = 5
+
+	# Setup fade overlay (same as before)
+	var fade_overlay = CanvasLayer.new()
+	fade_overlay.layer = 100
+	get_tree().root.add_child(fade_overlay)
+
+	var color_rect = ColorRect.new()
+	color_rect.color = Color(1, 1, 1, 0)
+	color_rect.anchor_right = 1
+	color_rect.anchor_bottom = 1
+	fade_overlay.add_child(color_rect)
+
+	# Run shake in background
+	_shake_camera(camera, shake_intensity, shake_duration)
+
+	# Fade to white
+	var fade_tween = create_tween()
+	fade_tween.tween_property(color_rect, "color", Color(1, 1, 1, 1), fade_duration)
+	await fade_tween.finished
+
+	# Screen is white — teleport player
+	if player:
+		player.position = Vector2(3250, -210)
+		print("✨ Player teleported to", player.position)
+
+		# Snap camera using local position + reset_smoothing
+		camera.position = Vector2.ZERO  # local offset from player
+		camera.reset_smoothing()
+		print("📷 Camera snapped")
+
+	# Fade out
+	var fade_out_tween = create_tween()
+	fade_out_tween.tween_property(color_rect, "color", Color(1, 1, 1, 0), fade_duration)
+	await fade_out_tween.finished
+
+	fade_overlay.queue_free()
+
+
+# No longer takes original_pos — uses LOCAL position offset instead
+func _shake_camera(camera: Camera2D, intensity: float, duration: float) -> void:
+	var original_local_pos = camera.position  # store LOCAL position
+	for i in range(int(duration * 30)):
+		camera.position = original_local_pos + Vector2(  # set LOCAL position
+			randf_range(-intensity, intensity),
+			randf_range(-intensity, intensity)
+		)
+		await get_tree().create_timer(duration / 30).timeout
+	camera.position = original_local_pos  # restore LOCAL position
+
+
+func post_kill_boss() -> void:
+	"""Called after death animation completes - override or connect signals here"""
+	# Add your post-boss logic here (level complete, rewards, etc.)
+	print("💫 Post-boss sequence completed")
