@@ -6,22 +6,38 @@
 [ext_resource type="PackedScene" uid="uid://ql6jsqk0y4rd" path="res://Scenes/gimics/dragon/segment_vert_TEST.tscn" id="3_7u1yc"]
 [ext_resource type="PackedScene" uid="uid://bf0ils7kw6i6g" path="res://Scenes/gimics/dragon/segment_shooter.tscn" id="3_dgtua"]
 
+[sub_resource type="Curve2D" id="Curve2D_dgtua"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 300, 0, 0, 0, 0, 0, 300, -50, 0, 0, 0, 0, 350, -50, 0, 0, 0, 0, 350, -100, 0, 0, 0, 0, 400, -100, 0, 0, 0, 0, 450, -100, 0, 0, 0, 0, 500, -100, 0, 0, 0, 0, 550, -100, 0, 0, 0, 0, 600, -100, 0, 0, 0, 0, 600, -50, 0, 0, 0, 0, 600, 0, 0, 0, 0, 0, 650, 0, 0, 0, 0, 0, 700, 0, 0, 0, 0, 0, 750, 0, 0, 0, 0, 0, 800, 0, 0, 0, 0, 0, 800, -50, 0, 0, 0, 0, 800, -100, 0, 0, 0, 0, 800, -150, 0, 0, 0, 0, 750, -150, 0, 0, 0, 0, 700, -150, 0, 0, 0, 0, 650, -150, 0, 0, 0, 0, 600, -150, 0, 0, 0, 0, 550, -150, 0, 0, 0, 0, 500, -150, 0, 0, 0, 0, 450, -150, 0, 0, 0, 0, 400, -150, 0, 0, 0, 0, 400, -200, 0, 0, 0, 0, 350, -200, 0, 0, 0, 0, 350, -250, 0, 0, 0, 0, 300, -250, 0, 0, 0, 0, 250, -250, 0, 0, 0, 0, 200, -250, 0, 0, 0, 0, 150, -250, 0, 0, 0, 0, 100, -250, 0, 0, 0, 0, 50, -250, 0, 0, 0, 0, 0, -250, 0, 0, 0, 0, 0, -200, 0, 0, 0, 0, -50, -200, 0, 0, 0, 0, -50, -150, 0, 0, 0, 0, -100, -150, 0, 0, 0, 0, -100, -100, 0, 0, 0, 0, -150, -100, 0, 0, 0, 0, -150, -50, 0, 0, 0, 0, -200, -50, 0, 0, 0, 0, -200, 0, 0, 0, 0, 0, -150, 0, 0, 0, 0, 0, -100, 0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 55
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duuk7"]
 size = Vector2(60, 42)
 
-[node name="DragonMain" type="StaticBody2D" unique_id=819733527]
+[node name="Dragon_Main" type="Node2D" unique_id=588611856]
+scale = Vector2(2, 2)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1392433357]
+curve = SubResource("Curve2D_dgtua")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1424621685]
+
+[node name="DragonMain" type="StaticBody2D" parent="Path2D/PathFollow2D" unique_id=703057781 node_paths=PackedStringArray("path_follow")]
 scale = Vector2(2, 2)
 script = ExtResource("1_duuk7")
 segment_scene = ExtResource("2_huqop")
 segment_scene_with_shooter = ExtResource("3_dgtua")
 segment_scene_vert = ExtResource("3_7u1yc")
+num_segments = 20
 segment_spacing = 50.0
-follow_speed_multiplier = 7.0
+movement_speed = 1.0
+path_follow = NodePath("..")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=790484342]
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/DragonMain" unique_id=790484342]
 scale = Vector2(2, 2)
 texture = ExtResource("1_nianq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823616375]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/DragonMain" unique_id=823616375]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_duuk7")
