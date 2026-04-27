@@ -47,3 +47,6 @@ func _on_body_entered(body):
 	if can_kill_ok:
 		if body.has_method("die"):
 			body.die()
+			
+func is_yellow_active():
+	return not can_kill_ok

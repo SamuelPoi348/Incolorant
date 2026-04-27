@@ -32,7 +32,6 @@ func _on_body_entered(body):
 	
 	# COMPTE HIT
 	hit_count += 1
-	print("Hit:", hit_count, "/", max_hits)
 	
 	# SHATTER FINAL
 	if hit_count >= max_hits:
@@ -50,3 +49,7 @@ func _on_body_entered(body):
 		anim.play("default")
 	
 	busy = false
+	
+func is_shattered():
+	return broken
+	

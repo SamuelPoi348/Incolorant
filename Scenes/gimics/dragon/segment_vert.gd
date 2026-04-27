@@ -5,25 +5,25 @@ extends Node2D
 @export var vineFinal: bool = false
 
 var busy := false
-var is_grown := false
+var est_grande := false
 
 
 func _ready():
 	if vineFinal:
-		is_grown = true
+		est_grande = true
 		sprite.play("grow")
 	else:
-		is_grown = false
+		est_grande = false
 		sprite.play("default")
 
 
 func grow():
 	# 🔒 déjà en état grow → on ignore
-	if busy or is_grown:
+	if busy or est_grande:
 		return
 	
 	busy = true
-	is_grown = true
+	est_grande = true
 	
 	sprite.play("grow")
 	await sprite.animation_finished
@@ -33,13 +33,16 @@ func grow():
 
 func shrink():
 	# 🔒 déjà en shrink → on ignore
-	if busy or not is_grown:
+	if busy or not est_grande:
 		return
 	
 	busy = true
-	is_grown = false
+	est_grande = false
 	
 	sprite.play_backwards("grow")
 	await sprite.animation_finished
 	
 	busy = false
+	
+func is_grown():
+	return est_grande
