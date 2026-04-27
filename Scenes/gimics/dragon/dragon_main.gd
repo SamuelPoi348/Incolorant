@@ -6,7 +6,7 @@
 # input is held.
 # ==============================================================================
 
-extends StaticBody2D
+extends Node2D
 
 # Segment Configuration
 @export var segment_scene: PackedScene
@@ -25,6 +25,9 @@ var is_moving: bool = false
 
 var segments: Array[Node] = []
 var history: Array[Vector2] = []
+
+@export var path_follow: PathFollow2D
+@export var speed: float = 50
 
 
 func _ready():
@@ -52,37 +55,27 @@ func _ready():
 
 
 
+
+
 func _process(delta):
-	_handle_input()
+	var pf = get_parent() as PathFollow2D
 	
-	if current_direction.length() > 0:
-		is_moving = true
-		head_position += current_direction * movement_speed * delta
-	else:
-		is_moving = false
+	if pf == null:
+		return
+	
+	# avancer sur le chemin
+	pf.progress += speed * delta
+	
+	# la position est AUTOMATIQUE (héritée du parent)
+	head_position = global_position
+	
+	# direction automatique
+	current_direction = pf.transform.x.normalized()
+	
+	is_moving = true
 	
 	_update_segments(delta)
-	
 	_update_visuals()
-
-
-func _handle_input():
-	"""Debug input handling for movement"""
-	var input_direction = Vector2.ZERO
-	
-	if Input.is_action_pressed("ui_up"):
-		input_direction.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		input_direction.y += 1
-	if Input.is_action_pressed("ui_left"):
-		input_direction.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		input_direction.x += 1
-	
-	if input_direction.length() > 0:
-		current_direction = input_direction.normalized()
-	else:
-		current_direction = Vector2.ZERO
 
 
 func _update_segments(delta):
@@ -108,8 +101,8 @@ func _update_visuals():
 	"""Update the visual representation of the dragon"""
 	global_position = head_position
 	
-	if current_direction.length() > 0:
-		rotation = current_direction.angle()
+	#if current_direction.length() > 0:
+		#rotation = path_follow.rotation
 	
 	for i in range(segments.size()):
 		if segments[i] != null and i < segment_positions.size():
