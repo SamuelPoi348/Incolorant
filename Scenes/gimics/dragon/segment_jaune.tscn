@@ -78,6 +78,9 @@ size = Vector2(32, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewyu8"]
 size = Vector2(20, 60)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8gn0"]
+radius = 69.51618
+
 [node name="SegmentJaune" type="StaticBody2D" unique_id=1715655191]
 scale = Vector2(2, 2)
 script = ExtResource("1_e8gn0")
@@ -95,3 +98,8 @@ shape = SubResource("RectangleShape2D_w4yio")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1474949596]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_ewyu8")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=42183786]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1090881058]
+shape = SubResource("CircleShape2D_e8gn0")
