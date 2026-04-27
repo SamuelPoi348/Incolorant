@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://dgcwperjpx3n1"]
 
 [ext_resource type="Script" uid="uid://bod1g7avvkby3" path="res://Scripts/important_function/crédits.gd" id="1_k56j4"]
-
-[sub_resource type="Gradient" id="Gradient_k56j4"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cjog0"]
-gradient = SubResource("Gradient_k56j4")
+[ext_resource type="Texture2D" uid="uid://cuywebef8jjm6" path="res://Sprites/ending.png" id="2_cjog0"]
 
 [node name="Crédits" type="Control" unique_id=2022329722 groups=["credits"]]
 layout_mode = 3
@@ -57,4 +52,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_cjog0")
+texture = ExtResource("2_cjog0")

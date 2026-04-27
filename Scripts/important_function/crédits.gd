@@ -23,7 +23,7 @@ func _process(delta):
 		return
 	main = get_tree().root.get_node("Main")
 	if main.secret_ending:
-		texture.texture = load("res://sprites/incolorant_cover_art.png")
+		texture.texture = load("res://Sprites/true_ending.png")
 	if can_continue and Input.is_action_just_pressed("interagir"):
 		show_restart()
 
