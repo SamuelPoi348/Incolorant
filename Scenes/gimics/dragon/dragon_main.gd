@@ -102,8 +102,8 @@ func _process(delta):
 	check_boss_state()
 	
 	# DEBUG: Press J to kill boss
-	if Input.is_action_just_pressed("ui_j"):
-		kill_boss()
+	#if Input.is_action_just_pressed("ui_j"):
+	#	kill_boss()
 	
 	# avancer sur le chemin
 	pf.progress += speed * delta
@@ -237,7 +237,6 @@ func check_boss_state():
 		if not boss_phase_complete:
 			boss_phase_complete = true
 			head_vulnerable = true
-			print("🔥 BOSS PHASE COMPLETE")
 			
 func _on_head_hit(body):
 	if not boss_phase_complete:
@@ -278,7 +277,6 @@ func play_head_hit_anim():
 	anim.play("default")
 			
 func kill_boss():
-	print("💀 BOSS DEAD")
 	head_vulnerable = false
 	
 	# 1️⃣ FREEZE THE DRAGON
@@ -384,5 +382,4 @@ func _check_alternative_kill():
 		secret_ending=true
 		main = get_tree().root.get_node("Main")
 		main.secret_ending=true
-		print("🧪 ALT KILL TRIGGERED")
 		kill_boss()
