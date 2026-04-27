@@ -35,17 +35,24 @@ var history: Array[Vector2] = []
 var boss_phase_complete := false
 
 @onready var area2D = $Area2D
+@onready var area2D2 = $Area2D2
 @onready var anim = $Sprite2D
 
 var head_hit_count := 0
 var head_hit_max := 5
 var head_vulnerable := false
 
+var player_in_alt_area := false
+var player_ref = null
+var secret_ending = false
+var main
 
 func _ready():
 	area2D.body_entered.connect(_on_head_hit)
 	head_position = global_position
 	
+	area2D2.body_entered.connect(_on_alt_enter)
+	area2D2.body_exited.connect(_on_alt_exit)
 	# Initialize segment positions
 	# CHANGER LES SEGMENTS ICI
 	#  
@@ -91,6 +98,7 @@ func _process(delta):
 	
 	if pf == null:
 		return
+	_check_alternative_kill()
 	check_boss_state()
 	
 	# DEBUG: Press J to kill boss
@@ -111,7 +119,16 @@ func _process(delta):
 	_update_segments(delta)
 	_update_visuals()
 
+func _on_alt_enter(body):
+	if body.is_in_group("Player"):
+		player_in_alt_area = true
+		player_ref = body
 
+func _on_alt_exit(body):
+	if body.is_in_group("Player"):
+		player_in_alt_area = false
+		player_ref = null
+		
 func _update_segments(delta):
 	"""Update all segment positions to follow each other while maintaining spacing"""
 	if segment_positions.size() == 0:
@@ -250,6 +267,8 @@ func register_head_hit():
 	play_head_hit_anim()
 	
 	if head_hit_count >= head_hit_max:
+		main = get_tree().root.get_node("Main")
+		main.secret_ending=false
 		kill_boss()
 		
 func play_head_hit_anim():
@@ -274,7 +293,6 @@ func kill_boss():
 		break
 	if player:
 		player.set_physics_process(false)
-		print("❄️ Player frozen:", player.name)
 	
 	# 2️⃣ SCREEN SHAKE + FADE ANIMATION + PLAYER TELEPORT
 	await _screen_shake_and_fade(player)
@@ -282,7 +300,6 @@ func kill_boss():
 	# 3️⃣ RE-ENABLE PLAYER PHYSICS SO CAMERA TRACKS THEM
 	if player:
 		player.set_physics_process(true)
-		print("✅ Player physics re-enabled")
 	
 	# 4️⃣ CALL POST-BOSS FUNCTION
 	post_kill_boss()
@@ -291,7 +308,6 @@ func kill_boss():
 func _screen_shake_and_fade(player: Node) -> void:
 	var camera = player.get_node_or_null("Camera2D")  # Get from player, not viewport
 	if camera == null:
-		print("⚠️ No camera found on player")
 		return
 
 	var shake_intensity = 7.0
@@ -320,12 +336,10 @@ func _screen_shake_and_fade(player: Node) -> void:
 	# Screen is white — teleport player
 	if player:
 		player.position = Vector2(3250, -210)
-		print("✨ Player teleported to", player.position)
 
 		# Snap camera using local position + reset_smoothing
 		camera.position = Vector2.ZERO  # local offset from player
 		camera.reset_smoothing()
-		print("📷 Camera snapped")
 
 	# Fade out
 	var fade_out_tween = create_tween()
@@ -350,4 +364,25 @@ func _shake_camera(camera: Camera2D, intensity: float, duration: float) -> void:
 func post_kill_boss() -> void:
 	"""Called after death animation completes - override or connect signals here"""
 	# Add your post-boss logic here (level complete, rewards, etc.)
-	print("💫 Post-boss sequence completed")
+
+func _check_alternative_kill():
+	if not player_in_alt_area:
+		return
+	
+	if boss_phase_complete:
+		return
+	
+	if player_ref == null:
+		return
+	
+	# Vérifie couleur vide
+	if player_ref.couleur_active != "":
+		return
+	
+	# Input
+	if Input.is_action_just_pressed("interagir"):
+		secret_ending=true
+		main = get_tree().root.get_node("Main")
+		main.secret_ending=true
+		print("🧪 ALT KILL TRIGGERED")
+		kill_boss()

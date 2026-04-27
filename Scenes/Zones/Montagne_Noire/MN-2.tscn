@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_sou83"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="7_7v6j4"]
 [ext_resource type="Texture2D" uid="uid://dehryhg0otrum" path="res://Sprites/MN.png" id="7_nk2bd"]
+[ext_resource type="PackedScene" uid="uid://dgcwperjpx3n1" path="res://Scenes/ui/crédits.tscn" id="8_755te"]
+[ext_resource type="PackedScene" uid="uid://bq1taiypsd8yk" path="res://Scenes/ui/Restart.tscn" id="9_elkxk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sou83"]
 texture = ExtResource("1_nk2bd")
@@ -295,12 +297,18 @@ offset_bottom = 8.0
 
 [node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("7_7v6j4")]
 
+[node name="Crédits" parent="CanvasLayer" unique_id=2022329722 instance=ExtResource("8_755te")]
+
+[node name="Restart" parent="CanvasLayer" unique_id=1406720266 instance=ExtResource("9_elkxk")]
+spawn_position = Vector2(-3, -1176)
+
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1135758416]
 
 [node name="Portail" parent="." unique_id=1699174887 instance=ExtResource("6_61eab")]
 position = Vector2(3356, -228)
 spawn_position = Vector2(-3, -1176)
 niveau_termine = "res://Scenes/Zones/Montagne_Noire/MN-2.tscn"
+final_lvl = true
 
 [node name="Objet" type="Node2D" parent="." unique_id=699282270]
 

@@ -20,6 +20,7 @@ var teleporter_to_portail=true
 var golden_colorux=false
 
 var detector_ok=false
+var secret_ending=false
 
 # Colorux collectés par niveau
 var colorux_collectes := {}
@@ -115,3 +116,19 @@ func colorux_niveau_collectes(prefixe_niveau: String) -> Array:
 				result.append(id)
 	
 	return result
+	
+func reset_game():
+	# 🔥 vider le container
+	for child in container.get_children():
+		child.queue_free()
+	
+	# 🔥 vider la stack
+	scene_stack.clear()
+	
+	# 🔥 reset variables importantes
+	couleur_active = ""
+	color_locked = false
+	selecting_color = false
+	
+	#position_courante = Vector2.ZERO
+	#scene_courante = ""

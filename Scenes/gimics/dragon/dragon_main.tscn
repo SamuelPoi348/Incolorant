@@ -48,6 +48,9 @@ size = Vector2(60, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nujbr"]
 size = Vector2(45, 61)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgjhn"]
+size = Vector2(64, 61)
+
 [node name="Dragon_Main" type="Node2D" unique_id=588611856]
 scale = Vector2(2, 2)
 
@@ -81,3 +84,8 @@ shape = SubResource("RectangleShape2D_duuk7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/DragonMain/Area2D" unique_id=1877265434]
 shape = SubResource("RectangleShape2D_nujbr")
+
+[node name="Area2D2" type="Area2D" parent="Path2D/PathFollow2D/DragonMain" unique_id=1407889564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/DragonMain/Area2D2" unique_id=730543222]
+shape = SubResource("RectangleShape2D_qgjhn")
