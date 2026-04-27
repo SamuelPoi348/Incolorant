@@ -12,6 +12,9 @@ extends Node2D
 @export var segment_scene: PackedScene
 @export var segment_scene_with_shooter: PackedScene
 @export var segment_scene_vert: PackedScene
+@export var segment_scene_fin: PackedScene
+@export var segment_scene_rouge: PackedScene
+@export var segment_scene_jaune: PackedScene
 @export var num_segments: int = 5
 @export var segment_spacing: float = 25.0
 @export var movement_speed: float = 150.0
@@ -43,6 +46,12 @@ func _ready():
 			seg = segment_scene_vert.instantiate()
 		elif i == 4:
 			seg = segment_scene_with_shooter.instantiate()
+		elif i == 10: 
+			seg = segment_scene_rouge.instantiate()
+		elif i == 15:
+			seg = segment_scene_jaune.instantiate()
+		elif i == num_segments-2:
+			seg = segment_scene_fin.instantiate()
 		else:
 			seg = segment_scene.instantiate()
 	
@@ -113,8 +122,6 @@ func _update_visuals():
 				segments[i].rotation = direction_to_head.angle()
 			else:
 				var direction_to_next = (segment_positions[i - 1] - segment_positions[i]).normalized()
-				if i == 1:
-					print(direction_to_next.angle())
 				segments[i].rotation = direction_to_next.angle()
 
 

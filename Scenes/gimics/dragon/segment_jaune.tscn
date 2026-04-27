@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://banlcwbevaogy"]
+
+[ext_resource type="Script" uid="uid://30lqvoertj2a" path="res://Scenes/gimics/dragon/segment_jaune.gd" id="1_e8gn0"]
+[ext_resource type="Texture2D" uid="uid://defs72eismmue" path="res://Sprites/Personnages/dragon/SegmentJauneV2.png" id="1_rh1op"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8gn0"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44tdm"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i4h6"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4dkj"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bg8q"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03ymc"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tor5s"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c51c"]
+atlas = ExtResource("1_rh1op")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qtw2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8gn0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44tdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i4h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4dkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bg8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03ymc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tor5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c51c")
+}],
+"loop": false,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4yio"]
+size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewyu8"]
+size = Vector2(20, 60)
+
+[node name="SegmentJaune" type="StaticBody2D" unique_id=1715655191]
+scale = Vector2(2, 2)
+script = ExtResource("1_e8gn0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1483092053]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qtw2b")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013689182]
+shape = SubResource("RectangleShape2D_w4yio")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=292203726]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1474949596]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_ewyu8")

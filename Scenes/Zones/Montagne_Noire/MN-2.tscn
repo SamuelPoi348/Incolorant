@@ -267,7 +267,7 @@ layer_0/name = "Ground"
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_61eab")]
-position = Vector2(-611, -382)
+position = Vector2(-231, -268)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066477384]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2521h4d1d8i"
-path="res://.godot/imported/SegmentVert.png-cb956d04b4d254a1dadf65fca5f8b1f3.ctex"
+uid="uid://b1obp4xbpnfmm"
+path="res://.godot/imported/SegmentVert.png-b8d1f2776f07d6e07785b97fa41f5386.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/gimics/dragon/SegmentVert.png"
-dest_files=["res://.godot/imported/SegmentVert.png-cb956d04b4d254a1dadf65fca5f8b1f3.ctex"]
+source_file="res://Sprites/Personnages/dragon/SegmentVert.png"
+dest_files=["res://.godot/imported/SegmentVert.png-b8d1f2776f07d6e07785b97fa41f5386.ctex"]
 
 [params]
 

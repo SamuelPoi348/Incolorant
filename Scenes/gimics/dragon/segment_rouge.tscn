@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dkx83oxux2i7m"]
+
+[ext_resource type="Script" uid="uid://6mb07shjrl0d" path="res://Scenes/gimics/dragon/segment_rouge.gd" id="1_b10ha"]
+[ext_resource type="Texture2D" uid="uid://dtptcdp6xk4ed" path="res://Sprites/Personnages/dragon/SegmentExplodable.png" id="1_paf85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paf85"]
+atlas = ExtResource("1_paf85")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b10ha"]
+atlas = ExtResource("1_paf85")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ig21"]
+atlas = ExtResource("1_paf85")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h52g2"]
+atlas = ExtResource("1_paf85")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqewf"]
+atlas = ExtResource("1_paf85")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41qkg"]
+atlas = ExtResource("1_paf85")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e46p4"]
+atlas = ExtResource("1_paf85")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o6m3"]
+atlas = ExtResource("1_paf85")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjnju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paf85")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b10ha")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ig21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h52g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqewf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41qkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e46p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o6m3")
+}],
+"loop": false,
+"name": &"shatter",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sruao"]
+size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b10ha"]
+size = Vector2(33, 48)
+
+[node name="SegmentRouge" type="Node2D" unique_id=879546014]
+scale = Vector2(2, 2)
+script = ExtResource("1_b10ha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1725188371]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sjnju")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1990549401]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1565133667]
+shape = SubResource("RectangleShape2D_sruao")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1815594289]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1995974439]
+shape = SubResource("RectangleShape2D_b10ha")

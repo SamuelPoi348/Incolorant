@@ -3,14 +3,17 @@
 [ext_resource type="Script" uid="uid://cra11aen82ddp" path="res://Scenes/gimics/dragon/dragon_main.gd" id="1_duuk7"]
 [ext_resource type="Texture2D" uid="uid://cwg7ug32c558b" path="res://Scenes/gimics/dragon/Head.png" id="1_nianq"]
 [ext_resource type="PackedScene" uid="uid://dsav0tvqp7n0m" path="res://Scenes/gimics/dragon/segment.tscn" id="2_huqop"]
-[ext_resource type="PackedScene" uid="uid://ql6jsqk0y4rd" path="res://Scenes/gimics/dragon/segment_vert_TEST.tscn" id="3_7u1yc"]
+[ext_resource type="PackedScene" uid="uid://ql6jsqk0y4rd" path="res://Scenes/gimics/dragon/segment_vert.tscn" id="3_7u1yc"]
 [ext_resource type="PackedScene" uid="uid://bf0ils7kw6i6g" path="res://Scenes/gimics/dragon/segment_shooter.tscn" id="3_dgtua"]
+[ext_resource type="PackedScene" uid="uid://d4jrbg7gxif2c" path="res://Scenes/gimics/dragon/segment_fin.tscn" id="5_5xdq8"]
+[ext_resource type="PackedScene" uid="uid://dkx83oxux2i7m" path="res://Scenes/gimics/dragon/segment_rouge.tscn" id="6_insfr"]
+[ext_resource type="PackedScene" uid="uid://banlcwbevaogy" path="res://Scenes/gimics/dragon/segment_jaune.tscn" id="7_nujbr"]
 
 [sub_resource type="Curve2D" id="Curve2D_dgtua"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 300, 0, 0, 0, 0, 0, 300, -50, 0, 0, 0, 0, 350, -50, 0, 0, 0, 0, 350, -100, 0, 0, 0, 0, 400, -100, 0, 0, 0, 0, 450, -100, 0, 0, 0, 0, 500, -100, 0, 0, 0, 0, 550, -100, 0, 0, 0, 0, 600, -100, 0, 0, 0, 0, 600, -50, 0, 0, 0, 0, 600, 0, 0, 0, 0, 0, 650, 0, 0, 0, 0, 0, 700, 0, 0, 0, 0, 0, 750, 0, 0, 0, 0, 0, 800, 0, 0, 0, 0, 0, 800, -50, 0, 0, 0, 0, 800, -100, 0, 0, 0, 0, 800, -150, 0, 0, 0, 0, 750, -150, 0, 0, 0, 0, 700, -150, 0, 0, 0, 0, 650, -150, 0, 0, 0, 0, 600, -150, 0, 0, 0, 0, 550, -150, 0, 0, 0, 0, 500, -150, 0, 0, 0, 0, 450, -150, 0, 0, 0, 0, 400, -150, 0, 0, 0, 0, 400, -200, 0, 0, 0, 0, 350, -200, 0, 0, 0, 0, 350, -250, 0, 0, 0, 0, 300, -250, 0, 0, 0, 0, 250, -250, 0, 0, 0, 0, 200, -250, 0, 0, 0, 0, 150, -250, 0, 0, 0, 0, 100, -250, 0, 0, 0, 0, 50, -250, 0, 0, 0, 0, 0, -250, 0, 0, 0, 0, 0, -200, 0, 0, 0, 0, -50, -200, 0, 0, 0, 0, -50, -150, 0, 0, 0, 0, -100, -150, 0, 0, 0, 0, -100, -100, 0, 0, 0, 0, -150, -100, 0, 0, 0, 0, -150, -50, 0, 0, 0, 0, -200, -50, 0, 0, 0, 0, -200, 0, 0, 0, 0, 0, -150, 0, 0, 0, 0, 0, -100, 0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 300, 0, 0, 0, 0, 0, 300, -50, 0, 0, 0, 0, 350, -50, 0, 0, 0, 0, 350, -100, 0, 0, 0, 0, 400, -100, 0, 0, 0, 0, 450, -100, 0, 0, 0, 0, 500, -100, 0, 0, 0, 0, 550, -100, 0, 0, 0, 0, 600, -100, 0, 0, 0, 0, 600, -50, 0, 0, 0, 0, 650, -50, 0, 0, 0, 0, 700, -50, 0, 0, 0, 0, 750, -50, 0, 0, 0, 0, 800, -50, 0, 0, 0, 0, 800, -100, 0, 0, 0, 0, 800, -150, 0, 0, 0, 0, 750, -150, 0, 0, 0, 0, 700, -150, 0, 0, 0, 0, 650, -150, 0, 0, 0, 0, 600, -150, 0, 0, 0, 0, 550, -150, 0, 0, 0, 0, 500, -150, 0, 0, 0, 0, 450, -150, 0, 0, 0, 0, 400, -150, 0, 0, 0, 0, 400, -200, 0, 0, 0, 0, 350, -200, 0, 0, 0, 0, 350, -250, 0, 0, 0, 0, 300, -250, 0, 0, 0, 0, 250, -250, 0, 0, 0, 0, 200, -250, 0, 0, 0, 0, 150, -250, 0, 0, 0, 0, 100, -250, 0, 0, 0, 0, 50, -250, 0, 0, 0, 0, 0, -250, 0, 0, 0, 0, 0, -200, 0, 0, 0, 0, -50, -200, 0, 0, 0, 0, -100, -200.5, 0, 0, 0, 0, -100, -150, 0, 0, 0, 0, -150, -150, 0, 0, 0, 0, -200, -150, 0, 0, 0, 0, -200, -100, 0, 0, 0, 0, -250, -100, 0, 0, 0, 0, -300, -100, 0, 0, 0, 0, -300, -50, 0, 0, 0, 0, -350, -50, 0, 0, 0, 0, -400, -50, 0, 0, 0, 0, -400, 0, 0, 0, 0, 0, -200, 0, 0, 0, 0, 0, -150, 0, 0, 0, 0, 0, -100, 0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 55
+point_count = 58
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duuk7"]
 size = Vector2(60, 42)
@@ -28,7 +31,10 @@ script = ExtResource("1_duuk7")
 segment_scene = ExtResource("2_huqop")
 segment_scene_with_shooter = ExtResource("3_dgtua")
 segment_scene_vert = ExtResource("3_7u1yc")
-num_segments = 20
+segment_scene_fin = ExtResource("5_5xdq8")
+segment_scene_rouge = ExtResource("6_insfr")
+segment_scene_jaune = ExtResource("7_nujbr")
+num_segments = 30
 segment_spacing = 35.0
 movement_speed = 1.0
 path_follow = NodePath("..")

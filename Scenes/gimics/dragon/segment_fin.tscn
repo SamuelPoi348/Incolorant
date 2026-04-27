@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://d4jrbg7gxif2c"]
+
+[ext_resource type="Texture2D" uid="uid://dw1r5e5ag26p1" path="res://Sprites/Personnages/dragon/EndSegment.png" id="1_1vi2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgric"]
+atlas = ExtResource("1_1vi2m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li70s"]
+atlas = ExtResource("1_1vi2m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv1da"]
+atlas = ExtResource("1_1vi2m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1407p"]
+atlas = ExtResource("1_1vi2m")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fu4o"]
+atlas = ExtResource("1_1vi2m")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psxny"]
+atlas = ExtResource("1_1vi2m")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybx1t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgric")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li70s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv1da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1407p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fu4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psxny")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ionll"]
+size = Vector2(14.000001, 14)
+
+[node name="SegmentFin" type="Node2D" unique_id=960531114]
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=138804241]
+position = Vector2(-8.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_ybx1t")
+frame_progress = 0.6180538
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=145635707]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1439353114]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_ionll")
