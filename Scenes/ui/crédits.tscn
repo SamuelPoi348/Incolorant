@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dgcwperjpx3n1"]
+
+[ext_resource type="Script" uid="uid://bod1g7avvkby3" path="res://Scripts/important_function/crédits.gd" id="1_k56j4"]
+
+[sub_resource type="Gradient" id="Gradient_k56j4"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cjog0"]
+gradient = SubResource("Gradient_k56j4")
+
+[node name="Crédits" type="Control" unique_id=2022329722 groups=["credits"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k56j4")
+
+[node name="Label" type="Label" parent="." unique_id=494974785]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Merci d'avoir joué"
+
+[node name="Label2" type="Label" parent="." unique_id=535637657]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_top = -23.0
+offset_right = 173.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "Jeu réalisé par Samuel Poirier et Milesh Patel"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1151162508]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_cjog0")
