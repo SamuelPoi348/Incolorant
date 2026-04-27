@@ -47,7 +47,7 @@ func _ready():
 			seg = segment_scene.instantiate()
 	
 
-		get_parent().add_child.call_deferred(seg)
+		get_tree().root.add_child(seg)
 		segments.append(seg)
 		segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
 
@@ -113,7 +113,10 @@ func _update_visuals():
 				segments[i].rotation = direction_to_head.angle()
 			else:
 				var direction_to_next = (segment_positions[i - 1] - segment_positions[i]).normalized()
+				if i == 1:
+					print(direction_to_next.angle())
 				segments[i].rotation = direction_to_next.angle()
+
 
 
 # ==============================================================================

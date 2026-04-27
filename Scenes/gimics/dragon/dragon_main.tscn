@@ -24,13 +24,12 @@ curve = SubResource("Curve2D_dgtua")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1424621685]
 
 [node name="DragonMain" type="StaticBody2D" parent="Path2D/PathFollow2D" unique_id=703057781 node_paths=PackedStringArray("path_follow")]
-scale = Vector2(2, 2)
 script = ExtResource("1_duuk7")
 segment_scene = ExtResource("2_huqop")
 segment_scene_with_shooter = ExtResource("3_dgtua")
 segment_scene_vert = ExtResource("3_7u1yc")
 num_segments = 20
-segment_spacing = 50.0
+segment_spacing = 35.0
 movement_speed = 1.0
 path_follow = NodePath("..")
 
