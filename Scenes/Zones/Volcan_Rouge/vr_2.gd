@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		
 		if temps_restant != temps_precedent:
 			temps_precedent = temps_restant
-			print("Temps restant :", temps_restant)
 
 func lancer_timer():
 	if not timer_actif:

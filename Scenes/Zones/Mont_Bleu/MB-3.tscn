@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://coulgnnwe8dm7" path="res://Scenes/gimics/shooter/shooter.tscn" id="10_je4ef"]
 [ext_resource type="PackedScene" uid="uid://d0tgkqgmjksxk" path="res://Scenes/gimics/objet_pouvoirs/VineBleu.tscn" id="11_318s6"]
 [ext_resource type="PackedScene" uid="uid://svouf30wiosb" path="res://Scenes/gimics/ice_spike.tscn" id="12_pcodt"]
+[ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="13_50qdx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j64br"]
 texture = ExtResource("1_tpkbd")
@@ -496,12 +497,29 @@ rotation = 3.6651914
 scale = Vector2(-2, 2)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1733175962]
+script = ExtResource("13_50qdx")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1023610149]
 motion_scale = Vector2(0.9, 0.8)
 motion_mirroring = Vector2(720, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=7443732]
+z_index = -4095
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_pluc4")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1291188305]
+z_index = -4096
+custom_minimum_size = Vector2(10000, 10000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -332.0
+offset_right = 509.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.28235295, 0.2901961, 0.46666667, 1)

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_l4akf"]
 [ext_resource type="PackedScene" uid="uid://dy80ns8f6exd" path="res://Scenes/gimics/objet_pouvoirs/PlanteDesert2.tscn" id="10_r8no6"]
 [ext_resource type="PackedScene" uid="uid://dk08ieb20bbnr" path="res://Scenes/gimics/objet_pouvoirs/PlanteDesert2Reverse.tscn" id="11_qloot"]
+[ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="12_dco1i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jg3i"]
 texture = ExtResource("1_l4akf")
@@ -381,16 +382,31 @@ rotation = 1.5707964
 position = Vector2(816, -97)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=845654400]
+script = ExtResource("12_dco1i")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1920744424]
-z_index = -4096
 motion_scale = Vector2(0.9, 0.8)
 motion_mirroring = Vector2(720, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1375228555]
 light_mask = 512
 visibility_layer = 512
-z_index = -4096
+z_index = -4095
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_53i2n")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer" unique_id=423395659]
+z_index = -4096
+custom_minimum_size = Vector2(10000, 10000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -332.0
+offset_right = 509.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.9843137, 0.7254902, 0.32941177, 1)

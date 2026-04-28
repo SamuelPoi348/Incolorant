@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bto7esom5i4ec" path="res://Scenes/gimics/objet_pouvoirs/Socle_Rouge.tscn" id="18_xstvn"]
 [ext_resource type="PackedScene" uid="uid://doih7jthpl07x" path="res://Scenes/gimics/objet_pouvoirs/Récepteur_Rouge.tscn" id="19_tu0du"]
 [ext_resource type="PackedScene" uid="uid://b8iaotsmkk4hh" path="res://Scenes/gimics/pdp_Rouge.tscn" id="20_ib8ix"]
+[ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="24_uvxtg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1qtd"]
 texture = ExtResource("1_2ob6f")
@@ -560,16 +561,32 @@ position = Vector2(953, -96)
 scale = Vector2(2, 2)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=919726807]
+script = ExtResource("24_uvxtg")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1255828594]
 motion_scale = Vector2(0.9, 0.8)
 motion_mirroring = Vector2(720, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=2080073028]
-z_index = -4096
+z_index = -4095
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_gnbre")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer" unique_id=657398888]
+z_index = -4096
+custom_minimum_size = Vector2(10000, 10000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -332.0
+offset_right = 509.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.47843137, 0.1882353, 0.27058825, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=311492344]
 wait_time = 60.0
