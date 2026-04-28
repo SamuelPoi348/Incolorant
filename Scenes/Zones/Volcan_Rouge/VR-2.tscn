@@ -24,7 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://bto7esom5i4ec" path="res://Scenes/gimics/objet_pouvoirs/Socle_Rouge.tscn" id="18_xstvn"]
 [ext_resource type="PackedScene" uid="uid://doih7jthpl07x" path="res://Scenes/gimics/objet_pouvoirs/Récepteur_Rouge.tscn" id="19_tu0du"]
 [ext_resource type="PackedScene" uid="uid://b8iaotsmkk4hh" path="res://Scenes/gimics/pdp_Rouge.tscn" id="20_ib8ix"]
+[ext_resource type="PackedScene" uid="uid://0t8i16p3aidc" path="res://Scenes/gimics/Manuscrits/M_Rouge.tscn" id="24_cy6dg"]
 [ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="24_uvxtg"]
+[ext_resource type="PackedScene" uid="uid://coulgnnwe8dm7" path="res://Scenes/gimics/shooter/shooter.tscn" id="25_ebpqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1qtd"]
 texture = ExtResource("1_2ob6f")
@@ -559,6 +561,19 @@ position = Vector2(394, -240)
 [node name="PdpRouge" parent="objet/Rouge" unique_id=707340213 instance=ExtResource("20_ib8ix")]
 position = Vector2(953, -96)
 scale = Vector2(2, 2)
+
+[node name="MRouge" parent="objet" unique_id=1551465739 instance=ExtResource("24_cy6dg")]
+position = Vector2(576, -513)
+
+[node name="Shooter" parent="objet" unique_id=1948774045 instance=ExtResource("25_ebpqu")]
+position = Vector2(296, -489)
+rotation = 1.5707964
+max_distance = 304.0
+
+[node name="Shooter2" parent="objet" unique_id=1937786456 instance=ExtResource("25_ebpqu")]
+position = Vector2(888, -489)
+rotation = 4.712389
+max_distance = 304.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=919726807]
 script = ExtResource("24_uvxtg")

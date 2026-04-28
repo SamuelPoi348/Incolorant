@@ -290,7 +290,7 @@ layer_0/tile_data = PackedInt32Array(-196618, 65537, 6, -262154, 65537, 6, -2621
 layer_1/name = "Layer1"
 
 [node name="Player" parent="TileMap" unique_id=309571845 instance=ExtResource("2_m3rae")]
-position = Vector2(1468, -183)
+position = Vector2(13, -116)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066477384]
 
