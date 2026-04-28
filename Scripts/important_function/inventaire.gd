@@ -70,23 +70,23 @@ const MANUSCRIPTS = {
 	"manuscrit_rouge": {
 		"name": "Manuscrit Rouge",
 		"texture": preload("res://Sprites/M_Rouge.png"),
-		"description": "Manuscrit Rouge"
-	},
+		"description": "Ce parchemin retrace les exploits des ancêtres rouges, toujours prêts à combattre et à affronter le danger."
+		},
 	"manuscrit_jaune": {
 		"name": "Manuscrit Jaune",
 		"texture": preload("res://Sprites/M_Jaune.png"),
-		"description": "Manuscrit Jaune"
-	},
+		"description": "Ce parchemin raconte l’histoire des ancêtres jaunes, cherchant sans cesse à améliorer leur société et les conditions de vie de leur peuple."
+		},
 	"manuscrit_bleu": {
 		"name": "Manuscrit Bleu",
 		"texture": preload("res://Sprites/M_Bleu.png"),
-		"description": "Manuscrit Bleu"
-	},
+		"description": "Ce parchemin retrace la vie du dernier chef bleu, connu pour son esprit observateur et son calme inébranlable."
+		},
 	"manuscrit_vert": {
 		"name": "Manuscrit Vert",
 		"texture": preload("res://Sprites/M_Vert.png"),
-		"description": "Manuscrit Vert"
-	}
+		"description": "Ce parchemin évoque les ancêtres verts, vivant en parfaite harmonie avec la nature et ses cycles."
+		}
 }
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
