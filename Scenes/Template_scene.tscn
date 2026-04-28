@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bwykgnh8afv5q" path="res://Scenes/ui/Pause.tscn" id="4_bft5c"]
 [ext_resource type="PackedScene" uid="uid://ftnbg3yo7ssj" path="res://Scenes/ui/Inventaire.tscn" id="5_puygt"]
 [ext_resource type="PackedScene" uid="uid://b4j3to7fkw6nh" path="res://Scenes/ui/Mort.tscn" id="6_a4o6c"]
+[ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="7_5tpxd"]
+[ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="8_lpfs3"]
+[ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="9_uher8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5tpxd"]
 texture = ExtResource("1_a4o6c")
@@ -250,6 +253,36 @@ offset_bottom = 8.0
 
 [node name="Mort" parent="CanvasLayer" unique_id=587782901 instance=ExtResource("6_a4o6c")]
 
+[node name="Option" parent="CanvasLayer" unique_id=1737492598 instance=ExtResource("7_5tpxd")]
+
 [node name="ColoruxContainer" type="Node2D" parent="." unique_id=1135758416]
 
 [node name="objet" type="Node2D" parent="." unique_id=582796078]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1607929860]
+script = ExtResource("8_lpfs3")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=214364594]
+motion_scale = Vector2(0.9, 0.8)
+motion_mirroring = Vector2(720, 480)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1150604086]
+z_index = -4095
+position = Vector2(46.5, -245)
+scale = Vector2(2.253125, 3)
+texture = ExtResource("9_uher8")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer" unique_id=693563937]
+z_index = -4096
+custom_minimum_size = Vector2(10000, 10000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -332.0
+offset_right = 509.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.47843137, 0.1882353, 0.27058825, 1)

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://butctj00e111v" path="res://Scenes/gimics/colorux.tscn" id="7_483fg"]
 [ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="7_p0in1"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="8_b8hql"]
+[ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="11_j7qub"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="12_nhp1u"]
 [ext_resource type="PackedScene" uid="uid://b8iaotsmkk4hh" path="res://Scenes/gimics/pdp_Rouge.tscn" id="13_x0m3d"]
 [ext_resource type="PackedScene" uid="uid://dlpyj8qq0c8p3" path="res://Scenes/gimics/platefrome.tscn" id="15_byxxx"]
@@ -478,15 +479,32 @@ position = Vector2(1034, -243)
 id_colorux = "VR-3-C3"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=261732728]
+script = ExtResource("11_j7qub")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1791966389]
 motion_scale = Vector2(0.9, 0.8)
 motion_mirroring = Vector2(720, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1408013811]
+z_index = -4095
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_p0in1")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer" unique_id=797913467]
+z_index = -4096
+custom_minimum_size = Vector2(10000, 10000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -332.0
+offset_right = 509.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.47843137, 0.1882353, 0.27058825, 1)
 
 [node name="objet" type="Node2D" parent="." unique_id=1291357085]
 

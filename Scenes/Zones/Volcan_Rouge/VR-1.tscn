@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4cmmu5j41bi" path="res://Sprites/VR.png" id="7_wni4q"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="8_1nhkx"]
 [ext_resource type="PackedScene" uid="uid://de823v67c3g17" path="res://Scenes/gimics/objet_pouvoirs/Red_Block.tscn" id="10_11d4y"]
+[ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="12_jksde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11d4y"]
 texture = ExtResource("1_h48xp")
@@ -474,13 +475,29 @@ position = Vector2(1097, -472)
 position = Vector2(1113, -472)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=2057268673]
+script = ExtResource("12_jksde")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1944768094]
 motion_scale = Vector2(0.9, 0.8)
 motion_mirroring = Vector2(720, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=449305050]
-z_index = -4096
+z_index = -4095
 position = Vector2(46.5, -245)
 scale = Vector2(2.253125, 3)
 texture = ExtResource("7_wni4q")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer" unique_id=620855659]
+z_index = -4096
+custom_minimum_size = Vector2(10000, 10000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -332.0
+offset_right = 509.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.47843137, 0.1882353, 0.27058825, 1)
