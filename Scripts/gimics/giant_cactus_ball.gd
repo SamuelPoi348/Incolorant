@@ -2,7 +2,7 @@ extends Node2D
 
 @export var init_x: int = 550
 @export var init_y: int = -500  
-@export var tween_duration: float = 60.0  
+@export var tween_duration: float = 70.0  
 @export var camera_zoom_out: float = 0.7 
 @export var enable_camera_zoom: bool = true  
 

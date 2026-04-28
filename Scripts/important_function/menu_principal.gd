@@ -1,7 +1,7 @@
 extends Control
 @onready var test = preload("res://Scenes/ScenePresentation.tscn")
 @onready var l1 = preload("res://Scenes/Zones/Plage_Grise/PG-1.tscn")
-@onready var FV1 = preload("res://Scenes/Zones/Foret_Verte/FV-1.tscn")
+@onready var FV1 = preload("res://Scenes/Zones/Foret_Verte/FV-2.tscn")
 @onready var VR1 = preload("res://Scenes/Zones/Volcan_Rouge/VR-2.tscn")
 @onready var MB1 = preload("res://Scenes/Zones/Mont_Bleu/MB-2.tscn")
 @onready var DJ1 = preload("res://Scenes/Zones/Desert_Jaune/DJ-2.tscn")
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _on_commencer_button_down() -> void:
 	await get_tree().create_timer(1).timeout
-	get_tree().root.get_node("Main").change_scene(l1)
+	get_tree().root.get_node("Main").change_scene(test)
 
 
 func _on_option_button_down() -> void:

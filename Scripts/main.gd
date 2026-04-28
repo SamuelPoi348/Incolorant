@@ -7,11 +7,16 @@ signal color_changed(new_color: String)
 var scene_stack: Array[PackedScene] = []
 var couleur_active: String = ""
 var selecting_color := false
-var colorux =59;
+var colorux =0;
 var icone_rouge =true;
 var icone_jaune =true;
 var icone_bleu =true;
 var icone_vert =true;
+
+var manuscrit_rouge=false;
+var manuscrit_jaune=false;
+var manuscrit_bleu =false;
+var manuscrit_vert=false;
 
 var colorux_detector=true
 var dash=true

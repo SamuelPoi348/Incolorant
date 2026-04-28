@@ -1,0 +1,17 @@
+extends Area2D
+
+var main
+@onready var collision = $CollisionShape2D
+
+func _ready() -> void:
+	main = get_tree().root.get_node("Main")
+	if main.manuscrit_rouge:
+		visible=false
+		collision.disabled = true
+	pass
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is PlayerController:
+		main.manuscrit_rouge = true
+		visible=false
+		collision.set_deferred("disabled", true)

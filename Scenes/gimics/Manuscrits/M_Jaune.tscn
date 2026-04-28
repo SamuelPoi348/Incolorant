@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://r010sjkprmpv"]
+
+[ext_resource type="Texture2D" uid="uid://cqcdfkl6u0vtc" path="res://Sprites/M_Jaune.png" id="1_1o35p"]
+[ext_resource type="Script" uid="uid://kv0tevw3l2c0" path="res://Scripts/gimics/Collectible/m_jaune.gd" id="1_2i3e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i3e2"]
+size = Vector2(30, 33)
+
+[node name="MJaune" type="Area2D" unique_id=1853839510]
+script = ExtResource("1_2i3e2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1495254195]
+texture = ExtResource("1_1o35p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1916579621]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2i3e2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
