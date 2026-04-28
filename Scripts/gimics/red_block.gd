@@ -24,7 +24,7 @@ func destroy():
 	destroyed = true
 	
 	# Désactive collision
-	collision.disabled = true
+	collision.set_deferred("disabled", true)
 	
 	# Lance animation
 	anim.play("destruction")

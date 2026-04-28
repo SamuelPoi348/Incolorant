@@ -4,6 +4,7 @@ extends Control
 @onready var colorux_label = $Colorux
 @onready var vbox = $HBoxContainer/VBoxContainer
 @onready var vbox2 = $HBoxContainer/VBoxContainer2
+@onready var vbox3 = $HBoxContainer/VBoxContainer3
 
 @onready var popup = $PopupDescription
 @onready var popup_icon = popup.get_node("MarginContainer/VBoxContainer/IconLarge")
@@ -65,6 +66,28 @@ const SHOP_ITEMS = {
 		"description": "Un cadeau du marchand… au moins l'odeur n'est pas mauvaise."
 	}
 }
+const MANUSCRIPTS = {
+	"manuscrit_rouge": {
+		"name": "Manuscrit Rouge",
+		"texture": preload("res://Sprites/M_Rouge.png"),
+		"description": "Manuscrit Rouge"
+	},
+	"manuscrit_jaune": {
+		"name": "Manuscrit Jaune",
+		"texture": preload("res://Sprites/M_Jaune.png"),
+		"description": "Manuscrit Jaune"
+	},
+	"manuscrit_bleu": {
+		"name": "Manuscrit Bleu",
+		"texture": preload("res://Sprites/M_Bleu.png"),
+		"description": "Manuscrit Bleu"
+	},
+	"manuscrit_vert": {
+		"name": "Manuscrit Vert",
+		"texture": preload("res://Sprites/M_Vert.png"),
+		"description": "Manuscrit Vert"
+	}
+}
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
@@ -103,6 +126,8 @@ func update_inventory():
 		child.queue_free()
 	for child in vbox2.get_children():
 		child.queue_free()
+	for child in vbox3.get_children():
+		child.queue_free()
 	
 	# 🎨 COULEURS (ancien système)
 	for color_name in ITEMS.keys():
@@ -113,6 +138,11 @@ func update_inventory():
 	for item_name in SHOP_ITEMS.keys():
 		if main.get(item_name):
 			_add_inventory_item(item_name, vbox2, SHOP_ITEMS)
+			
+	# 📜 MANUSCRITS (nouveau système)
+	for item_name in MANUSCRIPTS.keys():
+		if main.get(item_name):
+			_add_inventory_item(item_name, vbox3, MANUSCRIPTS)
 
 func _add_inventory_item(item_name: String, target_vbox: VBoxContainer, database: Dictionary) -> void:
 	var data = database[item_name]

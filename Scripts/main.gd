@@ -13,6 +13,11 @@ var icone_jaune =true;
 var icone_bleu =true;
 var icone_vert =true;
 
+var manuscrit_rouge=false;
+var manuscrit_jaune=false;
+var manuscrit_bleu =false;
+var manuscrit_vert=false;
+
 var colorux_detector=true
 var dash=true
 var double_saut=true

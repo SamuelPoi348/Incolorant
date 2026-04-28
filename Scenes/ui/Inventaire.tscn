@@ -96,6 +96,9 @@ size_flags_horizontal = 0
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1749839359]
 layout_mode = 2
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=1018000478]
+layout_mode = 2
+
 [node name="Button" type="Button" parent="." unique_id=2106852820]
 layout_mode = 0
 offset_left = 129.0

@@ -29,7 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://csn0janf5mk7b" path="res://Scenes/gimics/Personnages/Chef_rouge.tscn" id="24_q2wbp"]
 [ext_resource type="PackedScene" uid="uid://b6s0t1rtwemwf" path="res://Scenes/gimics/Porte_verte.tscn" id="24_yehb6"]
 [ext_resource type="PackedScene" uid="uid://bt40rv0xp8neq" path="res://Scenes/gimics/Personnages/Chef_Jaune.tscn" id="26_38v75"]
+[ext_resource type="PackedScene" uid="uid://0t8i16p3aidc" path="res://Scenes/gimics/Manuscrits/M_Rouge.tscn" id="26_krji2"]
 [ext_resource type="PackedScene" uid="uid://bbh3h6hu2ckvs" path="res://Scenes/gimics/Personnages/Chef_bleu.tscn" id="27_7xtpk"]
+[ext_resource type="PackedScene" uid="uid://ci16puo32bni0" path="res://Scenes/gimics/Manuscrits/M_Bleu.tscn" id="27_eyfs7"]
+[ext_resource type="PackedScene" uid="uid://73eryilrpxee" path="res://Scenes/gimics/Manuscrits/M_Vert.tscn" id="28_f34e6"]
+[ext_resource type="PackedScene" uid="uid://r010sjkprmpv" path="res://Scenes/gimics/Manuscrits/M_Jaune.tscn" id="29_w4bnt"]
 [ext_resource type="PackedScene" uid="uid://cg3l3jcwq36k3" path="res://Scenes/gimics/Personnages/habitant_rouge.tscn" id="30_psosj"]
 [ext_resource type="PackedScene" uid="uid://ch4u51ax33xf8" path="res://Scenes/gimics/Personnages/habitant_vert.tscn" id="31_kaamw"]
 [ext_resource type="PackedScene" uid="uid://h4e0re1p7u06" path="res://Scenes/gimics/Personnages/habitant_bleu.tscn" id="32_jp41u"]
@@ -775,6 +779,18 @@ position = Vector2(-547, -48)
 
 [node name="PorteVerte" parent="objet" unique_id=2006696984 instance=ExtResource("24_yehb6")]
 position = Vector2(-153, -48)
+
+[node name="MRouge" parent="objet" unique_id=1551465739 instance=ExtResource("26_krji2")]
+position = Vector2(-84, -220)
+
+[node name="MBleu" parent="objet" unique_id=260372246 instance=ExtResource("27_eyfs7")]
+position = Vector2(90, -220)
+
+[node name="MVert" parent="objet" unique_id=805690864 instance=ExtResource("28_f34e6")]
+position = Vector2(-42, -220)
+
+[node name="MJaune" parent="objet" unique_id=1853839510 instance=ExtResource("29_w4bnt")]
+position = Vector2(56, -219)
 
 [node name="Personnages" type="Node2D" parent="." unique_id=28805610]
 
