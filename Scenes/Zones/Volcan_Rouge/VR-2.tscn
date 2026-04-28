@@ -470,6 +470,7 @@ position = Vector2(321, -100)
 
 [node name="PorteRouge" parent="objet" unique_id=1400451422 instance=ExtResource("15_relwu")]
 position = Vector2(272, -120)
+premiere_porte = true
 
 [node name="Portail" parent="objet" unique_id=1699174887 instance=ExtResource("6_n0p8b")]
 position = Vector2(1711, -129)
