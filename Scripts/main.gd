@@ -18,14 +18,11 @@ var manuscrit_jaune=false;
 var manuscrit_bleu =false;
 var manuscrit_vert=false;
 
-var colorux_detector=true
+var colorux_detector=false
 var dash=true
 var double_saut=true
 var teleporter_to_portail=true
 var golden_colorux=false
-
-var detector_ok=false
-var secret_ending=false
 
 # Colorux collectés par niveau
 var colorux_collectes := {}
@@ -36,6 +33,11 @@ var scene_courante
 # Liste des niveaux complétés
 var niveaux_completes: Array[String] = []
 
+
+
+#variable in lvl don't touch
+var detector_ok=false
+var secret_ending=false
 var color_locked = false
 
 # 🔥 Charge automatiquement le menu principal au lancement

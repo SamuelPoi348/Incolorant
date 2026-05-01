@@ -37,6 +37,8 @@ var boss_phase_complete := false
 @onready var area2D = $Area2D
 @onready var area2D2 = $Area2D2
 @onready var anim = $Sprite2D
+@onready var edSound = $ExplosionDeathSound
+@onready var hitSound = $HitSound
 
 var head_hit_count := 0
 var head_hit_max := 5
@@ -48,6 +50,8 @@ var secret_ending = false
 var main
 
 func _ready():
+	hitSound.bus = "SFX"
+	edSound.bus = "SFX"
 	area2D.body_entered.connect(_on_head_hit)
 	head_position = global_position
 	
@@ -263,6 +267,7 @@ func register_head_hit():
 	print("HEAD HIT:", head_hit_count, "/", head_hit_max)
 	
 	# animation hit tête
+	hitSound.play()
 	play_head_hit_anim()
 	
 	if head_hit_count >= head_hit_max:
@@ -307,7 +312,7 @@ func _screen_shake_and_fade(player: Node) -> void:
 	var camera = player.get_node_or_null("Camera2D")  # Get from player, not viewport
 	if camera == null:
 		return
-
+	# jouer 3 fois avec intervalle de 0.25s
 	var shake_intensity = 7.0
 	var shake_duration = 2.5
 	var fade_duration = 5
@@ -329,6 +334,9 @@ func _screen_shake_and_fade(player: Node) -> void:
 	# Fade to white
 	var fade_tween = create_tween()
 	fade_tween.tween_property(color_rect, "color", Color(1, 1, 1, 1), fade_duration)
+	for i in range(3):
+		edSound.play()
+		await get_tree().create_timer(0.25).timeout
 	await fade_tween.finished
 
 	# Screen is white — teleport player

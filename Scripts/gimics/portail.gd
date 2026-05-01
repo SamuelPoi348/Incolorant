@@ -5,10 +5,14 @@ extends Area2D
 @export var niveau_termine : String = ""  # <-- chemin du niveau à marquer comme terminé
 @export var final_lvl: bool = false
 
+@onready var enter_niveau = $enter_niveau
+
+
 var player_inside = false
 var main
 
 func _ready():
+	enter_niveau.bus = "SFX"
 	main = get_tree().root.get_node("Main")
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -16,6 +20,11 @@ func _ready():
 
 func _process(_delta):
 	if player_inside and Input.is_action_just_pressed("interagir"):
+		enter_niveau.play()
+
+		await get_tree().create_timer(1.0).timeout
+
+		enter_niveau.stop()
 		main.color_locked =false
 		# Marque le niveau comme terminé si défini
 		if niveau_termine != "":

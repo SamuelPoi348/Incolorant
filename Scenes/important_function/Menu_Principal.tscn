@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://crd6o15su2nxx" path="res://Scripts/important_function/menu_principal.gd" id="1_3pu4y"]
 [ext_resource type="Texture2D" uid="uid://c3njkydgf362p" path="res://Sprites/incolorant_cover_art.png" id="1_gxmqa"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="3_xk5he"]
+[ext_resource type="AudioStream" uid="uid://duj70v8c03l3f" path="res://sons/click.mp3" id="4_qag0o"]
+[ext_resource type="AudioStream" uid="uid://c4n2f652f1lif" path="res://sons/mainMusic.mp3" id="5_2dl78"]
 
 [node name="MenuPrincipal" type="Control" unique_id=2042805261]
 layout_mode = 3
@@ -54,6 +56,13 @@ text = "Quitter
 
 [node name="Option" parent="." unique_id=1737492598 instance=ExtResource("3_xk5he")]
 layout_mode = 1
+
+[node name="Clicksound" type="AudioStreamPlayer2D" parent="." unique_id=1736812808]
+stream = ExtResource("4_qag0o")
+
+[node name="MainSound" type="AudioStreamPlayer2D" parent="." unique_id=741982843]
+stream = ExtResource("5_2dl78")
+parameters/looping = true
 
 [connection signal="button_down" from="VBoxContainer/Commencer" to="." method="_on_commencer_button_down"]
 [connection signal="button_down" from="VBoxContainer/Option" to="." method="_on_option_button_down"]

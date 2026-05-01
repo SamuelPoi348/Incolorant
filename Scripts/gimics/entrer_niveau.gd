@@ -9,7 +9,10 @@ var main
 var ui
 var anim : AnimatedSprite2D
 
+@onready var enter_niveau = $enter_niveau
+
 func _ready():
+	enter_niveau.bus = "SFX"
 	main = get_tree().root.get_node("Main")
 	ui = get_tree().root.get_node("Main/SceneContainer/Map/CanvasLayer/MiniatureNiveau")
 	ui.hide_preview()
@@ -41,6 +44,10 @@ func _on_body_exited(body):
 func _process(_delta):
 	if player_inside and Input.is_action_just_pressed("interagir"):
 		if chemin_niveau != "":
+			enter_niveau.play()
+			await get_tree().create_timer(1.0).timeout
+			enter_niveau.stop()
+			
 			var scene = load(chemin_niveau)
 			main.niveau_courant = scene
 			main.scene_courante=chemin_niveau

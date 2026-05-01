@@ -12,7 +12,7 @@ signal color_changed(new_color: String)
 	"bleu": $"Root/Bleu",
 	"vert": $"Root/Vert"
 }
-
+@onready var PowerUpSound = $PowerUpSound
 # ==========================
 # Variables
 # ==========================
@@ -30,6 +30,8 @@ const CROSS_POSITIONS := {
 # READY
 # ==========================
 func _ready():
+	PowerUpSound.bus = "SFX"
+	#PowerUpSound.volume_db = -4
 	visible = false
 	
 	# Positionnement des sprites
@@ -58,6 +60,7 @@ func _process(delta):
 		return
 	
 	if Input.is_action_pressed("color_select"):
+		#sound for input colorSelecting
 		if not main.selecting_color:
 			main.set_selecting_color(true)
 			show_selector()
@@ -88,6 +91,7 @@ func set_active_color(color_name: String):
 	if couleur_active == color_name:
 		return
 	
+	PowerUpSound.play()
 	couleur_active = color_name
 	update_visual()
 	emit_signal("color_changed", couleur_active)

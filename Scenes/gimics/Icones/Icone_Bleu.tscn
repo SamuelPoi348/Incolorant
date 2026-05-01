@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf0nr3cnyh2yd" path="res://Scripts/gimics/Collectible/icone_bleu.gd" id="1_c58gn"]
 [ext_resource type="Texture2D" uid="uid://dhdf4tcexr7s" path="res://Sprites/Icone_Bleu.png" id="1_frybb"]
+[ext_resource type="AudioStream" uid="uid://wkhcqvwc4nxs" path="res://sons/blue_shoot.mp3" id="3_abrse"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frybb"]
 radius = 9.0
@@ -16,5 +17,8 @@ texture = ExtResource("1_frybb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682107369]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_frybb")
+
+[node name="PickUpSound" type="AudioStreamPlayer2D" parent="." unique_id=695617338]
+stream = ExtResource("3_abrse")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

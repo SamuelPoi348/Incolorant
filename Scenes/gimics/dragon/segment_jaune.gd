@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var area_kill = $Area2D
 @onready var area_activation = $Area2D2
+@onready var hitSound = $HitSound
 
 var can_kill_ok := true
 var main
@@ -10,6 +11,7 @@ var busy := false
 var player_in_zone := false
 
 func _ready():
+	hitSound.bus = "SFX"
 	area_kill.body_entered.connect(_on_body_entered)
 
 	area_activation.body_entered.connect(_on_activation_entered)
@@ -33,6 +35,7 @@ func toggle_state():
 
 	
 	if can_kill_ok:
+		hitSound.play()
 		anim.play("move")
 	else:
 		anim.play_backwards("move")

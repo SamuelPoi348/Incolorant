@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://banlcwbevaogy" path="res://Scenes/gimics/dragon/segment_jaune.tscn" id="7_nujbr"]
 [ext_resource type="Texture2D" uid="uid://deo8be1hulkqx" path="res://Sprites/Personnages/dragon/Head.png" id="8_nujbr"]
 [ext_resource type="AudioStream" uid="uid://dyi4gjlm8eici" path="res://sons/explosion.mp3" id="9_qgjhn"]
-[ext_resource type="AudioStream" uid="uid://dk67ut238ws3j" path="res://sons/hit.mp3" id="10_0as0h"]
 
 [sub_resource type="Curve2D" id="Curve2D_dgtua"]
 _data = {
@@ -92,8 +91,5 @@ shape = SubResource("RectangleShape2D_nujbr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/DragonMain/Area2D2" unique_id=730543222]
 shape = SubResource("RectangleShape2D_qgjhn")
 
-[node name="ExplosionDeathSound" type="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/DragonMain" unique_id=885523309]
+[node name="ExplosionDeathSound" type="AudioStreamPlayer2D" parent="." unique_id=885523309]
 stream = ExtResource("9_qgjhn")
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/DragonMain" unique_id=485544398]
-stream = ExtResource("10_0as0h")

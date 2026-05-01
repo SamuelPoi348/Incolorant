@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://obryffhxs13g" path="res://Sprites/auraVert.png" id="3_vgqql"]
 [ext_resource type="Texture2D" uid="uid://drw7ur4ux4som" path="res://Sprites/reverseAuraVert.png" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://bglvjoxcatkml" path="res://Scenes/gimics/détecteur.tscn" id="5_76ima"]
+[ext_resource type="AudioStream" uid="uid://dj68e0nl47nuv" path="res://sons/death_speedup.mp3" id="6_b684y"]
+[ext_resource type="AudioStream" uid="uid://d4mnhm2q83nxa" path="res://sons/dash.mp3" id="7_b1d24"]
+[ext_resource type="AudioStream" uid="uid://copp3787w5ih" path="res://sons/jump_idk.mp3" id="8_iq03y"]
+[ext_resource type="AudioStream" uid="uid://djw8muakrvii6" path="res://sons/enter_niveau.mp3" id="9_b11ni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]
 radius = 5.0
@@ -775,3 +779,15 @@ frame_progress = 0.8904892
 
 [node name="Détecteur" parent="." unique_id=1806916849 instance=ExtResource("5_76ima")]
 position = Vector2(0, -8)
+
+[node name="DieSound" type="AudioStreamPlayer2D" parent="." unique_id=1224678267]
+stream = ExtResource("6_b684y")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=123529699]
+stream = ExtResource("7_b1d24")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=232940605]
+stream = ExtResource("8_iq03y")
+
+[node name="TPSound" type="AudioStreamPlayer2D" parent="." unique_id=25350536]
+stream = ExtResource("9_b11ni")
