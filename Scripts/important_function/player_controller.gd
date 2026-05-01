@@ -4,6 +4,10 @@ class_name PlayerController
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var color_selector = $"../../CanvasLayer/ColorSelector"
 @onready var detecteur: Node2D = $Détecteur
+@onready var dieSound = $DieSound
+@onready var dashSound = $DashSound
+@onready var jumpSound = $JumpSound
+@onready var tpSound = $TPSound
 
 @export var speed: float = 10.0
 @export var jump_power: float = 10.0
@@ -61,6 +65,10 @@ func _ready():
 	# Connection au signal de changement de couleur
 	color_selector.color_changed.connect(Callable(self, "_on_color_changed"))
 	detecteur.visible = main.detector_ok
+	dieSound.bus = "SFX"
+	dashSound.bus = "SFX"
+	jumpSound.bus = "SFX"
+	tpSound.bus = "SFX"
 	
 func _load_keybindings_from_settings():
 	var keybindings = ConfigFileHandler.load_keybindings()
@@ -114,6 +122,7 @@ func _physics_process(delta: float) -> void:
 		
 	if not is_on_floor():
 		if Input.is_action_just_pressed("jump") and double_saut_ok:
+			jumpSound.play()
 			velocity.y = jump_power * jump_multiplier
 			main_sm.dispatch(&"to_jump")
 			double_saut_ok=false
@@ -128,10 +137,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jumpSound.play()
 		velocity.y = jump_power * jump_multiplier
 		main_sm.dispatch(&"to_jump")
 
-	if Input.is_action_just_pressed("dash") and dash_ok:
+	if Input.is_action_just_pressed("dash") and dash_ok and animation_sprite.animation != "dash":
+		dashSound.play()
 		dash_ok=false
 		main_sm.dispatch(&"to_dash")
 		var dash_direction = direction
@@ -179,10 +190,10 @@ func check_death():
 
 func die():
 	is_dead = true
-	
+	dieSound.play()
 	velocity = Vector2.ZERO
 	set_physics_process(false)
-	
+	await dieSound.finished
 	var death_ui = get_tree().get_first_node_in_group("DeathUI")
 	if death_ui:
 		death_ui.visible = true
@@ -367,8 +378,11 @@ func check_red_block_collision():
 				
 func tp_to_portal():
 	if portal:
+		tpSound.play()
+		await get_tree().create_timer(1.0).timeout
 		velocity = Vector2.ZERO
 		global_position = portal.global_position
+		tpSound.stop()
 		
 func update_detecteur_position(target: Node2D):
 	var orbit_radius = 0  # distance entre le joueur et le détecteur

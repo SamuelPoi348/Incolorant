@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area: Area2D = $Area2D
+@onready var hitSound = $HitSound
 
 var hit_count := 0
 var max_hits := 3
@@ -10,6 +11,7 @@ var busy := false
 
 
 func _ready():
+	hitSound.bus = "SFX"
 	area.body_entered.connect(_on_body_entered)
 
 
@@ -31,6 +33,7 @@ func _on_body_entered(body):
 		return
 	
 	# COMPTE HIT
+	hitSound.play()
 	hit_count += 1
 	
 	# SHATTER FINAL

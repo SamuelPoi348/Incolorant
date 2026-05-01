@@ -8,20 +8,28 @@ extends Control
 @onready var MN1 = preload("res://Scenes/Zones/Montagne_Noire/MN-2.tscn")
 
 @onready var option = preload("res://Scenes/ui/option.tscn")
+@onready var clickSound = $Clicksound
+@onready var mainSound = $MainSound
 # Called when the node enters the scene tree for the first time.
 var main
 func _ready() -> void:
+	clickSound.bus = "SFX"
+	mainSound.bus = "Music"
+	mainSound.play()  # 👈 démarre la musique
 	main = get_tree().root.get_node("Main")
 	main.color_locked = false
 	pass # Replace with function body.
 
 
 func _on_commencer_button_down() -> void:
+	clickSound.play()
+	mainSound.stop()  # 👈 stop musique menu
 	await get_tree().create_timer(1).timeout
-	get_tree().root.get_node("Main").change_scene(test)
+	get_tree().root.get_node("Main").change_scene(l1)
 
 
 func _on_option_button_down() -> void:
+	clickSound.play()
 	var option = get_tree().get_first_node_in_group("Option")
 	
 	if option:
@@ -30,4 +38,5 @@ func _on_option_button_down() -> void:
 		#visible = false
 
 func _on_quitter_button_down() -> void:
+	mainSound.stop()  # 👈 stop musique menu
 	get_tree().quit()

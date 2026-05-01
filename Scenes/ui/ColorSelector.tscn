@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chyov13l0o7f"]
 
 [ext_resource type="Script" uid="uid://b2rkxtud1vyiu" path="res://Scripts/gimics/color_selector.gd" id="1_vlogj"]
+[ext_resource type="AudioStream" uid="uid://d1eeg3yumj1gr" path="res://sons/selection_couleur.mp3" id="2_l8lgc"]
 
 [node name="ColorSelector" type="Control" unique_id=36173932]
 custom_minimum_size = Vector2(16, 16)
@@ -29,3 +30,6 @@ scale = Vector2(4, 4)
 
 [node name="Vert" type="Sprite2D" parent="Root" unique_id=642423313]
 scale = Vector2(4, 4)
+
+[node name="PowerUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1975826913]
+stream = ExtResource("2_l8lgc")

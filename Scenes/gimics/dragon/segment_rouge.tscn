@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6mb07shjrl0d" path="res://Scenes/gimics/dragon/segment_rouge.gd" id="1_b10ha"]
 [ext_resource type="Texture2D" uid="uid://dtptcdp6xk4ed" path="res://Sprites/Personnages/dragon/SegmentExplodable.png" id="1_paf85"]
+[ext_resource type="AudioStream" uid="uid://dk67ut238ws3j" path="res://sons/hit.mp3" id="3_0ig21"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_paf85"]
 atlas = ExtResource("1_paf85")
@@ -100,3 +101,6 @@ shape = SubResource("RectangleShape2D_sruao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1995974439]
 shape = SubResource("RectangleShape2D_b10ha")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1446204406]
+stream = ExtResource("3_0ig21")

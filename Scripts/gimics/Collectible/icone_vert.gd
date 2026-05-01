@@ -2,8 +2,10 @@ extends Area2D
 
 var main
 @onready var collision = $CollisionShape2D
+@onready var pickup = $PickUpSound
 
 func _ready():
+	pickup.bus = "SFX"
 	main = get_tree().root.get_node("Main")
 	if main.icone_vert:
 		visible=false
@@ -12,8 +14,9 @@ func _ready():
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerController:
+		pickup.play()
 		main.icone_vert = true
 		for node in get_tree().get_nodes_in_group("tuto_vert"):
 			node.visible = true
-		
+		await pickup.finished
 		queue_free()

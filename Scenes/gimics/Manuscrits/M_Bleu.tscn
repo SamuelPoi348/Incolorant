@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cn1sq6j85yeg5" path="res://Scripts/gimics/Collectible/m_bleu.gd" id="1_g6c6i"]
 [ext_resource type="Texture2D" uid="uid://by1fvk3jcmqiw" path="res://Sprites/M_Bleu.png" id="1_s7tdj"]
+[ext_resource type="AudioStream" uid="uid://wkhcqvwc4nxs" path="res://sons/blue_shoot.mp3" id="3_6uxad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6c6i"]
 size = Vector2(28, 32.5)
@@ -15,5 +16,8 @@ texture = ExtResource("1_s7tdj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1751586753]
 position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_g6c6i")
+
+[node name="PickUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1063458138]
+stream = ExtResource("3_6uxad")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

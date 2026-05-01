@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coo5cb4j34jfh" path="res://Scripts/gimics/Collectible/colorux.gd" id="1_22vcu"]
 [ext_resource type="Texture2D" uid="uid://620i6o5cqkxc" path="res://Sprites/colorux.png" id="1_w8py5"]
+[ext_resource type="AudioStream" uid="uid://158an66dlf60" path="res://sons/coin.mp3" id="3_lp57q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8py5"]
 radius = 7.0
@@ -14,5 +15,8 @@ texture = ExtResource("1_w8py5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=720334063]
 shape = SubResource("CircleShape2D_w8py5")
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="." unique_id=1555598539]
+stream = ExtResource("3_lp57q")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
