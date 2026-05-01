@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b746lhgwxdc1c" path="res://Scripts/important_function/dialogue/text_box.gd" id="1_fesvx"]
 [ext_resource type="Texture2D" uid="uid://d3clctah7y6t0" path="res://Sprites/dialogue.png" id="2_18h1m"]
+[ext_resource type="AudioStream" uid="uid://cymamgdaeuhb6" path="res://sons/dialogue.mp3" id="3_18h1m"]
 
 [node name="TextBox" type="MarginContainer" unique_id=1562444674]
 anchors_preset = -1
@@ -35,5 +36,10 @@ vertical_alignment = 1
 
 [node name="LetterDisplayTimer" type="Timer" parent="." unique_id=1943984286]
 one_shot = true
+
+[node name="DialogueSound" type="AudioStreamPlayer2D" parent="." unique_id=2055325434]
+stream = ExtResource("3_18h1m")
+bus = &"SFX"
+parameters/looping = true
 
 [connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

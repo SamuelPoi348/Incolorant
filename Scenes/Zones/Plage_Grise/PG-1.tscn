@@ -346,5 +346,5 @@ scale = Vector2(2, 3)
 texture = ExtResource("8_ni6gp")
 
 [node name="Marchand" parent="." unique_id=417376132 instance=ExtResource("10_njbr7")]
-position = Vector2(157, -81)
+position = Vector2(158, -80)
 niveau = "plage"

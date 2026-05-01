@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1obp4xbpnfmm" path="res://Sprites/Personnages/dragon/SegmentVert.png" id="1_gggjk"]
 [ext_resource type="Script" uid="uid://cp6qflm52ias3" path="res://Scenes/gimics/dragon/segment_vert.gd" id="1_r60yf"]
+[ext_resource type="AudioStream" uid="uid://c22dbkcagf5pn" path="res://sons/grow.mp3" id="3_xljdn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uwubn"]
 atlas = ExtResource("1_gggjk")
@@ -72,3 +73,6 @@ animation = &"grow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1329102026]
 shape = SubResource("RectangleShape2D_6ssyc")
+
+[node name="GrowSound" type="AudioStreamPlayer2D" parent="." unique_id=1603310092]
+stream = ExtResource("3_xljdn")

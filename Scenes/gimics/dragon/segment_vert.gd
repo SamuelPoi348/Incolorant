@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var growSound = $GrowSound
 
 @export var vineFinal: bool = false
 
@@ -9,6 +10,7 @@ var est_grande := false
 
 
 func _ready():
+	growSound.bus = "SFX"
 	if vineFinal:
 		est_grande = true
 		sprite.play("grow")
@@ -24,7 +26,7 @@ func grow():
 	
 	busy = true
 	est_grande = true
-	
+	growSound.play()
 	sprite.play("grow")
 	await sprite.animation_finished
 	

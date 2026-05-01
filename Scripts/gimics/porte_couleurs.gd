@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var hitbox = $StaticBody2D/Centre
 @onready var anim = $AnimatedSprite2D
+@onready var openSound = $OpenSound
 
 var player_inside = false
 var main
@@ -9,6 +10,7 @@ var porte_ouverte = false
 
 
 func _ready():
+	openSound.bus = "SFX"
 	main = get_tree().root.get_node("Main")
 
 	body_shape_entered.connect(_on_body_shape_entered)
@@ -23,6 +25,7 @@ func _process(_delta):
 func verifier_conditions():
 
 	if main.icone_bleu and main.icone_rouge and main.icone_jaune and main.icone_vert:
+		openSound.play()
 		ouvrir_porte()
 
 
