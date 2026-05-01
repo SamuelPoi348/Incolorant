@@ -31,7 +31,7 @@ const CROSS_POSITIONS := {
 # ==========================
 func _ready():
 	PowerUpSound.bus = "SFX"
-	#PowerUpSound.volume_db = -4
+	PowerUpSound.volume_db = 4
 	visible = false
 	
 	# Positionnement des sprites

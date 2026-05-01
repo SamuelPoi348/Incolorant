@@ -2,6 +2,7 @@ extends MarginContainer
 
 @onready var label = $MarginContainer/Label
 @onready var timer = $LetterDisplayTimer
+@onready var dialogueSound = $DialogueSound
 
 const Max_width = 480
 
@@ -15,6 +16,8 @@ var punctation_time=0.2
 signal finished_displaying()
 
 func _ready():
+	dialogueSound.bus = "SFX"
+	dialogueSound.volume_db = -10
 	#print(label)
 	pass
 	
@@ -24,6 +27,8 @@ func display_text(text_to_display: String):
 	label.text = ""        # on vide le texte avant
 	#can_advance_line = false
 
+	dialogueSound.play()
+	
 	# Positionner la boîte juste au-dessus du marchand
 	custom_minimum_size.x = min(size.x, Max_width)
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD
@@ -38,6 +43,7 @@ func _display_letter():
 	
 	letter_index += 1
 	if letter_index >= text.length():
+		dialogueSound.stop()
 		finished_displaying.emit()
 		return
 	

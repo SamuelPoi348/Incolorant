@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ialhd1184n5t" path="res://Sprites/Porte_Couleurs.png" id="1_4203s"]
 [ext_resource type="Script" uid="uid://bsyurawwtkx3g" path="res://Scripts/gimics/porte_couleurs.gd" id="1_rkyrb"]
+[ext_resource type="AudioStream" uid="uid://cwlywparqm4dl" path="res://sons/open.mp3" id="3_fh07w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkyrb"]
 atlas = ExtResource("1_4203s")
@@ -64,3 +65,6 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255227122]
 position = Vector2(0, 13.5)
 shape = SubResource("CircleShape2D_rkyrb")
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="." unique_id=2113541517]
+stream = ExtResource("3_fh07w")
