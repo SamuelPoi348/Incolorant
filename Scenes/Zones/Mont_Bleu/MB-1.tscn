@@ -398,3 +398,5 @@ rotation = 0.0011895878
 [node name="Plante7" parent="objet" unique_id=1254251793 instance=ExtResource("13_h7r5t")]
 position = Vector2(1376, -65)
 rotation = 0.0011895878
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=932765829]

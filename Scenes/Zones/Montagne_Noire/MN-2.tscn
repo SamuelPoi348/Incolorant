@@ -353,3 +353,5 @@ shape = SubResource("SegmentShape2D_4muy2")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=12962378]
 position = Vector2(242, 6)
 shape = SubResource("SegmentShape2D_4muy2")
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=1049352841]

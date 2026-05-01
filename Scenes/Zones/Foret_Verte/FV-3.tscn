@@ -794,3 +794,5 @@ color = Color(0.19215687, 0.21176471, 0.21960784, 1)
 
 [node name="HabitantVert" parent="Node2D" unique_id=1738442084 instance=ExtResource("16_8u58f")]
 position = Vector2(1537, -277)
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=1741996272]

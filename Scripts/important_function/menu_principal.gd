@@ -6,6 +6,7 @@ extends Control
 @onready var MB1 = preload("res://Scenes/Zones/Mont_Bleu/MB-2.tscn")
 @onready var DJ1 = preload("res://Scenes/Zones/Desert_Jaune/DJ-2.tscn")
 @onready var MN1 = preload("res://Scenes/Zones/Montagne_Noire/MN-2.tscn")
+@onready var map = preload("res://Scenes/Zones/map/map.tscn")
 
 @onready var option = preload("res://Scenes/ui/option.tscn")
 @onready var clickSound = $Clicksound

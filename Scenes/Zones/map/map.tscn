@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dehryhg0otrum" path="res://Sprites/MN.png" id="13_l1lh3"]
 [ext_resource type="Texture2D" uid="uid://h6tifemeokta" path="res://Sprites/FV.png" id="14_l1lh3"]
 [ext_resource type="Texture2D" uid="uid://d6yb71luchiy" path="res://Sprites/MB.png" id="15_ul5t4"]
+[ext_resource type="AudioStream" uid="uid://drllisramjswf" path="res://sons/shillMusic.mp3" id="20_bvd5d"]
 
 [node name="Map" type="Node2D" unique_id=295114600]
 position = Vector2(0, -900)
@@ -370,3 +371,7 @@ chemin_niveau = "res://Scenes/Zones/Mont_Bleu/MB-3.tscn"
 nom_niveau = "Mont Bleu 3"
 miniature2 = ExtResource("15_ul5t4")
 prefixe_niveau = "MB-3"
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=28167911]
+stream = ExtResource("20_bvd5d")
+parameters/looping = true

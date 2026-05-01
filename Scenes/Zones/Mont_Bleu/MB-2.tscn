@@ -531,3 +531,5 @@ max_distance = 240.0
 
 [node name="PorteBleu" parent="." unique_id=1084665636 instance=ExtResource("20_02qxp")]
 position = Vector2(2056, -176)
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=1942617482]
