@@ -57,6 +57,10 @@ func _ready():
 	
 	area2D2.body_entered.connect(_on_alt_enter)
 	area2D2.body_exited.connect(_on_alt_exit)
+	
+	# Clean up old dragon segments from previous runs
+	_cleanup_old_segments()
+	
 	# Initialize segment positions
 	# CHANGER LES SEGMENTS ICI
 	#  
@@ -88,6 +92,7 @@ func _ready():
 	
 
 		get_tree().root.add_child(seg)
+		seg.add_to_group("dragon_segment")
 		segments.append(seg)
 		segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
 
@@ -122,6 +127,13 @@ func _process(delta):
 	
 	_update_segments(delta)
 	_update_visuals()
+
+
+func _cleanup_old_segments() -> void:
+	"""Remove any leftover dragon segments from previous level runs"""
+	var old_segments = get_tree().get_nodes_in_group("dragon_segment")
+	for seg in old_segments:
+		seg.queue_free()
 
 func _on_alt_enter(body):
 	if body.is_in_group("Player"):
