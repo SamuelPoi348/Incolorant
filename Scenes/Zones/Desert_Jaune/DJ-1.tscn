@@ -410,3 +410,5 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.9843137, 0.7254902, 0.32941177, 1)
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=245461950]

@@ -5,7 +5,8 @@ extends Control
 @onready var VR1 = preload("res://Scenes/Zones/Volcan_Rouge/VR-2.tscn")
 @onready var MB1 = preload("res://Scenes/Zones/Mont_Bleu/MB-2.tscn")
 @onready var DJ1 = preload("res://Scenes/Zones/Desert_Jaune/DJ-2.tscn")
-@onready var MN2 = preload("res://Scenes/Zones/Montagne_Noire/MN-2.tscn")
+@onready var MN1 = preload("res://Scenes/Zones/Montagne_Noire/MN-2.tscn")
+@onready var map = preload("res://Scenes/Zones/map/map.tscn")
 
 @onready var option = preload("res://Scenes/ui/option.tscn")
 @onready var clickSound = $Clicksound
@@ -25,7 +26,7 @@ func _on_commencer_button_down() -> void:
 	clickSound.play()
 	mainSound.stop()  # 👈 stop musique menu
 	await get_tree().create_timer(1).timeout
-	get_tree().root.get_node("Main").change_scene(MN2)
+	get_tree().root.get_node("Main").change_scene(l1)
 
 
 func _on_option_button_down() -> void:

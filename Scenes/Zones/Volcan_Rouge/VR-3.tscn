@@ -369,13 +369,6 @@ terrain_set_0/terrain_5/color = Color(9.62615e-07, 0.46282917, 0.7140708, 1)
 sources/1 = SubResource("TileSetAtlasSource_td0hx")
 sources/0 = SubResource("TileSetAtlasSource_b8hql")
 
-[sub_resource type="Curve2D" id="Curve2D_byxxx"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -35, 37, 0, 0, 0, 0, -35, -38)
-}
-point_count = 2
-
 [sub_resource type="Curve2D" id="Curve2D_j7qub"]
 resource_local_to_scene = true
 _data = {
@@ -386,42 +379,49 @@ point_count = 2
 [sub_resource type="Curve2D" id="Curve2D_1g0yy"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -35, 29, 0, 0, 0, 0, -35, -56.945953)
+"points": PackedVector2Array(0, 0, 0, 0, -35, 37, 0, 0, 0, 0, -35, -38)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_n1m0w"]
 resource_local_to_scene = true
 _data = {
+"points": PackedVector2Array(0, 0, 0, 0, -35, 29, 0, 0, 0, 0, -35, -56.945953)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_2eft4"]
+resource_local_to_scene = true
+_data = {
 "points": PackedVector2Array(0, 0, 0, 0, -35, 29, 0, 0, 0, 0, -37, -4, 0, 0, 0, 0, -36, -200)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_2eft4"]
+[sub_resource type="Curve2D" id="Curve2D_jec02"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -35, 52, 0, 0, 0, 0, -35, -21)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_jec02"]
+[sub_resource type="Curve2D" id="Curve2D_17ftn"]
 resource_local_to_scene = true
 
-[sub_resource type="Curve2D" id="Curve2D_17ftn"]
+[sub_resource type="Curve2D" id="Curve2D_x3o6p"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -35, 29)
 }
 point_count = 1
 
-[sub_resource type="Curve2D" id="Curve2D_x3o6p"]
+[sub_resource type="Curve2D" id="Curve2D_n4e2n"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -35, 29, 0, 0, 0, 0, -35, -14)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_n4e2n"]
+[sub_resource type="Curve2D" id="Curve2D_f1a4e"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -35, 29, 0, 0, 0, 0, 900, 29)
@@ -592,19 +592,19 @@ position = Vector2(-34, -64)
 [node name="Platefrome5" parent="objet/Plateformes" unique_id=868220765 instance=ExtResource("15_byxxx")]
 position = Vector2(901, -308)
 rotation = -3.1415925
-curve = SubResource("Curve2D_byxxx")
+curve = SubResource("Curve2D_j7qub")
 path_time = 0.25
 
 [node name="Platefrome4" parent="objet/Plateformes" unique_id=718653145 instance=ExtResource("15_byxxx")]
 position = Vector2(821, -308)
 rotation = -3.1415925
-curve = SubResource("Curve2D_j7qub")
+curve = SubResource("Curve2D_1g0yy")
 path_time = 0.5
 
 [node name="Platefrome" parent="objet/Plateformes" unique_id=1208841857 instance=ExtResource("15_byxxx")]
 position = Vector2(668, -148)
 scale = Vector2(1, 0.8604651)
-curve = SubResource("Curve2D_1g0yy")
+curve = SubResource("Curve2D_n1m0w")
 path_time = 0.2
 ease = 2
 transition = 4
@@ -612,27 +612,29 @@ transition = 4
 [node name="Platefrome2" parent="objet/Plateformes" unique_id=479355830 instance=ExtResource("15_byxxx")]
 position = Vector2(550, -260)
 rotation = 1.5707964
-curve = SubResource("Curve2D_n1m0w")
+curve = SubResource("Curve2D_2eft4")
 
 [node name="Platefrome3" parent="objet/Plateformes" unique_id=1469960323 instance=ExtResource("15_byxxx")]
 position = Vector2(741, -293)
 rotation = -3.1415925
-curve = SubResource("Curve2D_2eft4")
+curve = SubResource("Curve2D_jec02")
 
 [node name="Platefrome7" parent="objet/Plateformes" unique_id=1682668886 instance=ExtResource("15_byxxx")]
 position = Vector2(1070, -292)
-curve = SubResource("Curve2D_jec02")
+curve = SubResource("Curve2D_17ftn")
 
 [node name="Platefrome6" parent="objet/Plateformes" unique_id=665899892 instance=ExtResource("15_byxxx")]
 position = Vector2(761, -294)
-curve = SubResource("Curve2D_17ftn")
+curve = SubResource("Curve2D_x3o6p")
 
 [node name="Platefrome8" parent="objet/Plateformes" unique_id=1877537423 instance=ExtResource("15_byxxx")]
 position = Vector2(1000, -203)
 rotation = 3.1415927
-curve = SubResource("Curve2D_x3o6p")
+curve = SubResource("Curve2D_n4e2n")
 
 [node name="Platefrome9" parent="objet/Plateformes" unique_id=376020814 instance=ExtResource("15_byxxx")]
 position = Vector2(1119, -292)
-curve = SubResource("Curve2D_n4e2n")
+curve = SubResource("Curve2D_f1a4e")
 path_time = 2.0
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=709395132]

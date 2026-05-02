@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bl4x0k63fkuk0"]
 
+[ext_resource type="Script" uid="uid://dhbrgql2elqhj" path="res://Scenes/Zones/Plage_Grise/pg_1.gd" id="1_cr5lw"]
 [ext_resource type="Texture2D" uid="uid://cfme02mhqwxkx" path="res://Sprites/Tiles/Gris.png" id="2_iy5dg"]
 [ext_resource type="PackedScene" uid="uid://d2o7b31vqmebb" path="res://Scenes/important_function/player.tscn" id="2_ni6gp"]
 [ext_resource type="PackedScene" uid="uid://chyov13l0o7f" path="res://Scenes/ui/ColorSelector.tscn" id="3_iy5dg"]
@@ -261,6 +262,7 @@ terrain_set_0/terrain_5/color = Color(9.62615e-07, 0.46282917, 0.7140708, 1)
 sources/1 = SubResource("TileSetAtlasSource_njbr7")
 
 [node name="PG-1" type="Node2D" unique_id=959670977]
+script = ExtResource("1_cr5lw")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=273725900]
 z_index = -1
@@ -341,10 +343,12 @@ color = Color(0.5647059, 0.827451, 1, 1)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=863172526]
 z_index = -4095
 texture_repeat = 2
-position = Vector2(4, -244)
+position = Vector2(1, -248)
 scale = Vector2(2, 3)
 texture = ExtResource("8_ni6gp")
 
 [node name="Marchand" parent="." unique_id=417376132 instance=ExtResource("10_njbr7")]
 position = Vector2(158, -80)
 niveau = "plage"
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=965717536]

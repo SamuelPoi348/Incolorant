@@ -8,6 +8,7 @@ class_name PlayerController
 @onready var dashSound = $DashSound
 @onready var jumpSound = $JumpSound
 @onready var tpSound = $TPSound
+@onready var csmSound = $ColorSpecialModeSound
 
 @export var speed: float = 10.0
 @export var jump_power: float = 10.0
@@ -69,6 +70,7 @@ func _ready():
 	dashSound.bus = "SFX"
 	jumpSound.bus = "SFX"
 	tpSound.bus = "SFX"
+	csmSound.bus = "SFX"
 	
 func _load_keybindings_from_settings():
 	var keybindings = ConfigFileHandler.load_keybindings()
@@ -172,9 +174,11 @@ func _physics_process(delta: float) -> void:
 		main_sm.dispatch(&"to_shoot")
 
 	if Input.is_action_just_pressed("switch_incolorant_mode") and couleur_active == "vert":
+		csmSound.play()
 		toggle_incolorant_mode()
 
 	if Input.is_action_just_pressed("switch_incolorant_mode") and couleur_active == "jaune":
+		csmSound.play()
 		trigger_yellow_platforms()
 
 	if couleur_active == "vert":

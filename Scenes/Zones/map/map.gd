@@ -12,7 +12,11 @@ var zones = {
 	"MB": ["MB-1", "MB-2", "MB-3"]
 }
 
+@onready var music = $ZoneMusic
+
 func _ready():
+	music.bus = "Music"
+	music.play()
 	main = get_tree().root.get_node("Main")
 	
 	# 🔥 Conversion des chemins → IDs

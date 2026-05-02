@@ -606,3 +606,5 @@ color = Color(0.47843137, 0.1882353, 0.27058825, 1)
 [node name="Timer" type="Timer" parent="." unique_id=311492344]
 wait_time = 60.0
 one_shot = true
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=885514206]

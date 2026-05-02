@@ -604,3 +604,5 @@ color = Color(0.9843137, 0.7254902, 0.32941177, 1)
 [node name="GiantCactusBall" parent="." unique_id=201981064 instance=ExtResource("21_mkq5i")]
 position = Vector2(550, -500)
 camera_zoom_out = 3.0
+
+[node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=1506548047]
