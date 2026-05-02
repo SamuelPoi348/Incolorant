@@ -12,9 +12,11 @@ var cycle_termine = false
 @onready var collision = $CollisionShape2D
 @onready var c = $Area2D
 @onready var c4 = $Area2D2
+@onready var openSound = $OpenSound
 @export var premiere_porte: bool =false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	openSound.bus = "SFX"
 	c.body_entered.connect(_on_c_body_entered)
 	c4.body_entered.connect(_on_c4_body_entered)
 	collision.disabled=true
@@ -43,6 +45,7 @@ func _on_c4_body_entered(body):
 	
 func ouvrir_toutes_les_portes():
 	if first_ouverture:
+		openSound.play()
 		first_ouverture = false
 		cycle_termine = true # 🔥 IMPORTANT
 		for porte in get_tree().get_nodes_in_group("Porte_Rouge"):

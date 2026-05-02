@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bm2dcghu00sdn"]
 
 [ext_resource type="Texture2D" uid="uid://dykgnuqor532u" path="res://Sprites/PorteZoneBleu.png" id="2_e4bol"]
+[ext_resource type="AudioStream" uid="uid://cwlywparqm4dl" path="res://sons/open.mp3" id="3_7heri"]
 [ext_resource type="Script" uid="uid://bnrr6lpkajelv" path="res://Scripts/gimics/porte_bleu.gd" id="3_pqrst"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7heri"]
@@ -105,3 +106,6 @@ position = Vector2(0, -35)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CS2D" unique_id=916421905]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_fi61x")
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="." unique_id=1556094230]
+stream = ExtResource("3_7heri")
