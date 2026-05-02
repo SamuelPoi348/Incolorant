@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cx4lu0onbetp6" path="res://porte_rouge.gd" id="1_x57ox"]
 [ext_resource type="Texture2D" uid="uid://dyhmhbtxik6kv" path="res://Sprites/Porte_Rouge.png" id="1_xephp"]
+[ext_resource type="AudioStream" uid="uid://cwlywparqm4dl" path="res://sons/open.mp3" id="3_ikdev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vf7mr"]
 atlas = ExtResource("1_xephp")
@@ -149,3 +150,6 @@ shape = SubResource("RectangleShape2D_x57ox")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1739711474]
 position = Vector2(46, 0)
 shape = SubResource("RectangleShape2D_7ssf1")
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="." unique_id=1933025130]
+stream = ExtResource("3_ikdev")

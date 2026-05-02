@@ -4,8 +4,10 @@ var fermé_ok = false  # Door starts closed until all habitants are visited
 var habitants_ok = true
 @onready var anim = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
+@onready var openSound = $OpenSound
 
 func _ready() -> void:
+	openSound.bus = "SFX"
 	add_to_group("Porte_Bleu")
 	# Door starts closed - collision is active, animation at frame 0 (closed state)
 	collision.disabled = false
@@ -28,6 +30,7 @@ func tous_les_habitants_visites() -> bool:
 	return true
 
 func ouvrir_toutes_les_portes():
+	openSound.play()
 	for porte in get_tree().get_nodes_in_group("Porte_Bleu"):
 		porte.ouvrir()
 	habitants_ok = false

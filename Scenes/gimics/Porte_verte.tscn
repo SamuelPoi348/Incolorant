@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5qklalwxi786" path="res://Scripts/gimics/porte_verte.gd" id="1_fc6l1"]
 [ext_resource type="Texture2D" uid="uid://bunbrl5wii2u2" path="res://Sprites/PorteZoneVert.png" id="1_xl5no"]
+[ext_resource type="AudioStream" uid="uid://cwlywparqm4dl" path="res://sons/open.mp3" id="3_fi61x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fc6l1"]
 atlas = ExtResource("1_xl5no")
@@ -90,3 +91,6 @@ position = Vector2(0, -35)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CS2D" unique_id=916421905]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_fi61x")
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="." unique_id=1084105057]
+stream = ExtResource("3_fi61x")

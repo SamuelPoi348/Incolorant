@@ -363,9 +363,9 @@ color = Color(0.28235295, 0.2901961, 0.46666667, 1)
 [node name="objet" type="Node2D" parent="." unique_id=133279544]
 
 [node name="Shooter" parent="objet" unique_id=1948774045 instance=ExtResource("10_7ad7y")]
-position = Vector2(306, -65)
-rotation = 0.87266463
-max_distance = 213.0
+position = Vector2(204, -63)
+rotation = 1.0471976
+max_distance = 300.0
 
 [node name="Shooter2" parent="objet" unique_id=1460424376 instance=ExtResource("10_7ad7y")]
 position = Vector2(1897, -232)
