@@ -104,7 +104,16 @@ func _on_color_changed(new_color: String):
 # Appelée depuis ColorSelector
 func update_color_from_manager(new_color: String):
 	couleur_active = new_color
-	play_animation_with_color("idle")
+	
+	# Refresh animation based on current movement state
+	if not is_on_floor() and velocity.y > 0:
+		play_animation_with_color("fall")
+	elif not is_on_floor():
+		play_animation_with_color("jump")
+	elif velocity.x != 0:
+		play_animation_with_color("move")
+	else:
+		play_animation_with_color("idle")
 
 # =====================================================
 # PHYSICS
