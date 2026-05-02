@@ -63,8 +63,9 @@ func change_scene(packed_scene: PackedScene, player_pos: Vector2 = Vector2.ZERO)
 		current.queue_free()
 
 	var new_scene = packed_scene.instantiate()
-	container.add_child(new_scene)
-
+	container.add_child(new_scene)	
+	# Update scene_courante to track the current level
+	scene_courante = packed_scene.resource_path
 	# Si c’est la Map et qu’une position est donnée, place le joueur dessus
 	if player_pos != Vector2.ZERO:
 		# Assure-toi que le joueur s’appelle PlayerMap dans la Map
