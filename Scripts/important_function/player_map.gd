@@ -4,6 +4,7 @@ const SPEED = 300.0
 
 var current_dir = "none"
 var couleur_active = ""
+var movement_locked := false
 
 # =========================
 # INCOLORANT
@@ -45,6 +46,8 @@ func _on_color_changed(new_color: String):
 # =========================
 
 func _physics_process(delta: float) -> void:
+	if movement_locked:
+		return
 	player_movement(delta)
 	handle_color_powers()
 
