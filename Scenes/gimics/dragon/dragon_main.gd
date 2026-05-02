@@ -134,6 +134,9 @@ func _cleanup_old_segments() -> void:
 	var old_segments = get_tree().get_nodes_in_group("dragon_segment")
 	for seg in old_segments:
 		seg.queue_free()
+		
+func _exit_tree() -> void:
+	_cleanup_old_segments()
 
 func _on_alt_enter(body):
 	if body.is_in_group("Player"):
