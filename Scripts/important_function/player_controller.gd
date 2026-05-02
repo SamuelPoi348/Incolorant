@@ -13,6 +13,8 @@ class_name PlayerController
 @export var speed: float = 10.0
 @export var jump_power: float = 10.0
 
+var movement_locked := false
+
 var main 
 
 var speed_multiplier: float = 30.0
@@ -125,6 +127,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Bloque le joueur pendant sélection couleur
 	if get_tree().root.get_node("Main").selecting_color:
+		return
+	if movement_locked:
 		return
 	if Input.is_action_just_pressed("tp") and main.teleporter_to_portail and tp_ok:
 		tp_to_portal()

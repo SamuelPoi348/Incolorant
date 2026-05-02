@@ -45,8 +45,17 @@ func _process(_delta):
 	if player_inside and Input.is_action_just_pressed("interagir"):
 		if chemin_niveau != "":
 			enter_niveau.play()
+			
+			var player = get_tree().get_first_node_in_group("PlayerMap")
+			if player:
+				player.movement_locked = true
+				player.velocity = Vector2.ZERO
+			
 			await get_tree().create_timer(1.0).timeout
 			enter_niveau.stop()
+			
+			if player:
+				player.movement_locked = false
 			
 			var scene = load(chemin_niveau)
 			main.niveau_courant = scene

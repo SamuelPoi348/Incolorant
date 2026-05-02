@@ -25,7 +25,7 @@
 position = Vector2(0, -900)
 script = ExtResource("1_0nlug")
 
-[node name="PlayerMap" parent="." unique_id=1230117236 instance=ExtResource("1_ep2eh")]
+[node name="PlayerMap" parent="." unique_id=1230117236 groups=["PlayerMap"] instance=ExtResource("1_ep2eh")]
 top_level = true
 z_index = 1
 position = Vector2(3, -530)

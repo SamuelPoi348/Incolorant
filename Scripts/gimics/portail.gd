@@ -22,6 +22,11 @@ func _process(_delta):
 	if player_inside and Input.is_action_just_pressed("interagir"):
 		enter_niveau.play()
 
+		var player = get_tree().get_first_node_in_group("Player")
+		if player:
+			player.movement_locked = true
+			player.velocity = Vector2.ZERO
+
 		await get_tree().create_timer(1.0).timeout
 
 		enter_niveau.stop()
@@ -29,6 +34,9 @@ func _process(_delta):
 		# Marque le niveau comme terminé si défini
 		if niveau_termine != "":
 			main.marquer_niveau_complet(niveau_termine)
+
+		if player:
+			player.movement_locked = false
 
 		# Change la scène et place le joueur
 		if final_lvl:
