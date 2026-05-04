@@ -25,7 +25,10 @@ func _ready():
 	_update_animation()
 
 func _update_animation():
+	print(chemin_niveau)
 	if chemin_niveau in main.niveaux_completes:
+			
+			print(main.niveaux_completes)
 			anim.play("complete")
 	else:
 			anim.play("default")

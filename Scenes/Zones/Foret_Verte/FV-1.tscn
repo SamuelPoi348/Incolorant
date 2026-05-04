@@ -633,7 +633,7 @@ id_colorux = "FV-1-C3"
 [node name="Portail" parent="Objet" unique_id=1699174887 instance=ExtResource("6_b1car")]
 position = Vector2(1232, -81)
 spawn_position = Vector2(-442, -755)
-niveau_termine = "res://Scenes/Zones/Foret_verte/FV-1.tscn"
+niveau_termine = "res://Scenes/Zones/Foret_Verte/FV-1.tscn"
 
 [node name="Vigne" type="Node2D" parent="Objet" unique_id=1685931843]
 
