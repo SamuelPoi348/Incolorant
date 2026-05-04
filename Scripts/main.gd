@@ -44,10 +44,12 @@ var selecting_color := false
 var detector_ok=false
 var secret_ending=false
 var color_locked = false
+var main_menu_open = false
 
 # 🔥 Charge automatiquement le menu principal au lancement
 func _ready():
 	if not admin:
+		main_menu_open =true
 		charger()
 		
 # Charger la scène option en arrière-plan
@@ -210,4 +212,36 @@ func charger():
 	niveau_courant = data.get("niveau_courant", "")
 	position_courante = data.get("position_courante", Vector2.ZERO)
 	scene_courante = data.get("scene_courante", "")
+	
+func nouvelle_partie():
+	Sauvegarde.delete_save()
+
+	niveaux_completes = []
+
+	colorux = 0
+	icone_rouge = false
+	icone_jaune = false
+	icone_bleu = false
+	icone_vert = false
+
+	manuscrit_rouge = false
+	manuscrit_jaune = false
+	manuscrit_bleu = false
+	manuscrit_vert = false
+
+	colorux_detector = false
+	dash = false
+	double_saut = false
+	teleporter_to_portail = false
+	golden_colorux = false
+
+	colorux_collectes = {}
+
+	# ⚠️ important : valeurs cohérentes avec la save
+	niveau_courant = ""
+	position_courante = Vector2.ZERO
+	scene_courante = ""
+
+	# sauvegarde propre immédiatement
+	sauvegarder()
 	

@@ -150,8 +150,65 @@ label_settings = SubResource("LabelSettings_x0bvf")
 z_index = 1
 layout_mode = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1004217101]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1525269683]
+layout_mode = 2
+text = "Sauvegarde du jeu"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2114879885]
+layout_mode = 2
+text = "supprimer"
+
+[node name="DeletePopup" type="Window" parent="." unique_id=1223603255]
+oversampling_override = 1.0
+position = Vector2i(697, 300)
+size = Vector2i(300, 200)
+borderless = true
+
+[node name="Label" type="Label" parent="DeletePopup" unique_id=239851846]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "Cette action est irréversible 
+voulez vous vraiment 
+supprimer votre sauvegarde"
+horizontal_alignment = 1
+
+[node name="ButtonDelete" type="Button" parent="DeletePopup" unique_id=1190378553]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Supprimer définitivement"
+
+[node name="ButtonAnnuler" type="Button" parent="DeletePopup" unique_id=677994988]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Annuler"
+
 [connection signal="button_down" from="Quitter" to="." method="_on_quitter_button_down"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl3" to="HBoxContainer/VBoxContainer/AudioControl3" method="_on_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl" to="HBoxContainer/VBoxContainer/AudioControl" method="_on_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl2" to="HBoxContainer/VBoxContainer/AudioControl2" method="_on_value_changed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/FullScreenControl" to="HBoxContainer/VBoxContainer/FullScreenControl" method="_on_toggled"]
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="DeletePopup/ButtonDelete" to="." method="_on_button_delete_button_down"]
+[connection signal="button_down" from="DeletePopup/ButtonAnnuler" to="." method="_on_button_annuler_button_down"]

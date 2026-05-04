@@ -39,7 +39,8 @@ func _process(_delta):
 		if player:
 			player.movement_locked = false
 
-		main.sauvegarder()
+		if not main.admin:
+			main.sauvegarder()
 		# Change la scène et place le joueur
 		if final_lvl:
 			show_credits()

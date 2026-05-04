@@ -16,3 +16,7 @@ func load_game() -> Dictionary:
 		return config.get_value("game", "data")
 	
 	return {}
+	
+func delete_save():
+	if FileAccess.file_exists(SAVE_FILE_PATH):
+		DirAccess.remove_absolute(SAVE_FILE_PATH)

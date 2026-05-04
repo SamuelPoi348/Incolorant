@@ -44,7 +44,6 @@ func _on_body_exited(body):
 func _process(_delta):
 	if player_inside and Input.is_action_just_pressed("interagir"):
 		if chemin_niveau != "":
-			main.sauvegarder()
 			enter_niveau.play()
 			
 			var player = get_tree().get_first_node_in_group("PlayerMap")
@@ -61,5 +60,7 @@ func _process(_delta):
 			var scene = load(chemin_niveau)
 			main.niveau_courant = scene
 			main.scene_courante=chemin_niveau
+			if not main.admin:
+				main.sauvegarder()
 			main.call_deferred("change_scene", scene)
 	

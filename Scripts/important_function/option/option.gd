@@ -5,8 +5,19 @@ extends Control
 @onready var music_volume =$HBoxContainer/VBoxContainer/AudioControl
 @onready var SFX_volume =$HBoxContainer/VBoxContainer/AudioControl2
 
+@onready var delete_popup = $DeletePopup
+@onready var vBoxDelete = $VBoxContainer
+
+var main
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	main = get_tree().root.get_node("Main")
+	if main.main_menu_open:
+		vBoxDelete.visible=true
+	else: 
+		vBoxDelete.visible=false
+	delete_popup.visible =false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	visible=false
 	var video_settings = ConfigFileHandler.load_video_setting()
@@ -28,3 +39,20 @@ func _on_quitter_button_down() -> void:
 	var pause = get_tree().get_first_node_in_group("Pause")
 	if pause:
 		pause.visible = true
+
+
+func _on_button_button_down() -> void:
+	delete_popup.visible =true
+	delete_popup.popup_centered()
+	pass # Replace with function body.
+
+
+func _on_button_delete_button_down() -> void:
+		delete_popup.hide()
+		main.nouvelle_partie()
+
+
+func _on_button_annuler_button_down() -> void:
+	delete_popup.hide()
+	delete_popup.visible = false
+	pass # Replace with function body.
