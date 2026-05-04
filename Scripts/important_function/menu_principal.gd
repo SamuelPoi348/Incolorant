@@ -18,11 +18,13 @@ func _ready() -> void:
 	mainSound.bus = "Music"
 	mainSound.play()  # 👈 démarre la musique
 	main = get_tree().root.get_node("Main")
+	main.main_menu_open =true
 	main.color_locked = false
 	pass # Replace with function body.
 
 
 func _on_commencer_button_down() -> void:
+	main.main_menu_open =false
 	clickSound.play()
 	mainSound.stop()  # 👈 stop musique menu
 	await get_tree().create_timer(1).timeout

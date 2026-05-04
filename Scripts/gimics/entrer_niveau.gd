@@ -60,5 +60,7 @@ func _process(_delta):
 			var scene = load(chemin_niveau)
 			main.niveau_courant = scene
 			main.scene_courante=chemin_niveau
+			if not main.admin:
+				main.sauvegarder()
 			main.call_deferred("change_scene", scene)
 	

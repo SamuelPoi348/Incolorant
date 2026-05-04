@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://d1n0alxfpktpt"
 
 ConfigFileHandler="*uid://bsbv01vaxkobj"
 DialogManager="*uid://bcbjbstt5djpf"
+Sauvegarde="*uid://usr0em1ksne7"
 
 [display]
 

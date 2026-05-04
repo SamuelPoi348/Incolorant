@@ -54,6 +54,8 @@ func _on_quitter_button_down() -> void:
 
 
 func _on_quitter_map_button_down() -> void:
+	if not main.admin:
+		main.sauvegarder()
 	main.color_locked =false
 	main.scene_courante = "mort"
 	get_tree().paused = false

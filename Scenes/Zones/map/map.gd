@@ -38,7 +38,6 @@ func update_zone(zone_name: String, niveaux: Array):
 		
 		var level_node = $Niveaux.get_node_or_null(niveau_id)
 		if level_node == null:
-			print("Node introuvable :", niveau_id)
 			continue
 		
 		var unlocked = false
@@ -48,8 +47,6 @@ func update_zone(zone_name: String, niveaux: Array):
 		else:
 			var precedent = niveaux[i - 1]
 			
-			print("Check :", precedent)
-			print("Complétés :", niveaux_completes_ids)
 			
 			if precedent in niveaux_completes_ids:
 				unlocked = true
