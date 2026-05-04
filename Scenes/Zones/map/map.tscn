@@ -332,21 +332,21 @@ prefixe_niveau = "VR-3"
 
 [node name="FV-1" parent="Niveaux" unique_id=874605329 instance=ExtResource("10_nvd1r")]
 position = Vector2(-442, 145)
-chemin_niveau = "res://Scenes/Zones/Foret_verte/FV-1.tscn"
+chemin_niveau = "res://Scenes/Zones/Foret_Verte/FV-1.tscn"
 nom_niveau = "Foret Verte 1"
 miniature2 = ExtResource("14_l1lh3")
 prefixe_niveau = "FV-1"
 
 [node name="FV-2" parent="Niveaux" unique_id=155451010 instance=ExtResource("10_nvd1r")]
 position = Vector2(-543, 330)
-chemin_niveau = "res://Scenes/Zones/Foret_verte/FV-2.tscn"
+chemin_niveau = "res://Scenes/Zones/Foret_Verte/FV-2.tscn"
 nom_niveau = "Foret Verte 2"
 miniature2 = ExtResource("14_l1lh3")
 prefixe_niveau = "FV-2"
 
 [node name="FV-3" parent="Niveaux" unique_id=367352340 instance=ExtResource("10_nvd1r")]
 position = Vector2(-1074, 441)
-chemin_niveau = "res://Scenes/Zones/Foret_verte/FV-3.tscn"
+chemin_niveau = "res://Scenes/Zones/Foret_Verte/FV-3.tscn"
 nom_niveau = "Foret Verte 3"
 miniature2 = ExtResource("14_l1lh3")
 prefixe_niveau = "FV-3"
