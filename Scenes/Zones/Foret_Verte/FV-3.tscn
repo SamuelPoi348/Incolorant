@@ -760,7 +760,7 @@ position = Vector2(1376, -194)
 [node name="Portail" parent="Objet" unique_id=1699174887 instance=ExtResource("6_jydav")]
 position = Vector2(1538, -224)
 spawn_position = Vector2(-1074, -459)
-niveau_termine = "res://Scenes/Zones/Foret_verte/FV-3.tscn"
+niveau_termine = "res://Scenes/Zones/Foret_Verte/FV-3.tscn"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1895798271]
 script = ExtResource("16_tfkej")

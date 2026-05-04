@@ -633,7 +633,7 @@ offset_bottom = 8.0
 [node name="Portail" parent="objet" unique_id=1699174887 instance=ExtResource("6_ehp7p")]
 position = Vector2(1060, -328)
 spawn_position = Vector2(-543, -570)
-niveau_termine = "res://Scenes/Zones/Foret_verte/FV-2.tscn"
+niveau_termine = "res://Scenes/Zones/Foret_Verte/FV-2.tscn"
 
 [node name="IconeVert" parent="objet" unique_id=856214282 instance=ExtResource("13_u4ihs")]
 position = Vector2(976, -321)
