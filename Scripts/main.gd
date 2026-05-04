@@ -3,15 +3,17 @@ extends Node
 signal color_changed(new_color: String)
 
 @onready var container = $SceneContainer
+var admin =false
 
-var scene_stack: Array[PackedScene] = []
-var couleur_active: String = ""
-var selecting_color := false
+
+#variable stocker dans le fichier sauvegarde
+var niveaux_completes: Array[String] = []
+
 var colorux =0;
-var icone_rouge =true;
-var icone_jaune =true;
-var icone_bleu =true;
-var icone_vert =true;
+var icone_rouge =false;
+var icone_jaune =false;
+var icone_bleu =false;
+var icone_vert =false;
 
 var manuscrit_rouge=false;
 var manuscrit_jaune=false;
@@ -19,29 +21,35 @@ var manuscrit_bleu =false;
 var manuscrit_vert=false;
 
 var colorux_detector=false
-var dash=true
-var double_saut=true
-var teleporter_to_portail=true
+var dash=false
+var double_saut=false
+var teleporter_to_portail=false
 var golden_colorux=false
 
-# Colorux collectés par niveau
 var colorux_collectes := {}
 var niveau_courant
 var position_courante
 var scene_courante
 
-# Liste des niveaux complétés
-var niveaux_completes: Array[String] = []
+#fin de la section à sauvegarder les variables
 
 
 
-#variable in lvl don't touch
+
+
+#variable utilisable au cour du jeu
+var scene_stack: Array[PackedScene] = []
+var couleur_active: String = ""
+var selecting_color := false
 var detector_ok=false
 var secret_ending=false
 var color_locked = false
 
 # 🔥 Charge automatiquement le menu principal au lancement
 func _ready():
+	if not admin:
+		charger()
+		
 # Charger la scène option en arrière-plan
 	var option_scene = load("res://Scenes/ui/option.tscn").instantiate()
 	add_child(option_scene)
@@ -140,3 +148,66 @@ func reset_game():
 	
 	#position_courante = Vector2.ZERO
 	#scene_courante = ""
+	
+func sauvegarder():
+	var data = {
+		"niveaux_completes": niveaux_completes,
+
+		"colorux": colorux,
+		"icone_rouge": icone_rouge,
+		"icone_jaune": icone_jaune,
+		"icone_bleu": icone_bleu,
+		"icone_vert": icone_vert,
+
+		"manuscrit_rouge": manuscrit_rouge,
+		"manuscrit_jaune": manuscrit_jaune,
+		"manuscrit_bleu": manuscrit_bleu,
+		"manuscrit_vert": manuscrit_vert,
+
+		"colorux_detector": colorux_detector,
+		"dash": dash,
+		"double_saut": double_saut,
+		"teleporter_to_portail": teleporter_to_portail,
+		"golden_colorux": golden_colorux,
+
+		"colorux_collectes": colorux_collectes,
+
+		"niveau_courant": niveau_courant,
+		"position_courante": position_courante,
+		"scene_courante": scene_courante
+	}
+
+	Sauvegarde.save_game(data)
+	
+func charger():
+	var data = Sauvegarde.load_game()
+	
+	if data.is_empty():
+		sauvegarder()
+		return
+	
+	niveaux_completes = data.get("niveaux_completes", [])
+
+	colorux = data.get("colorux", 0)
+	icone_rouge = data.get("icone_rouge", false)
+	icone_jaune = data.get("icone_jaune", false)
+	icone_bleu = data.get("icone_bleu", false)
+	icone_vert = data.get("icone_vert", false)
+
+	manuscrit_rouge = data.get("manuscrit_rouge", false)
+	manuscrit_jaune = data.get("manuscrit_jaune", false)
+	manuscrit_bleu = data.get("manuscrit_bleu", false)
+	manuscrit_vert = data.get("manuscrit_vert", false)
+
+	colorux_detector = data.get("colorux_detector", false)
+	dash = data.get("dash", false)
+	double_saut = data.get("double_saut", false)
+	teleporter_to_portail = data.get("teleporter_to_portail", false)
+	golden_colorux = data.get("golden_colorux", false)
+
+	colorux_collectes = data.get("colorux_collectes", {})
+
+	niveau_courant = data.get("niveau_courant", "")
+	position_courante = data.get("position_courante", Vector2.ZERO)
+	scene_courante = data.get("scene_courante", "")
+	

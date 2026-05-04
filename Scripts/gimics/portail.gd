@@ -20,6 +20,7 @@ func _ready():
 
 func _process(_delta):
 	if player_inside and Input.is_action_just_pressed("interagir"):
+		
 		enter_niveau.play()
 
 		var player = get_tree().get_first_node_in_group("Player")
@@ -38,6 +39,7 @@ func _process(_delta):
 		if player:
 			player.movement_locked = false
 
+		main.sauvegarder()
 		# Change la scène et place le joueur
 		if final_lvl:
 			show_credits()
