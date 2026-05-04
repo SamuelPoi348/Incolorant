@@ -43,7 +43,7 @@ func _on_button_button_down() -> void:
 
 
 func _on_btn_colorux_finder_button_down() -> void:
-	if main.colorux > 3:
+	if main.colorux >= 3:
 		main.colorux -= 3
 		main.colorux_detector = true
 		$TextureRect2/VBoxContainer/Item11/btn_colorux_finder.disabled = true
@@ -51,7 +51,7 @@ func _on_btn_colorux_finder_button_down() -> void:
 
 
 func _on_btn_flame_button_down() -> void:
-	if main.colorux > 9:
+	if main.colorux >= 9:
 		main.colorux -= 9
 		main.dash = true
 		$TextureRect2/VBoxContainer/Item21/Btn_flame.disabled = true
@@ -59,7 +59,7 @@ func _on_btn_flame_button_down() -> void:
 
 
 func _on_btn_fruit_button_down() -> void:
-	if main.colorux > 9:
+	if main.colorux >= 9:
 		main.colorux -= 9
 		main.double_saut = true
 		$TextureRect2/VBoxContainer/Item31/btn_fruit.disabled = true
@@ -67,7 +67,7 @@ func _on_btn_fruit_button_down() -> void:
 
 
 func _on_btn_tptp_button_down() -> void:
-	if main.colorux > 9:
+	if main.colorux >= 9:
 		main.colorux -= 9
 		main.teleporter_to_portail = true
 		$TextureRect2/VBoxContainer/Item41/btn_TPTP.disabled = true
@@ -75,7 +75,7 @@ func _on_btn_tptp_button_down() -> void:
 
 
 func _on_btn_golden_button_down() -> void:
-	if main.colorux > 9:
+	if main.colorux >= 9:
 		main.colorux -= 9
 		main.golden_colorux = true
 		$TextureRect2/VBoxContainer/Item51/btn_golden.disabled = true
