@@ -28,7 +28,17 @@ func _on_commencer_button_down() -> void:
 	clickSound.play()
 	mainSound.stop()  # 👈 stop musique menu
 	await get_tree().create_timer(1).timeout
-	get_tree().root.get_node("Main").change_scene(l1)
+	if main.admin:
+		get_tree().root.get_node("Main").change_scene(l1)
+	else:
+		var l1_path = l1.resource_path
+
+	# 🔥 si le niveau est déjà complété → map
+		if main.niveaux_completes.has(l1_path):
+			main.call_deferred("change_scene", map, main.position_courante)
+			#get_tree().root.get_node("Main").change_scene(map)
+		else:
+			get_tree().root.get_node("Main").change_scene(l1)
 
 
 func _on_option_button_down() -> void:
