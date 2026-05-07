@@ -4,7 +4,7 @@ signal color_changed(new_color: String)
 
 @onready var container = $SceneContainer
 var admin =false
-
+var current_save_slot = 1
 
 #variable stocker dans le fichier sauvegarde
 var niveaux_completes: Array[String] = []
@@ -44,13 +44,9 @@ var selecting_color := false
 var detector_ok=false
 var secret_ending=false
 var color_locked = false
-var main_menu_open = false
 
 # 🔥 Charge automatiquement le menu principal au lancement
 func _ready():
-	if not admin:
-		main_menu_open =true
-		charger()
 		
 # Charger la scène option en arrière-plan
 	var option_scene = load("res://Scenes/ui/option.tscn").instantiate()
@@ -179,10 +175,10 @@ func sauvegarder():
 		"scene_courante": scene_courante
 	}
 
-	Sauvegarde.save_game(data)
+	Sauvegarde.save_game(current_save_slot, data)
 	
 func charger():
-	var data = Sauvegarde.load_game()
+	var data = Sauvegarde.load_game(current_save_slot)
 	
 	if data.is_empty():
 		sauvegarder()
@@ -214,7 +210,7 @@ func charger():
 	scene_courante = data.get("scene_courante", "")
 	
 func nouvelle_partie():
-	Sauvegarde.delete_save()
+	Sauvegarde.delete_save(current_save_slot)
 
 	niveaux_completes = []
 

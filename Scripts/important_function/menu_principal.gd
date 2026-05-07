@@ -18,27 +18,18 @@ func _ready() -> void:
 	mainSound.bus = "Music"
 	mainSound.play()  # 👈 démarre la musique
 	main = get_tree().root.get_node("Main")
-	main.main_menu_open =true
 	main.color_locked = false
 	pass # Replace with function body.
 
 
 func _on_commencer_button_down() -> void:
-	main.main_menu_open =false
 	clickSound.play()
-	mainSound.stop()  # 👈 stop musique menu
-	await get_tree().create_timer(1).timeout
-	if main.admin:
-		get_tree().root.get_node("Main").change_scene(l1)
-	else:
-		var l1_path = l1.resource_path
-
-	# 🔥 si le niveau est déjà complété → map
-		if main.niveaux_completes.has(l1_path):
-			main.call_deferred("change_scene", map, main.position_courante)
-			#get_tree().root.get_node("Main").change_scene(map)
-		else:
-			get_tree().root.get_node("Main").change_scene(l1)
+	var filePage = get_tree().get_first_node_in_group("FilePage")
+	
+	if filePage:
+		filePage.visible = true
+		filePage.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 
 
 func _on_option_button_down() -> void:
@@ -53,3 +44,22 @@ func _on_option_button_down() -> void:
 func _on_quitter_button_down() -> void:
 	mainSound.stop()  # 👈 stop musique menu
 	get_tree().quit()
+	
+func _start() -> void:
+	
+	mainSound.stop()  # 👈 stop musique menu
+	await get_tree().create_timer(1).timeout
+	
+	if main.admin:
+		get_tree().root.get_node("Main").change_scene(l1)
+	else:
+		var l1_path = l1.resource_path
+
+	# 🔥 si le niveau est déjà complété → map
+		if main.niveaux_completes.has(l1_path):
+			main.call_deferred("change_scene", map, main.position_courante)
+			#get_tree().root.get_node("Main").change_scene(map)
+		else:
+			get_tree().root.get_node("Main").change_scene(l1)
+	print("nuget")
+	pass
