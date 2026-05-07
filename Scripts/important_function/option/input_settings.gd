@@ -18,6 +18,7 @@ var input_actions = {
 	"color_select": "changement de couleur",
 	"interagir": "intéragir",
 	"inventaire": "inventaire",
+	"base":"suppression de couleur pendant le choix",
 	"dash":"dash",
 	"tp":"téléporter"
 }
