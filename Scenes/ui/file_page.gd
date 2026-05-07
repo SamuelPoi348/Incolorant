@@ -51,7 +51,8 @@ func start_slot(slot: int):
 	main.current_save_slot = slot
 
 	# charge les données
-	main.charger()
+	if not main.admin:
+		main.charger()
 
 	# ferme le menu de save
 	#visible = false

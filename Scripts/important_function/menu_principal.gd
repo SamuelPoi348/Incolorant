@@ -51,7 +51,7 @@ func _start() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	if main.admin:
-		get_tree().root.get_node("Main").change_scene(l1)
+		get_tree().root.get_node("Main").change_scene(DJ1)
 	else:
 		var l1_path = l1.resource_path
 

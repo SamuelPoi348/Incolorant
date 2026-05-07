@@ -469,7 +469,7 @@ position = Vector2(887, -280)
 [node name="objet" type="Node2D" parent="." unique_id=910938587]
 
 [node name="IconeRouge" parent="objet" unique_id=813626161 instance=ExtResource("11_gsvdn")]
-position = Vector2(321, -100)
+position = Vector2(224, -99)
 
 [node name="PorteRouge" parent="objet" unique_id=1400451422 instance=ExtResource("15_relwu")]
 position = Vector2(272, -120)
