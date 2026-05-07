@@ -16,10 +16,9 @@ var main
 func _ready() -> void:
 	clickSound.bus = "SFX"
 	mainSound.bus = "Music"
-	mainSound.play()  # 👈 démarre la musique
+	mainSound.play()  
 	main = get_tree().root.get_node("Main")
 	main.color_locked = false
-	pass # Replace with function body.
 
 
 func _on_commencer_button_down() -> void:
