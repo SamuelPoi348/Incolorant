@@ -744,6 +744,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Shader" id="Shader_death_white"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.rgb = vec3(1.0, 1.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_death_white"]
+shader = SubResource("Shader_death_white")
+
 [node name="Player" type="CharacterBody2D" unique_id=309571845 groups=["Player_niv"]]
 z_index = 1
 script = ExtResource("1_7dd06")

@@ -207,6 +207,13 @@ func check_death():
 
 func die():
 	is_dead = true
+	
+	# Apply white shader effect when dying
+	var white_shader = load("res://Shader/death_white.gdshader")
+	var shader_material = ShaderMaterial.new()
+	shader_material.shader = white_shader
+	animation_sprite.material = shader_material
+	
 	dieSound.play()
 	velocity = Vector2.ZERO
 	set_physics_process(false)
