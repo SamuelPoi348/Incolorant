@@ -4,6 +4,7 @@ extends Control
 @onready var master_volume =$HBoxContainer/VBoxContainer/AudioControl3
 @onready var music_volume =$HBoxContainer/VBoxContainer/AudioControl
 @onready var SFX_volume =$HBoxContainer/VBoxContainer/AudioControl2
+@onready var auto_dialog_control = $HBoxContainer/VBoxContainer/AutoDialogControl
 
 
 var main
@@ -20,6 +21,11 @@ func _ready() -> void:
 	master_volume.value = min(audio_settings.Master, 1.0)
 	music_volume.value = min(audio_settings.Music, 1.0)
 	SFX_volume.value = min(audio_settings.SFX, 1.0)
+	
+	# Load auto dialog setting
+	var gameplay_settings = ConfigFileHandler.load_gameplay_setting()
+	auto_dialog_control.button_pressed = gameplay_settings.get("auto_dialog", true)
+	main.option_auto_dialog = auto_dialog_control.button_pressed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,3 +42,7 @@ func _on_quitter_button_down() -> void:
 
 func _on_button_button_down() -> void:
 	pass # Replace with function body.
+
+func _on_auto_dialog_toggled(button_pressed: bool) -> void:
+	main.option_auto_dialog = button_pressed
+	ConfigFileHandler.save_gameplay_setting("auto_dialog", button_pressed)

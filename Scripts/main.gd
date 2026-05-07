@@ -33,9 +33,7 @@ var scene_courante
 
 #fin de la section à sauvegarder les variables
 
-
-
-
+var option_auto_dialog := true
 
 #variable utilisable au cour du jeu
 var scene_stack: Array[PackedScene] = []
@@ -47,8 +45,11 @@ var color_locked = false
 
 # 🔥 Charge automatiquement le menu principal au lancement
 func _ready():
-		
-# Charger la scène option en arrière-plan
+	# Load gameplay settings
+	var gameplay_settings = ConfigFileHandler.load_gameplay_setting()
+	option_auto_dialog = gameplay_settings.get("auto_dialog", true)
+	
+	# Charger la scène option en arrière-plan
 	var option_scene = load("res://Scenes/ui/option.tscn").instantiate()
 	add_child(option_scene)
 
