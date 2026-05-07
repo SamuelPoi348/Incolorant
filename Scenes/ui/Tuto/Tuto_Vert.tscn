@@ -79,11 +79,11 @@ text = "Fermé"
 
 [node name="Label" type="Label" parent="ColorRect" unique_id=686391507]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Une fois la couleur verte activer vous pouvez changer de mode 
-avec T pour le mode qui permet la croissance de plante ou 
-la dégradation de celles-ci."
+offset_right = 499.0
+offset_bottom = 101.0
+text = "Une fois la couleur verte activer(C + flèche de gauche), vous 
+pouvez changer de mode avec T pour le mode qui permet la 
+croissance de plante ou la dégradation de celles-ci."
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=1170610218]
 position = Vector2(391, 110)

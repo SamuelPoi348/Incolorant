@@ -51,8 +51,9 @@ layout_mode = 0
 offset_right = 499.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 20
-text = "Une fois la couleur jaune active,en appuyant sur T 
- des platformes jaune méchanique se déplaceront."
+text = "Une fois la couleur jaune active(C + flèche de droite)
+,en appuyant sur T des platformes jaune 
+méchanique se déplaceront."
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=130214358]
 position = Vector2(60, 168)

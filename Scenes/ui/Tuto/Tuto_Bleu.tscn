@@ -67,8 +67,9 @@ layout_mode = 0
 offset_right = 500.0
 offset_bottom = 59.0
 theme_override_font_sizes/font_size = 20
-text = "Une fois la couleur bleue active, tous les
- projectiles bleus environnants seront ralentis."
+text = "Une fois la couleur bleue active(C + flèche du bas)
+, tous les projectiles bleus environnants 
+seront ralentis."
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=814896792]
 position = Vector2(85, 213)

@@ -99,8 +99,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 20
-text = "Une fois la couleur rouge activée, vous pouvez 
-détruire certains blocs et 
+text = "Une fois la couleur rouge activée(C + flèche du haut)
+, vous pouvez détruire certains blocs et 
 projeter une force rouge avec R."
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=762188723]
