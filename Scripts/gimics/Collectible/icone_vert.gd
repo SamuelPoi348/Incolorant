@@ -19,4 +19,6 @@ func _on_body_entered(body: Node2D) -> void:
 		for node in get_tree().get_nodes_in_group("tuto_vert"):
 			node.visible = true
 		await pickup.finished
+		if not main.admin:
+			main.sauvegarder()
 		queue_free()

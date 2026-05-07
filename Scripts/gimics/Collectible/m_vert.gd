@@ -19,3 +19,5 @@ func _on_body_entered(body: Node2D) -> void:
 		visible=false
 		collision.set_deferred("disabled", true)
 		await pickup.finished
+		if not main.admin:
+			main.sauvegarder()

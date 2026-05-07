@@ -48,6 +48,8 @@ func _on_btn_colorux_finder_button_down() -> void:
 		main.colorux_detector = true
 		$TextureRect2/VBoxContainer/Item11/btn_colorux_finder.disabled = true
 		_buy_sound()
+		if not main.admin:
+			main.sauvegarder()
 
 
 func _on_btn_flame_button_down() -> void:
@@ -56,6 +58,8 @@ func _on_btn_flame_button_down() -> void:
 		main.dash = true
 		$TextureRect2/VBoxContainer/Item21/Btn_flame.disabled = true
 		_buy_sound()
+		if not main.admin:
+			main.sauvegarder()
 
 
 func _on_btn_fruit_button_down() -> void:
@@ -64,6 +68,8 @@ func _on_btn_fruit_button_down() -> void:
 		main.double_saut = true
 		$TextureRect2/VBoxContainer/Item31/btn_fruit.disabled = true
 		_buy_sound()
+		if not main.admin:
+			main.sauvegarder()
 
 
 func _on_btn_tptp_button_down() -> void:
@@ -72,6 +78,8 @@ func _on_btn_tptp_button_down() -> void:
 		main.teleporter_to_portail = true
 		$TextureRect2/VBoxContainer/Item41/btn_TPTP.disabled = true
 		_buy_sound()
+		if not main.admin:
+			main.sauvegarder()
 
 
 func _on_btn_golden_button_down() -> void:
@@ -80,6 +88,8 @@ func _on_btn_golden_button_down() -> void:
 		main.golden_colorux = true
 		$TextureRect2/VBoxContainer/Item51/btn_golden.disabled = true
 		_buy_sound()
+		if not main.admin:
+			main.sauvegarder()
 		
 func _buy_sound():
 	buySound.play()
