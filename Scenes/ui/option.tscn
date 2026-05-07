@@ -64,9 +64,9 @@ text = "Revenir
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1764939453]
 layout_mode = 0
 offset_left = 100.0
-offset_top = 100.0
-offset_right = 900.0
-offset_bottom = 140.0
+offset_top = 75.0
+offset_right = 904.0
+offset_bottom = 219.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=2063865053]
 custom_minimum_size = Vector2(200, 0)
@@ -87,6 +87,10 @@ text = "SFX"
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=389085339]
 layout_mode = 2
 text = "Taille Écran"
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=389085340]
+layout_mode = 2
+text = "Auto Dialog"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=358421802]
 custom_minimum_size = Vector2(600, 0)
@@ -130,6 +134,10 @@ audio_bus_name = "SFX"
 layout_mode = 2
 script = ExtResource("3_tna64")
 
+[node name="AutoDialogControl" type="CheckButton" parent="HBoxContainer/VBoxContainer" unique_id=458001488]
+layout_mode = 2
+button_pressed = true
+
 [node name="Label2" type="Label" parent="." unique_id=709405547]
 layout_mode = 1
 anchors_preset = 8
@@ -155,3 +163,4 @@ layout_mode = 1
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl" to="HBoxContainer/VBoxContainer/AudioControl" method="_on_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl2" to="HBoxContainer/VBoxContainer/AudioControl2" method="_on_value_changed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/FullScreenControl" to="HBoxContainer/VBoxContainer/FullScreenControl" method="_on_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/AutoDialogControl" to="." method="_on_auto_dialog_toggled"]

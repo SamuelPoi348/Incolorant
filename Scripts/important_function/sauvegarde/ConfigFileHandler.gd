@@ -22,6 +22,8 @@ func _ready():
 		config.set_value("audio","Music",1.0)
 		config.set_value("audio","SFX",1.0)
 		
+		config.set_value("gameplay","auto_dialog",true)
+		
 		config.save(SETTINGS_FILE_PATH)
 	else:
 		config.load(SETTINGS_FILE_PATH)
@@ -72,3 +74,13 @@ func load_keybindings():
 			
 		keybindings[key] = input_event
 	return keybindings
+
+func save_gameplay_setting(key: String, value):
+	config.set_value("gameplay", key, value)
+	config.save(SETTINGS_FILE_PATH)
+
+func load_gameplay_setting():
+	var gameplay_settings = {}
+	for key in config.get_section_keys("gameplay"):
+		gameplay_settings[key] = config.get_value("gameplay", key)
+	return gameplay_settings
