@@ -1,6 +1,24 @@
 [gd_scene format=3 uid="uid://cvq3py06lyoj8"]
 
 [ext_resource type="Texture2D" uid="uid://dssdwke0jww08" path="res://Sprites/Personnages/JauneHabitant.png" id="1_2ibf4"]
+[ext_resource type="Script" uid="uid://d1tyscwd3s7cs" path="res://habitant_jaune.gd" id="1_gyy72"]
+[ext_resource type="Texture2D" uid="uid://c5fv7cc5rhsad" path="res://Sprites/Personnages/Dark_cactus.png" id="1_nx557"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3isal"]
+atlas = ExtResource("1_nx557")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxxlp"]
+atlas = ExtResource("1_nx557")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_531xg"]
+atlas = ExtResource("1_nx557")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4akeq"]
+atlas = ExtResource("1_nx557")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nx557"]
 atlas = ExtResource("1_2ibf4")
@@ -20,6 +38,23 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_od4pi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3isal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxxlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_531xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4akeq")
+}],
+"loop": true,
+"name": &"dark_default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nx557")
@@ -43,12 +78,16 @@ size = Vector2(26, 18)
 
 [node name="HabitantJaune" type="Area2D" unique_id=1630004631]
 z_index = 1
+script = ExtResource("1_gyy72")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=123478070]
 sprite_frames = SubResource("SpriteFrames_od4pi")
+animation = &"dark_default"
 autoplay = "default"
-frame_progress = 0.13509199
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1374601570]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_3isal")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

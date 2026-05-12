@@ -1,6 +1,28 @@
 [gd_scene format=3 uid="uid://cg3l3jcwq36k3"]
 
+[ext_resource type="Script" uid="uid://d0yoa8js8r3dr" path="res://Scripts/gimics/Personnages/habitant_rouge.gd" id="1_bej66"]
 [ext_resource type="Texture2D" uid="uid://cgq6rxd60ck1m" path="res://Sprites/Personnages/CitoyenRouge.png" id="1_dbrd6"]
+[ext_resource type="Texture2D" uid="uid://dcjqpjuhrbp42" path="res://Sprites/Personnages/Dark_Charbon.png" id="1_mhbbo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mksyw"]
+atlas = ExtResource("1_mhbbo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4vum"]
+atlas = ExtResource("1_mhbbo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xdch"]
+atlas = ExtResource("1_mhbbo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nw80"]
+atlas = ExtResource("1_mhbbo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nnpp"]
+atlas = ExtResource("1_mhbbo")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhbbo"]
 atlas = ExtResource("1_dbrd6")
@@ -26,6 +48,26 @@ region = Rect2(64, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mksyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4vum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xdch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nw80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nnpp")
+}],
+"loop": true,
+"name": &"dark_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mhbbo")
 }, {
 "duration": 1.0,
@@ -49,12 +91,16 @@ animations = [{
 size = Vector2(26, 19)
 
 [node name="HabitantRouge" type="Area2D" unique_id=167728985]
+script = ExtResource("1_bej66")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776003208]
 sprite_frames = SubResource("SpriteFrames_3a4bt")
+animation = &"dark_default"
 autoplay = "default"
-frame_progress = 0.3420793
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1206456721]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_mksyw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
