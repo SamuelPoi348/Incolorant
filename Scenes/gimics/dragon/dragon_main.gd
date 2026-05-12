@@ -58,12 +58,16 @@ func _ready():
 	area2D2.body_entered.connect(_on_alt_enter)
 	area2D2.body_exited.connect(_on_alt_exit)
 	
+	segments.clear()
+	segment_positions.clear()
 	# Clean up old dragon segments from previous runs
 	_cleanup_old_segments()
 	
 	# Initialize segment positions
 	# CHANGER LES SEGMENTS ICI
 	#  
+	
+
 	for i in range(num_segments - 1):
 		var seg
 
@@ -91,7 +95,8 @@ func _ready():
 			seg = segment_scene.instantiate()
 	
 
-		get_tree().root.add_child(seg)
+		get_parent().call_deferred("add_child", seg)
+		seg.top_level = true
 		seg.add_to_group("dragon_segment")
 		segments.append(seg)
 		segment_positions.append(head_position - Vector2(segment_spacing * (i + 1), 0))
@@ -237,6 +242,8 @@ func check_boss_state():
 	
 	for seg in segments:
 		
+		if not is_instance_valid(seg):
+			continue
 		# 🔴 RED (shatter)
 		if seg.has_method("is_shattered"):
 			if not seg.is_shattered():

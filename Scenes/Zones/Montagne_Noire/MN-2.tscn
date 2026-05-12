@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dehryhg0otrum" path="res://Sprites/MN.png" id="7_nk2bd"]
 [ext_resource type="PackedScene" uid="uid://dgcwperjpx3n1" path="res://Scenes/ui/crédits.tscn" id="8_755te"]
 [ext_resource type="PackedScene" uid="uid://bq1taiypsd8yk" path="res://Scenes/ui/Restart.tscn" id="9_elkxk"]
-[ext_resource type="Script" path="res://Scripts/gimics/parallax_background.gd" id="11_elkxk"]
+[ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="11_elkxk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sou83"]
 texture = ExtResource("1_nk2bd")

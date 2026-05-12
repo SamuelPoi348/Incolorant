@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bpkva30qxr2od"]
+
+[ext_resource type="Texture2D" uid="uid://ocfksdbin5rn" path="res://Sprites/Personnages/Blue_slime.png" id="1_7d36l"]
+[ext_resource type="Script" uid="uid://dibq6u38rfa6j" path="res://Scripts/gimics/Personnages/slime_bleu.gd" id="1_hwyxe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwyxe"]
+atlas = ExtResource("1_7d36l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pift8"]
+atlas = ExtResource("1_7d36l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5lxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwyxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pift8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d36l"]
+size = Vector2(22, 18)
+
+[node name="SlimeBleu" type="Area2D" unique_id=1409951596]
+script = ExtResource("1_hwyxe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=259658548]
+sprite_frames = SubResource("SpriteFrames_q5lxd")
+frame_progress = 0.07769683
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012306185]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7d36l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
