@@ -15,12 +15,12 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	visible=false
 	var video_settings = ConfigFileHandler.load_video_setting()
-	fullScreenControl.button_pressed =video_settings.fullscreen
-	
+	fullScreenControl.button_pressed = video_settings.get("fullscreen", false)
+
 	var audio_settings = ConfigFileHandler.load_audio_setting()
-	master_volume.value = min(audio_settings.Master, 1.0)
-	music_volume.value = min(audio_settings.Music, 1.0)
-	SFX_volume.value = min(audio_settings.SFX, 1.0)
+	master_volume.value = min(audio_settings.get("Master", 1.0), 1.0)
+	music_volume.value = min(audio_settings.get("Music", 1.0), 1.0)
+	SFX_volume.value = min(audio_settings.get("SFX", 1.0), 1.0)
 	
 	# Load auto dialog setting
 	var gameplay_settings = ConfigFileHandler.load_gameplay_setting()
