@@ -1,7 +1,24 @@
 [gd_scene format=3 uid="uid://h4e0re1p7u06"]
 
 [ext_resource type="Texture2D" uid="uid://veok4iaompoi" path="res://Sprites/Personnages/CitoyenBleu.png" id="1_4nowu"]
+[ext_resource type="Texture2D" uid="uid://crd8wlbpip103" path="res://Sprites/Personnages/Dark_Flame.png" id="2_pwsca"]
 [ext_resource type="Script" uid="uid://dwhnxy3od57jw" path="res://Scripts/gimics/Personnages/habitant_bleu.gd" id="2_xdfac"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe1hn"]
+atlas = ExtResource("2_pwsca")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1bep"]
+atlas = ExtResource("2_pwsca")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frv2j"]
+atlas = ExtResource("2_pwsca")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkexo"]
+atlas = ExtResource("2_pwsca")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jb6a"]
 atlas = ExtResource("1_4nowu")
@@ -21,6 +38,23 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3kr7o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe1hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1bep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frv2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkexo")
+}],
+"loop": true,
+"name": &"dark_default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4jb6a")
@@ -48,8 +82,9 @@ script = ExtResource("2_xdfac")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752512267]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3kr7o")
+animation = &"dark_default"
 autoplay = "default"
-frame_progress = 0.7651412
+frame_progress = 0.52916336
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866118146]
 position = Vector2(0, -9)
