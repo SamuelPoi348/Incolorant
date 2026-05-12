@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://h4e0re1p7u06"]
 
 [ext_resource type="Texture2D" uid="uid://veok4iaompoi" path="res://Sprites/Personnages/CitoyenBleu.png" id="1_4nowu"]
-[ext_resource type="Script" uid="uid://dwhnxy3od57jw" path="res://Scenes/gimics/Personnages/habitant_bleu.gd" id="2_xdfac"]
+[ext_resource type="Script" uid="uid://dwhnxy3od57jw" path="res://Scripts/gimics/Personnages/habitant_bleu.gd" id="2_xdfac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jb6a"]
 atlas = ExtResource("1_4nowu")

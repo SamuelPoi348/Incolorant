@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dppgdtjstgjji" path="res://Scenes/gimics/objet_pouvoirs/ReverseVine.tscn" id="12_3xxqu"]
 [ext_resource type="PackedScene" uid="uid://bw53tpt7gvpsd" path="res://Scenes/gimics/objet_pouvoirs/ReversePlante.tscn" id="13_38sjm"]
 [ext_resource type="PackedScene" uid="uid://dstmx7x8egju0" path="res://Scenes/gimics/objet_pouvoirs/Plante.tscn" id="14_8u58f"]
-[ext_resource type="PackedScene" uid="uid://ch4u51ax33xf8" path="res://Scenes/gimics/Personnages/habitant_vert.tscn" id="16_8u58f"]
 [ext_resource type="Script" uid="uid://dvad0r0k7ygq5" path="res://Scripts/gimics/parallax_background.gd" id="16_tfkej"]
+[ext_resource type="PackedScene" uid="uid://bpkva30qxr2od" path="res://Scenes/gimics/Personnages/Slime_bleu.tscn" id="18_tfkej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwr1r"]
 texture = ExtResource("1_if45n")
@@ -792,7 +792,7 @@ color = Color(0.19215687, 0.21176471, 0.21960784, 1)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1806444405]
 
-[node name="HabitantVert" parent="Node2D" unique_id=1738442084 instance=ExtResource("16_8u58f")]
+[node name="SlimeBleu" parent="Node2D" unique_id=1409951596 instance=ExtResource("18_tfkej")]
 position = Vector2(1537, -277)
 
 [node name="ZoneMusic" type="AudioStreamPlayer2D" parent="." unique_id=1741996272]
