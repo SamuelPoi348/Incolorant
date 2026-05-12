@@ -64,18 +64,29 @@ func _ready():
 	change_scene(menu)
 
 func change_scene(packed_scene: PackedScene, player_pos: Vector2 = Vector2.ZERO):
+
+	if packed_scene == null:
+		push_error("change_scene: packed_scene est null")
+		return
+
+	# Sauvegarder scène actuelle
 	if container.get_child_count() > 0:
 		var current = container.get_child(0)
-		scene_stack.push_back(load(current.scene_file_path))
+
+		if current.scene_file_path != "":
+			scene_stack.push_back(load(current.scene_file_path))
+
 		current.queue_free()
 
+		await current.tree_exited
+
+	# Instancier nouvelle scène
 	var new_scene = packed_scene.instantiate()
-	container.add_child(new_scene)	
-	# Update scene_courante to track the current level
+	container.add_child(new_scene)
+
 	scene_courante = packed_scene.resource_path
-	# Si c’est la Map et qu’une position est donnée, place le joueur dessus
+
 	if player_pos != Vector2.ZERO:
-		# Assure-toi que le joueur s’appelle PlayerMap dans la Map
 		if new_scene.has_node("PlayerMap"):
 			var player = new_scene.get_node("PlayerMap")
 			player.global_position = player_pos

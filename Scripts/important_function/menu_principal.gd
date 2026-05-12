@@ -5,7 +5,7 @@ extends Control
 @onready var VR1 = preload("res://Scenes/Zones/Volcan_Rouge/VR-2.tscn")
 @onready var MB1 = preload("res://Scenes/Zones/Mont_Bleu/MB-2.tscn")
 @onready var DJ1 = preload("res://Scenes/Zones/Desert_Jaune/DJ-2.tscn")
-@onready var MN1 = preload("res://Scenes/Zones/Montagne_Noire/MN-2.tscn")
+@onready var MN1 = preload("res://Scenes/Zones/Montagne_Noire/MN-1.tscn")
 @onready var map = preload("res://Scenes/Zones/map/map.tscn")
 
 @onready var option = preload("res://Scenes/ui/option.tscn")
@@ -50,7 +50,7 @@ func _start() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	if main.admin:
-		get_tree().root.get_node("Main").change_scene(DJ1)
+		get_tree().root.get_node("Main").change_scene(MN1)
 	else:
 		var l1_path = l1.resource_path
 
