@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://ch4u51ax33xf8"]
 
 [ext_resource type="Texture2D" uid="uid://8ncu5oe34dt7" path="res://Sprites/Personnages/CitoyenVert.png" id="1_341dd"]
+[ext_resource type="Script" uid="uid://baqjmlvcsqhtl" path="res://Scripts/gimics/Personnages/habitant_vert.gd" id="1_h8a0i"]
+[ext_resource type="Texture2D" uid="uid://bpxc2s6e80v5k" path="res://Sprites/Personnages/Dark_Slime.png" id="1_vu2hb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y51hk"]
+atlas = ExtResource("1_vu2hb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfxn1"]
+atlas = ExtResource("1_vu2hb")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vu2hb"]
 atlas = ExtResource("1_341dd")
@@ -12,6 +22,17 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m75ry"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y51hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfxn1")
+}],
+"loop": true,
+"name": &"dark_default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vu2hb")
@@ -28,12 +49,15 @@ animations = [{
 size = Vector2(30, 18)
 
 [node name="HabitantVert" type="Area2D" unique_id=1738442084]
+script = ExtResource("1_h8a0i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=480278229]
 sprite_frames = SubResource("SpriteFrames_m75ry")
 autoplay = "default"
-frame_progress = 0.7220093
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=517051366]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_341dd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
