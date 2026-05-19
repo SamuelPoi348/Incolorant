@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3njkydgf362p" path="res://Sprites/incolorant_cover_art.png" id="1_gxmqa"]
 [ext_resource type="PackedScene" uid="uid://crn2e85628dh5" path="res://Scenes/ui/option.tscn" id="3_xk5he"]
 [ext_resource type="AudioStream" uid="uid://duj70v8c03l3f" path="res://sons/click.mp3" id="4_qag0o"]
-[ext_resource type="AudioStream" uid="uid://c4n2f652f1lif" path="res://sons/mainMusic.mp3" id="5_2dl78"]
+[ext_resource type="AudioStream" uid="uid://mojronldele8" path="res://sons/Incolorant.mp3" id="5_qfttv"]
 [ext_resource type="PackedScene" uid="uid://d2nvx1xnutxb1" path="res://Scenes/ui/File_Page.tscn" id="6_qfttv"]
 
 [node name="MenuPrincipal" type="Control" unique_id=2042805261 groups=["MainMenu"]]
@@ -62,7 +62,7 @@ layout_mode = 1
 stream = ExtResource("4_qag0o")
 
 [node name="MainSound" type="AudioStreamPlayer2D" parent="." unique_id=741982843]
-stream = ExtResource("5_2dl78")
+stream = ExtResource("5_qfttv")
 parameters/looping = true
 
 [node name="FilePage" parent="." unique_id=191856229 instance=ExtResource("6_qfttv")]
