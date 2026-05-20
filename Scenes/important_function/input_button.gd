@@ -5,14 +5,28 @@ signal remap_requested(action: String, type: String)
 var action := ""
 
 var action_label
-var kb_button
-var pad_button
+var kb_label
+var pad_label
+var is_waiting := false
+
+func set_waiting(value: bool):
+	if value:
+		kb_label.text = "Attente de touche..."
+		pad_label.text = ""
+		modulate = Color(1, 0.8, 0.3)
+	else:
+		modulate = Color.WHITE
 
 func _ready():
 	action_label = $MarginContainer/HBoxContainer/LabelAction
-	kb_button = $MarginContainer/HBoxContainer/KeyboardButton
-	pad_button = $MarginContainer/HBoxContainer/GamepadButton
-
+	kb_label = $MarginContainer/HBoxContainer/KeyboardButton
+	pad_label = $MarginContainer/HBoxContainer/GamepadButton
+	
+	pressed.connect(_on_pressed)
+	
+func _on_pressed():
+	remap_requested.emit(action)
+	
 func setup(action_name: String, kb_event: InputEvent, pad_event: InputEvent):
 	action = action_name
 
@@ -21,8 +35,8 @@ func setup(action_name: String, kb_event: InputEvent, pad_event: InputEvent):
 		await ready
 
 	action_label.text = action_name.capitalize()
-	kb_button.text = _format_event(kb_event)
-	pad_button.text = _format_event(pad_event)
+	kb_label.text = _format_event(kb_event)
+	pad_label.text = _format_event(pad_event)
 
 func _format_event(event: InputEvent) -> String:
 	if event == null:
@@ -99,8 +113,4 @@ func _format_event(event: InputEvent) -> String:
 	# =========================
 	return event.as_text()
 
-func _on_keyboard_button_pressed():
-	remap_requested.emit(action, "kb")
-
-func _on_gamepad_button_pressed():
-	remap_requested.emit(action, "pad")
+	

@@ -170,6 +170,16 @@ offset_top = 397.0
 offset_right = 635.0
 offset_bottom = 437.0
 
+[node name="btnDefault" type="Button" parent="." unique_id=1985125186]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 266.0
+grow_vertical = 0
+text = "Remettre les paramètre à défault"
+
 [connection signal="button_down" from="Quitter" to="." method="_on_quitter_button_down"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl3" to="HBoxContainer/VBoxContainer/AudioControl3" method="_on_value_changed"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl" to="HBoxContainer/VBoxContainer/AudioControl" method="_on_value_changed"]
@@ -178,3 +188,4 @@ offset_bottom = 437.0
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/AutoDialogControl" to="." method="_on_auto_dialog_toggled"]
 [connection signal="pressed" from="HBoxContainer2/btnClavier" to="." method="_on_btn_clavier_pressed"]
 [connection signal="pressed" from="HBoxContainer2/btnManette" to="." method="_on_btn_manette_pressed"]
+[connection signal="pressed" from="btnDefault" to="." method="_on_btn_default_pressed"]

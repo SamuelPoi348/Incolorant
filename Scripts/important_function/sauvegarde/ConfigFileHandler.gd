@@ -18,45 +18,6 @@ func _ready():
 # =====================================================
 func _set_default_settings():
 
-	# =====================================================
-	# FORCE DEFAULT INPUTMAP (WASD + SPACE)
-	# =====================================================
-
-	# Move Left = A
-	InputMap.action_erase_events("move_left")
-	var a := InputEventKey.new()
-	a.keycode = KEY_A
-	InputMap.action_add_event("move_left", a)
-
-	# Move Right = D
-	InputMap.action_erase_events("move_right")
-	var d := InputEventKey.new()
-	d.keycode = KEY_D
-	InputMap.action_add_event("move_right", d)
-
-	# Move Up = W
-	InputMap.action_erase_events("move_up")
-	var w := InputEventKey.new()
-	w.keycode = KEY_W
-	InputMap.action_add_event("move_up", w)
-
-	# Move Down = S
-	InputMap.action_erase_events("move_down")
-	var s := InputEventKey.new()
-	s.keycode = KEY_S
-	InputMap.action_add_event("move_down", s)
-
-	# Jump = Space
-	InputMap.action_erase_events("jump")
-	var space := InputEventKey.new()
-	space.keycode = KEY_SPACE
-	InputMap.action_add_event("jump", space)
-
-
-	# =====================================================
-	# ENSUITE tu construis ton config à partir du résultat
-	# =====================================================
-
 	var keybindings := {}
 
 	for action in InputMap.get_actions():
@@ -137,7 +98,8 @@ func load_keybindings() -> Dictionary:
 # APPLY INPUTMAP
 # =====================================================
 func apply_keybindings():
-
+	
+	InputMap.load_from_project_settings()
 	var data = load_keybindings()
 
 	for action in data.keys():
@@ -203,3 +165,50 @@ func load_gameplay_setting():
 			gameplay_settings[key] = config.get_value("gameplay", key)
 
 	return gameplay_settings
+	
+# =====================================================
+# RESET SETTINGS
+# =====================================================
+func reset_settings():
+
+	# reset mémoire
+	config = ConfigFile.new()
+
+	# supprimer ancien fichier
+	if FileAccess.file_exists(SETTINGS_FILE_PATH):
+		DirAccess.remove_absolute(SETTINGS_FILE_PATH)
+
+	# remettre valeurs par défaut
+	_set_default_settings()
+
+	# sauvegarder nouveau fichier
+	config.save(SETTINGS_FILE_PATH)
+
+	# réappliquer les inputs
+	apply_keybindings()
+
+func reset_keybindings():
+
+	# reset config en mémoire
+	var data = {}
+
+	# reconstruire uniquement les defaults
+	for action in InputMap.get_actions():
+		if action.begins_with("ui_"):
+			continue
+
+		data[action] = {
+			"kb": null,
+			"pad": null
+		}
+
+		for event in InputMap.action_get_events(action):
+			if event is InputEventKey or event is InputEventMouseButton:
+				data[action]["kb"] = event
+			elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
+				data[action]["pad"] = event
+
+	config.set_value("keybinding", "data", data)
+	config.save(SETTINGS_FILE_PATH)
+
+	apply_keybindings()

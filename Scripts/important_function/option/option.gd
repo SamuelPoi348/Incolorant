@@ -57,3 +57,50 @@ func _on_btn_clavier_pressed() -> void:
 func _on_btn_manette_pressed() -> void:
 	keyboardSetting.visible = false
 	controllerSetting.visible = true
+
+
+func _on_btn_default_pressed() -> void:
+
+	ConfigFileHandler.reset_settings()
+	
+	# =========================
+	# VIDEO
+	# =========================
+	fullScreenControl.button_pressed = false
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+	# =========================
+	# AUDIO
+	# =========================
+	master_volume.value = 1.0
+	music_volume.value = 1.0
+	SFX_volume.value = 1.0
+
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("Master"),
+		linear_to_db(1.0)
+	)
+
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("Music"),
+		linear_to_db(1.0)
+	)
+
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("SFX"),
+		linear_to_db(1.0)
+	)
+
+	# =========================
+	# GAMEPLAY
+	# =========================
+	auto_dialog_control.button_pressed = true
+	main.option_auto_dialog = true
+
+	# =========================
+	# INPUTS
+	# =========================
+	if keyboardSetting.has_method("_rebuild_ui"):
+		keyboardSetting._rebuild_ui()
+
+	print("Tous les paramètres ont été remis par défaut")

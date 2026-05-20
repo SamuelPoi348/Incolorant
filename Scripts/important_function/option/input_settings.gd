@@ -58,9 +58,11 @@ func _rebuild_ui():
 # =====================================================
 # REMAP START
 # =====================================================
-func _on_remap_requested(action: String, type: String):
+func _on_remap_requested(action: String):
 	waiting_action = action
-	waiting_type = type
+
+	for row in action_list.get_children():
+		row.set_waiting(row.action == action)
 
 # =====================================================
 # INPUT CAPTURE
@@ -72,51 +74,76 @@ func _input(event):
 	if not (event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton):
 		return
 
-	# 🔥 FILTER TYPE
-	if waiting_type == "kb" and event is InputEventJoypadButton:
+	# filtre type attendu
+	if waiting_type == "kb" and _is_gamepad(event):
 		return
 
-	if waiting_type == "pad" and (event is InputEventKey or event is InputEventMouseButton):
+	if waiting_type == "pad" and _is_keyboard_or_mouse(event):
 		return
 
-	# =================================================
-	# REMOVE OLD BIND (same type only)
-	# =================================================
-	for e in InputMap.action_get_events(waiting_action):
-
-		if waiting_type == "kb" and (e is InputEventKey or e is InputEventMouseButton):
-			InputMap.action_erase_event(waiting_action, e)
-
-		if waiting_type == "pad" and e is InputEventJoypadButton:
-			InputMap.action_erase_event(waiting_action, e)
-
-	# =================================================
-	# ADD NEW EVENT
-	# =================================================
-	InputMap.action_add_event(waiting_action, event)
-
-	# =================================================
-	# SAVE (IMPORTANT)
-	# =================================================
-	ConfigFileHandler.save_keybinding(waiting_action, event)
-
-	# 🔥 RELOAD INPUTMAP CLEANLY
-	ConfigFileHandler.apply_keybindings()
-
-	# =================================================
-	# REFRESH UI
-	# =================================================
-	_rebuild_ui()
-
-	waiting_action = ""
-	waiting_type = ""
-
-	accept_event()
+	_apply_rebind(waiting_action, waiting_type, event)
 
 # =====================================================
 # RESET
 # =====================================================
 func _on_reset_button_pressed() -> void:
+
+	ConfigFileHandler.reset_keybindings()
+
+	waiting_action = ""
+	waiting_type = ""
+
 	InputMap.load_from_project_settings()
 	ConfigFileHandler.apply_keybindings()
+
 	_rebuild_ui()
+
+	print("Keybindings reset uniquement")
+	
+func _apply_rebind(action: String, type: String, event: InputEvent):
+
+	# 1. remove old bind
+	for e in InputMap.action_get_events(action):
+
+		if type == "kb" and _is_keyboard_or_mouse(e):
+			InputMap.action_erase_event(action, e)
+
+		if type == "pad" and _is_gamepad(e):
+			InputMap.action_erase_event(action, e)
+
+	# 2. add new
+	InputMap.action_add_event(action, event)
+
+	# 3. save
+	ConfigFileHandler.save_keybinding(action, event)
+
+	# 4. update ONLY UI row (pas rebuild)
+	_update_single_row(action)
+
+	for row in action_list.get_children():
+		row.set_waiting(false)
+		
+	waiting_action = ""
+	waiting_type = ""
+	accept_event()
+	
+func _update_single_row(action: String):
+	for row in action_list.get_children():
+		if row.action == action:
+			var kb = null
+			var pad = null
+
+			for e in InputMap.action_get_events(action):
+				if e is InputEventKey or e is InputEventMouseButton:
+					kb = e
+				elif e is InputEventJoypadButton or e is InputEventJoypadMotion:
+					pad = e
+
+			row.setup(action, kb, pad)
+			break
+
+func _is_keyboard_or_mouse(event: InputEvent) -> bool:
+	return event is InputEventKey or event is InputEventMouseButton
+
+func _is_gamepad(event: InputEvent) -> bool:
+	return event is InputEventJoypadButton or event is InputEventJoypadMotion

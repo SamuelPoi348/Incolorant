@@ -16,7 +16,7 @@ var slot_to_delete = -1
 
 
 func _ready() -> void:
-
+	clickSound.bus = "SFX"
 	main = get_tree().root.get_node("Main")
 
 	update_buttons()
