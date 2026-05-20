@@ -31,6 +31,14 @@ func resume():
 func pause():
 	get_tree().paused = true
 	visible = true
+	_check_buttons()
+
+func _check_buttons():
+	var on_map = main.scene_courante == "res://Scenes/Zones/map/map.tscn"
+	
+	button_quitter_map.visible = !on_map
+	button_quitter_map.disabled = on_map
+	button_quitter_menu.visible = on_map
 
 	
 func _input(event):
