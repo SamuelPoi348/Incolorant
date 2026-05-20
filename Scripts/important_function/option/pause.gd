@@ -1,8 +1,5 @@
 extends Control
 
-#@onready var option = $Option
-@export var main_menu_scene: PackedScene
-
 @onready var button_quitter_map =$PanelContainer/VBoxContainer/quitter_map
 @onready var button_quitter_menu = $PanelContainer/VBoxContainer/retour_menu
 var spawn_position: Vector2 = Vector2.ZERO
