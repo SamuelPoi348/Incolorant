@@ -16,13 +16,11 @@ func _ready():
 		button_quitter_map.disabled = false
 		button_quitter_map.visible = true
 		
-		button_quitter_map.disabled = true
 		button_quitter_menu.visible = false
 	else:
 		button_quitter_map.disabled = true
 		button_quitter_map.visible = false
 		
-		button_quitter_map.disabled = false
 		button_quitter_menu.visible = true
 	
 func resume():
