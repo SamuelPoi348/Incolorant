@@ -1,8 +1,10 @@
 extends Control
 
 #@onready var option = $Option
+@export var main_menu_scene: PackedScene
 
 @onready var button_quitter_map =$PanelContainer/VBoxContainer/quitter_map
+@onready var button_quitter_menu = $PanelContainer/VBoxContainer/retour_menu
 var spawn_position: Vector2 = Vector2.ZERO
 var main 
 func _ready():
@@ -13,9 +15,13 @@ func _ready():
 	if main.scene_courante != "res://Scenes/Zones/map/map.tscn":
 		button_quitter_map.disabled = false
 		button_quitter_map.visible = true
+		
+		button_quitter_menu.visible = false
 	else:
 		button_quitter_map.disabled = true
 		button_quitter_map.visible = false
+		
+		button_quitter_menu.visible = true
 	
 func resume():
 	get_tree().paused = false
@@ -67,3 +73,10 @@ func _on_quitter_map_button_down() -> void:
 	# Affiche Mort
 	var mort_node = get_parent().get_node("Mort")
 	mort_node.visible = true
+
+
+
+func _on_retour_menu_button_down() -> void:
+	get_tree().paused = false
+	var main = get_tree().root.get_node("Main")
+	main.change_scene(load("res://Scenes/important_function/Menu_Principal.tscn"))

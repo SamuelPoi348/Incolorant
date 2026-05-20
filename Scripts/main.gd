@@ -29,7 +29,7 @@ var golden_colorux=false
 var colorux_collectes := {}
 var niveau_courant
 var position_courante
-var scene_courante
+var scene_courante = ""
 
 #fin de la section à sauvegarder les variables
 

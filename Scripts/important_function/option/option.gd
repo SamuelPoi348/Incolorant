@@ -6,9 +6,6 @@ extends Control
 @onready var SFX_volume =$HBoxContainer/VBoxContainer/AudioControl2
 @onready var auto_dialog_control = $HBoxContainer/VBoxContainer/AutoDialogControl
 
-@onready var clavierContainer = $KeyBoardContainer
-@onready var ManetteContainer = $GamePadContainer
-
 
 var main
 
@@ -18,12 +15,12 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	visible=false
 	var video_settings = ConfigFileHandler.load_video_setting()
-	fullScreenControl.button_pressed =video_settings.fullscreen
-	
+	fullScreenControl.button_pressed = video_settings.get("fullscreen", false)
+
 	var audio_settings = ConfigFileHandler.load_audio_setting()
-	master_volume.value = min(audio_settings.Master, 1.0)
-	music_volume.value = min(audio_settings.Music, 1.0)
-	SFX_volume.value = min(audio_settings.SFX, 1.0)
+	master_volume.value = min(audio_settings.get("Master", 1.0), 1.0)
+	music_volume.value = min(audio_settings.get("Music", 1.0), 1.0)
+	SFX_volume.value = min(audio_settings.get("SFX", 1.0), 1.0)
 	
 	# Load auto dialog setting
 	var gameplay_settings = ConfigFileHandler.load_gameplay_setting()
@@ -49,13 +46,3 @@ func _on_button_button_down() -> void:
 func _on_auto_dialog_toggled(button_pressed: bool) -> void:
 	main.option_auto_dialog = button_pressed
 	ConfigFileHandler.save_gameplay_setting("auto_dialog", button_pressed)
-
-
-func _on_btn_clavier_pressed() -> void:
-	clavierContainer.visible = true
-	ManetteContainer.visible = false
-
-
-func _on_btn_manette_pressed() -> void:
-	clavierContainer.visible = false
-	ManetteContainer.visible = true
