@@ -76,9 +76,22 @@ func _ready():
 	
 func _load_keybindings_from_settings():
 	var keybindings = ConfigFileHandler.load_keybindings()
+
 	for action in keybindings.keys():
 		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action,keybindings[action])
+
+		var events = keybindings[action]
+
+		if typeof(events) != TYPE_ARRAY:
+			continue
+
+		for event in events:
+			if event == null:
+				continue
+			if not event is InputEvent:
+				continue
+
+			InputMap.action_add_event(action, event)
 
 func _process(delta):
 	main = get_tree().root.get_node("Main")

@@ -1,105 +1,122 @@
 extends Control
 
-
-@onready var input_button_scene = preload("res://Scenes/important_function/input_button.tscn")
+@onready var input_row_scene = preload("res://Scenes/important_function/input_button.tscn")
 @onready var action_list = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 
-var is_remapping = false 
-var action_to_remap = null
-var remapping_button = null
+var waiting_action := ""
+var waiting_type := "" # "kb" ou "pad"
 
 var input_actions = {
 	"jump": "sauter",
-	"move_right": "bouger ves la droite",
+	"move_right": "bouger vers la droite",
 	"move_left": "bouger vers la gauche",
-	"move_down": "bouger ver le bas",
+	"move_down": "bouger vers le bas",
 	"shoot": "lancer projectile",
-	"switch_incolorant_mode": "intéraction spéciale (jaune et vert)",
+	"switch_incolorant_mode": "interaction spéciale",
 	"color_select": "changement de couleur",
-	"interagir": "intéragir",
+	"interagir": "interagir",
 	"inventaire": "inventaire",
-	"base":"suppression de couleur pendant le choix",
-	"dash":"dash",
-	"tp":"téléporter"
+	"base": "suppression de couleur",
+	"dash": "dash",
+	"tp": "téléporter"
 }
 
+# =====================================================
+# INIT
+# =====================================================
 func _ready():
-	_load_keybindings_from_settings()
-	_create_action_list()
-	
-func _load_keybindings_from_settings():
-	var keybindings = ConfigFileHandler.load_keybindings()	
-	for action in keybindings.keys():
-		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action,keybindings[action])
-		
-func _create_action_list():
-	for item in action_list.get_children():
-		item.queue_free()
-	
-	for action in input_actions:
-		var button = input_button_scene.instantiate()
-		var action_label = button.find_child("LabelAction")
-		var input_label = button.find_child("LabelInput")
-		
-		action_label.text = input_actions[action]
-		
-		var events = InputMap.action_get_events(action)
-		if events.size() > 0:
-			input_label.text = events[0].as_text().trim_suffix(" - Physical")
-		else:
-			input_label.text=""
-			
-		action_list.add_child(button)
-		button.pressed.connect(_on_input_button_pressed.bind(button, action))
-		
-func _on_input_button_pressed(button ,action):
-	if !is_remapping:
-		is_remapping = true
-		action_to_remap = action 
-		remapping_button = button 
-		button.find_child("LabelInput").text = "appuyer sur une touche"
-		
-	
+	ConfigFileHandler.apply_keybindings()
+	_rebuild_ui()
+
+# =====================================================
+# BUILD UI
+# =====================================================
+func _rebuild_ui():
+
+	for c in action_list.get_children():
+		c.queue_free()
+
+	var data = ConfigFileHandler.load_keybindings()
+
+	for action in input_actions.keys():
+
+		var row = input_row_scene.instantiate()
+
+		var kb_event = null
+		var pad_event = null
+
+		if data.has(action):
+			kb_event = data[action]["kb"]
+			pad_event = data[action]["pad"]
+
+		row.setup(action, kb_event, pad_event)
+
+		row.remap_requested.connect(_on_remap_requested)
+
+		action_list.add_child(row)
+
+# =====================================================
+# REMAP START
+# =====================================================
+func _on_remap_requested(action: String, type: String):
+	waiting_action = action
+	waiting_type = type
+
+# =====================================================
+# INPUT CAPTURE
+# =====================================================
 func _input(event):
-	if is_remapping:
-		if (
-			event is InputEventKey ||
-			(event is InputEventMouseButton && event.pressed)
-		):
-			
-			if event is InputEventMouse && event.double_click:
-				event.double_click = false
-			
-			InputMap.action_erase_events(action_to_remap)
-			
-			for action in input_actions:
-				if InputMap.action_has_event(action,event):
-					InputMap.action_erase_event(action,event)
-					var buttons_with_action = action_list.get_children().filter(func(button):
-						return button.find_child("LabelAction").text == input_actions[action])
-					for button in buttons_with_action:
-						button.find_child("LabelInput").text = ""
-						
-			
-			InputMap.action_add_event(action_to_remap,event)
-			ConfigFileHandler.save_keybinding(action_to_remap,event)
-			_update_action_list(remapping_button,event)
-			
-			is_remapping = false
-			action_to_remap =null 
-			remapping_button =null
-			
-			accept_event()
-			
-func _update_action_list(button, event):
-	button.find_child("LabelInput").text = event.as_text().trim_suffix(" - Physical")
+	if waiting_action == "":
+		return
 
+	if not (event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton):
+		return
 
+	# 🔥 FILTER TYPE
+	if waiting_type == "kb" and event is InputEventJoypadButton:
+		return
+
+	if waiting_type == "pad" and (event is InputEventKey or event is InputEventMouseButton):
+		return
+
+	# =================================================
+	# REMOVE OLD BIND (same type only)
+	# =================================================
+	for e in InputMap.action_get_events(waiting_action):
+
+		if waiting_type == "kb" and (e is InputEventKey or e is InputEventMouseButton):
+			InputMap.action_erase_event(waiting_action, e)
+
+		if waiting_type == "pad" and e is InputEventJoypadButton:
+			InputMap.action_erase_event(waiting_action, e)
+
+	# =================================================
+	# ADD NEW EVENT
+	# =================================================
+	InputMap.action_add_event(waiting_action, event)
+
+	# =================================================
+	# SAVE (IMPORTANT)
+	# =================================================
+	ConfigFileHandler.save_keybinding(waiting_action, event)
+
+	# 🔥 RELOAD INPUTMAP CLEANLY
+	ConfigFileHandler.apply_keybindings()
+
+	# =================================================
+	# REFRESH UI
+	# =================================================
+	_rebuild_ui()
+
+	waiting_action = ""
+	waiting_type = ""
+
+	accept_event()
+
+# =====================================================
+# RESET
+# =====================================================
 func _on_reset_button_pressed() -> void:
 	InputMap.load_from_project_settings()
-	for action in input_actions:
-		var events = InputMap.action_get_events(action)
-		if events.size() > 0:
-			ConfigFileHandler.save_keybinding(action,events[0])
-	_create_action_list()
+	ConfigFileHandler.apply_keybindings()
+	_rebuild_ui()

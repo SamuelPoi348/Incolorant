@@ -46,7 +46,7 @@ func _on_color_changed(new_color: String):
 # =========================
 
 func _physics_process(delta: float) -> void:
-	if movement_locked:
+	if movement_locked || Input.is_action_pressed("color_select"):
 		return
 	player_movement(delta)
 	handle_color_powers()
