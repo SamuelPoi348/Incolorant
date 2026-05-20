@@ -3,6 +3,72 @@ extends Node
 var config := ConfigFile.new()
 const SETTINGS_FILE_PATH := "user://setting.ini"
 
+const DEFAULT_KEYBINDS = {
+	"base": {
+		"kb": KEY_X,
+		"pad": {"type": "button", "id": JOY_BUTTON_LEFT_SHOULDER}
+	},
+
+	"color_select": {
+		"kb": KEY_C,
+		"pad": {"type": "button", "id": JOY_BUTTON_Y}
+	},
+
+	"jump": {
+		"kb": KEY_W,
+		"pad": {"type": "axis", "axis": JOY_AXIS_LEFT_Y, "value": -1}
+	},
+
+	"move_right": {
+		"kb": KEY_D,
+		"pad": {"type": "axis", "axis": JOY_AXIS_LEFT_X, "value": 1}
+	},
+
+	"move_left": {
+		"kb": KEY_A,
+		"pad": {"type": "axis", "axis": JOY_AXIS_LEFT_X, "value": -1}
+	},
+
+	"move_down": {
+		"kb": KEY_S,
+		"pad": {"type": "axis", "axis": JOY_AXIS_LEFT_Y, "value": 1}
+	},
+
+	"shoot": {
+		"kb": KEY_R,
+		"pad": {"type": "button", "id": JOY_AXIS_TRIGGER_RIGHT}
+	},
+
+	"switch_incolorant_mode": {
+		"kb": KEY_T,
+		"pad": {"type": "button", "id": JOY_AXIS_TRIGGER_LEFT}
+	},
+
+	"dash": {
+		"kb": KEY_SPACE,
+		"pad": {"type": "button", "id": JOY_BUTTON_B}
+	},
+
+	"interagir": {
+		"kb": KEY_E,
+		"pad": {"type": "button", "id": JOY_BUTTON_X}
+	},
+
+	"inventaire": {
+		"kb": KEY_TAB,
+		"pad": {"type": "button", "id": JOY_BUTTON_START}
+	},
+
+	"pause": {
+		"kb": KEY_ESCAPE,
+		"pad": {"type": "button", "id": JOY_BUTTON_BACK}
+	},
+
+	"tp": {
+		"kb": KEY_P,
+		"pad": {"type": "button", "id": JOY_BUTTON_RIGHT_SHOULDER}
+	}
+}
 # =====================================================
 # INIT
 # =====================================================
@@ -30,13 +96,15 @@ func _set_default_settings():
 		}
 
 		for event in InputMap.action_get_events(action):
-			if event is InputEventKey or event is InputEventMouseButton:
-				keybindings[action]["kb"] = event
+			if event is InputEventKey:
+				keybindings[action]["kb"] = event.keycode
+			elif event is InputEventMouseButton:
+				keybindings[action]["kb"] = -event.button_index
 			elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
 				keybindings[action]["pad"] = event
 
 	config.set_value("keybinding", "data", keybindings)
-
+	reset_keybindings()
 	# VIDEO
 	config.set_value("video", "fullscreen", false)
 
@@ -61,11 +129,24 @@ func save_keybinding(action: String, event: InputEvent):
 	if not data.has(action):
 		data[action] = {"kb": null, "pad": null}
 
-	if event is InputEventKey or event is InputEventMouseButton:
-		data[action]["kb"] = event
+	if event is InputEventKey:
+		data[action]["kb"] = event.keycode
 
-	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
-		data[action]["pad"] = event
+	elif event is InputEventMouseButton:
+		data[action]["kb"] = -event.button_index  # option mouse safe
+
+	elif event is InputEventJoypadButton:
+		data[action]["pad"] = {
+			"type": "button",
+			"id": event.button_index
+		}
+
+	elif event is InputEventJoypadMotion:
+		data[action]["pad"] = {
+			"type": "axis",
+			"axis": event.axis,
+			"value": event.axis_value
+		}
 
 	config.set_value("keybinding", "data", data)
 	config.save(SETTINGS_FILE_PATH)
@@ -98,9 +179,13 @@ func load_keybindings() -> Dictionary:
 # APPLY INPUTMAP
 # =====================================================
 func apply_keybindings():
-	
+
 	InputMap.load_from_project_settings()
-	var data = load_keybindings()
+
+	var data = config.get_value("keybinding", "data", {})
+
+	if typeof(data) != TYPE_DICTIONARY:
+		return
 
 	for action in data.keys():
 
@@ -112,11 +197,14 @@ func apply_keybindings():
 		var kb = data[action]["kb"]
 		var pad = data[action]["pad"]
 
-		if kb:
-			InputMap.action_add_event(action, kb)
+		var kb_event = _make_event(kb, false)
+		var pad_event = _make_event(pad, true)
 
-		if pad:
-			InputMap.action_add_event(action, pad)
+		if kb_event:
+			InputMap.action_add_event(action, kb_event)
+
+		if pad_event:
+			InputMap.action_add_event(action, pad_event)
 
 # =====================================================
 # VIDEO SETTINGS
@@ -188,27 +276,115 @@ func reset_settings():
 	apply_keybindings()
 
 func reset_keybindings():
+	var data := {}
 
-	# reset config en mémoire
-	var data = {}
-
-	# reconstruire uniquement les defaults
-	for action in InputMap.get_actions():
-		if action.begins_with("ui_"):
-			continue
-
+	for action in DEFAULT_KEYBINDS.keys():
 		data[action] = {
-			"kb": null,
-			"pad": null
+			"kb": DEFAULT_KEYBINDS[action]["kb"],
+			"pad": DEFAULT_KEYBINDS[action]["pad"]
 		}
-
-		for event in InputMap.action_get_events(action):
-			if event is InputEventKey or event is InputEventMouseButton:
-				data[action]["kb"] = event
-			elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
-				data[action]["pad"] = event
 
 	config.set_value("keybinding", "data", data)
 	config.save(SETTINGS_FILE_PATH)
 
 	apply_keybindings()
+	
+func _make_event(data, is_pad: bool) -> InputEvent:
+	if data == null:
+		return null
+
+	# ======================
+	# KEYBOARD / MOUSE
+	# ======================
+	if not is_pad:
+
+		if typeof(data) != TYPE_INT:
+			return null
+
+		# mouse
+		if data < 0:
+			var e := InputEventMouseButton.new()
+			e.button_index = -data
+			return e
+
+		# keyboard
+		var e := InputEventKey.new()
+		e.keycode = data
+		return e
+
+	# ======================
+	# GAMEPAD
+	# ======================
+	if typeof(data) != TYPE_DICTIONARY:
+		return null
+
+	if data.get("type") == "button":
+		var e := InputEventJoypadButton.new()
+		e.button_index = data["id"]
+		return e
+
+	if data.get("type") == "axis":
+		var e := InputEventJoypadMotion.new()
+		e.axis = data["axis"]
+		e.axis_value = data["value"]
+		return e
+
+	return null
+	
+func kb_to_event(code: int) -> InputEventKey:
+	var e := InputEventKey.new()
+	e.keycode = abs(code) # important pour mouse négatif
+	return e
+
+
+func is_mouse_code(code: int) -> bool:
+	return code < 0
+	
+func pad_to_event(data: Dictionary):
+	if data.type == "button":
+		var e := InputEventJoypadButton.new()
+		e.button_index = data.id
+		return e
+
+	if data.type == "axis":
+		var e := InputEventJoypadMotion.new()
+		e.axis = data.axis
+		e.axis_value = data.value
+		return e
+
+func has_event(action: String, event: InputEvent) -> bool:
+	for e in InputMap.action_get_events(action):
+		if e.as_text() == event.as_text():
+			return true
+	return false
+	
+func remove_event_from_all_actions(event: InputEvent, except_action: String = ""):
+	for action in InputMap.get_actions():
+
+		if action.begins_with("ui_"):
+			continue
+
+		if action == except_action:
+			continue
+
+		var events = InputMap.action_get_events(action).duplicate()
+
+		for e in events:
+
+			var is_same := false
+
+			if event is InputEventKey and e is InputEventKey:
+				is_same = event.keycode == e.keycode
+
+			elif event is InputEventMouseButton and e is InputEventMouseButton:
+				is_same = event.button_index == e.button_index
+
+			elif event is InputEventJoypadButton and e is InputEventJoypadButton:
+				is_same = event.button_index == e.button_index
+
+			elif event is InputEventJoypadMotion and e is InputEventJoypadMotion:
+				is_same = event.axis == e.axis and sign(event.axis_value) == sign(e.axis_value)
+
+			if is_same:
+				print("SUPPRIMÉ:", action)
+				InputMap.action_erase_event(action, e)

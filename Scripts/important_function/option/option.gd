@@ -49,15 +49,6 @@ func _on_auto_dialog_toggled(button_pressed: bool) -> void:
 	ConfigFileHandler.save_gameplay_setting("auto_dialog", button_pressed)
 
 
-func _on_btn_clavier_pressed() -> void:
-	keyboardSetting.visible = true
-	controllerSetting.visible = false
-
-
-func _on_btn_manette_pressed() -> void:
-	keyboardSetting.visible = false
-	controllerSetting.visible = true
-
 
 func _on_btn_default_pressed() -> void:
 

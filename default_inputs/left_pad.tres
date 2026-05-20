@@ -1,0 +1,4 @@
+[gd_resource type="InputEventJoypadMotion" format=3 uid="uid://2mf3kdlvs15o"]
+
+[resource]
+axis_value = -1.0

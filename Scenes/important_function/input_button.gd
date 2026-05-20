@@ -19,8 +19,8 @@ func set_waiting(value: bool):
 
 func _ready():
 	action_label = $MarginContainer/HBoxContainer/LabelAction
-	kb_label = $MarginContainer/HBoxContainer/KeyboardButton
-	pad_label = $MarginContainer/HBoxContainer/GamepadButton
+	kb_label = $MarginContainer/HBoxContainer/HBoxContainer/KeyboardButton
+	pad_label = $MarginContainer/HBoxContainer/HBoxContainer/GamepadButton
 	
 	pressed.connect(_on_pressed)
 	
@@ -46,7 +46,7 @@ func _format_event(event: InputEvent) -> String:
 	# KEYBOARD
 	# =========================
 	if event is InputEventKey:
-		return OS.get_keycode_string(event.physical_keycode)
+		return OS.get_keycode_string(event.keycode)
 
 	# =========================
 	# MOUSE

@@ -46,12 +46,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="KeyboardButton" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1845138434]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1789301541]
+layout_mode = 2
+
+[node name="KeyboardButton" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=1845138434]
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 12
 text = "InputKey"
 vertical_alignment = 1
 
-[node name="GamepadButton" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1554923654]
+[node name="spacer" type="Control" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=1483993003]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="GamepadButton" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=1554923654]
 layout_mode = 2

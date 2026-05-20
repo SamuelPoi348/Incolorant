@@ -144,21 +144,22 @@ layout_mode = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=522124167]
 layout_mode = 0
-offset_left = 342.0
-offset_top = 210.0
-offset_right = 685.0
-offset_bottom = 255.0
+offset_left = 418.0
+offset_top = 211.0
+offset_right = 931.0
+offset_bottom = 256.0
+theme_override_constants/separation = 11
 
 [node name="Label2" type="Label" parent="HBoxContainer2" unique_id=709405547]
 layout_mode = 2
 text = "Changer les touches "
 label_settings = SubResource("LabelSettings_x0bvf")
 
-[node name="btnClavier" type="Button" parent="HBoxContainer2" unique_id=1336796110]
+[node name="lblClavier" type="Label" parent="HBoxContainer2" unique_id=608717697]
 layout_mode = 2
-text = "Clavier souris"
+text = "Clavier Souris"
 
-[node name="btnManette" type="Button" parent="HBoxContainer2" unique_id=1746657506]
+[node name="lblManette" type="Label" parent="HBoxContainer2" unique_id=992517165]
 layout_mode = 2
 text = "Manette"
 
@@ -186,6 +187,4 @@ text = "Remettre les paramètre à défault"
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl2" to="HBoxContainer/VBoxContainer/AudioControl2" method="_on_value_changed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/FullScreenControl" to="HBoxContainer/VBoxContainer/FullScreenControl" method="_on_toggled"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/AutoDialogControl" to="." method="_on_auto_dialog_toggled"]
-[connection signal="pressed" from="HBoxContainer2/btnClavier" to="." method="_on_btn_clavier_pressed"]
-[connection signal="pressed" from="HBoxContainer2/btnManette" to="." method="_on_btn_manette_pressed"]
 [connection signal="pressed" from="btnDefault" to="." method="_on_btn_default_pressed"]
