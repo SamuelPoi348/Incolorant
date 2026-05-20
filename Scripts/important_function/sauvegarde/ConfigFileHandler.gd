@@ -36,12 +36,12 @@ const DEFAULT_KEYBINDS = {
 
 	"shoot": {
 		"kb": KEY_R,
-		"pad": {"type": "button", "id": JOY_AXIS_TRIGGER_RIGHT}
+		"pad": {"type": "axis","axis": JOY_AXIS_TRIGGER_RIGHT,"value": 1}
 	},
 
 	"switch_incolorant_mode": {
 		"kb": KEY_T,
-		"pad": {"type": "button", "id": JOY_AXIS_TRIGGER_LEFT}
+		"pad": {"type": "axis","axis": JOY_AXIS_TRIGGER_LEFT,"value": 1}
 	},
 
 	"dash": {
@@ -100,8 +100,15 @@ func _set_default_settings():
 				keybindings[action]["kb"] = event.keycode
 			elif event is InputEventMouseButton:
 				keybindings[action]["kb"] = -event.button_index
-			elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
-				keybindings[action]["pad"] = event
+			elif event is InputEventJoypadButton:
+				keybindings[action]["pad"] = {
+				"type": "button",
+				"id": event.button_index}
+			elif event is InputEventJoypadMotion:
+				keybindings[action]["pad"] = {
+				"type": "axis",
+				"axis": event.axis,
+				"value": event.axis_value}
 
 	config.set_value("keybinding", "data", keybindings)
 	reset_keybindings()
