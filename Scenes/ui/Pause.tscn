@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rsqk818hgbos" path="res://Scripts/important_function/option/pause.gd" id="1_tfrdh"]
 [ext_resource type="Texture2D" uid="uid://do6yl68kqxfgt" path="res://Sprites/Pause.png" id="2_loir0"]
+[ext_resource type="PackedScene" uid="uid://dx473d2jspoin" path="res://Scenes/important_function/Menu_Principal.tscn" id="2_yq4eu"]
 
 [node name="Pause" type="Control" unique_id=1093160640 groups=["Pause"]]
 layout_mode = 3
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tfrdh")
+main_menu_scene = ExtResource("2_yq4eu")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1219194774]
 layout_mode = 1
@@ -57,7 +59,13 @@ text = "Quitter
 layout_mode = 2
 text = "retour à la map"
 
+[node name="retour_menu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1393665508]
+layout_mode = 2
+text = "Retour au menu
+"
+
 [connection signal="button_down" from="PanelContainer/VBoxContainer/Commencer" to="." method="_on_commencer_button_down"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/Option" to="." method="_on_option_button_down"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/Quitter" to="." method="_on_quitter_button_down"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/quitter_map" to="." method="_on_quitter_map_button_down"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/retour_menu" to="." method="_on_retour_menu_button_down"]
