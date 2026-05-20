@@ -49,13 +49,28 @@ func load_audio_setting():
 	return audio_settings
 	
 func save_keybinding(action: StringName, event: InputEvent):
-	var event_str
+
+	var event_str = ""
+
+	# =========================
+	# CLAVIER
+	# =========================
 	if event is InputEventKey:
 		event_str = OS.get_keycode_string(event.physical_keycode)
+
+	# =========================
+	# SOURIS
+	# =========================
 	elif event is InputEventMouseButton:
 		event_str = "mouse_" + str(event.button_index)
-	
-	config.set_value("keybinding",action,event_str)
+
+	# =========================
+	# MANETTE BOUTON
+	# =========================
+	elif event is InputEventJoypadButton:
+		event_str = "joybutton_" + str(event.button_index)
+
+	config.set_value("keybinding", action, event_str)
 	config.save(SETTINGS_FILE_PATH)
 	
 func load_keybindings():
