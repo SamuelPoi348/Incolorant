@@ -138,25 +138,37 @@ script = ExtResource("3_tna64")
 layout_mode = 2
 button_pressed = true
 
-[node name="Label2" type="Label" parent="." unique_id=709405547]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -159.5
-offset_top = -118.0
-offset_right = 159.5
-offset_bottom = 118.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Changer les touches "
-label_settings = SubResource("LabelSettings_x0bvf")
-
 [node name="InputSettings" parent="." unique_id=1564233479 instance=ExtResource("4_3hbig")]
 z_index = 1
 layout_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=522124167]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 210.0
+offset_right = 685.0
+offset_bottom = 255.0
+
+[node name="Label2" type="Label" parent="HBoxContainer2" unique_id=709405547]
+layout_mode = 2
+text = "Changer les touches "
+label_settings = SubResource("LabelSettings_x0bvf")
+
+[node name="btnClavier" type="Button" parent="HBoxContainer2" unique_id=1336796110]
+layout_mode = 2
+text = "Clavier souris"
+
+[node name="btnManette" type="Button" parent="HBoxContainer2" unique_id=1746657506]
+layout_mode = 2
+text = "Manette"
+
+[node name="ControllerContainer" type="PanelContainer" parent="." unique_id=2026859198]
+visible = false
+layout_mode = 0
+offset_left = 595.0
+offset_top = 397.0
+offset_right = 635.0
+offset_bottom = 437.0
 
 [connection signal="button_down" from="Quitter" to="." method="_on_quitter_button_down"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl3" to="HBoxContainer/VBoxContainer/AudioControl3" method="_on_value_changed"]
@@ -164,3 +176,5 @@ layout_mode = 1
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/AudioControl2" to="HBoxContainer/VBoxContainer/AudioControl2" method="_on_value_changed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/FullScreenControl" to="HBoxContainer/VBoxContainer/FullScreenControl" method="_on_toggled"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/AutoDialogControl" to="." method="_on_auto_dialog_toggled"]
+[connection signal="pressed" from="HBoxContainer2/btnClavier" to="." method="_on_btn_clavier_pressed"]
+[connection signal="pressed" from="HBoxContainer2/btnManette" to="." method="_on_btn_manette_pressed"]

@@ -6,7 +6,8 @@ extends Control
 @onready var SFX_volume =$HBoxContainer/VBoxContainer/AudioControl2
 @onready var auto_dialog_control = $HBoxContainer/VBoxContainer/AutoDialogControl
 
-
+@onready var keyboardSetting = $InputSettings
+@onready var controllerSetting = $ControllerContainer
 var main
 
 # Called when the node enters the scene tree for the first time.
@@ -46,3 +47,13 @@ func _on_button_button_down() -> void:
 func _on_auto_dialog_toggled(button_pressed: bool) -> void:
 	main.option_auto_dialog = button_pressed
 	ConfigFileHandler.save_gameplay_setting("auto_dialog", button_pressed)
+
+
+func _on_btn_clavier_pressed() -> void:
+	keyboardSetting.visible = true
+	controllerSetting.visible = false
+
+
+func _on_btn_manette_pressed() -> void:
+	keyboardSetting.visible = false
+	controllerSetting.visible = true
