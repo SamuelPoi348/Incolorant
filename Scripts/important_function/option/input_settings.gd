@@ -104,32 +104,20 @@ func _on_reset_button_pressed() -> void:
 	print("Keybindings reset uniquement")
 	
 func _apply_rebind(action: String, type: String, event: InputEvent):
-	# 0. retirer cette touche partout ailleurs
-	ConfigFileHandler.remove_event_from_all_actions(event, action)
-	await get_tree().process_frame
 
-	# 1. supprimer ancien bind
-	for e in InputMap.action_get_events(action):
-		if type == "kb" and (e is InputEventKey or e is InputEventMouseButton):
-			InputMap.action_erase_event(action, e)
+	# 1. swap dans config
+	ConfigFileHandler.swap_binding(event, action)
 
-		if type == "pad" and (e is InputEventJoypadButton or e is InputEventJoypadMotion):
-			InputMap.action_erase_event(action, e)
+	# 2. rebuild InputMap
+	ConfigFileHandler.rebuild_all_inputmap()
 
-	# 2. ajouter le nouveau bind
-	InputMap.action_add_event(action, event)
+	# 3. refresh TOUTE l’UI (important pour swap)
+	_rebuild_ui()
 
-	# 3. sauvegarde
-	ConfigFileHandler.save_keybinding(action, event)
-
-	# 4. UI refresh
-	_update_single_row(action)
-
-	# ⭐ IMPORTANT : stop le mode attente
+	# 4. stop waiting
 	waiting_action = ""
 	waiting_type = ""
 
-	# reset visuel des boutons
 	for row in action_list.get_children():
 		row.set_waiting(false)
 	
@@ -159,3 +147,5 @@ func has_event(action: String, event: InputEvent) -> bool:
 		if e.as_text() == event.as_text():
 			return true
 	return false
+	
+				

@@ -358,33 +358,96 @@ func has_event(action: String, event: InputEvent) -> bool:
 			return true
 	return false
 	
-func remove_event_from_all_actions(event: InputEvent, except_action: String = ""):
-	for action in InputMap.get_actions():
+func rebuild_all_inputmap():
+	InputMap.load_from_project_settings()
 
-		if action.begins_with("ui_"):
-			continue
+	for action in config.get_value("keybinding", "data", {}):
+		if InputMap.has_action(action):
+			InputMap.action_erase_events(action)
 
-		if action == except_action:
-			continue
+			var kb = config.get_value("keybinding", "data")[action]["kb"]
+			var pad = config.get_value("keybinding", "data")[action]["pad"]
 
-		var events = InputMap.action_get_events(action).duplicate()
+			var kb_event = _make_event(kb, false)
+			var pad_event = _make_event(pad, true)
 
-		for e in events:
+			if kb_event:
+				InputMap.action_add_event(action, kb_event)
+			if pad_event:
+				InputMap.action_add_event(action, pad_event)
+				
+func _clear_event_from_config(event: InputEvent):
+	var data = config.get_value("keybinding", "data", {})
 
-			var is_same := false
+	for action in data.keys():
 
-			if event is InputEventKey and e is InputEventKey:
-				is_same = event.keycode == e.keycode
+		var kb = data[action]["kb"]
+		var pad = data[action]["pad"]
 
-			elif event is InputEventMouseButton and e is InputEventMouseButton:
-				is_same = event.button_index == e.button_index
+		# KEYBOARD / MOUSE
+		if event is InputEventKey or event is InputEventMouseButton:
 
-			elif event is InputEventJoypadButton and e is InputEventJoypadButton:
-				is_same = event.button_index == e.button_index
+			var code: int
 
-			elif event is InputEventJoypadMotion and e is InputEventJoypadMotion:
-				is_same = event.axis == e.axis and sign(event.axis_value) == sign(e.axis_value)
+			if event is InputEventKey:
+				code = event.keycode
+			elif event is InputEventMouseButton:
+				code = -event.button_index
+			else:
+				return
 
-			if is_same:
-				print("SUPPRIMÉ:", action)
-				InputMap.action_erase_event(action, e)
+			if kb == code:
+				data[action]["kb"] = null
+
+		# GAMEPAD BUTTON
+		elif event is InputEventJoypadButton:
+			if pad is Dictionary and pad.get("type") == "button":
+				if pad["id"] == event.button_index:
+					data[action]["pad"] = null
+
+		# GAMEPAD AXIS
+		elif event is InputEventJoypadMotion:
+			if pad is Dictionary and pad.get("type") == "axis":
+				if pad["axis"] == event.axis and sign(pad["value"]) == sign(event.axis_value):
+					data[action]["pad"] = null
+
+	config.set_value("keybinding", "data", data)
+	config.save(SETTINGS_FILE_PATH)
+	
+func swap_binding(new_event: InputEvent, target_action: String):
+
+	var data = config.get_value("keybinding", "data", {})
+
+	var new_code
+	if new_event is InputEventKey:
+		new_code = new_event.keycode
+	elif new_event is InputEventMouseButton:
+		new_code = -new_event.button_index
+	else:
+		return
+
+	var found_action := ""
+	var old_value = null
+
+	# 1. chercher si déjà utilisé
+	for action in data.keys():
+		var kb = data[action]["kb"]
+
+		if kb == new_code:
+			found_action = action
+			old_value = kb
+			break
+
+	# 2. swap si trouvé
+	if found_action != "" and found_action != target_action:
+
+		# échange
+		data[found_action]["kb"] = data[target_action]["kb"]
+		data[target_action]["kb"] = new_code
+
+	else:
+		# simple assignation
+		data[target_action]["kb"] = new_code
+
+	config.set_value("keybinding", "data", data)
+	config.save(SETTINGS_FILE_PATH)
