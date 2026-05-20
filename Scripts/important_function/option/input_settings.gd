@@ -104,13 +104,12 @@ func _on_reset_button_pressed() -> void:
 	print("Keybindings reset uniquement")
 	
 func _apply_rebind(action: String, type: String, event: InputEvent):
-
-	# 0. retirer cette touche partout ailleurs (IMPORTANT)
+	# 0. retirer cette touche partout ailleurs
 	ConfigFileHandler.remove_event_from_all_actions(event, action)
 	await get_tree().process_frame
-	# 1. supprimer ancien bind du même type dans l'action cible
-	for e in InputMap.action_get_events(action):
 
+	# 1. supprimer ancien bind
+	for e in InputMap.action_get_events(action):
 		if type == "kb" and (e is InputEventKey or e is InputEventMouseButton):
 			InputMap.action_erase_event(action, e)
 
@@ -125,6 +124,14 @@ func _apply_rebind(action: String, type: String, event: InputEvent):
 
 	# 4. UI refresh
 	_update_single_row(action)
+
+	# ⭐ IMPORTANT : stop le mode attente
+	waiting_action = ""
+	waiting_type = ""
+
+	# reset visuel des boutons
+	for row in action_list.get_children():
+		row.set_waiting(false)
 	
 func _update_single_row(action: String):
 	for row in action_list.get_children():
