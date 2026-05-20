@@ -426,10 +426,16 @@ func swap_binding(new_event: InputEvent, target_action: String):
 	var data = config.get_value("keybinding", "data", {})
 
 	var new_code
+	var new_pad = null
+
 	if new_event is InputEventKey:
 		new_code = new_event.keycode
 	elif new_event is InputEventMouseButton:
 		new_code = -new_event.button_index
+	elif new_event is InputEventJoypadButton:
+		new_pad = {"type": "button","id": new_event.button_index}
+	elif new_event is InputEventJoypadMotion:
+		new_pad = {"type": "axis","axis": new_event.axis,"value": new_event.axis_value}
 	else:
 		return
 
@@ -438,12 +444,28 @@ func swap_binding(new_event: InputEvent, target_action: String):
 
 	# 1. chercher si déjà utilisé
 	for action in data.keys():
-		var kb = data[action]["kb"]
 
-		if kb == new_code:
+		var kb = data[action]["kb"]
+		var pad = data[action]["pad"]
+
+		if new_event is InputEventKey and kb == new_code:
 			found_action = action
-			old_value = kb
 			break
+
+		elif new_event is InputEventMouseButton and kb == new_code:
+			found_action = action
+			break
+
+		elif new_event is InputEventJoypadButton and pad is Dictionary:
+			if pad.get("type") == "button" and pad["id"] == new_event.button_index:
+				found_action = action
+				break
+
+		elif new_event is InputEventJoypadMotion and pad is Dictionary:
+			if pad.get("type") == "axis":
+				if pad["axis"] == new_event.axis and sign(pad["value"]) == sign(new_event.axis_value):
+					found_action = action
+					break
 
 	# 2. swap si trouvé
 	if found_action != "" and found_action != target_action:
@@ -457,4 +479,47 @@ func swap_binding(new_event: InputEvent, target_action: String):
 		data[target_action]["kb"] = new_code
 
 	config.set_value("keybinding", "data", data)
+	config.save(SETTINGS_FILE_PATH)
+	
+func swap_pad_binding(event: InputEvent, target_action: String):
+
+	var data = config.get_value("keybinding", "data", {})
+
+	var new_pad = null
+
+	if event is InputEventJoypadButton:
+		new_pad = {"type":"button","id":event.button_index}
+
+	elif event is InputEventJoypadMotion:
+		new_pad = {
+			"type":"axis",
+			"axis":event.axis,
+			"value":sign(event.axis_value)
+		}
+
+	var found_action := ""
+
+	for action in data.keys():
+		if action == target_action:
+			continue
+
+		var pad = data[action]["pad"]
+
+		if pad is Dictionary:
+			if new_pad["type"] == pad.get("type"):
+				if new_pad["type"] == "button" and pad["id"] == new_pad["id"]:
+					found_action = action
+					break
+
+				if new_pad["type"] == "axis" and pad["axis"] == new_pad["axis"]:
+					found_action = action
+					break
+
+	if found_action != "" and found_action != target_action:
+		data[found_action]["pad"] = data[target_action]["pad"]
+		data[target_action]["pad"] = new_pad
+	else:
+		data[target_action]["pad"] = new_pad
+
+	config.set_value("keybinding","data",data)
 	config.save(SETTINGS_FILE_PATH)

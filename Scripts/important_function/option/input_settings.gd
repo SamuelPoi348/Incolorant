@@ -74,7 +74,12 @@ func _input(event):
 	if waiting_action == "":
 		return
 
-	if not (event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton):
+	if not (
+		event is InputEventKey or
+		event is InputEventMouseButton or
+		event is InputEventJoypadButton or
+		event is InputEventJoypadMotion
+	):
 		return
 
 	# filtre type attendu
@@ -105,16 +110,14 @@ func _on_reset_button_pressed() -> void:
 	
 func _apply_rebind(action: String, type: String, event: InputEvent):
 
-	# 1. swap dans config
-	ConfigFileHandler.swap_binding(event, action)
+	if event is InputEventJoypadMotion or event is InputEventJoypadButton:
+		ConfigFileHandler.swap_pad_binding(event, action)
+	else:
+		ConfigFileHandler.swap_binding(event, action)
 
-	# 2. rebuild InputMap
 	ConfigFileHandler.rebuild_all_inputmap()
-
-	# 3. refresh TOUTE l’UI (important pour swap)
 	_rebuild_ui()
 
-	# 4. stop waiting
 	waiting_action = ""
 	waiting_type = ""
 
